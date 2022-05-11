@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/navigation_order"
-        android:name="com.grupo1.food4u_nav.ui.notifications.NotificationsFragment"
+        android:name="com.grupo1.food4u_nav.ui.Order.OrderFragment"
         android:label="@string/order"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.grupo1.food4u_nav.ui.notifications.NotificationsFragment"
+        android:name="com.grupo1.food4u_nav.ui.Order.OrderFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
