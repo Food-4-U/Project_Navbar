@@ -16,6 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        supportActionBar!!.hide()
+
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
