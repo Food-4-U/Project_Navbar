@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu">
+    tools:context=".ui.home.HomeFragment">
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -82,7 +83,8 @@
                     android:background="@drawable/searchbar"
                     android:iconifiedByDefault="false"
                     android:queryBackground="@android:color/transparent"
-                    android:queryHint="@string/searchWhatToEat" />
+                    android:queryHint="@string/searchWhatToEat"
+                    android:theme="@style/SearchViewStyle" />
 
                 <HorizontalScrollView
                     android:id="@+id/horizontalScrollView"

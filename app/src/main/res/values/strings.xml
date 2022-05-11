@@ -16,5 +16,8 @@
     <string name="search">Search</string>
     <string name="order">Order</string>
     <string name="profile">Profile</string>
-    <string name="searchWhatToEat">What to eat?</string>
+    <string name="searchWhatToEat">Search by a food</string>
+    <string name="search_Category">Search</string>
+    <string name="category">Categories</string>
+    <string name="search_categoryorfood">Search by a category or food</string>
 </resources>
