@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Food 4 U</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="what_to_eat">What to eat?</string>
+    <string name="login">Login</string>
+    <string name="guest">Enter as Guest</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="DETAILS">DETAILS</string>
+    <string name="highlights">Trending</string>
+    <string name="hottest">Hottest</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="order">Order</string>
+    <string name="profile">Profile</string>
+</resources>

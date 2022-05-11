@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text">#FF32322F</color>
+    <color name="product_name">#FF6E6E6D</color>
+    <color name="product_price">#FF70706C</color>
+    <color name="yellow_btn">#FFD958</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="searchbar">#F1F1F1</color>
+</resources>

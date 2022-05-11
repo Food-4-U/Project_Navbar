@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_navbar_selected"
+        android:title="@string/home"
+        app:maxImageSize="30dp" />
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/search_navbar"
+        android:title="@string/search"
+        app:maxImageSize="26dp" />
+
+    <item
+        android:id="@+id/icon_Holder"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_order"
+        android:icon="@drawable/menu_navbar"
+        android:title="@string/order"
+        app:maxImageSize="28dp" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile_navbar"
+        android:title="@string/profile"
+        app:maxImageSize="27dp" />
+
+
+</menu>

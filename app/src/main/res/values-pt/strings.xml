@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Food 4 U</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="what_to_eat">O que comer?</string>
+    <string name="login">Login</string>
+    <string name="guest">Entrar como convidado</string>
+    <string name="register">Registar</string>
+    <string name="email">Email</string>
+    <string name="name">Nome</string>
+    <string name="password">Palavra-passe</string>
+    <string name="confirm_pass">Confirmar palavra-passe</string>
+    <string name="DETAILS">DETALHES</string>
+    <string name="highlights">Destaques</string>
+    <string name="hottest">Mais Vendidos</string>
+    <string name="home">Home</string>
+    <string name="search">Procurar</string>
+    <string name="order">Pedido</string>
+    <string name="profile">Perfil</string>
+</resources>
