@@ -17,4 +17,8 @@
     <string name="search">Procurar</string>
     <string name="order">Pedido</string>
     <string name="profile">Perfil</string>
+    <string name="searchWhatToEat">Pesquise por uma comida</string>
+    <string name="search_Category">Pesquisar</string>
+    <string name="category">Categorias</string>
+    <string name="search_categoryorfood">Pesquise por uma categoria ou comida</string>
 </resources>

@@ -14,10 +14,11 @@ import androidx.core.view.WindowInsetsControllerCompat
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        supportActionBar?.hide()
+        supportActionBar!!.hide()
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -30,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
             window!!.decorView.systemUiVisibility = flags
         }
-
 
         val textViewRegister = findViewById<TextView>(R.id.register_textbtn)
 
