@@ -59,10 +59,8 @@
         android:id="@+id/imageView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="222dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textCategory"
         app:srcCompat="@drawable/retangulo_43" />
 
     <ImageView
@@ -254,21 +252,20 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView31"
         app:srcCompat="@drawable/vegan" />
 
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/carButton"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="183dp"
-            android:layout_marginRight="180dp"
-            android:layout_marginBottom="41dp"
-            android:backgroundTint="@color/yellow_btn"
-            android:src="@drawable/order_navbar"
-            app:backgroundTint="@color/yellow_btn"
-            app:fabCustomSize="65dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:maxImageSize="30dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/carButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="183dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginBottom="41dp"
+        android:backgroundTint="@color/yellow_btn"
+        android:src="@drawable/order_navbar"
+        app:backgroundTint="@color/yellow_btn"
+        app:fabCustomSize="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

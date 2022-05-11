@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.grupo1.food4u_nav" >
-
+    package="com.grupo1.food4u_nav">
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Food4U_Nav" >
+        android:theme="@style/Theme.Food4U_Nav"
+        android:label="FOOD4U">
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -17,7 +15,6 @@
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

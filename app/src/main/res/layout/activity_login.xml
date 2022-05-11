@@ -97,6 +97,7 @@
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/yellow_btn"
         android:fontFamily="@font/candarabold"
+        android:textAlignment="center"
         android:text="@string/login"
         android:textSize="24sp"
         app:cornerRadius="40dp"
@@ -111,14 +112,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
         android:fontFamily="@font/segoeui"
-        android:text="@string/guest"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/yellow_btn"
         android:textSize="18sp"
+        android:text="@string/guest"
+        android:textColor="@color/yellow_btn"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegister"
-        app:layout_constraintStart_toStartOf="@+id/btnRegister" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:layout_width="1dp"
