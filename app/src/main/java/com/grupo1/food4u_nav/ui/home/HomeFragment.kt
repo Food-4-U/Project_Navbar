@@ -13,7 +13,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
@@ -36,6 +35,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+
         var itens : List<Item_Menu> = arrayListOf(
             Item_Menu("Hamburguer de Novilho",10,4.40F,5.80f),
             Item_Menu("Pizza á Carbonara",25,5F,13.4f),
@@ -47,10 +48,11 @@ class HomeFragment : Fragment() {
         )
 
 
+
         val rv_Hottest : RecyclerView = root.findViewById(R.id.rv_hottest)
         val adapter = HottestAdapter(itens)
 
-        rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
+        rv_Hottest.layoutManager = GridLayoutManager(activity,2)
         rv_Hottest.adapter = adapter
 
 
@@ -58,14 +60,14 @@ class HomeFragment : Fragment() {
 
         /*
         product.setOnClickListener {
-            val intent = Intent(this@MainActivity, ProductDetails::class.java);
+            val intent = Intent(this@Menu, ProductDetails::class.java);
             startActivity(intent)
         }
-        */
+         */
 
         return root
-
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
