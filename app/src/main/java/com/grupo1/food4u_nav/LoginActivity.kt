@@ -14,9 +14,10 @@ import androidx.core.view.WindowInsetsControllerCompat
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        supportActionBar?.hide()
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

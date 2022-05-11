@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".Menu">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -32,245 +32,259 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="385dp" />
+        app:layout_constraintGuide_begin="395dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="381dp" />
+        app:layout_constraintGuide_end="395dp" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="5dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
-                android:fontFamily="@font/candarabold"
-                android:text="@string/what_to_eat"
-                android:textAllCaps="true"
-                android:textColor="@color/text"
-                android:textSize="36sp" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="22dp"
-                app:srcCompat="@drawable/searchbar" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginTop="28dp"
-                android:scrollbars="none">
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="33dp"
+                    android:fontFamily="@font/candarabold"
+                    android:text="@string/what_to_eat"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text"
+                    android:textSize="36sp" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
+                <SearchView
+                    android:id="@+id/menu_SearchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/searchbar"
+                    android:iconifiedByDefault="false"
+                    android:queryBackground="@android:color/transparent"
+                    android:queryHint="@string/searchWhatToEat" />
 
-                        <ImageView
-                            android:id="@+id/imageView1"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="28dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:contentDescription="TODO"
+                                android:showDividers="middle"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="80dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:showDividers="middle"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:contentDescription="TODO"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:contentDescription="TODO"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:contentDescription="TODO"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/circles_subcategory"
+                                android:contentDescription="TODO"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="29dp"
+                    android:fontFamily="@font/candara"
+                    android:text="@string/highlights"
+                    android:textColor="@color/text"
+                    android:textSize="24sp" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="975dp"
+                        android:layout_height="200dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="325dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO"
-                            android:showDividers="middle"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/francesinha"
+                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="325dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
                             android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO"
-                            android:showDividers="middle" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/batata"
+                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="325dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/pizza"
+                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
+                    </LinearLayout>
+                </HorizontalScrollView>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="29dp"
+                    android:fontFamily="@font/candara"
+                    android:text="@string/hottest"
+                    android:textColor="@color/text"
+                    android:textSize="24sp" />
 
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/circles_subcategory"
-                            android:contentDescription="TODO" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="29dp"
-                android:fontFamily="@font/candara"
-                android:text="@string/highlights"
-                android:textColor="@color/text"
-                android:textSize="24sp" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="975dp"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="325dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/francesinha"
-                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="325dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/batata"
-                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="325dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/pizza"
-                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="29dp"
-                android:fontFamily="@font/candara"
-                android:text="@string/hottest"
-                android:textColor="@color/text"
-                android:textSize="24sp" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_hottest"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="810dp"
                 android:layout_marginTop="12dp"
-                android:isScrollContainer="false">
+                android:nestedScrollingEnabled="false">
 
             </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/carButton"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="183dp"
-        android:layout_marginRight="180dp"
-        android:layout_marginBottom="41dp"
-        android:backgroundTint="@color/yellow_btn"
-        android:src="@drawable/order_navbar"
-        app:backgroundTint="@color/yellow_btn"
-        app:fabCustomSize="65dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
