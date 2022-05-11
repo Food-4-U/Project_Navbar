@@ -46,22 +46,22 @@ class HomeFragment : Fragment() {
 
         )
 
-        /*
+
         val rv_Hottest : RecyclerView = root.findViewById(R.id.rv_hottest)
         val adapter = HottestAdapter(itens)
 
-        rv_Hottest.layoutManager = GridLayoutManager(this, 2)
+        rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
         rv_Hottest.adapter = adapter
 
 
         val product = root.findViewById<ImageView>(R.id.imageView10)
 
-
+        /*
         product.setOnClickListener {
-            val intent = Intent(this@Menu, ProductDetails::class.java);
+            val intent = Intent(this@MainActivity, ProductDetails::class.java);
             startActivity(intent)
         }
-         */
+        */
 
         return root
 
