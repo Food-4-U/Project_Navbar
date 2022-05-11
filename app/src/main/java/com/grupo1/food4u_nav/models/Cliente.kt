@@ -29,6 +29,7 @@ class Cliente {
         return jsonObject
     }
 
+    //
     companion object{
         fun fromJSON(jsonObject: JSONObject): Cliente{
             return Cliente(
