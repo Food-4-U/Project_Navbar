@@ -110,7 +110,7 @@
 
     <TextView
         android:id="@+id/btnLoginGuest"
-        android:layout_width="210dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
         android:fontFamily="@font/segoeui"

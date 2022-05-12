@@ -18,9 +18,9 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_order"
+        android:id="@+id/navigation_menu"
         android:name="com.grupo1.food4u_nav.ui.Order.OrderFragment"
-        android:label="@string/order"
+        android:label="@string/menu"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
