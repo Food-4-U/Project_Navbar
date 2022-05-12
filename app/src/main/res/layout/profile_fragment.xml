@@ -3,12 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context="ui.profile.ProfileFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/yellow_btn">
+        android:text="sdfsdsfdf"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:background="@color/yellow_btn"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
 
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

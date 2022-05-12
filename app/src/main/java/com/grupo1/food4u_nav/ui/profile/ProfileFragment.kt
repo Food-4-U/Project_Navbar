@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.databinding.ProfileFragmentBinding
 
 class ProfileFragment : Fragment() {

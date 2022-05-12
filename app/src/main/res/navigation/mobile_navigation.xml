@@ -27,5 +27,5 @@
         android:id="@+id/navigation_profile"
         android:name="com.grupo1.food4u_nav.ui.menu.menuFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/profile_fragment" />
 </navigation>
