@@ -6,7 +6,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Food4U_Nav"
-        android:label="FOOD4U">
+        android:label="Food 4 U">
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
