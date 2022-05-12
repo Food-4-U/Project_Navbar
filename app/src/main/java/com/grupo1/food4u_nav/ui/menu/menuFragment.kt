@@ -1,12 +1,16 @@
 package com.grupo1.food4u_nav.ui.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.MenuAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
@@ -42,6 +46,14 @@ class menuFragment : Fragment() {
 
         rv_menu.layoutManager = GridLayoutManager(activity, 2)
         rv_menu.adapter = adapter
+
+        val product = root.findViewById<CardView>(R.id.productCard)
+
+
+        product.setOnClickListener {
+            val intent = Intent(activity, ProductDetailsActivity::class.java);
+            startActivity(intent)
+        }
 
         return root
     }

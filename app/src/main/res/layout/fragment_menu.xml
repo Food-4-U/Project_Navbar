@@ -53,10 +53,11 @@
                 android:textSize="16dp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/productCard"
                 android:layout_width="164dp"
                 android:layout_height="169dp"
                 app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="20dp" >
+                app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -95,10 +96,10 @@
                         android:layout_width="57dp"
                         android:layout_height="19dp"
                         android:layout_marginTop="4dp"
-                        android:gravity="center"
-                        android:textAlignment="center"
                         android:fontFamily="@font/segoeuib"
+                        android:gravity="center"
                         android:text="7.50€"
+                        android:textAlignment="center"
                         android:textSize="12dp"
                         app:layout_constraintEnd_toEndOf="@+id/productTitle"
                         app:layout_constraintStart_toStartOf="@+id/productTitle"
