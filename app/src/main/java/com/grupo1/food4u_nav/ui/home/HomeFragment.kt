@@ -22,7 +22,7 @@ import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 import projeto.ipca.food4u.grupoI.models.Item_Menu
 
-class HomeFragment : Fragment() {
+class   HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 

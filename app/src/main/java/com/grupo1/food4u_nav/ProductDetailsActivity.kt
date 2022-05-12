@@ -23,8 +23,10 @@ class ProductDetailsActivity : AppCompatActivity() {
         // This function make that the app always run in fullscreen!
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
-            windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            val windowInsetsController =
+                ViewCompat.getWindowInsetsController(window.decorView) ?: return
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
         } else {
             val flags =
@@ -36,7 +38,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
         val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
         val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
-        var qtd : Int = 1
+        var qtd: Int = 1
         var priceText = findViewById<TextView>(R.id.priceText)
 
         //Here the user can add more to his cart the quantity of the item he wants!
