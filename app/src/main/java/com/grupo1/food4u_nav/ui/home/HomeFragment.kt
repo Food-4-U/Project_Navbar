@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
@@ -56,12 +57,12 @@ class HomeFragment : Fragment() {
 
         val product = root.findViewById<ImageView>(R.id.imageView10)
 
-        /*
+
         product.setOnClickListener {
-            val intent = Intent(this@MainActivity, ProductDetails::class.java);
+            val intent = Intent(activity, ProductDetailsActivity::class.java);
             startActivity(intent)
         }
-        */
+
 
         return root
 
