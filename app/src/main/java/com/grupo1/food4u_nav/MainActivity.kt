@@ -6,6 +6,7 @@ import android.view.View
 import android.view.Window
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -14,7 +15,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.grupo1.food4u_nav.databinding.ActivityLoginBinding.inflate
 import com.grupo1.food4u_nav.databinding.ActivityMainBinding
+import com.grupo1.food4u_nav.databinding.ActivityProductDetailsBinding.inflate
 import com.grupo1.food4u_nav.ui.home.HomeFragment
 import com.grupo1.food4u_nav.ui.search.SearchFragment
 
