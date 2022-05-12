@@ -3,7 +3,7 @@
     <string name="title_activity_menu">Menu</string>
     <string name="what_to_eat">What to eat?</string>
     <string name="login">Login</string>
-    <string name="guest">Enter as Guest</string>
+    <string name="guest">ENTER AS GUEST</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
@@ -16,4 +16,8 @@
     <string name="search">Search</string>
     <string name="order">Order</string>
     <string name="profile">Profile</string>
+    <string name="searchWhatToEat">Search by a food</string>
+    <string name="search_Category">Search</string>
+    <string name="category">Categories</string>
+    <string name="search_categoryorfood">Search by a category or food</string>
 </resources>
