@@ -13,14 +13,16 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 import projeto.ipca.food4u.grupoI.models.Item_Menu
 
-class HomeFragment : Fragment() {
+class   HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -31,13 +33,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        return root
 
         var itens : List<Item_Menu> = arrayListOf(
             Item_Menu("Hamburguer de Novilho",10,4.40F,5.80f),
@@ -50,24 +48,25 @@ class HomeFragment : Fragment() {
         )
 
 
-
-        val rv_Hottest : RecyclerView = findView
+        val rv_Hottest : RecyclerView = root.findViewById(R.id.rv_hottest)
         val adapter = HottestAdapter(itens)
 
-        rv_Hottest.layoutManager = GridLayoutManager(this,2)
+        rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
         rv_Hottest.adapter = adapter
 
 
-        val product = findViewById<ImageView>(R.id.imageView10)
+        val product = root.findViewById<ImageView>(R.id.imageView10)
 
-        /*
+
         product.setOnClickListener {
-            val intent = Intent(this@Menu, ProductDetails::class.java);
+            val intent = Intent(activity, ProductDetailsActivity::class.java);
             startActivity(intent)
         }
-         */
-    }
 
+
+        return root
+
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

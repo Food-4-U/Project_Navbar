@@ -29,6 +29,38 @@
         <item name="cornerSizeBottomLeft">20dp</item>
         <item name="cornerSizeBottomRight">20dp</item>
         <item name="cornerFamily">rounded</item>
+    </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/segoeuil</item>
+    </style>
+
+    <style name="NamePages">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/candarabold</item>
+        <item name="android:layout_marginTop">45dp</item>
+    </style>
+
+    <style name="SubtitleRegularStyle">
+        <item name="android:textColor">@color/variation_text</item>
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="LighInfoOrders">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/segoeuisl</item>
+        <item name="android:textColor">@color/lightInfo_order</item>
+    </style>
+
+    <style name="MyCustomTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontFamily">@font/segoeuisl</item>
     </style>
 </resources>

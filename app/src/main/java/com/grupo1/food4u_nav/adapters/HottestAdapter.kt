@@ -1,13 +1,12 @@
 package projeto.ipca.food4u.grupoI.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
-import projeto.ipca.food4u.grupoI.R
+import com.grupo1.food4u_nav.R
 import projeto.ipca.food4u.grupoI.models.Item_Menu
 
 class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
@@ -21,7 +20,7 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.rv_hottest, parent,false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.row_hottest, parent,false)
         return ViewHolder(view)
     }
 
@@ -30,8 +29,6 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
         holder.foodTime.text = itens[position].time_prepare.toString() + " min"
         holder.foodEvaluation.text = itens[position].evaluation.toString()
         holder.foodprice.text = itens[position].price.toString() + "€"
-
-
     }
 
     override fun getItemCount(): Int {
