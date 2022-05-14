@@ -6,19 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.MenuAdapter
-import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
 import com.grupo1.food4u_nav.models.CategoryType
-import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
-class menuFragment : Fragment() {
+class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
 
@@ -44,7 +44,7 @@ class menuFragment : Fragment() {
         val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
         val adapter = MenuAdapter(itens)
 
-        rv_menu.layoutManager = GridLayoutManager(activity, 2)
+        rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         rv_menu.adapter = adapter
 
         val product = root.findViewById<CardView>(R.id.productCard)

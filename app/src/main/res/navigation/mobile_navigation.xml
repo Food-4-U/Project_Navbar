@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="com.grupo1.food4u_nav.ui.menu.menuFragment"
+        android:name="com.grupo1.food4u_nav.ui.menu.MenuFragment"
         android:label="@string/menu"
         tools:layout="@layout/fragment_menu" />
 
