@@ -5,11 +5,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.FragmentManager
 
 class ProductDetailsActivity : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -61,5 +63,11 @@ class ProductDetailsActivity : AppCompatActivity() {
                 priceText.text = price.toString().plus("€")
             }
         }
+
+        val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
+        backBtn.setOnClickListener {
+            finish()
+        }
+
     }
 }
