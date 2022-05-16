@@ -58,6 +58,19 @@
         <item name="android:textColor">@color/lightInfo_order</item>
     </style>
 
+    <style name="ProfileViewPagerTitles">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="SubtitleLightStyle">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/segoeuil</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="MyCustomTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
