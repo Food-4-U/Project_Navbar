@@ -45,7 +45,6 @@ class ProfileFragment : Fragment() {
         viewPager.adapter = sectionPagerAdapter
 
 
-
         val tabs: TabLayout = binding.profileTabs
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])

@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.MenuAdapter
+import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
 import com.grupo1.food4u_nav.models.CategoryType
+import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class MenuFragment : Fragment() {
 

@@ -33,4 +33,8 @@
     <string name="quantityItens_order">Quantity</string>
     <string name="profile_totalorder">Total:</string>
     <string name="profile_details">Details</string>
+    <string name="cards">Cards</string>
+    <string name="validUntil">Valid Until</string>
+    <string name="newCard">● New Card</string>
+    <string name="paypal">PayPal</string>
 </resources>
