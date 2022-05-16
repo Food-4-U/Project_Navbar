@@ -289,17 +289,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/carButton"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/yellow_btn"
-        android:src="@drawable/order_navbar"
-        app:backgroundTint="@color/yellow_btn"
-        app:fabCustomSize="65dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="30dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/addbtn.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_favorites.xml" value="0.1265625" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_order.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_settings.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_wallet.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_favorites.xml" value="0.1265625" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Downloads/Project_Navbar-main/Project_Navbar-main/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Downloads/Project_Navbar-main/Project_Navbar-main/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Downloads/Project_Navbar-main/Project_Navbar-main/app/src/main/res/layout/fragment_search.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/diogo/Downloads/Project_Navbar-main/Project_Navbar-main/app/src/main/res/layout/fragment_wallet.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/creditcard.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rounded_retangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.23" />
