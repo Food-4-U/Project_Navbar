@@ -21,7 +21,6 @@ class ProfileViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragmen
             1 -> fragment = Wallet()
             2 -> fragment = Favorites()
             3 -> fragment = Settings()
-
         }
         return fragment as Fragment
     }
