@@ -5,12 +5,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
-import org.json.JSONObject
 import java.io.InputStream
 import org.json.JSONArray as JSONArray
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
+import org.json.JSONObject as JSONObject1
 
 
 object Backend {
@@ -29,7 +29,7 @@ object Backend {
                 var resultArray = JSONArray(result)
 
                 for (index in 0 until resultArray.length()){
-                    var clienteJSON  = resultArray[index] as JSONObject
+                    var clienteJSON  = resultArray[index] as JSONObject1
                     var cliente = Cliente.fromJSON(clienteJSON)
                     clientes.add(cliente)
                 }
@@ -50,7 +50,7 @@ object Backend {
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
-                var resultJSONObject = JSONObject(result)
+                var resultJSONObject = JSONObject1(result)
                 var cliente = Cliente.fromJSON(resultJSONObject)
 
                 GlobalScope.launch (Dispatchers.Main){
@@ -73,7 +73,7 @@ object Backend {
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
-                var resultJSONObject = JSONObject(result)
+                var resultJSONObject = JSONObject1(result)
 
                 GlobalScope.launch (Dispatchers.Main){
                     val status = resultJSONObject.getString("status")
@@ -97,7 +97,7 @@ object Backend {
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
-                var resultJSONObject = JSONObject(result)
+                var resultJSONObject = JSONObject1(result)
 
                 GlobalScope.launch (Dispatchers.Main){
                     val status = resultJSONObject.getString("status")
@@ -118,7 +118,7 @@ object Backend {
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
-                var resultJSONObject = JSONObject(result)
+                var resultJSONObject = JSONObject1(result)
 
                 GlobalScope.launch (Dispatchers.Main){
                     val status = resultJSONObject.getString("status")
