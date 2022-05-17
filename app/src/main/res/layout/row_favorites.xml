@@ -56,6 +56,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/trebuc"
             android:text="4,5"
+            android:textColor="@color/product_name"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView8"
             app:layout_constraintStart_toStartOf="@+id/favorites_name"

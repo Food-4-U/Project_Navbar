@@ -3,6 +3,7 @@ package projeto.ipca.food4u.grupoI.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
@@ -16,7 +17,7 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
         var nameFood = itemView.findViewById<TextView>(R.id.menu_nameFood)
         var foodprice = itemView.findViewById<TextView>(R.id.menu_foodPrice)
         var foodEvaluation = itemView.findViewById<TextView>(R.id.menu_foodEvauation)
-        var foodTime = itemView.findViewById<TextView>(R.id.menu_foodTime)
+        var foodStars = itemView.findViewById<RatingBar>(R.id.ratingBar_hottest)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,9 +27,9 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
 
     override fun onBindViewHolder(holder: HottestAdapter.ViewHolder, position: Int) {
         holder.nameFood.text = itens[position].description
-        holder.foodTime.text = itens[position].time_prepare.toString() + " min"
         holder.foodEvaluation.text = itens[position].evaluation.toString()
         holder.foodprice.text = itens[position].price.toString() + "€"
+        holder.foodStars.rating = itens[position].evaluation
     }
 
     override fun getItemCount(): Int {
