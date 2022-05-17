@@ -15,7 +15,7 @@ import okhttp3.RequestBody
 
 object Backend {
 
-    const val BASE_API = "http://18.130.229.13:5000/"
+    const val BASE_API = "http://18.130.229.13:5000/api/"
 
     fun getAllClientes( callback : (( List<Cliente>)->Unit) ) {
         var clientes = arrayListOf<Cliente>()
