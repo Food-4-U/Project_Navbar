@@ -41,6 +41,24 @@ object Backend {
         }
     }
 
+    fun getClienteEmail(email: String, callback: ((Cliente) -> Unit)) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Cliente/Get/" + email)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var cliente = Cliente.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(cliente)
+                }
+            }
+        }
+    }
+
     fun getClientes(id_cliente: Int, callback: ((Cliente) -> Unit)) {
 
         GlobalScope.launch(Dispatchers.IO) {
