@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="@+id/productOrderMinusIcon"
         app:layout_constraintStart_toStartOf="@+id/productOrderMinusIcon"
         app:layout_constraintTop_toTopOf="@+id/productOrderMinusIcon"
-        app:srcCompat="@drawable/_" />
+        app:srcCompat="@drawable/o" />
 
     <TextView
         android:id="@+id/productOrderNumber"
