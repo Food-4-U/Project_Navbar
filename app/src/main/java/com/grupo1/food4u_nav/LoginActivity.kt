@@ -7,10 +7,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.grupo1.food4u_nav.models.Cliente
+import org.w3c.dom.Text
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,17 +47,39 @@ class LoginActivity : AppCompatActivity() {
 
         val btnLogin = findViewById<Button>(R.id.btnRegister)
         val btnGuest = findViewById<TextView>(R.id.btnLoginGuest)
+        val btnRegister = findViewById<TextView>(R.id.register_textbtn)
 
         btnLogin.setOnClickListener {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java);
-            startActivity(intent)
-            finish()
+
+            val editEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
+            val editPass = findViewById<EditText>(R.id.editTextTextEmailAddress2)
+
+            var cliente : Cliente? = null
+            cliente.email = editEmail.text.toString()
+            cliente.password = editPass.text.toString()
+
+            cliente.let { it ->
+                Backend.Login(it){
+                    if (it){
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java);
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText( this@LoginActivity, "Email ou password incorreta", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+            }
         }
 
         btnGuest.setOnClickListener {
             val intent = Intent(this@LoginActivity, MainActivity::class.java);
             startActivity(intent)
             finish()
+        }
+
+        btnRegister.setOnClickListener {
+            val intent = Intent ()
         }
     }
 
