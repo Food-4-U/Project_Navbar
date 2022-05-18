@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.grupo1.food4u_nav.models.Cliente as Cliente1
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +31,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        val textViewLogin = findViewById<TextView>(R.id.login_textbtn)
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val textViewLogin = findViewById<TextView>(R.id.acitivityLoginButton)
+        val btnRegister = findViewById<Button>(R.id.buttonRegister)
 
 
         textViewLogin.setOnClickListener {

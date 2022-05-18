@@ -4,18 +4,15 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupo1.food4u_nav.models.Cliente
-import org.w3c.dom.Text
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
-        val textViewRegister = findViewById<TextView>(R.id.register_textbtn)
+        val textViewRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
 
         textViewRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java);
@@ -45,14 +42,14 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        val btnLogin = findViewById<Button>(R.id.btnRegister)
+        val btnLogin = findViewById<Button>(R.id.buttonRegister)
         val btnGuest = findViewById<TextView>(R.id.btnLoginGuest)
-        val btnRegister = findViewById<TextView>(R.id.register_textbtn)
+        val btnRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
 
         btnLogin.setOnClickListener {
 
-            val editEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
-            val editPass = findViewById<EditText>(R.id.editTextTextEmailAddress2)
+            val editEmail = findViewById<EditText>(R.id.editName)
+            val editPass = findViewById<EditText>(R.id.editEmail)
 
             var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
             cliente.email = editEmail.text.toString()

@@ -61,7 +61,7 @@
         app:layout_constraintGuide_end="381dp" />
 
     <TextView
-        android:id="@+id/login_textbtn"
+        android:id="@+id/acitivityLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/register_textbtn"
+        android:id="@+id/activityLoginRegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/buttonRegister"
         android:layout_width="210dp"
         android:layout_height="65dp"
         android:layout_marginBottom="80dp"
@@ -120,7 +120,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
     <View
         android:id="@+id/view"
@@ -150,7 +150,7 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editName"
                 android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="62dp"
@@ -171,7 +171,7 @@
                 tools:ignore="RtlCompat,RtlHardcoded" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress2"
+                android:id="@+id/editEmail"
                 android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -188,7 +188,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+                app:layout_constraintTop_toBottomOf="@+id/editName"
                 tools:ignore="RtlCompat,RtlHardcoded" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
