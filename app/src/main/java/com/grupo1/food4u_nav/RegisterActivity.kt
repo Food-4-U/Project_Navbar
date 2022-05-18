@@ -32,13 +32,10 @@ class RegisterActivity : AppCompatActivity() {
             window!!.decorView.setSystemUiVisibility(flags)
         }
 
-        lateinit var cliente : Cliente1
+
         val textViewLogin = findViewById<TextView>(R.id.login_textbtn)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
-        cliente.nome = findViewById<EditText>(R.id.editTextTextEmailAddress).toString()
-        cliente.email = findViewById<EditText>(R.id.editTextTextEmailAddress2).toString()
-        cliente.password = findViewById<EditText>(R.id.editTextTextEmailAddress3).toString()
 
         textViewLogin.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java);

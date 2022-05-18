@@ -54,9 +54,9 @@ class LoginActivity : AppCompatActivity() {
             val editEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
             val editPass = findViewById<EditText>(R.id.editTextTextEmailAddress2)
 
-            var cliente: Cliente? = null
-            cliente?.email = editEmail.text.toString()
-            cliente?.password = editPass.text.toString()
+            var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+            cliente.email = editEmail.text.toString()
+            cliente.password = editPass.text.toString()
 
             if (cliente != null) {
                 Backend.Login(cliente) {
@@ -83,7 +83,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener {
-            val intent = Intent ()
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java);
+            startActivity(intent)
+            finish()
         }
     }
 
