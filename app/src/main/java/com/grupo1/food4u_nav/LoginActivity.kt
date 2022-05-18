@@ -54,23 +54,27 @@ class LoginActivity : AppCompatActivity() {
             val editEmail = findViewById<EditText>(R.id.editTextTextEmailAddress)
             val editPass = findViewById<EditText>(R.id.editTextTextEmailAddress2)
 
-            var cliente : Cliente? = null
-            cliente.email = editEmail.text.toString()
-            cliente.password = editPass.text.toString()
+            var cliente: Cliente? = null
+            cliente?.email = editEmail.text.toString()
+            cliente?.password = editPass.text.toString()
 
-            cliente.let { it ->
-                Backend.Login(it){
-                    if (it){
+            if (cliente != null) {
+                Backend.Login(cliente) {
+                    if (it) {
                         val intent = Intent(this@LoginActivity, MainActivity::class.java);
                         startActivity(intent)
                         finish()
-                    }else{
-                        Toast.makeText( this@LoginActivity, "Email ou password incorreta", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Email ou password incorreta",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
                 }
             }
         }
+
 
         btnGuest.setOnClickListener {
             val intent = Intent(this@LoginActivity, MainActivity::class.java);
