@@ -13,4 +13,5 @@
     <color name="searchbar">#F1F1F1</color>
     <color name="variation_text">#FF707070</color>
     <color name="lightInfo_order">#FFC4C5C9</color>
+    <color name="GreenBT_Order">#00A082</color>
 </resources>

@@ -24,10 +24,12 @@ class RegisterActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
-            windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            val windowInsetsController =
+                ViewCompat.getWindowInsetsController(window.decorView) ?: return
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        }else{
+        } else {
             val flags =
                 (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
@@ -35,7 +37,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        var cliente: Cliente =
+            Cliente(email = null, id_cliente = null, password = null, nome = null)
         val textViewLogin = findViewById<TextView>(R.id.acitivityLoginButton)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
         val clientName = findViewById<EditText>(R.id.editName)
