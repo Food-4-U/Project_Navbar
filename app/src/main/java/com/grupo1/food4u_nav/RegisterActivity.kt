@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -41,7 +42,8 @@ class RegisterActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.editEmail)
         val password1 = findViewById<EditText>(R.id.editPassword1)
         val password2 = findViewById<EditText>(R.id.editPassword2)
-
+        password1.setTransformationMethod(PasswordTransformationMethod.getInstance())
+        password2.setTransformationMethod(PasswordTransformationMethod.getInstance())
 
 
         textViewLogin.setOnClickListener {
@@ -52,19 +54,17 @@ class RegisterActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
 
-
-            if(password1 == password2){
+            if (password1.text.toString() == password2.text.toString()) {
                 cliente.nome = clientName.text.toString()
                 cliente.email = email.text.toString()
                 cliente.password = password1.text.toString()
 
-                Backend.addCliente(cliente){
-                    if (it){
+                Backend.addCliente(cliente) {
+                    if (it) {
                         val intent = Intent(this@RegisterActivity, MainActivity::class.java);
                         startActivity(intent)
                         finish()
-                    }
-                    else{
+                    } else {
                         Toast.makeText(
                             this@RegisterActivity,
                             "Email já se encontra registado!",
@@ -72,15 +72,13 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
-            }
-            else {
+            } else {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Password nao são iguais!",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
         }
     }
 }
