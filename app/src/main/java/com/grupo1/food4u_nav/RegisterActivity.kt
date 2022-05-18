@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.grupo1.food4u_nav.models.Cliente as Cliente1
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +32,13 @@ class RegisterActivity : AppCompatActivity() {
             window!!.decorView.setSystemUiVisibility(flags)
         }
 
+        lateinit var cliente : Cliente1
         val textViewLogin = findViewById<TextView>(R.id.login_textbtn)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
+
+        cliente.nome = findViewById<EditText>(R.id.editTextTextEmailAddress).toString()
+        cliente.email = findViewById<EditText>(R.id.editTextTextEmailAddress2).toString()
+        cliente.password = findViewById<EditText>(R.id.editTextTextEmailAddress3).toString()
 
         textViewLogin.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java);

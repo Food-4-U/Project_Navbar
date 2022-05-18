@@ -5,268 +5,300 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="179dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="179dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pesquisa" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
 
-    <ImageView
-        android:id="@+id/search_bar"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/barra_pesquisa" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="401dp" />
 
-    <ImageView
-        android:id="@+id/imageView13"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/search_bar"
-        app:layout_constraintEnd_toEndOf="@+id/search_bar"
-        app:layout_constraintStart_toStartOf="@+id/search_bar"
-        app:layout_constraintTop_toTopOf="@+id/search_bar"
-        app:srcCompat="@drawable/pesquise_pelo_nome_do_produto" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 
-    <ImageView
-        android:id="@+id/textCategory"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="198dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/categorias" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="395dp" />
 
-    <ImageView
-        android:id="@+id/imageView15"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="395dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="337dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textCategory"
-        app:srcCompat="@drawable/retangulo_43" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/entryImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="268dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@drawable/appetizer" />
 
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginEnd="274dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/entryImage"
-        app:srcCompat="@drawable/entradas" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/mainDishImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@drawable/fracesinha" />
+            <TextView
+                android:id="@+id/textViewSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/candarabold"
+                android:text="@string/search_Category"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/drinksImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="278dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17"
-        app:srcCompat="@drawable/drink" />
+            <TextView
+                android:id="@+id/textCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="198dp"
+                android:fontFamily="@font/candara"
+                android:text="@string/category"
+                android:textColor="@color/text"
+                android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/drinks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="281dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/drinksImage"
-        app:srcCompat="@drawable/bebidas" />
+            <SearchView
+                android:id="@+id/menu_SearchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/searchbar"
+                android:iconifiedByDefault="false"
+                android:theme="@style/SearchViewStyle"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="@string/search_categoryorfood">
 
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/mainDish"
-        app:srcCompat="@drawable/liquor" />
+            </SearchView>
 
-    <ImageView
-        android:id="@+id/mainDish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="258dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="73dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/mainDishImage"
-        app:srcCompat="@drawable/prato_principal" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="706dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="5dp"
+                app:cardCornerRadius="20dp">
 
-    <ImageView
-        android:id="@+id/imageView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/bebidas_alcolicas" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="30dp">
 
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="278dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/drinks"
-        app:srcCompat="@drawable/french_fries" />
+                    <ImageView
+                        android:id="@+id/entryImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/appetizer" />
 
-    <ImageView
-        android:id="@+id/imageView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="248dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView26"
-        app:srcCompat="@drawable/acompanhamentos" />
+                    <ImageView
+                        android:id="@+id/imageView30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView26"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/imageView26"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView26"
+                        app:layout_constraintVertical_bias="0.493"
+                        app:srcCompat="@drawable/gluten_free" />
 
-    <ImageView
-        android:id="@+id/imageView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="289dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView25"
-        app:srcCompat="@drawable/dessert" />
+                    <ImageView
+                        android:id="@+id/drinksImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/imageView26"
+                        app:layout_constraintEnd_toEndOf="@+id/entryImage"
+                        app:layout_constraintStart_toStartOf="@+id/entryImage"
+                        app:layout_constraintTop_toBottomOf="@+id/entryImage"
+                        app:srcCompat="@drawable/drink" />
 
-    <ImageView
-        android:id="@+id/imageView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="278dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="69dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView28"
-        app:srcCompat="@drawable/sobremesas" />
+                    <ImageView
+                        android:id="@+id/mainDishImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="50dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/fracesinha" />
 
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="278dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView27"
-        app:srcCompat="@drawable/gluten_free" />
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/imageView28"
+                        app:layout_constraintEnd_toEndOf="@+id/mainDishImage"
+                        app:layout_constraintStart_toStartOf="@+id/mainDishImage"
+                        app:layout_constraintTop_toBottomOf="@+id/mainDishImage"
+                        app:layout_constraintVertical_bias="0.53"
+                        app:srcCompat="@drawable/liquor" />
 
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29"
-        app:srcCompat="@drawable/vegan_burger" />
+                    <ImageView
+                        android:id="@+id/imageView31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView28"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/imageView28"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView28"
+                        app:srcCompat="@drawable/vegan_burger" />
 
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginEnd="269dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView30"
-        app:srcCompat="@drawable/glten_free" />
+                    <ImageView
+                        android:id="@+id/imageView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/drinksImage"
+                        app:layout_constraintStart_toStartOf="@+id/drinksImage"
+                        app:layout_constraintTop_toBottomOf="@+id/entryImage"
+                        app:srcCompat="@drawable/french_fries" />
 
-    <ImageView
-        android:id="@+id/imageView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="297dp"
-        android:layout_marginEnd="89dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView31"
-        app:srcCompat="@drawable/vegan" />
+                    <ImageView
+                        android:id="@+id/imageView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView22"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/imageView22"
+                        app:layout_constraintTop_toBottomOf="@+id/mainDishImage"
+                        app:layout_constraintVertical_bias="0.513"
+                        app:srcCompat="@drawable/dessert" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/carButton"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="183dp"
-            android:layout_marginRight="180dp"
-            android:layout_marginBottom="41dp"
-            android:backgroundTint="@color/yellow_btn"
-            android:src="@drawable/order_navbar"
-            app:backgroundTint="@color/yellow_btn"
-            app:fabCustomSize="65dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:maxImageSize="30dp" />
+                    <TextView
+                        android:id="@+id/entradas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Entradas"
+                        android:fontFamily="@font/segoeuil"
+                        android:textSize="16dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/entryImage"
+                        app:layout_constraintStart_toStartOf="@+id/entryImage"
+                        app:layout_constraintTop_toBottomOf="@+id/entryImage" />
+
+                    <TextView
+                        android:id="@+id/primeiroprato"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prato Principal"
+                        android:fontFamily="@font/segoeuil"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/mainDishImage"
+                        app:layout_constraintStart_toStartOf="@+id/mainDishImage"
+                        app:layout_constraintTop_toBottomOf="@+id/entryImage" />
+
+                    <TextView
+                        android:id="@+id/bebidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bebidas"
+                        android:fontFamily="@font/segoeuil"
+                        android:textSize="16dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/drinksImage"
+                        app:layout_constraintStart_toStartOf="@+id/drinksImage"
+                        app:layout_constraintTop_toBottomOf="@+id/drinksImage" />
+
+                    <TextView
+                        android:id="@+id/bebidasal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bebidas Alcoólicas"
+                        android:textSize="16dp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/segoeuil"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView22"
+                        app:layout_constraintStart_toStartOf="@+id/imageView22"
+                        app:layout_constraintTop_toBottomOf="@+id/drinksImage" />
+
+                    <TextView
+                        android:id="@+id/acompanhamentos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Acompanhamentos"
+                        android:fontFamily="@font/segoeuil"
+                        android:textSize="16dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView26"
+                        app:layout_constraintStart_toStartOf="@+id/imageView26"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+                    <TextView
+                        android:id="@+id/sobremesas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sobremesas"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toStartOf="@+id/imageView28"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+                    <TextView
+                        android:id="@+id/glutenfree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Glúten Free"
+                        android:textAlignment="center"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView30"
+                        app:layout_constraintStart_toStartOf="@+id/imageView30"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView30" />
+
+                    <TextView
+                        android:id="@+id/vegan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vegan"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView31"
+                        app:layout_constraintStart_toStartOf="@+id/imageView31"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView31" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

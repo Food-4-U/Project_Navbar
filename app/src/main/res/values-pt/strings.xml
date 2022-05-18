@@ -15,6 +15,25 @@
     <string name="hottest">Mais Vendidos</string>
     <string name="home">Home</string>
     <string name="search">Procurar</string>
-    <string name="order">Pedido</string>
+    <string name="menu">Menu</string>
     <string name="profile">Perfil</string>
+    <string name="searchWhatToEat">Pesquise por uma comida</string>
+    <string name="search_Category">Pesquisar</string>
+    <string name="category">Categorias</string>
+    <string name="search_categoryorfood">Pesquise por uma categoria ou comida</string>
+    <string name="orders">Pedidos</string>
+    <string name="wallet">Carteira</string>
+    <string name="favorites">Favoritos</string>
+    <string name="settings">Configurações</string>
+    <string name="number_orders">Pedido</string>
+    <string name="avg_evaluation">Média Avaliações</string>
+    <string name="order_num">Pedido Nº</string>
+    <string name="profile_paymentMethod">Metódo de Pagamento</string>
+    <string name="quantityItens_order">Quantidade</string>
+    <string name="profile_totalorder">Total:</string>
+    <string name="profile_details">Detalhes</string>
+    <string name="cards">Cartões</string>
+    <string name="validUntil">Válido até</string>
+    <string name="newCard">● Novo Cartão</string>
+    <string name="paypal">PayPal</string>
 </resources>
