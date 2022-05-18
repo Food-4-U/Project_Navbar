@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -25,11 +26,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         supportActionBar?.hide()
 
@@ -58,5 +61,13 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    companion object{
+        const val CLIENT_ID = "cliente.id_cliente"
+        const val CLIENT_NAME = "cliente.nome"
+        const val CLIENT_EMAIL = "cliente.email"
+        const val CLIENT_PASS = "cliente.password"
+
     }
 }

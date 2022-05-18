@@ -1,8 +1,10 @@
 package com.grupo1.food4u_nav
 
+import Backend
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.view.View
@@ -10,10 +12,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupo1.food4u_nav.models.Cliente
+
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,11 +59,25 @@ class LoginActivity : AppCompatActivity() {
             var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
             cliente.email = editEmail.text.toString()
             cliente.password = editPass.text.toString()
+            var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+            val myEdit = food4UCliente.edit()
+
+
 
             if (cliente != null) {
                 Backend.Login(cliente) {
                     if (it) {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java);
+                        Backend.getClienteEmail(cliente.email!!)
+                        {
+                            myEdit.putString("nome", it.nome)
+                            myEdit.putString("email", it.email)
+                            myEdit.putString("password", it.password)
+                            myEdit.apply()
+                        }
+
+
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -75,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnGuest.setOnClickListener {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java);
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
