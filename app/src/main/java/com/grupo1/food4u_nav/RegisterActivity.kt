@@ -54,19 +54,17 @@ class RegisterActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
 
-
-            if (password1 == password2) {
+            if (password1.text.toString() == password2.text.toString()) {
                 cliente.nome = clientName.text.toString()
                 cliente.email = email.text.toString()
                 cliente.password = password1.text.toString()
 
-                Backend.addCliente(cliente){
-                    if (it){
+                Backend.addCliente(cliente) {
+                    if (it) {
                         val intent = Intent(this@RegisterActivity, MainActivity::class.java);
                         startActivity(intent)
                         finish()
-                    }
-                    else{
+                    } else {
                         Toast.makeText(
                             this@RegisterActivity,
                             "Email já se encontra registado!",
@@ -74,15 +72,13 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
-            }
-            else {
+            } else {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Password nao são iguais!",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
         }
     }
 }

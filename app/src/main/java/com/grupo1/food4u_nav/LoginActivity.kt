@@ -46,12 +46,11 @@ class LoginActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.buttonRegister)
         val btnGuest = findViewById<TextView>(R.id.btnLoginGuest)
         val btnRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
+        val editEmail = findViewById<EditText>(R.id.editName)
+        val editPass = findViewById<EditText>(R.id.editEmail)
+        editPass.setTransformationMethod(PasswordTransformationMethod.getInstance())
 
         btnLogin.setOnClickListener {
-
-            val editEmail = findViewById<EditText>(R.id.editName)
-            val editPass = findViewById<EditText>(R.id.editEmail)
-            editPass.setTransformationMethod(PasswordTransformationMethod.getInstance())
 
             var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
             cliente.email = editEmail.text.toString()
