@@ -75,8 +75,6 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.apply()
                         }
 
-
-
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -93,6 +91,14 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnGuest.setOnClickListener {
+            var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+            val myEdit = food4UCliente.edit()
+
+            myEdit.putString("nome", "Convidado")
+            myEdit.putString("email", "guest@food4u.pt")
+            myEdit.putString("password", "123")
+            myEdit.apply()
+
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
