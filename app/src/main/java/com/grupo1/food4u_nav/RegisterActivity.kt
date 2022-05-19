@@ -62,32 +62,46 @@ class RegisterActivity : AppCompatActivity() {
                 cliente.email = email.text.toString()
                 cliente.password = password1.text.toString()
 
-                Backend.addCliente(cliente) {
-                    if (it) {
-                        var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
-                        val myEdit = food4UCliente.edit()
+                if (cliente.email.isNullOrBlank() || cliente.password.isNullOrBlank()) {
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        R.string.null_data,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    if (cliente.email!!.contains("@")) {
+                        if (cliente != null) {
+                            Backend.addCliente(cliente) {
+                                if (it) {
+                                    val food4UCliente =
+                                        getSharedPreferences("Cliente", MODE_PRIVATE)
+                                    val myEdit = food4UCliente.edit()
 
-                        myEdit.putString("nome", cliente.nome)
-                        myEdit.putString("email", cliente.email)
-                        myEdit.putString("password", cliente.password)
-                        myEdit.apply()
-                        val intent = Intent(this@RegisterActivity, MainActivity::class.java);
-                        startActivity(intent)
-                        finish()
+                                    myEdit.putString("nome", cliente.nome)
+                                    myEdit.putString("email", cliente.email)
+                                    myEdit.putString("password", cliente.password)
+                                    myEdit.apply()
+                                    val intent =
+                                        Intent(this@RegisterActivity, MainActivity::class.java);
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    Toast.makeText(
+                                        this@RegisterActivity,
+                                        R.string.email_existent,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
                     } else {
                         Toast.makeText(
                             this@RegisterActivity,
-                            "Email já se encontra registado!",
+                            R.string.invalid_email,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
-            } else {
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Password nao são iguais!",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
     }

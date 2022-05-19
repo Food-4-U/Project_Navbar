@@ -21,7 +21,6 @@
     <string name="category">Categories</string>
     <string name="search_categoryorfood">Search by a category or food</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
     <string name="favorites">Favorites</string>
@@ -37,4 +36,9 @@
     <string name="validUntil">Valid Until</string>
     <string name="newCard">● New Card</string>
     <string name="paypal">PayPal</string>
+    <string name="email_existent">Email is already registered.</string>
+    <string name="password_notequal">Passwords don´t match.</string>
+    <string name="invalid_data">Invalid data.</string>
+    <string name="null_data">Fill all the boxes.</string>
+    <string name="invalid_email">Please enter a valid email.</string>
 </resources>
