@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.grupo1.food4u_nav.databinding.FragmentSearchBinding
 
-class SearchFragment : Fragment() {
+class  SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
 
