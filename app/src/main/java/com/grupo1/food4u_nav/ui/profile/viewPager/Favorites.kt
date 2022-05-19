@@ -47,7 +47,6 @@ class Favorites : Fragment() {
 
         adapter.notifyDataSetChanged()
 
-        // Inflate the layout for this fragment
         return view
     }
 }

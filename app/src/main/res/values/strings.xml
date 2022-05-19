@@ -36,9 +36,15 @@
     <string name="validUntil">Valid Until</string>
     <string name="newCard">● New Card</string>
     <string name="paypal">PayPal</string>
+
     <string name="email_existent">Email is already registered.</string>
     <string name="password_notequal">Passwords don´t match.</string>
     <string name="invalid_data">Invalid data.</string>
     <string name="null_data">Fill all the boxes.</string>
     <string name="invalid_email">Please enter a valid email.</string>
+    <string name="language">Language</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="changePassword">Change Password</string>
+    <string name="additionalForm">Additional Form</string>
+    <string name="receivePromotionsAlert">Receive promotion notifications?</string>
 </resources>
