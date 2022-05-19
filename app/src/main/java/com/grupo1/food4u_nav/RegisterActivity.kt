@@ -64,6 +64,13 @@ class RegisterActivity : AppCompatActivity() {
 
                 Backend.addCliente(cliente) {
                     if (it) {
+                        var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+                        val myEdit = food4UCliente.edit()
+
+                        myEdit.putString("nome", cliente.nome)
+                        myEdit.putString("email", cliente.email)
+                        myEdit.putString("password", cliente.password)
+                        myEdit.apply()
                         val intent = Intent(this@RegisterActivity, MainActivity::class.java);
                         startActivity(intent)
                         finish()
