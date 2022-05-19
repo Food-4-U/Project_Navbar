@@ -47,4 +47,6 @@
     <string name="changePassword">Change Password</string>
     <string name="additionalForm">Additional Form</string>
     <string name="receivePromotionsAlert">Receive promotion notifications?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

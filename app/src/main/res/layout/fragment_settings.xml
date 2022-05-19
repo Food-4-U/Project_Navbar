@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
         <TextView
-            android:id="@+id/textView35"
+            android:id="@+id/profile_additionalForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -90,13 +90,15 @@
             android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView34"
-            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_additionalForm" />
 
         <Switch
             android:id="@+id/switch_receiveNotification"
             android:layout_width="48dp"
             android:layout_height="25dp"
             android:layout_marginEnd="29dp"
+            android:checked="true"
+            android:thumbTint="@color/GreenBT_Order"
             app:layout_constraintBottom_toBottomOf="@+id/textView36"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView36"
