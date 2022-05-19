@@ -6,16 +6,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.grupo1.food4u_nav.R.drawable.show
 import com.grupo1.food4u_nav.models.Cliente
 
 
@@ -53,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
         val editEmail = findViewById<EditText>(R.id.editName)
         val editPass = findViewById<EditText>(R.id.editEmail)
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance())
+
+
 
         btnLogin.setOnClickListener {
 

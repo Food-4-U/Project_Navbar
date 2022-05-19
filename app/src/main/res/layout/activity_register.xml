@@ -130,7 +130,7 @@
             <EditText
                 android:id="@+id/editPassword2"
                 android:layout_width="310dp"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:drawableStart="@drawable/locker"
@@ -150,7 +150,7 @@
             <EditText
                 android:id="@+id/editName"
                 android:layout_width="310dp"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="62dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:drawableStart="@drawable/ic_baseline_person_24"
@@ -170,7 +170,7 @@
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="310dp"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:drawableStart="@drawable/arroba"
@@ -190,7 +190,7 @@
             <EditText
                 android:id="@+id/editPassword1"
                 android:layout_width="310dp"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:drawableStart="@drawable/locker"
