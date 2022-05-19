@@ -14,6 +14,18 @@
         android:layout_height="match_parent"
         android:paddingBottom="30dp">
 
+        <View
+            android:id="@+id/view6"
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="19dp"
+            android:background="@color/text"
+            app:layout_constraintBottom_toBottomOf="@+id/textView40"
+            app:layout_constraintEnd_toStartOf="@+id/textView40"
+            app:layout_constraintStart_toEndOf="@+id/textView37"
+            app:layout_constraintTop_toTopOf="@+id/textView40" />
+
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
@@ -30,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="TextView"
+            android:text="@string/language"
+            android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView32"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
@@ -40,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="TextView"
+            android:text="@string/editProfile"
+            android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView30"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
@@ -50,7 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="TextView"
+            android:text="@string/changePassword"
+            android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView33"
             app:layout_constraintTop_toBottomOf="@+id/textView33" />
@@ -60,10 +75,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="TextView"
+            android:text="@string/additionalForm"
+            android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView34"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/receivePromotionsAlert"
+            android:textAppearance="@style/SubtitleLightStyle"
+            android:theme="@style/SubtitleLightStyle"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+        <Switch
+            android:id="@+id/switch_receiveNotification"
+            android:layout_width="48dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="29dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView36"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="175dp"
+            android:fontFamily="@font/seguisb"
+            android:text="PT"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView30"
+            app:layout_constraintStart_toEndOf="@+id/textView30"
+            app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="27dp"
+            android:fontFamily="@font/segoeuisl"
+            android:text="ENG"
+            app:layout_constraintBottom_toBottomOf="@+id/textView37"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView37" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
