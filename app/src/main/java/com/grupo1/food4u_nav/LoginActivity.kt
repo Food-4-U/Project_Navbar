@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnGuest.setOnClickListener {
-            var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+            val food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
             val myEdit = food4UCliente.edit()
 
             myEdit.putString("nome", "Convidado")
