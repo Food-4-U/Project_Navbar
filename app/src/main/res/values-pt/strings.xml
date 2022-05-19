@@ -40,4 +40,5 @@
     <string name="password_notequal">As passwords não combinam.</string>
     <string name="invalid_data">Dados Inválidos.</string>
     <string name="null_data">Preencha todos os campos.</string>
+    <string name="invalid_email">Por favor insira um email válido.</string>
 </resources>
