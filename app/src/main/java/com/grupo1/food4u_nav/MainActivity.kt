@@ -1,9 +1,12 @@
 package com.grupo1.food4u_nav
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.DrawableCompat.inflate
@@ -15,21 +18,25 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.grupo1.food4u_nav.databinding.ActivityLoginBinding.inflate
 import com.grupo1.food4u_nav.databinding.ActivityMainBinding
 import com.grupo1.food4u_nav.databinding.ActivityProductDetailsBinding.inflate
 import com.grupo1.food4u_nav.ui.home.HomeFragment
+import com.grupo1.food4u_nav.ui.profile.viewPager.Order
 import com.grupo1.food4u_nav.ui.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         supportActionBar?.hide()
 
@@ -52,11 +59,26 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_search, R.id.navigation_menu, R.id.navigation_profile
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_menu, R.id.navigation_profile, R.id.carButton
             )
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val orderButton = findViewById<FloatingActionButton>(R.id.carButton)
+
+        orderButton.setOnClickListener{
+            val intent = Intent(this@MainActivity, OrderActivity::class.java);
+            startActivity(intent)
+        }
+    }
+
+    companion object{
+        const val CLIENT_ID = "cliente.id_cliente"
+        const val CLIENT_NAME = "cliente.nome"
+        const val CLIENT_EMAIL = "cliente.email"
+        const val CLIENT_PASS = "cliente.password"
+
     }
 }

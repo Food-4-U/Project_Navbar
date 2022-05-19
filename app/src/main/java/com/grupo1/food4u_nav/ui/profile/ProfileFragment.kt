@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav.ui.profile
 
+import android.content.Context.MODE_PRIVATE
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +14,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
+import com.grupo1.food4u_nav.LoginActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.ProfileViewPagerAdapter
 import com.grupo1.food4u_nav.databinding.FragmentProfileBinding
+import android.content.SharedPreferences
+import com.grupo1.food4u_nav.models.Cliente
 
 
 class ProfileFragment : Fragment() {
@@ -43,6 +47,18 @@ class ProfileFragment : Fragment() {
         val sectionPagerAdapter = ProfileViewPagerAdapter(this)
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = sectionPagerAdapter
+
+        var prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
+
+        var cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        cliente.email = prefs?.getString("email", "")
+        cliente.nome = prefs?.getString("nome", "")
+
+        val clientName = binding.textView5
+        val clientEmail = binding.textView7
+
+        clientName.text = cliente.nome
+        clientEmail.text = cliente.email
 
 
         val tabs: TabLayout = binding.profileTabs

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/whiteRectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/retangulo_248" />
+
+    <TextView
+        android:id="@+id/productNameOrderRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="141dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginRight="69dp"
+        android:fontFamily="@font/candara"
+        android:gravity="center"
+        android:text="Francesinha de Novilho"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
+        app:layout_constraintStart_toStartOf="@+id/whiteRectangle"
+        app:layout_constraintTop_toTopOf="@+id/whiteRectangle" />
+
+    <ImageView
+        android:id="@+id/productImageOrderRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteRectangle"
+        app:layout_constraintStart_toStartOf="@+id/whiteRectangle"
+        app:layout_constraintTop_toTopOf="@+id/whiteRectangle"
+        app:srcCompat="@drawable/hamburguer" />
+
+    <TextView
+        android:id="@+id/anotacoesOrderRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/segoeuisl"
+        android:text="Retirar: Molho, Alface, Gengibre"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
+        app:layout_constraintStart_toStartOf="@+id/whiteRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/productNameOrderRow" />
+
+    <TextView
+        android:id="@+id/productOrderPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/trebucbd"
+        android:text="7.50€"
+
+        android:textColor="#494545"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/productImageOrderRow"
+        app:layout_constraintTop_toBottomOf="@+id/anotacoesOrderRow" />
+
+    <ImageView
+        android:id="@+id/productOrderPlusIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="19dp"
+        app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
+        app:layout_constraintTop_toTopOf="@+id/whiteRectangle"
+        app:srcCompat="@drawable/elipse_6" />
+
+    <ImageView
+        android:id="@+id/productOrderMinusIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/whiteRectangle"
+        app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
+        app:srcCompat="@drawable/elipse_6" />
+
+    <ImageView
+        android:id="@+id/productOrderPlusSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productOrderPlusIcon"
+        app:layout_constraintEnd_toEndOf="@+id/productOrderPlusIcon"
+        app:layout_constraintStart_toStartOf="@+id/productOrderPlusIcon"
+        app:layout_constraintTop_toTopOf="@+id/productOrderPlusIcon"
+        app:srcCompat="@drawable/mais_1" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productOrderMinusIcon"
+        app:layout_constraintEnd_toEndOf="@+id/productOrderMinusIcon"
+        app:layout_constraintStart_toStartOf="@+id/productOrderMinusIcon"
+        app:layout_constraintTop_toTopOf="@+id/productOrderMinusIcon"
+        app:srcCompat="@drawable/o" />
+
+    <TextView
+        android:id="@+id/productOrderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:text="1"
+        app:layout_constraintBottom_toTopOf="@+id/productOrderMinusIcon"
+        app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/productOrderPlusIcon" />
+</androidx.constraintlayout.widget.ConstraintLayout>

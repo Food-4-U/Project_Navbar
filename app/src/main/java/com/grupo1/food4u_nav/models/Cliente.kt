@@ -9,7 +9,7 @@ class Cliente {
     var password : String? = null
 
     constructor(
-        id_cliente : Int,
+        id_cliente : Int?,
         nome : String?,
         email : String?,
         password : String?
@@ -33,7 +33,7 @@ class Cliente {
     companion object{
         fun fromJSON(jsonObject: JSONObject): Cliente{
             return Cliente(
-                jsonObject["id_cliente"] as Int,
+                jsonObject["id_cliente"] as? Int?,
                 jsonObject["nome"] as? String?,
                 jsonObject["email"] as? String?,
                 jsonObject["password"] as? String?
