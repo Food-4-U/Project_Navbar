@@ -39,4 +39,5 @@
     <string name="email_existent">Email is already registered.</string>
     <string name="password_notequal">Passwords don´t match.</string>
     <string name="invalid_data">Invalid data.</string>
+    <string name="null_data">Fill all the boxes.</string>
 </resources>

@@ -62,9 +62,13 @@ class LoginActivity : AppCompatActivity() {
             var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
             val myEdit = food4UCliente.edit()
 
-
-
-            if (cliente != null) {
+            if (cliente.email.isNullOrBlank() || cliente.password.isNullOrBlank()) {
+                Toast.makeText(
+                    this@LoginActivity,
+                    R.string.null_data,
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (cliente != null) {
                 Backend.Login(cliente) {
                     if (it) {
                         Backend.getClienteEmail(cliente.email!!)
@@ -110,5 +114,4 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }
