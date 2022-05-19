@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.databinding.FragmentSettingsBinding
-import com.grupo1.food4u_nav.ui.profile.AdditionalForm
+import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 
 
 class Settings : Fragment() {

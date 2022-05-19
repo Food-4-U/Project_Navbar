@@ -1,12 +1,15 @@
-package com.grupo1.food4u_nav.ui.profile
+package com.grupo1.food4u_nav.ui.profile.viewPager.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
 
@@ -22,12 +25,10 @@ class AdditionalForm : Fragment() {
 
         val root: View = binding.root
 
-        val fm: FragmentManager? = fragmentManager
 
         val backBtn: Button = root.findViewById(R.id.additionForm_backBtn)
         backBtn.setOnClickListener {
-           // getFragmentManager().popBackStack(homeFragmentIdentifier, 0);
-
+                Toast.makeText(activity,"oi",Toast.LENGTH_LONG).show()
         }
 
 

@@ -42,8 +42,15 @@
     <string name="null_data">Preencha todos os campos.</string>
     <string name="invalid_email">Por favor insira um email válido.</string>
     <string name="language">Idiomas</string>
-    <string name="editProfile">Edit Profile</string>
-    <string name="changePassword">Change Password</string>
-    <string name="additionalForm">Additional Form</string>
-    <string name="receivePromotionsAlert">Receive promotion notifications</string>
+    <string name="editProfile">Editar Perfil</string>
+    <string name="changePassword">Alterar palavra-passe</string>
+    <string name="additionalForm">Formulário Adicional</string>
+    <string name="receivePromotionsAlert">Receber Notificação de Promoções?</string>
+    <string name="Profession">Profissão</string>
+    <string name="gender">Gênero</string>
+    <string name="ageGroup">Faixa Etária</string>
+    <string name="withwhohangout">Com quem costuma sair para comer?</string>
+    <string name="maritalStatus">Estado Civil</string>
+    <string name="avgAmountEatingOut">Valor médio gasto ao comer fora</string>
+    <string name="submit">Enviar</string>
 </resources>

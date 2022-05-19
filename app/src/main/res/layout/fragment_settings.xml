@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="30dp"
     app:cardElevation="10dp"
-    tools:context=".ui.profile.viewPager.Settings">
+    tools:context="com.grupo1.food4u_nav.ui.profile.viewPager.settings.ActivityExtraSettings">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
