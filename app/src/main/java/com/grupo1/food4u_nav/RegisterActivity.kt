@@ -77,7 +77,7 @@ class RegisterActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(
                             this@RegisterActivity,
-                            "Email já se encontra registado!",
+                            R.string.email_existent,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -85,7 +85,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Password nao são iguais!",
+                    R.string.password_notequal,
                     Toast.LENGTH_SHORT
                 ).show()
             }

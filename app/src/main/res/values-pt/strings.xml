@@ -36,4 +36,7 @@
     <string name="validUntil">Válido até</string>
     <string name="newCard">● Novo Cartão</string>
     <string name="paypal">PayPal</string>
+    <string name="email_existent">Email já se encontra registado.</string>
+    <string name="password_notequal">As passwords não combinam.</string>
+    <string name="invalid_data">Dados Inválidos.</string>
 </resources>
