@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
-import projeto.ipca.food4u.grupoI.models.Item_Menu
+import com.grupo1.food4u_nav.models.Item_Menu
+
 
 class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
 
