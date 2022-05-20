@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
+import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.models.SubCategories
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
@@ -70,6 +71,15 @@ class   HomeFragment : Fragment() {
 
         rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
         rv_Hottest.adapter = adapter
+
+
+
+        val rv_topRated: RecyclerView = root.findViewById(R.id.rv_topRated)
+        val adapterTopRated = TopRatedAdapter(itens)
+
+        rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        rv_topRated.adapter = adapterTopRated
+
 
 
         val product = root.findViewById<ImageView>(R.id.imageView10)

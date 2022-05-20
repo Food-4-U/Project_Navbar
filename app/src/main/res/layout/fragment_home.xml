@@ -156,16 +156,35 @@
                     android:textColor="@color/text"
                     android:textSize="24sp" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_hottest"
+                    android:layout_width="match_parent"
+                    android:layout_height="810dp"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="29dp"
+                    android:fontFamily="@font/candara"
+                    android:text="Top Rated"
+                    android:textColor="@color/text"
+                    android:textSize="24sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_topRated"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
             </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_hottest"
-                android:layout_width="match_parent"
-                android:layout_height="810dp"
-                android:layout_marginTop="12dp"
-                android:nestedScrollingEnabled="false">
-
-            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>
