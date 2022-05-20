@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
-import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
-import projeto.ipca.food4u.grupoI.models.Item_Menu
+import com.grupo1.food4u_nav.models.Item_Menu
 
 class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 

@@ -1,4 +1,4 @@
-package projeto.ipca.food4u.grupoI.models
+package com.grupo1.food4u_nav.models
 
 class Item_Menu {
 

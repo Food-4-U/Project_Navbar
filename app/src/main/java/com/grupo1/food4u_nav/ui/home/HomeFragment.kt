@@ -19,8 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
+import com.grupo1.food4u_nav.models.Item_Menu
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
-import projeto.ipca.food4u.grupoI.models.Item_Menu
 
 class   HomeFragment : Fragment() {
 
