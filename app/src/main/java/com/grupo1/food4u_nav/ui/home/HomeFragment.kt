@@ -15,12 +15,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
+import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
-import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.SubCategories
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
+import projeto.ipca.food4u.grupoI.models.Item_Menu
 
 class   HomeFragment : Fragment() {
 
@@ -36,6 +40,20 @@ class   HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        var subCategories : List<SubCategories> = arrayListOf(
+            SubCategories(1,"Francesinha"),
+            SubCategories(1,"Snacks"),
+            SubCategories(1,"Massas"),
+            SubCategories(1,"Kids"),
+            SubCategories(1,"Bebidas")
+            )
+
+        val rv_Subcategories : RecyclerView = root.findViewById(R.id.rv_Subcategories)
+        val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
+        rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+        rv_Subcategories.adapter = adapterSubCategories
+
 
         var itens : List<Item_Menu> = arrayListOf(
             Item_Menu("Hamburguer de Novilho",10,4.40F,5.80f),
@@ -53,6 +71,15 @@ class   HomeFragment : Fragment() {
 
         rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
         rv_Hottest.adapter = adapter
+
+
+
+        val rv_topRated: RecyclerView = root.findViewById(R.id.rv_topRated)
+        val adapterTopRated = TopRatedAdapter(itens)
+
+        rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        rv_topRated.adapter = adapterTopRated
+
 
 
         val product = root.findViewById<ImageView>(R.id.imageView10)

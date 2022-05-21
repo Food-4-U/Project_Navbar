@@ -31,9 +31,18 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
+    <style name="ImageView.Corner_TopRated" parent="">
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
     <style name="SearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/segoeuil</item>
+        <item name="android:textColor">@color/variation_text</item>
     </style>
 
     <style name="NamePages">
@@ -108,6 +117,12 @@
         <item name="android:textColor">@color/white</item>
         <item name="shapeAppearanceOverlay">
             @style/ShapeAppearanceOverlay.MyApp.Button.Rounded</item>
+    </style>
+
+    <style name="SubCategoryRecyclerViewMenu">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/candara</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 
