@@ -16,7 +16,7 @@ class SubCategoriesAdapterMenu (val itens: List<SubCategories>) : RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.row_subcategories, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_subcategories, parent,false)
         return ViewHolder(view)
     }
 

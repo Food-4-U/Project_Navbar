@@ -22,9 +22,10 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
+import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
-import projeto.ipca.food4u.grupoI.models.Item_Menu
+
 
 class   HomeFragment : Fragment() {
 

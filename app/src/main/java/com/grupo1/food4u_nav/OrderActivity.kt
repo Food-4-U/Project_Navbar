@@ -20,10 +20,12 @@ class OrderActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
-            windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            val windowInsetsController =
+                ViewCompat.getWindowInsetsController(window.decorView) ?: return
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        }else{
+        } else {
             val flags =
                 (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
@@ -32,10 +34,9 @@ class OrderActivity : AppCompatActivity() {
 
         val back = findViewById<ImageView>(R.id.arrowBack)
 
-        back.setOnClickListener{
+        back.setOnClickListener {
             val intent = Intent(this@OrderActivity, MainActivity::class.java);
             startActivity(intent)
         }
-
     }
 }

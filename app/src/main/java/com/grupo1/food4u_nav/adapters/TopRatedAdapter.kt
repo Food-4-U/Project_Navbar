@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
-import projeto.ipca.food4u.grupoI.models.Item_Menu
+import com.grupo1.food4u_nav.models.Item_Menu
 
 class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>(){
 
@@ -21,7 +21,7 @@ class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRat
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.row_toprated, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_toprated, parent,false)
         return ViewHolder(view)
     }
 

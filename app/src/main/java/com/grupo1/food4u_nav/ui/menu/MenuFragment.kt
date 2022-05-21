@@ -34,7 +34,7 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var itens : List<CategoryType> = arrayListOf(
+        val itens : List<CategoryType> = arrayListOf(
             CategoryType("Francesinhas", 1),
             CategoryType("Hamburgeres", 2),
             CategoryType("Saladas", 3),
