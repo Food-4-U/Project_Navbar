@@ -14,7 +14,7 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
 
 class AdditionalForm : Fragment() {
-    private var _binding: FragmentAdditionFormBinding? = null
+    private lateinit var _binding: FragmentAdditionFormBinding
 
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -25,10 +25,9 @@ class AdditionalForm : Fragment() {
 
         val root: View = binding.root
 
-
         val backBtn: Button = root.findViewById(R.id.additionForm_backBtn)
         backBtn.setOnClickListener {
-                Toast.makeText(activity,"oi",Toast.LENGTH_LONG).show()
+            Toast.makeText(activity,"oi",Toast.LENGTH_LONG).show()
         }
 
 

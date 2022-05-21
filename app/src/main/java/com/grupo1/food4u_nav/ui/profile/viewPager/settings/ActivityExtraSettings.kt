@@ -8,18 +8,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.databinding.ActivityExtraSettingsBinding
 import com.grupo1.food4u_nav.databinding.ActivityMainBinding
 import com.grupo1.food4u_nav.databinding.ActivitySettingsBinding
 
 class ActivityExtraSettings : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySettingsBinding
+    private lateinit var binding: ActivityExtraSettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
+        binding = ActivityExtraSettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.hide()
