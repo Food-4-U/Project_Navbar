@@ -48,9 +48,9 @@ class ProfileFragment : Fragment() {
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = sectionPagerAdapter
 
-        var prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
 
-        var cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        val cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
         cliente.email = prefs?.getString("email", "")
         cliente.nome = prefs?.getString("nome", "")
 

@@ -31,6 +31,14 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
+    <style name="ImageView.Corner_TopRated" parent="">
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
     <style name="SearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/segoeuil</item>

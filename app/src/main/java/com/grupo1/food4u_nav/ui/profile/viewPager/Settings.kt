@@ -30,11 +30,12 @@ class Settings : Fragment() {
 
         val btnForm : TextView = root.findViewById(com.grupo1.food4u_nav.R.id.profile_additionalForm)
 
+
         btnForm.setOnClickListener{
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.addToBackStack("");
-            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, AdditionalForm()).commit()
+            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, AdditionalForm())
+            fragmentTransaction.addToBackStack("null").commit()
         }
 
         return root

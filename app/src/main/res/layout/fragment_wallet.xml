@@ -9,24 +9,26 @@
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="60dp">
 
                     <TextView
                         android:id="@+id/textView8"
@@ -61,7 +63,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="68dp"
-                                android:fontFamily="@font/kredit"
+                                android:fontFamily="@font/segoeui"
                                 android:text="0000 0000 0000 0000"
                                 android:textColor="#A7A7A7"
                                 android:textSize="26sp"
@@ -74,7 +76,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="18dp"
-                                android:fontFamily="@font/kredit"
+                                android:fontFamily="@font/segoeui"
                                 android:text="Cledisvaldo Duarte"
                                 android:textAllCaps="true"
                                 android:textColor="#A7A7A7"
@@ -101,7 +103,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
-                                android:fontFamily="@font/kredit"
+                                android:fontFamily="@font/segoeui"
                                 android:text="00/00"
                                 android:textColor="#A7A7A7"
                                 android:textSize="14sp"
@@ -124,23 +126,13 @@
                                 android:id="@+id/textView26"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                android:fontFamily="@font/kredit"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="@font/segoeui"
                                 android:text="000"
                                 android:textColor="#A7A7A7"
                                 android:textSize="14sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="@+id/textView24" />
-
-                            <ImageView
-                                android:id="@+id/imageView15"
-                                android:layout_width="68dp"
-                                android:layout_height="71dp"
-                                android:layout_marginStart="35dp"
-                                android:layout_marginBottom="24dp"
-                                android:src="@drawable/chip"
-                                app:layout_constraintBottom_toBottomOf="@+id/textView9"
-                                app:layout_constraintStart_toStartOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -151,7 +143,7 @@
                         android:layout_width="80dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="35dp"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/ic_launcher_background"
                         android:text="+"
                         android:textColor="@color/text"
                         android:textSize="20sp"
