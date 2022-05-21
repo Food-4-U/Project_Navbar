@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
         textViewRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java);
             startActivity(intent)
-            finish()
+            //finish()
         }
 
         val btnLogin = findViewById<Button>(R.id.buttonRegister)

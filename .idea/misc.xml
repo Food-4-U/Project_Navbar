@@ -7,36 +7,46 @@
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/drawable/green_corner_raidus.xml" value="0.2355" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.2355" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/drawable/white_circle.xml" value="0.2355" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_login.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_main.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_order.xml" value="0.2" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_order2.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_product_details.xml" value="0.22530996152201796" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_register.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_register.xml" value="0.15294117647058825" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_hottest.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.4" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/creditcard.xml" value="0.23" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/login_backgroundedittext.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rounded_retangle.xml" value="0.23" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/searchbar.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/stroke_addnewcard.xml" value="0.23" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_login.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_product_details.xml" value="0.2" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_register.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_settings.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_settings_extra.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/addbtn.xml" value="0.8" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_addition_form.xml" value="0.536" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_additional_form.xml" value="0.1936725096194955" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_favorites.xml" value="0.223731884057971" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_menu.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_order.xml" value="0.4" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_profile.xml" value="0.223731884057971" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_search.xml" value="0.20521590423257802" />
-        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_settings.xml" value="0.6" />
-        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_wallet.xml" value="0.264" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_settings.xml" value="0.536" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_wallet.xml" value="0.2" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_favorites.xml" value="0.536" />
-        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_hottest.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_hottest.xml" value="0.4" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_menu.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_subcategories.xml" value="0.8" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/row_toprated.xml" value="0.4" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/rv_hottest.xml" value="0.536" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/rv_menu.xml" value="0.3827751196172249" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food4U_Nav/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food4U_Nav/app/src/main/res/drawable/rounded_retangle.xml" value="0.137" />
