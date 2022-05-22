@@ -159,7 +159,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_hottest"
                     android:layout_width="match_parent"
-                    android:layout_height="810dp"
+                    android:layout_height="860dp"
                     android:layout_marginTop="12dp"
                     android:nestedScrollingEnabled="false">
 

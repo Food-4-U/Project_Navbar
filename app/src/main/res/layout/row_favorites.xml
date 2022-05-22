@@ -5,12 +5,12 @@
     android:id="@+id/row__"
     android:layout_width="160dp"
     android:layout_height="240dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="10dp"
-    app:cardElevation="10dp"
-    tools:ignore="MissingClass">
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
