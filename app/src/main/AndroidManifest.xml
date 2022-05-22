@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Food4U_Nav"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditProfile"
+            android:exported="false" />
+        <activity
             android:name=".Settings"
             android:exported="false" />
         <activity
