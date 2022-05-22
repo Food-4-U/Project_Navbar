@@ -9,6 +9,8 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.MenuAdapter
@@ -58,6 +60,9 @@ class MenuFragment : Fragment() {
 
         return root
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -17,19 +17,29 @@
 
     <ImageView
         android:id="@+id/arrowBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="46dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="32.5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/yellowRectangle"
-        app:srcCompat="@drawable/backbtn" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowBack1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/arrowBack"
+            app:layout_constraintEnd_toEndOf="@+id/arrowBack"
+            app:layout_constraintStart_toStartOf="@+id/arrowBack"
+            app:layout_constraintTop_toTopOf="@+id/arrowBack"
+            app:srcCompat="@drawable/backbtn">
+    </ImageView>
 
     <TextView
         android:id="@+id/orderWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="121dp"
         android:fontFamily="@font/candarabold"
         android:gravity="center"
@@ -54,14 +64,24 @@
         app:layout_constraintTop_toTopOf="@+id/yellowRectangle" />
 
     <ImageView
-        android:id="@+id/trashCanIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginRight="34dp"
-        app:layout_constraintEnd_toEndOf="@+id/yellowRectangle"
-        app:layout_constraintTop_toTopOf="@+id/yellowRectangle"
-        app:srcCompat="@drawable/leftarrow" />
+        android:id="@id/trashCanIcon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32.5dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/trashCanIcon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/trashCanIcon"
+            app:layout_constraintEnd_toEndOf="@+id/trashCanIcon"
+            app:layout_constraintStart_toStartOf="@+id/trashCanIcon"
+            app:layout_constraintTop_toTopOf="@+id/trashCanIcon"
+            app:srcCompat="@drawable/leftarrow">
+    </ImageView>
 
     <TextView
         android:id="@+id/textView39"
