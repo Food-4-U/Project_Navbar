@@ -70,7 +70,7 @@ class ProfileFragment : Fragment() {
         val btnLogout : Button = binding.btnLogout
 
         btnLogout.setOnClickListener {
-            prefs?.edit()?.clear()?.commit();
+            prefs?.edit()?.clear()?.apply();
             myEdit?.apply()
 
             val intent = Intent(activity, LoginActivity::class.java);

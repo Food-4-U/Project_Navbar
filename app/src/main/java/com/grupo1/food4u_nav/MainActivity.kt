@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.grupo1.food4u_nav.databinding.ActivityLoginBinding.inflate
 import com.grupo1.food4u_nav.databinding.ActivityMainBinding
 import com.grupo1.food4u_nav.databinding.ActivityProductDetailsBinding.inflate
@@ -48,13 +50,21 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
+
+         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_search, R.id.navigation_menu, R.id.navigation_profile
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_menu, R.id.navigation_profile, R.id.carButton
             )
         )
+
+        val carButton = findViewById<FloatingActionButton>(R.id.carButton)
+
+        carButton.setOnClickListener {
+            val intent = Intent(this, OrderActivity::class.java);
+            startActivity(intent)
+        }
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
