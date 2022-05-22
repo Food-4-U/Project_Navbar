@@ -1,20 +1,19 @@
 package com.grupo1.food4u_nav
 
 import Backend
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.grupo1.food4u_nav.R.drawable.show
 import com.grupo1.food4u_nav.models.Cliente
 
 
@@ -43,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
         textViewRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java);
             startActivity(intent)
-            //finish()
         }
 
         val btnLogin = findViewById<Button>(R.id.buttonRegister)
@@ -51,7 +49,18 @@ class LoginActivity : AppCompatActivity() {
         val btnRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
         val editEmail = findViewById<EditText>(R.id.editName)
         val editPass = findViewById<EditText>(R.id.editEmail)
-        editPass.setTransformationMethod(PasswordTransformationMethod.getInstance())
+        editPass.transformationMethod = PasswordTransformationMethod.getInstance()
+
+        var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+        val myEdit = food4UCliente.edit()
+
+        //COLOCAR NA SPLASH SCRREN TODO
+        val isLogged : Boolean = food4UCliente.getBoolean("isLogged",false)
+        if(isLogged){
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
 
@@ -60,8 +69,7 @@ class LoginActivity : AppCompatActivity() {
             var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
             cliente.email = editEmail.text.toString()
             cliente.password = editPass.text.toString()
-            var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
-            val myEdit = food4UCliente.edit()
+
 
             if (cliente.email.isNullOrBlank() || cliente.password.isNullOrBlank()) {
                 Toast.makeText(
@@ -77,6 +85,7 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
+                            myEdit.putBoolean("isLogged",true) //TODO
                             myEdit.apply()
                         }
 
