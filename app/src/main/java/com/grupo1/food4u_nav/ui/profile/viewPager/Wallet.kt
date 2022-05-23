@@ -32,7 +32,7 @@ class Wallet : Fragment() {
             Context.MODE_PRIVATE
         )
 
-        val cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        val cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
         cliente.nome = prefs?.getString("nome", "")
 
         val cardName = root.findViewById<TextView>(com.grupo1.food4u_nav.R.id.creditName)

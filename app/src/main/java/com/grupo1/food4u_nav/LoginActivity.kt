@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
 
-            var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+            var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
             cliente.email = editEmail.text.toString()
             cliente.password = editPass.text.toString()
 
