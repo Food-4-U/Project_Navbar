@@ -53,4 +53,6 @@
     <string name="maritalStatus">Estado Civil</string>
     <string name="avgAmountEatingOut">Valor médio gasto ao comer fora</string>
     <string name="submit">Enviar</string>
+    <string name="stats">Estatísticas</string>
+    <string name="menu_admin">Menu Admin</string>
 </resources>

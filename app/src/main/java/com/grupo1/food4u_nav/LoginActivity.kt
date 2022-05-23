@@ -56,8 +56,13 @@ class LoginActivity : AppCompatActivity() {
 
         //COLOCAR NA SPLASH SCRREN TODO
         val isLogged : Boolean = food4UCliente.getBoolean("isLogged",false)
-        if(isLogged){
+        val isAdmin : Boolean = food4UCliente.getBoolean("isAdmin", false)
+        if (isLogged && isAdmin == false) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else if (isLogged && isAdmin) {
+            val intent = Intent(this@LoginActivity, AdminActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -85,13 +90,20 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
-                            myEdit.putBoolean("isLogged",true) //TODO
+                            myEdit.putBoolean("isLogged",true)
+                            myEdit.putBoolean("isAdmin", it.isAdmin) //TODO
                             myEdit.apply()
                         }
-
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        if (cliente.isAdmin == false) {
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else
+                        {
+                            val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
                     } else {
                         Toast.makeText(
                             this@LoginActivity,

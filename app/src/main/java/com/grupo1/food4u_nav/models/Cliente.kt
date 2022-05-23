@@ -12,7 +12,7 @@ class Cliente {
     var idade : Int? = null
     var localidade : String? = null
     var concelho : String? = null
-    var isAdmin : Boolean? = null
+    var isAdmin : Boolean = false
 
     constructor(
         id_cliente : Int?,
