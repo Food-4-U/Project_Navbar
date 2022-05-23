@@ -37,8 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        var cliente: Cliente =
-            Cliente(email = null, id_cliente = null, password = null, nome = null)
+        var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
         val textViewLogin = findViewById<TextView>(R.id.acitivityLoginButton)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
         val clientName = findViewById<EditText>(R.id.editName)

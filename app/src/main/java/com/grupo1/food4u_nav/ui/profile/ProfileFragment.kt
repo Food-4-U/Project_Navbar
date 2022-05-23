@@ -56,7 +56,7 @@ class ProfileFragment : Fragment() {
 
         val prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
 
-        val cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        val cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
         cliente.email = prefs?.getString("email", "")
         cliente.nome = prefs?.getString("nome", "")
 
