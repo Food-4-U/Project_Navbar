@@ -64,16 +64,39 @@
                 android:layout_marginRight="5dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="33dp"
-                    android:fontFamily="@font/candarabold"
-                    android:text="@string/what_to_eat"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text"
-                    android:textSize="36sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
+                        android:fontFamily="@font/candarabold"
+                        android:text="@string/what_to_eat"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text"
+                        android:textSize="36sp" />
+
+                    <Button
+                        android:id="@+id/QrCodeBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/transparent_background"
+                        app:icon="@drawable/ic_qr_code_scan"
+                        app:iconGravity="start"
+                        app:iconSize="20dp"
+                        app:iconTint="@color/text"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+                </LinearLayout>
 
                 <SearchView
                     android:id="@+id/menu_SearchView"
