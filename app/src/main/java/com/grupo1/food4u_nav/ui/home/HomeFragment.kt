@@ -1,29 +1,26 @@
 package com.grupo1.food4u_nav.ui.home
 
+import android.R
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
-import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
+import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
@@ -50,7 +47,7 @@ class   HomeFragment : Fragment() {
             SubCategories(1,"Bebidas")
             )
 
-        val rv_Subcategories : RecyclerView = root.findViewById(R.id.rv_Subcategories)
+        val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
         val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
         rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         rv_Subcategories.adapter = adapterSubCategories
@@ -67,23 +64,20 @@ class   HomeFragment : Fragment() {
         )
 
 
-        val rv_Hottest : RecyclerView = root.findViewById(R.id.rv_hottest)
+        val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
         val adapter = HottestAdapter(itens)
 
         rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
         rv_Hottest.adapter = adapter
 
-
-
-        val rv_topRated: RecyclerView = root.findViewById(R.id.rv_topRated)
+        val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
         val adapterTopRated = TopRatedAdapter(itens)
 
         rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
         rv_topRated.adapter = adapterTopRated
 
 
-
-        val product = root.findViewById<ImageView>(R.id.imageView10)
+        val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)
 
 
         product.setOnClickListener {
@@ -91,7 +85,14 @@ class   HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 
+        qrCodeBtn.setOnClickListener {
+            val fragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
+            fragmentTransaction.addToBackStack("null").commit()
+        }
         return root
 
     }
