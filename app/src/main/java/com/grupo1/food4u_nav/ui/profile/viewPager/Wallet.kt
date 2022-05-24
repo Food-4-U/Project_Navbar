@@ -13,7 +13,6 @@ import com.grupo1.food4u_nav.databinding.FragmentSettingsBinding
 import com.grupo1.food4u_nav.databinding.FragmentWalletBinding
 import com.grupo1.food4u_nav.models.Cliente
 
-
 class Wallet : Fragment() {
 
     private lateinit var _binding: FragmentWalletBinding
