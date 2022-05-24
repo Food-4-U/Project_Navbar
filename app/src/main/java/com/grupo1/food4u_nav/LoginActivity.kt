@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         val textViewRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
 
         textViewRegister.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java);
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
 
@@ -87,23 +87,26 @@ class LoginActivity : AppCompatActivity() {
                     if (it) {
                         Backend.getClienteEmail(cliente.email!!)
                         {
+                            cliente.isAdmin = it.isAdmin
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
                             myEdit.putBoolean("isLogged",true)
                             myEdit.putBoolean("isAdmin", it.isAdmin) //TODO
                             myEdit.apply()
+
+                            if (cliente.isAdmin) {
+                                val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else
+                            {
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
                         }
-                        if (cliente.isAdmin) {
-                            val intent = Intent(this@LoginActivity, AdminActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else
-                        {
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
+
                     } else {
                         Toast.makeText(
                             this@LoginActivity,
