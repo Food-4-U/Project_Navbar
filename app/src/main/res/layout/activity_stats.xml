@@ -124,6 +124,54 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/stats"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/floorAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Idade minima:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/stats" />
+
+                    app:layout_constraintStart_toEndOf="@+id/stats"
+                    <TextView
+                        android:id="@+id/resultFloorAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/floorAge"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/floorAge" />
+
+                    <TextView
+                        android:id="@+id/TopAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Idade máxima:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/floorAge" />
+
+                    app:layout_constraintStart_toEndOf="@+id/stats"
+                    <TextView
+                        android:id="@+id/resultTopAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/TopAge"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/TopAge" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
