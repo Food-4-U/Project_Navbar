@@ -44,7 +44,7 @@ class StatsActivity : AppCompatActivity() {
             for (cliente in clientes) {
                 media += cliente.idade!!
 
-                if (min > cliente.idade!!){
+                if (min > cliente.idade!! && cliente.idade!! > 0){
                     min = cliente.idade!!
                 }
 
