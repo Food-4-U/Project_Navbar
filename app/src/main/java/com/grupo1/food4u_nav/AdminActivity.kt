@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,10 +30,21 @@ class AdminActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+        val myEdit = food4UCliente.edit()
         val btnStats = findViewById<ImageView>(R.id.statsImage)
+        val btnLogOut = findViewById<Button>(R.id.btnLogout)
 
         btnStats.setOnClickListener {
             val intent = Intent(this@AdminActivity, StatsActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnLogOut.setOnClickListener {
+            val intent = Intent(this@AdminActivity, LoginActivity::class.java)
+            food4UCliente?.edit()?.clear()?.apply();
+            myEdit.putBoolean("isLogged",false)
+            myEdit?.apply()
             startActivity(intent)
             finish()
         }
