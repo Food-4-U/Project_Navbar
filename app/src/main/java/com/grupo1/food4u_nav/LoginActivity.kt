@@ -55,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
         val myEdit = food4UCliente.edit()
 
         //COLOCAR NA SPLASH SCRREN TODO
-        val isLogged : Boolean = food4UCliente.getBoolean("isLogged",false)
-        val isAdmin : Boolean = food4UCliente.getBoolean("isAdmin", false)
+        var isLogged : Boolean = food4UCliente.getBoolean("isLogged",false)
+        var isAdmin : Boolean = food4UCliente.getBoolean("isAdmin", false)
         if (isLogged && isAdmin == false) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)

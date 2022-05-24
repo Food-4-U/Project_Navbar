@@ -35,22 +35,17 @@ class StatsActivity : AppCompatActivity() {
         }
 
         var media : Float = 0.0F
-        //val clientesAdapter = ClientesAdapter()
-
 
         Backend.getAllClientes {
             clientes = it
-            //clientesAdapter.notifyDataSetChanged()
+
+            for (cliente in clientes) {
+                media += cliente.idade!!
+            }
+            media = media / clientes.size
+            val mediaTextView = findViewById<TextView>(R.id.resultAge)
+            mediaTextView.text = "${media}"
         }
-
-        for (cliente in clientes) {
-            media += cliente.idade!!
-        }
-
-
-        val mediaTextView = findViewById<TextView>(R.id.resultAge)
-        mediaTextView.text = "${clientes.size}"
-
     }
 
     abstract inner class ClientesAdapter : BaseAdapter() {
