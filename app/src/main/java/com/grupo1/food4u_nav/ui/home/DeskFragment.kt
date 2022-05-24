@@ -16,6 +16,7 @@ import androidx.core.content.PackageManagerCompat
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
+import com.budiyev.android.codescanner.ErrorCallback
 import com.grupo1.food4u_nav.R
 
 class DeskFragment : Fragment() {
@@ -42,6 +43,15 @@ class DeskFragment : Fragment() {
                 Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
             }
         }
+
+        codeScanner.errorCallback = ErrorCallback {
+            activity.runOnUiThread {
+                Toast.makeText(activity,"Camera Inicialiation Error!", Toast.LENGTH_SHORT).show()
+
+            }
+        }
+
+
         scannerView.setOnClickListener {
             codeScanner.startPreview()
         }
