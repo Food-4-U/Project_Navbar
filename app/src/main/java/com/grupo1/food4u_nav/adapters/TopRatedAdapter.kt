@@ -29,7 +29,7 @@ class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRat
         holder.nameFood.text = itens[position].nome
         holder.foodEvaluation.text = itens[position].avaliacao.toString()
         holder.foodprice.text = itens[position].preco.toString() + "€"
-        holder.foodStars.rating = itens[position].avaliacao
+        holder.foodStars.rating = itens[position].avaliacao.toFloat()
     }
 
     override fun getItemCount(): Int {

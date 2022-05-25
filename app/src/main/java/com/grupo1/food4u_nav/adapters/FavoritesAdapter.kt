@@ -31,13 +31,13 @@ class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<Favorite
     override fun onBindViewHolder(holder: FavoritesAdapter.ViewHolder, position: Int) {
         holder.foodname.text = fav[position].nome
         holder.foodPrice.text = fav[position].preco.toString().plus("€")
-        holder.isChecked = fav[position].
+       /* holder.isChecked = fav[position].
 
         changeIconFav(position,holder)
 
         holder.likeBtn.setOnClickListener {
             changeIconFav(position,holder)
-        }
+        }*/
 
     }
 
@@ -46,7 +46,7 @@ class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<Favorite
     }
 
 
-    fun changeIconFav(position: Int,holder: FavoritesAdapter.ViewHolder){
+   /* fun changeIconFav(position: Int,holder: FavoritesAdapter.ViewHolder){
         if (fav[position].fav){
             holder.likeBtn.setImageResource(R.drawable.ic_heartfill)
             fav[position].fav = false
@@ -55,6 +55,6 @@ class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<Favorite
             holder.likeBtn.setImageResource(R.drawable.ic_heartnotfill)
             fav[position].fav = true
         }
-    }
+    }*/
 
 }
