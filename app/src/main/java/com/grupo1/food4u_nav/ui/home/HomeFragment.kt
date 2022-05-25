@@ -54,12 +54,15 @@ class   HomeFragment : Fragment() {
 
 
         var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu("Hamburguer de Novilho",10,4.40F,5.80f,true),
-            Item_Menu("Pizza á Carbonara",25,5F,13.4f,true),
-            Item_Menu("Batatinha Frita",5,1F,4.80f,true),
-            Item_Menu("Batatinha Frita",5,1F,4.80f,true),
-            Item_Menu("Batatinha Frita",5,1F,4.80f,true),
-            Item_Menu("Batatinha Frita",5,1F,4.80f,true)
+
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+                    Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+        Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true)
+
+
 
         )
 

@@ -27,10 +27,10 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
     }
 
     override fun onBindViewHolder(holder: HottestAdapter.ViewHolder, position: Int) {
-        holder.nameFood.text = itens[position].description
-        holder.foodEvaluation.text = itens[position].evaluation.toString()
-        holder.foodprice.text = itens[position].price.toString() + "€"
-        holder.foodStars.rating = itens[position].evaluation
+        holder.nameFood.text = itens[position].nome
+        holder.foodEvaluation.text = itens[position].avaliacao.toString()
+        holder.foodprice.text = itens[position].preco.toString() + "€"
+        holder.foodStars.rating = itens[position].avaliacao
     }
 
     override fun getItemCount(): Int {
