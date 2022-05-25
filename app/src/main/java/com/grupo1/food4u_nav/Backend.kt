@@ -182,7 +182,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/Get/Subcategoria/" + subcategory)
+                .url(BASE_API + "Item/ItemSubategoria/" + subcategory)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
@@ -206,7 +206,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/Get/Top/")
+                .url(BASE_API + "Item/ItemHot")
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()

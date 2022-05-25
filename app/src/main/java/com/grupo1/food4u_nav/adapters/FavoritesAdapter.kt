@@ -1,3 +1,5 @@
+
+
 package com.grupo1.food4u_nav.adapters
 
 import android.view.LayoutInflater
@@ -29,7 +31,7 @@ class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<Favorite
     override fun onBindViewHolder(holder: FavoritesAdapter.ViewHolder, position: Int) {
         holder.foodname.text = fav[position].nome
         holder.foodPrice.text = fav[position].preco.toString().plus("€")
-        holder.isChecked = fav[position].fav
+        holder.isChecked = fav[position].
 
         changeIconFav(position,holder)
 
