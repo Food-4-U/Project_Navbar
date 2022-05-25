@@ -13,7 +13,7 @@ class Item_Menu {
     var url : String? = null
     var id_categoria: Int? = null
     var id_subcategoria: Int? = null
-    var avaliacao: Double? = null
+    var avaliação: Double? = null
     //var fav : Boolean
 
     constructor(
@@ -25,7 +25,7 @@ class Item_Menu {
         url: String?,
         id_categoria: Int?,
         id_subcategoria: Int?,
-        avaliacao: Double?
+        avaliação: Double?
         //fav: Boolean
     ) {
         this.id_item = id_item
@@ -36,7 +36,7 @@ class Item_Menu {
         this.url = url
         this.id_categoria = id_categoria
         this.id_subcategoria = id_subcategoria
-        this.avaliacao = avaliacao
+        this.avaliação = avaliação
         //this.fav = fav
     }
 
@@ -50,7 +50,7 @@ class Item_Menu {
         jsonObject.put("url", url)
         jsonObject.put("id_categoria", id_categoria)
         jsonObject.put("id_subcategoria", id_subcategoria)
-        jsonObject.put("avaliacao", avaliacao)
+        jsonObject.put("avaliação", avaliação)
         return jsonObject
     }
 
@@ -66,7 +66,7 @@ class Item_Menu {
                 jsonObject["url"] as? String?,
                 jsonObject["id_categoria"] as? Int?,
                 jsonObject["id_subcategoria"] as? Int?,
-                jsonObject["avaliacao"] as? Double?
+                jsonObject["avaliação"] as? Double?
             )
         }
     }

@@ -27,9 +27,9 @@ class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRat
 
     override fun onBindViewHolder(holder: TopRatedAdapter.ViewHolder, position: Int) {
         holder.nameFood.text = itens[position].nome
-        holder.foodEvaluation.text = itens[position].avaliacao.toString()
+        holder.foodEvaluation.text = itens[position].avaliação.toString()
         holder.foodprice.text = itens[position].preco.toString() + "€"
-        holder.foodStars.rating = itens[position].avaliacao!!.toFloat()
+        holder.foodStars.rating = itens[position].avaliação!!.toFloat()
     }
 
     override fun getItemCount(): Int {
