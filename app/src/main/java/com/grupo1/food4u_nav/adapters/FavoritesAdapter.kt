@@ -1,15 +1,11 @@
 package com.grupo1.food4u_nav.adapters
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
 
@@ -31,8 +27,8 @@ class FavoritesAdapter(val fav: List<Item_Menu>) : RecyclerView.Adapter<Favorite
     }
 
     override fun onBindViewHolder(holder: FavoritesAdapter.ViewHolder, position: Int) {
-        holder.foodname.text = fav[position].description
-        holder.foodPrice.text = fav[position].price.toString().plus("€")
+        holder.foodname.text = fav[position].nome
+        holder.foodPrice.text = fav[position].preco.toString().plus("€")
         holder.isChecked = fav[position].fav
 
         changeIconFav(position,holder)

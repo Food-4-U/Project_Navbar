@@ -32,11 +32,9 @@ class Favorites : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_favorites, container, false)
 
         var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu("Hamburguer",10,4.40F,5.80f,true),
-            Item_Menu("Hamburguer",10,4.40F,5.80f,false),
-            Item_Menu("Hamburguer",10,4.40F,5.80f,true),
-            Item_Menu("Hamburguer",10,4.40F,5.80f,true),
-            Item_Menu("Hamburguer",10,4.40F,5.80f,true)
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true)
+
         )
 
         var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
