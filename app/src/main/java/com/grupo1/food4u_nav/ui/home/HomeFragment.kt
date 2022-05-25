@@ -53,28 +53,24 @@ class   HomeFragment : Fragment() {
         rv_Subcategories.adapter = adapterSubCategories
 
 
-        var itens : List<Item_Menu> = arrayListOf(
+        var itens : List<Item_Menu> = arrayListOf()
 
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5),
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5),
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5),
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5),
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5),
-            Item_Menu(1,"Hamburguer",10F,5,null,false,2,1,4.5)
-        )
+        Backend.getItemTop {
+            itens = it
 
+            val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
+            val adapter = HottestAdapter(itens)
 
-        val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
-        val adapter = HottestAdapter(itens)
+            rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
+            rv_Hottest.adapter = adapter
 
-        rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
-        rv_Hottest.adapter = adapter
+            val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
+            val adapterTopRated = TopRatedAdapter(itens)
 
-        val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
-        val adapterTopRated = TopRatedAdapter(itens)
+            rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+            rv_topRated.adapter = adapterTopRated
 
-        rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-        rv_topRated.adapter = adapterTopRated
+        }
 
 
         val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)

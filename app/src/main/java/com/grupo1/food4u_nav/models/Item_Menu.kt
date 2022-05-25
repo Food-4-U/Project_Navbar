@@ -7,7 +7,7 @@ class Item_Menu {
     constructor(
         id_item: Int,
         nome: String,
-        preco: Float,
+        preco: Double,
         temp_prep: Int,
         url: String? = null,
         destaque: Boolean,
@@ -30,10 +30,10 @@ class Item_Menu {
 
     var id_item: Int
     var nome: String
-    var preco: Float
+    var preco: Double
     var temp_prep: Int
     var url : String?
-    var destaque : Boolean
+    var destaque : Boolean = false
     var id_categoria: Int
     var id_subcategoria: Int
     var avaliacao: Double
@@ -59,7 +59,7 @@ class Item_Menu {
             return Item_Menu (
                 jsonObject["id_item"] as Int,
                 jsonObject["nome"] as String,
-                jsonObject["preco"] as Float,
+                jsonObject["preco"] as Double,
                 jsonObject["temp_prep"] as Int,
                 jsonObject["url"] as? String?,
                 jsonObject["destaque"] as Boolean,

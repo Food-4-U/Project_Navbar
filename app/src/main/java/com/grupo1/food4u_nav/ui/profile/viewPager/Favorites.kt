@@ -33,8 +33,8 @@ class Favorites : Fragment() {
 
 
         var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu(1,"Hamburguer",10F,5,null,true,2,1,4.5),
-            Item_Menu(2,"Hamburguer",10F,5,null,false,2,1,4.8)
+            Item_Menu(1,"Hamburguer",10.0,5,null,true,2,1,4.5),
+            Item_Menu(2,"Hamburguer",10.0,5,null,false,2,1,4.8)
 
         )
 
