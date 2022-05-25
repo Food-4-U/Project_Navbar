@@ -55,15 +55,12 @@ class   HomeFragment : Fragment() {
 
         var itens : List<Item_Menu> = arrayListOf(
 
-            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
-            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
-            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
-            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
-                    Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true),
-        Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1,true)
-
-
-
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1),
+            Item_Menu(1,"Hamburguer",10F,5,4.7F,"aaaa",false,1,1)
         )
 
 
