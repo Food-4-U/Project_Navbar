@@ -182,7 +182,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/Get/SubCategory/" + subcategory)
+                .url(BASE_API + "Item/Get/Subcategoria/" + subcategory)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
@@ -201,12 +201,12 @@ object Backend {
         }
     }
 
-    fun getItemTop(top: Boolean, callback: ((List<Item_Menu>) -> Unit)) {
+    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)) {
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/Get/Top/" + top)
+                .url(BASE_API + "Item/Get/Top/")
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
