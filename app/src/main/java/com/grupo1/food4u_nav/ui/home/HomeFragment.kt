@@ -26,6 +26,8 @@ import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class   HomeFragment : Fragment() {
 
+    var itens : List<Item_Menu> = arrayListOf()
+
     private var _binding: FragmentHomeBinding? = null
 
     private val binding get() = _binding!!
@@ -51,9 +53,6 @@ class   HomeFragment : Fragment() {
         val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
         rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         rv_Subcategories.adapter = adapterSubCategories
-
-
-        var itens : List<Item_Menu> = arrayListOf()
 
         Backend.getItemTop {
             itens = it
