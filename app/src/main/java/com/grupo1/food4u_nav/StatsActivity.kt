@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupo1.food4u_nav.models.Cliente
 import okhttp3.internal.notify
+import org.w3c.dom.Text
 
 class StatsActivity : AppCompatActivity() {
     var clientes: List<Cliente> = arrayListOf()
@@ -34,17 +35,36 @@ class StatsActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
-        var media : Float = 0.0F
-
+        var media = 0.0F
+        var min = 1000
+        var max = -1
         Backend.getAllClientes {
             clientes = it
 
             for (cliente in clientes) {
                 media += cliente.idade!!
+
+                if (min > cliente.idade!! && cliente.idade!! > 0){
+                    min = cliente.idade!!
+                }
+
+                if (max < cliente.idade!!){
+                    max = cliente.idade!!
+                }
             }
             media = media / clientes.size
+
+
+
+
+            val minTextView = findViewById<TextView>(R.id.resultFloorAge)
+            val maxTextView = findViewById<TextView>(R.id.resultTopAge)
             val mediaTextView = findViewById<TextView>(R.id.resultAge)
             mediaTextView.text = "${media}"
+            minTextView.text = "${min}"
+            maxTextView.text = "${max}"
+
+
         }
     }
 
