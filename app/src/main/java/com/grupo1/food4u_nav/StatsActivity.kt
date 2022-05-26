@@ -38,6 +38,9 @@ class StatsActivity : AppCompatActivity() {
         var media = 0.0F
         var min = 1000
         var max = -1
+        var genMasculino = 0
+        var genPercentagem = 0.0F
+
         Backend.getAllClientes {
             clientes = it
 
@@ -51,18 +54,34 @@ class StatsActivity : AppCompatActivity() {
                 if (max < cliente.idade!!){
                     max = cliente.idade!!
                 }
+
+                if (cliente.genero!!.contains('M'))
+                {
+                    genMasculino += 1
+                }
+
+
             }
+
             media = media / clientes.size
-
-
-
+            genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
 
             val minTextView = findViewById<TextView>(R.id.resultFloorAge)
             val maxTextView = findViewById<TextView>(R.id.resultTopAge)
             val mediaTextView = findViewById<TextView>(R.id.resultAge)
+            val generoTextView = findViewById<TextView>(R.id.resultTopGender)
+
             mediaTextView.text = "${media}"
             minTextView.text = "${min}"
             maxTextView.text = "${max}"
+
+            if (genPercentagem > 50F)
+            {
+                generoTextView.text = "Masculino ${genPercentagem}"
+            } else
+            {
+                generoTextView.text = "Feminino ${genPercentagem}"
+            }
 
 
         }
