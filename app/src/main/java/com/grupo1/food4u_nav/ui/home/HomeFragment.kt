@@ -24,7 +24,7 @@ import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
-class   HomeFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     var itens : List<Item_Menu> = arrayListOf()
 
@@ -62,6 +62,8 @@ class   HomeFragment : Fragment() {
 
             rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
             rv_Hottest.adapter = adapter
+
+            itens = it.sortedByDescending { it.avaliação }
 
             val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
             val adapterTopRated = TopRatedAdapter(itens)

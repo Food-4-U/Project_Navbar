@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="40dp"
         app:rippleColor="#FFFFFF"
-        app:srcCompat="@drawable/magnifying_glass" />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
 
     <TextView
