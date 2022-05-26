@@ -24,7 +24,7 @@ import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
-class   HomeFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     var itens : List<Item_Menu> = arrayListOf()
 
