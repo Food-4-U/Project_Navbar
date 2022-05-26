@@ -182,7 +182,31 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/ItemSubategoria/" + subcategory)
+                .url(BASE_API + "Item/ItemSubcategoria/" + subcategory)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var itemJSON = resultArray[index] as JSONObject
+                    var item = Item_Menu.fromJSON(itemJSON)
+                    itens.add(item)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(itens)
+                }
+            }
+        }
+    }
+
+    fun getItemCategory(id_category: Int, callback: ((List<Item_Menu>) -> Unit)) {
+        var itens = arrayListOf<Item_Menu>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/ItemCategoria/" + id_category)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
