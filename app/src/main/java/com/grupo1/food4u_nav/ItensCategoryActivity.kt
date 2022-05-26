@@ -4,6 +4,8 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -36,8 +38,13 @@ class ItensCategoryActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        var category = findViewById<TextView>(R.id.itemCategory)
         var id_category = intent.getIntExtra(CATEGORY_ID, 0)
         var categoryName = intent.getStringExtra(CATEGORY_NAME)
+
+        val btnBack = findViewById<Button>(R.id.backButton)
+
+        category.text = categoryName
 
         Backend.getItemCategory(id_category) {
             itens = it.sortedBy { it.id_subcategoria }
@@ -47,6 +54,10 @@ class ItensCategoryActivity : AppCompatActivity() {
 
             rv_Hottest.layoutManager = GridLayoutManager(this, 2)
             rv_Hottest.adapter = adapter
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 
