@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -73,7 +74,6 @@ class HomeFragment : Fragment() {
             rv_topRated.adapter = adapterTopRated
 
         }
-
 
         val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)
 
