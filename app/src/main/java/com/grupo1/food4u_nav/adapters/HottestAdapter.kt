@@ -1,5 +1,7 @@
 package projeto.ipca.food4u.grupoI.adapters
 
+import android.icu.number.NumberFormatter.with
+import android.icu.number.NumberRangeFormatter.with
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.squareup.picasso.Picasso
 
 
 class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
@@ -29,8 +32,11 @@ class HottestAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestA
     override fun onBindViewHolder(holder: HottestAdapter.ViewHolder, position: Int) {
         holder.nameFood.text = itens[position].nome
         holder.foodEvaluation.text = itens[position].avaliação.toString()
-        holder.foodprice.text = itens[position].preco.toString() + "€"
+        holder.foodprice.text = itens[position].preco.toString() + "0€"
         holder.foodStars.rating = itens[position].avaliação!!.toFloat()
+
+        var imageURL = itens[position].url
+        Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
     }
 
     override fun getItemCount(): Int {

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
@@ -24,7 +26,7 @@ import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
-class   HomeFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     var itens : List<Item_Menu> = arrayListOf()
 
@@ -63,6 +65,8 @@ class   HomeFragment : Fragment() {
             rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
             rv_Hottest.adapter = adapter
 
+            itens = it.sortedByDescending { it.avaliação }
+
             val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
             val adapterTopRated = TopRatedAdapter(itens)
 
@@ -70,7 +74,6 @@ class   HomeFragment : Fragment() {
             rv_topRated.adapter = adapterTopRated
 
         }
-
 
         val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)
 

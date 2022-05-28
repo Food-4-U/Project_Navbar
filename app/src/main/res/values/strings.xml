@@ -52,7 +52,7 @@
     <string name="Profession">Profession</string>
     <string name="gender">Gender</string>
     <string name="ageGroup">Age Group</string>
-    <string name="withwhohangout">Who do you usually go out to eat with?</string>
+    <string name="withwhohangout">Where do you usually go out to eat with?</string>
     <string name="maritalStatus">Marital Status</string>
     <string name="avgAmountEatingOut">Average amount spent eating out</string>
     <string name="submit">Submit</string>

@@ -32,20 +32,20 @@ class Favorites : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_favorites, container, false)
 
 
-        var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu(1,"Hamburguer",10.0,5,true,null,2,1,4.5),
-            Item_Menu(2,"Hamburguer",10.0,5,true,null,2,1,4.8)
+        var itens : List<Item_Menu> = arrayListOf()
 
-        )
+        Backend.getItemTop {
+            itens = it.sortedBy { it.id_subcategoria }
 
 
-        var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
-        val adapter = FavoritesAdapter(itens)
+            var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
+            val adapter = FavoritesAdapter(itens)
 
-        rv_Favorites.layoutManager = GridLayoutManager(context, 2)
-        rv_Favorites.adapter = adapter
+            rv_Favorites.layoutManager = GridLayoutManager(context, 2)
+            rv_Favorites.adapter = adapter
 
-        adapter.notifyDataSetChanged()
+            adapter.notifyDataSetChanged()
+        }
 
         return view
     }

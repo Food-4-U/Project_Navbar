@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.squareup.picasso.Picasso
 
 class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>(){
 
@@ -30,6 +31,9 @@ class TopRatedAdapter (val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRat
         holder.foodEvaluation.text = itens[position].avaliação.toString()
         holder.foodprice.text = itens[position].preco.toString() + "€"
         holder.foodStars.rating = itens[position].avaliação!!.toFloat()
+
+        var imageURL = itens[position].url
+        Picasso.get().load(imageURL).resize(900,650).into(holder.photoFood)
     }
 
     override fun getItemCount(): Int {
