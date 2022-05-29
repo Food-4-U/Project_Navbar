@@ -1,12 +1,12 @@
 package com.grupo1.food4u_nav.ui.home
 
+import Backend
 import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -14,15 +14,12 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
-import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
-import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
@@ -49,7 +46,7 @@ class HomeFragment : Fragment() {
             SubCategories(1,"Massas"),
             SubCategories(1,"Kids"),
             SubCategories(1,"Bebidas")
-            )
+        )
 
         val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
         val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
@@ -91,6 +88,7 @@ class HomeFragment : Fragment() {
             fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
             fragmentTransaction.addToBackStack("null").commit()
         }
+
         return root
 
     }

@@ -108,7 +108,6 @@ class ProfileFragment : Fragment() {
         })
 
         return binding.root
-
     }
 
     private fun setTabTypeface(tab: TabLayout.Tab, typeface: Typeface) {

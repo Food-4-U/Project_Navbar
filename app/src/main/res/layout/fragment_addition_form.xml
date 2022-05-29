@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/additionForm_backBtn"
-        android:layout_width="118dp"
-        android:layout_height="99dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:background="@android:color/transparent"
         app:icon="@drawable/backbtn"

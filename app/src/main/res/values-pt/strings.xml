@@ -55,4 +55,9 @@
     <string name="submit">Enviar</string>
     <string name="stats">Estatísticas</string>
     <string name="menu_admin">Menu Admin</string>
+    <string name="now">Agora</string>
+    <string name="book">Reservar</string>
+    <string name="or">Ou</string>
+    <string name="number_table">Inserir número da mesa</string>
+    <string name="table">Mesa</string>
 </resources>
