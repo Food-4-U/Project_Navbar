@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
 
@@ -90,7 +91,6 @@ class ProductDetailsActivity : AppCompatActivity() {
                     priceText.text = price.toString().plus("€")
                 }
             }
-
         }
 
 

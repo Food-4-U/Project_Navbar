@@ -23,8 +23,6 @@ class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
 
-    val itens : List<CategoryType> = arrayListOf()
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -38,13 +36,19 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        Backend.getAllCategories {
-            val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
-            val menuAdapter = MenuAdapter(itens)
+        val itens : List<CategoryType> = arrayListOf(
+            CategoryType(1, "Francesinhas"),
+            CategoryType(2, "Hamburgueres"),
+            CategoryType(3, "Saladas"),
+            CategoryType(4, "Snacks")
+        )
 
-            rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-            rv_menu.adapter = menuAdapter
-        }
+
+        val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
+        val menuAdapter = MenuAdapter(itens)
+
+        rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+        rv_menu.adapter = menuAdapter
 
         val product = root.findViewById<CardView>(R.id.productCard)
 
