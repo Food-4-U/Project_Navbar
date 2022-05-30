@@ -59,7 +59,8 @@ class ProductDetailsActivity : AppCompatActivity() {
             productName.text = item!!.nome
             ratingNumber.text = item!!.avaliação.toString()
             time.text = item!!.temp_prep.toString().plus(" minutos")
-            priceText.text = item!!.preco.toString().plus("€")
+            val preco = String.format("%.2f", item!!.preco)
+            priceText.text = preco.plus("€")
 
             Backend.getNameCategory(item!!.id_categoria!!) {
                 var categoryName = it.name
@@ -76,6 +77,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
 
             var price = item!!.preco
+            var priceString : String? = null
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
             val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
             val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
@@ -87,7 +89,8 @@ class ProductDetailsActivity : AppCompatActivity() {
                 qtd += 1
                 quantityProduct.text = qtd.toString()
                 price = qtd * item!!.preco!!
-                priceText.text = price.toString().plus("€")
+                priceString = String.format("%.2f", price)
+                priceText.text = priceString.plus("€")
             }
 
             // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
@@ -95,8 +98,9 @@ class ProductDetailsActivity : AppCompatActivity() {
                 if (qtd > 1) {
                     qtd -= 1
                     price = qtd * item!!.preco!!
+                    priceString = String.format("%.2f", price)
                     quantityProduct.text = qtd.toString()
-                    priceText.text = price.toString().plus("€")
+                    priceText.text = priceString.plus("€")
                 }
             }
         }
