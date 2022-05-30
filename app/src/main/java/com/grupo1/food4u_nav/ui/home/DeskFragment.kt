@@ -1,71 +1,66 @@
 package com.grupo1.food4u_nav.ui.home
 
-import android.Manifest
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.PackageManagerCompat
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
+import androidx.annotation.StringRes
+import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.adapters.DeskViewAdapter
+import com.grupo1.food4u_nav.adapters.ProfileViewPagerAdapter
+import com.grupo1.food4u_nav.databinding.FragmentDeskBinding
+import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
+import com.grupo1.food4u_nav.databinding.FragmentProfileBinding
+import com.grupo1.food4u_nav.ui.profile.ProfileFragment
 
 class DeskFragment : Fragment() {
 
-    private lateinit var codeScanner: CodeScanner
+    private var _binding: FragmentDeskBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    private val binding get() = _binding!!
 
-        if(ContextCompat.checkSelfPermission(requireActivity(),Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_DENIED){
-                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA),123)
-        }
-
-        return inflater.inflate(R.layout.fragment_desk, container, false)
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.now,
+            R.string.book
+        )
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val scannerView = view.findViewById<CodeScannerView>(R.id.scanner_view)
-        val activity = requireActivity()
-        codeScanner = CodeScanner(activity, scannerView)
-        codeScanner.decodeCallback = DecodeCallback {
-            activity.runOnUiThread {
-                Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
-            }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        //FIXME Se tirar isso daqui n funciona, pq?
+        _binding = FragmentDeskBinding.inflate(inflater, container, false)
+
+
+        val backBtn =binding.tableBackBtn
+
+        backBtn.setOnClickListener {
+            requireActivity().onBackPressed()
         }
 
-        codeScanner.errorCallback = ErrorCallback {
-            activity.runOnUiThread {
-                Toast.makeText(activity,"Camera Inicialiation Error!", Toast.LENGTH_SHORT).show()
-
-            }
-        }
+        val sectionPagerAdapter = DeskViewAdapter(this)
+        val viewPager: ViewPager2 = binding.deskViewPager
+        viewPager.adapter = sectionPagerAdapter
 
 
-        scannerView.setOnClickListener {
-            codeScanner.startPreview()
-        }
+        val tabs: TabLayout = binding.deskTabs
+        TabLayoutMediator(tabs, viewPager) { tab, position ->
+            tab.text = resources.getString(DeskFragment.TAB_TITLES[position])
+        }.attach()
+
+        // Inflate the layout for this fragment
+        return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        codeScanner.startPreview()
-    }
 
-    override fun onPause() {
-        codeScanner.releaseResources()
-        super.onPause()
-    }
 }
-
-

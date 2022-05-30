@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav.ui.home
 
+import Backend
 import android.R
 import android.content.Intent
 import android.os.Bundle
@@ -13,14 +14,12 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
-import com.grupo1.food4u_nav.ui.profile.viewPager.settings.AdditionalForm
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 
@@ -47,7 +46,7 @@ class HomeFragment : Fragment() {
             SubCategories(1,"Massas"),
             SubCategories(1,"Kids"),
             SubCategories(1,"Bebidas")
-            )
+        )
 
         val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
         val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
@@ -58,7 +57,7 @@ class HomeFragment : Fragment() {
             itens = it
 
             val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
-            val adapter = HottestAdapter(itens)
+            val adapter = HottestAdapter(requireActivity(),itens)
 
             rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
             rv_Hottest.adapter = adapter
@@ -73,15 +72,6 @@ class HomeFragment : Fragment() {
 
         }
 
-
-        val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)
-
-
-        product.setOnClickListener {
-            val intent = Intent(activity, ProductDetailsActivity::class.java);
-            startActivity(intent)
-        }
-
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 
         qrCodeBtn.setOnClickListener {
@@ -90,6 +80,7 @@ class HomeFragment : Fragment() {
             fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
             fragmentTransaction.addToBackStack("null").commit()
         }
+
         return root
 
     }
