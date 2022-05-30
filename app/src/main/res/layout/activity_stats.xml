@@ -172,7 +172,32 @@
                         app:layout_constraintBottom_toBottomOf="@+id/TopAge"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/TopAge" />
+
+                    <TextView
+                        android:id="@+id/TopGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Genero:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TopAge" />
+
+                    app:layout_constraintStart_toEndOf="@+id/stats"
+                    <TextView
+                        android:id="@+id/resultTopGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/TopGender"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/TopGender" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </androidx.cardview.widget.CardView>
 

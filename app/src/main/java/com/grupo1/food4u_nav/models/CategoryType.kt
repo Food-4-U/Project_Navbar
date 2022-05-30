@@ -15,7 +15,7 @@ class CategoryType {
 
     fun toJSON() : JSONObject {
         val jsonObject = JSONObject()
-        jsonObject.put("id_category", id)
+        jsonObject.put("id_categoria", id)
         jsonObject.put("nome", name)
         return jsonObject
     }
@@ -23,7 +23,7 @@ class CategoryType {
     companion object{
         fun fromJSON(jsonObject: JSONObject): CategoryType {
             return CategoryType (
-                jsonObject["id_category"] as Int,
+                jsonObject["id_categoria"] as Int,
                 jsonObject["nome"] as String
             )
         }

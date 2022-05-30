@@ -3,6 +3,7 @@ import android.graphics.BitmapFactory
 import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Cliente
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.SubCategories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -272,6 +273,7 @@ object Backend {
 
     fun getNameCategory(id: Int, callback: ((CategoryType) -> Unit)) {
         GlobalScope.launch(Dispatchers.IO) {
+            var category = CategoryType
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Categoria/Get/" + id)
@@ -307,6 +309,25 @@ object Backend {
 
                 GlobalScope.launch(Dispatchers.Main) {
                     callback.invoke(categories)
+                }
+            }
+        }
+    }
+
+    fun getNameSubcategory(id: Int, callback: ((SubCategories) -> Unit)) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategory = SubCategories
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetItem/" + id)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var subcategory = SubCategories.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategory)
                 }
             }
         }
