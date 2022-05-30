@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
             itens = it
 
             val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
-            val adapter = HottestAdapter(itens)
+            val adapter = HottestAdapter(requireActivity(),itens)
 
             rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
             rv_Hottest.adapter = adapter

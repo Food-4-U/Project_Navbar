@@ -50,7 +50,7 @@ class ItensCategoryActivity : AppCompatActivity() {
             itens = it.sortedBy { it.id_subcategoria }
 
             val rv_Hottest : RecyclerView = findViewById(R.id.rv_itensCategory)
-            val adapter = HottestAdapter(itens)
+            val adapter = HottestAdapter(this, itens)
 
             rv_Hottest.layoutManager = GridLayoutManager(this, 2)
             rv_Hottest.adapter = adapter
