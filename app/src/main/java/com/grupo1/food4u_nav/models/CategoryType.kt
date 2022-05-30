@@ -4,7 +4,7 @@ import org.json.JSONObject
 
 class CategoryType {
 
-    constructor(name: String, id: Int) {
+    constructor(id: Int, name: String) {
         this.id = id
         this.name = name
     }
@@ -21,10 +21,10 @@ class CategoryType {
     }
 
     companion object{
-        fun fromJSON(jsonObject: JSONObject): SubCategories {
-            return SubCategories(
-                jsonObject["id_category"] as? Int?,
-                jsonObject["name"] as? String?
+        fun fromJSON(jsonObject: JSONObject): CategoryType {
+            return CategoryType (
+                jsonObject["id_category"] as Int,
+                jsonObject["nome"] as String
             )
         }
     }

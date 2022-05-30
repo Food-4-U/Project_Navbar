@@ -72,14 +72,6 @@ class HomeFragment : Fragment() {
 
         }
 
-        val product = root.findViewById<ImageView>(com.grupo1.food4u_nav.R.id.imageView10)
-
-
-        product.setOnClickListener {
-            val intent = Intent(activity, ProductDetailsActivity::class.java);
-            startActivity(intent)
-        }
-
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 
         qrCodeBtn.setOnClickListener {

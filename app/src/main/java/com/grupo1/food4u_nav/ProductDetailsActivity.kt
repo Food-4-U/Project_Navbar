@@ -47,6 +47,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val photoProduct = findViewById<ImageView>(R.id.productImage)
         val time = findViewById<TextView>(R.id.timeNumber)
         val priceText = findViewById<TextView>(R.id.priceText)
+        var categoryText = findViewById<TextView>(R.id.productType)
 
         Backend.getItemID(id_item) {
             item = it
@@ -57,6 +58,12 @@ class ProductDetailsActivity : AppCompatActivity() {
             ratingNumber.text = item!!.avaliação.toString()
             time.text = item!!.temp_prep.toString().plus(" minutos")
             priceText.text = item!!.preco.toString().plus("€")
+
+            Backend.getNameCategory(item!!.id_categoria!!) {
+                var categoryName = it.name
+
+                categoryText.text = categoryName
+            }
 
 
             var price = item!!.preco
