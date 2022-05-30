@@ -13,7 +13,7 @@ class SubCategories {
 
     fun toJSON() : JSONObject {
         val jsonObject = JSONObject()
-        jsonObject.put("id_SubCategory", id_SubCategory)
+        jsonObject.put("id_subcategoria", id_SubCategory)
         jsonObject.put("nome", name)
         return jsonObject
     }
@@ -21,8 +21,8 @@ class SubCategories {
     companion object{
         fun fromJSON(jsonObject: JSONObject): SubCategories {
             return SubCategories(
-                jsonObject["id_cliente"] as? Int?,
-                jsonObject["name"] as? String?
+                jsonObject["id_subcategoria"] as? Int?,
+                jsonObject["nome"] as? String?
             )
         }
     }
