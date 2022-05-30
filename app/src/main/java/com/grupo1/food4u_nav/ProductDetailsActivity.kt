@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav
 
 import android.annotation.SuppressLint
+import android.media.Image
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
+import com.grupo1.food4u_nav.models.Item_Menu
+import com.squareup.picasso.Picasso
 
 class ProductDetailsActivity : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -37,32 +40,52 @@ class ProductDetailsActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
-        val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
-        val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
-        val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
-        var qtd: Int = 1
-        var priceText = findViewById<TextView>(R.id.priceText)
+        var item : Item_Menu? = null
+        val id_item = intent.getIntExtra("id_item", 0)
+        val productName = findViewById<TextView>(R.id.productName)
+        val ratingNumber = findViewById<TextView>(R.id.ratingNumber)
+        val photoProduct = findViewById<ImageView>(R.id.productImage)
+        val time = findViewById<TextView>(R.id.timeNumber)
+        val priceText = findViewById<TextView>(R.id.priceText)
 
-        //Here the user can add more to his cart the quantity of the item he wants!
-        // Button " + "
-        buttonAdd.setOnClickListener {
-            var price = 7.5
-            qtd += 1
-            quantityProduct.text = qtd.toString()
-            price = qtd * price
-            priceText.text = price.toString().plus("€")
-        }
+        Backend.getItemID(id_item) {
+            item = it
 
-        // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
-        buttonRemove.setOnClickListener {
-            var price = 7.5
-            if (qtd > 1) {
-                qtd -= 1
-                price *= qtd
+            val url = item!!.url
+            Picasso.get().load(url).resize(800,650).into(photoProduct)
+            productName.text = item!!.nome
+            ratingNumber.text = item!!.avaliação.toString()
+            time.text = item!!.temp_prep.toString().plus(" minutos")
+            priceText.text = item!!.preco.toString().plus("€")
+
+
+            var price = item!!.preco
+            val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
+            val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
+            val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
+            var qtd: Int = 1
+
+            //Here the user can add more to his cart the quantity of the item he wants!
+            // Button " + "
+            buttonAdd.setOnClickListener {
+                qtd += 1
                 quantityProduct.text = qtd.toString()
+                price = qtd * item!!.preco!!
                 priceText.text = price.toString().plus("€")
             }
+
+            // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
+            buttonRemove.setOnClickListener {
+                if (qtd > 1) {
+                    qtd -= 1
+                    price = qtd * item!!.preco!!
+                    quantityProduct.text = qtd.toString()
+                    priceText.text = price.toString().plus("€")
+                }
+            }
+
         }
+
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
         backBtn.setOnClickListener {

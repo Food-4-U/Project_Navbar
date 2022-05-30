@@ -3,6 +3,7 @@ package projeto.ipca.food4u.grupoI.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,8 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
         Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
 
         holder.itemView.setOnClickListener {
-           val intent = Intent(context, ProductDetailsActivity::class.java)
+            val intent = Intent(context, ProductDetailsActivity::class.java)
+            intent.putExtra("id_item", itens[position].id_item)
             context.startActivity(intent)
         }
     }

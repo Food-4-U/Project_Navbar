@@ -249,6 +249,24 @@ object Backend {
         }
     }
 
+    fun getItemID(id: Int, callback: ((Item_Menu) -> Unit)) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/Get/" + id)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var item = Item_Menu.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(item)
+                }
+            }
+        }
+    }
+
     fun getImage(urlImage: String, callback: ((Bitmap) -> Unit)) {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
