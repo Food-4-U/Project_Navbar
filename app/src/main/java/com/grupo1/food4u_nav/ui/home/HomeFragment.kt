@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
             itens = it.sortedByDescending { it.avaliação }
 
             val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
-            val adapterTopRated = TopRatedAdapter(itens)
+            val adapterTopRated = TopRatedAdapter(requireActivity(),itens)
 
             rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
             rv_topRated.adapter = adapterTopRated
