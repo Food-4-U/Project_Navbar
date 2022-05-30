@@ -63,4 +63,7 @@
     <string name="or">Or</string>
     <string name="number_table">Insert the table number</string>
     <string name="table">Table</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="inProgress">In Progress</string>
+    <string name="finalized">Finalized</string>
 </resources>
