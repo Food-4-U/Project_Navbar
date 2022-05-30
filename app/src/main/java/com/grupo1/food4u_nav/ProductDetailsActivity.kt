@@ -48,6 +48,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val time = findViewById<TextView>(R.id.timeNumber)
         val priceText = findViewById<TextView>(R.id.priceText)
         var categoryText = findViewById<TextView>(R.id.productType)
+        var subcategorieText = findViewById<TextView>(R.id.productTypeName)
 
         Backend.getItemID(id_item) {
             item = it
@@ -64,6 +65,13 @@ class ProductDetailsActivity : AppCompatActivity() {
 
                 categoryText.text = categoryName
             }
+
+            Backend.getNameSubcategory(item!!.id_subcategoria!!){
+                var subcategorieName = it.name
+
+                subcategorieText.text = subcategorieName
+            }
+
 
 
             var price = item!!.preco

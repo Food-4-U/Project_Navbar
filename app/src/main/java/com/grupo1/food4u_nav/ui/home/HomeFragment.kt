@@ -69,7 +69,6 @@ class HomeFragment : Fragment() {
 
             rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
             rv_topRated.adapter = adapterTopRated
-
         }
 
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
