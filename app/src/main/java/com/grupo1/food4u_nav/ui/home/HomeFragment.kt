@@ -26,6 +26,7 @@ import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 class HomeFragment : Fragment() {
 
     var itens : List<Item_Menu> = arrayListOf()
+    var subCategories : List<SubCategories> = arrayListOf()
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -40,18 +41,14 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var subCategories : List<SubCategories> = arrayListOf(
-            SubCategories(1,"Francesinha"),
-            SubCategories(1,"Snacks"),
-            SubCategories(1,"Massas"),
-            SubCategories(1,"Kids"),
-            SubCategories(1,"Bebidas")
-        )
+        Backend.getAllSubcategories {
+            subCategories = it
 
-        val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
-        val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
-        rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-        rv_Subcategories.adapter = adapterSubCategories
+            val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
+            val adapterSubCategories = SubCategoriesAdapterMenu(subCategories)
+            rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            rv_Subcategories.adapter = adapterSubCategories
+        }
 
         Backend.getItemTop {
             itens = it

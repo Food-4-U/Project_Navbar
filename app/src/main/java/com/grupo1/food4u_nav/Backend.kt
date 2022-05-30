@@ -332,4 +332,28 @@ object Backend {
             }
         }
     }
+
+    fun getAllSubcategories(callback: ((List<SubCategories>) -> Unit)) {
+        var subcategories = arrayListOf<SubCategories>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var clienteJSON = resultArray[index] as JSONObject
+                    var subcategory = SubCategories.fromJSON(clienteJSON)
+                    subcategories.add(subcategory)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategories)
+                }
+            }
+        }
+    }
 }
