@@ -18,12 +18,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/photoFood"
+                android:id="@+id/productPhoto"
                 android:layout_width="109dp"
                 android:layout_height="98dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints">
+                tools:ignore="ContentDescription">
+
             </ImageView>
 
             <TextView
@@ -36,9 +37,9 @@
                 android:text="Francesinha"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/photoFood"
-                app:layout_constraintStart_toStartOf="@+id/photoFood"
-                app:layout_constraintTop_toBottomOf="@+id/photoFood">
+                app:layout_constraintEnd_toEndOf="@+id/productPhoto"
+                app:layout_constraintStart_toStartOf="@+id/productPhoto"
+                app:layout_constraintTop_toBottomOf="@+id/productPhoto">
 
 
             </TextView>

@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.adapters.ProductMenuAdapter
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
+import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 import dalvik.system.BaseDexClassLoader
 
@@ -24,6 +26,7 @@ class MenuFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     var subcategories : List<SubCategories> = arrayListOf()
+    var francesinhas : List<Item_Menu> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,21 +40,23 @@ class MenuFragment : Fragment() {
 
         Backend.getAllSubcategories {
             subcategories = it
-            val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
-            val menuAdapter = SubCategoriesAdapterMenu(subcategories)
+            val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
+            val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
 
-            rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-            rv_menu.adapter = menuAdapter
+            rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            rv_subcategories.adapter = subCategoriesAdapter
+
+            Backend.getItemSubCategory(1) {
+                francesinhas = it
+
+                val rv_products : RecyclerView = root.findViewById(R.id.rv_products)
+                val productsAdapter = ProductMenuAdapter(requireActivity(), francesinhas)
+
+                rv_products.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+                rv_products.adapter = productsAdapter
+            }
 
 
-        }
-
-        val product = root.findViewById<CardView>(R.id.productCard)
-
-
-        product.setOnClickListener {
-            val intent = Intent(activity, ProductDetailsActivity::class.java);
-            startActivity(intent)
         }
 
         return root
