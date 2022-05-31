@@ -9,15 +9,12 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.adapters.MenuAdapter
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
-import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.SubCategories
+import dalvik.system.BaseDexClassLoader
 
 class MenuFragment : Fragment() {
 
@@ -26,6 +23,7 @@ class MenuFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    var subcategories : List<SubCategories> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,19 +34,17 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val itens : List<CategoryType> = arrayListOf(
-            CategoryType(1, "Francesinhas"),
-            CategoryType(2, "Hamburgueres"),
-            CategoryType(3, "Saladas"),
-            CategoryType(4, "Snacks")
-        )
+
+        Backend.getAllSubcategories {
+            subcategories = it
+            val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
+            val menuAdapter = SubCategoriesAdapterMenu(subcategories)
+
+            rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            rv_menu.adapter = menuAdapter
 
 
-        val rv_menu : RecyclerView = root.findViewById(R.id.rv_menu)
-        val menuAdapter = MenuAdapter(itens)
-
-        rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-        rv_menu.adapter = menuAdapter
+        }
 
         val product = root.findViewById<CardView>(R.id.productCard)
 

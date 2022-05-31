@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.models.CategoryType
+import com.grupo1.food4u_nav.models.SubCategories
 
-class MenuAdapter (val itens: List<CategoryType>) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
+class SubCategoriesAdapterHome (val itens: List<SubCategories>) : RecyclerView.Adapter<SubCategoriesAdapterHome.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var categoryName = itemView.findViewById<TextView>(R.id.categoryText)
+        var subcategoryName = itemView.findViewById<TextView>(R.id.subCategory_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.row_menu, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_subcategories, parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MenuAdapter.ViewHolder, position: Int) {
-        holder.categoryName.text = itens[position].name
+    override fun onBindViewHolder(holder: SubCategoriesAdapterHome.ViewHolder, position: Int) {
+        holder.subcategoryName.text = itens[position].name
     }
 
     override fun getItemCount(): Int {
