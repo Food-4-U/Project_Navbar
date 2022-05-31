@@ -20,7 +20,7 @@ class MenuAdapter (val itens: List<CategoryType>) : RecyclerView.Adapter<MenuAda
     }
 
     override fun onBindViewHolder(holder: MenuAdapter.ViewHolder, position: Int) {
-        //holder.categoryName.text = itens[position].name
+        holder.categoryName.text = itens[position].name
     }
 
     override fun getItemCount(): Int {
