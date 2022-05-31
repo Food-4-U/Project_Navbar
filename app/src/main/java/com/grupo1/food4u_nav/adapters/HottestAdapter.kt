@@ -37,9 +37,10 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
 
     @SuppressLint("RestrictedApi")
     override fun onBindViewHolder(holder: HottestAdapter.ViewHolder, position: Int) {
+        var price = String.format("%.2f", itens[position].preco)
+        holder.foodprice.text = price.plus("€")
         holder.nameFood.text = itens[position].nome
         holder.foodEvaluation.text = itens[position].avaliação.toString()
-        holder.foodprice.text = itens[position].preco.toString() + "0€"
         holder.foodStars.rating = itens[position].avaliação!!.toFloat()
 
         var imageURL = itens[position].url

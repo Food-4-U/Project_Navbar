@@ -54,12 +54,13 @@ class ProductDetailsActivity : AppCompatActivity() {
         Backend.getItemID(id_item) {
             item = it
 
+            var price = String.format("%.2f", item!!.preco)
             val url = item!!.url
             Picasso.get().load(url).resize(800,650).into(photoProduct)
             productName.text = item!!.nome
             ratingNumber.text = item!!.avaliação.toString()
             time.text = item!!.temp_prep.toString().plus(" minutos")
-            priceText.text = item!!.preco.toString().plus("€")
+            priceText.text = price.plus("€")
 
             Backend.getNameCategory(item!!.id_categoria!!) {
                 var categoryName = it.name
@@ -73,7 +74,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 subcategoryText.text = subcategoryName
             }
 
-            var price = item!!.preco
+
             var priceString : String? = null
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
             val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
@@ -85,17 +86,21 @@ class ProductDetailsActivity : AppCompatActivity() {
             buttonAdd.setOnClickListener {
                 qtd += 1
                 quantityProduct.text = qtd.toString()
-                price = qtd * item!!.preco!!
-                priceText.text = price.toString().plus("€")
+                var price2 = qtd * item!!.preco!!
+                var price = String.format("%.2f", price2)
+
+                priceText.text = price.plus("€")
             }
 
             // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
             buttonRemove.setOnClickListener {
                 if (qtd > 1) {
                     qtd -= 1
-                    price = qtd * item!!.preco!!
+                    var price2 = qtd * item!!.preco!!
                     quantityProduct.text = qtd.toString()
-                    priceText.text = price.toString().plus("€")
+                    var price = String.format("%.2f", price2)
+
+                    priceText.text = price.plus("€")
                 }
             }
         }
