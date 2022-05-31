@@ -50,9 +50,16 @@ class MenuFragment : Fragment() {
         rv_menu.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
         rv_menu.adapter = menuAdapter
 
+        val product = root.findViewById<CardView>(R.id.productCard)
+
+
+        product.setOnClickListener {
+            val intent = Intent(activity, ProductDetailsActivity::class.java);
+            startActivity(intent)
+        }
+
         return root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
