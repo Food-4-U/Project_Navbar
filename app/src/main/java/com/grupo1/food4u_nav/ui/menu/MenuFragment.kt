@@ -45,18 +45,16 @@ class MenuFragment : Fragment() {
 
             rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
             rv_subcategories.adapter = subCategoriesAdapter
+        }
 
-            Backend.getItemSubCategory(1) {
-                francesinhas = it
+        Backend.getItemSubCategory(1) {
+            francesinhas = it
 
-                val rv_products : RecyclerView = root.findViewById(R.id.rv_products)
-                val productsAdapter = ProductMenuAdapter(requireActivity(), francesinhas)
+            val rv_products : RecyclerView = root.findViewById(R.id.rv_products)
+            val productsAdapter = ProductMenuAdapter(requireActivity(), francesinhas)
 
-                rv_products.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-                rv_products.adapter = productsAdapter
-            }
-
-
+            rv_products.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+            rv_products.adapter = productsAdapter
         }
 
         return root
