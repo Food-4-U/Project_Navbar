@@ -63,4 +63,8 @@
     <string name="or">Or</string>
     <string name="number_table">Insert the table number</string>
     <string name="table">Table</string>
+    <string-array name="gender">
+        <item>Masculine</item>
+        <item>Feminine</item>
+    </string-array>
 </resources>

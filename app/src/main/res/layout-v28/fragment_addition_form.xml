@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/additionForm_backBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="118dp"
+        android:layout_height="99dp"
         android:layout_marginStart="16dp"
         android:background="@android:color/transparent"
         app:icon="@drawable/backbtn"
@@ -53,21 +53,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
+            <Spinner
                 android:id="@+id/spinner4"
                 android:layout_width="305dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
-                android:inputType="textPersonName"
+                android:dropDownWidth="match_parent"
+                android:spinnerMode="dropdown"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/spinner5"
                 android:layout_width="305dp"
                 android:layout_height="48dp"
@@ -76,7 +76,7 @@
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:dropDownWidth="match_parent"
-                android:inputType="textPersonName"
+                android:spinnerMode="dropdown"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView44" />
@@ -86,12 +86,12 @@
                 android:layout_width="305dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:dropDownWidth="match_parent"
+                android:spinnerMode="dropdown"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -114,13 +114,13 @@
                 android:layout_width="305dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
                 android:dropDownWidth="match_parent"
                 android:spinnerMode="dropdown"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
@@ -153,14 +153,18 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="305dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
+                app:boxBackgroundColor="@color/design_default_color_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView38">
+
             </Spinner>
 
             <TextView
