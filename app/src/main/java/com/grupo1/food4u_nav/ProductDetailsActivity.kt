@@ -49,7 +49,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val time = findViewById<TextView>(R.id.timeNumber)
         val priceText = findViewById<TextView>(R.id.priceText)
         var categoryText = findViewById<TextView>(R.id.productType)
-        var subcategorieText = findViewById<TextView>(R.id.productTypeName)
+        var subcategoryText = findViewById<TextView>(R.id.productTypeName)
 
         Backend.getItemID(id_item) {
             item = it
@@ -59,8 +59,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             productName.text = item!!.nome
             ratingNumber.text = item!!.avaliação.toString()
             time.text = item!!.temp_prep.toString().plus(" minutos")
-            val preco = String.format("%.2f", item!!.preco)
-            priceText.text = preco.plus("€")
+            priceText.text = item!!.preco.toString().plus("€")
 
             Backend.getNameCategory(item!!.id_categoria!!) {
                 var categoryName = it.name
@@ -69,12 +68,10 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
 
             Backend.getNameSubcategory(item!!.id_subcategoria!!){
-                var subcategorieName = it.name
+                var subcategoryName = it.name
 
-                subcategorieText.text = subcategorieName
+                subcategoryText.text = subcategoryName
             }
-
-
 
             var price = item!!.preco
             var priceString : String? = null
@@ -89,8 +86,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 qtd += 1
                 quantityProduct.text = qtd.toString()
                 price = qtd * item!!.preco!!
-                priceString = String.format("%.2f", price)
-                priceText.text = priceString.plus("€")
+                priceText.text = price.toString().plus("€")
             }
 
             // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
@@ -98,13 +94,11 @@ class ProductDetailsActivity : AppCompatActivity() {
                 if (qtd > 1) {
                     qtd -= 1
                     price = qtd * item!!.preco!!
-                    priceString = String.format("%.2f", price)
                     quantityProduct.text = qtd.toString()
-                    priceText.text = priceString.plus("€")
+                    priceText.text = price.toString().plus("€")
                 }
             }
         }
-
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
         backBtn.setOnClickListener {
