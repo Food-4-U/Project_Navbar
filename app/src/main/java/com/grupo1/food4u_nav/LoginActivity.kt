@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else if (isLogged && isAdmin == false) {
-            val intent = Intent(this@LoginActivity, LoginActivity::class.java)
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
