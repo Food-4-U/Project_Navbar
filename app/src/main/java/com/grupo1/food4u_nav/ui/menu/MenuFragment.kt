@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
@@ -17,6 +18,7 @@ import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 import dalvik.system.BaseDexClassLoader
+import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class MenuFragment : Fragment() {
 
@@ -50,10 +52,10 @@ class MenuFragment : Fragment() {
         Backend.getItemSubCategory(1) {
             francesinhas = it
 
-            val rv_products : RecyclerView = root.findViewById(R.id.rv_products)
+            val rv_products : RecyclerView = binding.rvProducts
             val productsAdapter = ProductMenuAdapter(requireActivity(), francesinhas)
 
-            rv_products.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+            rv_products.layoutManager = GridLayoutManager(activity, 2)
             rv_products.adapter = productsAdapter
         }
 
