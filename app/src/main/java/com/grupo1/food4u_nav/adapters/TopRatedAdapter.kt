@@ -30,9 +30,10 @@ class TopRatedAdapter (val context: Context, val itens: List<Item_Menu>) : Recyc
     }
 
     override fun onBindViewHolder(holder: TopRatedAdapter.ViewHolder, position: Int) {
+        var price = String.format("%.2f", itens[position].preco)
         holder.nameFood.text = itens[position].nome
         holder.foodEvaluation.text = itens[position].avaliação.toString()
-        holder.foodprice.text = itens[position].preco.toString() + "€"
+        holder.foodprice.text = price.plus("€")
         holder.foodStars.rating = itens[position].avaliação!!.toFloat()
 
         var imageURL = itens[position].url
