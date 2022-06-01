@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
 
@@ -47,19 +48,34 @@ class ProductDetailsActivity : AppCompatActivity() {
         val photoProduct = findViewById<ImageView>(R.id.productImage)
         val time = findViewById<TextView>(R.id.timeNumber)
         val priceText = findViewById<TextView>(R.id.priceText)
+        var categoryText = findViewById<TextView>(R.id.productType)
+        var subcategoryText = findViewById<TextView>(R.id.productTypeName)
 
         Backend.getItemID(id_item) {
             item = it
 
+            var price = String.format("%.2f", item!!.preco)
             val url = item!!.url
             Picasso.get().load(url).resize(800,650).into(photoProduct)
             productName.text = item!!.nome
             ratingNumber.text = item!!.avaliação.toString()
             time.text = item!!.temp_prep.toString().plus(" minutos")
-            priceText.text = item!!.preco.toString().plus("€")
+            priceText.text = price.plus("€")
+
+            Backend.getNameCategory(item!!.id_categoria!!) {
+                var categoryName = it.name
+
+                categoryText.text = categoryName
+            }
+
+            Backend.getNameSubcategory(item!!.id_subcategoria!!){
+                var subcategoryName = it.name
+
+                subcategoryText.text = subcategoryName
+            }
 
 
-            var price = item!!.preco
+            var priceString : String? = null
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
             val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
             val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
@@ -70,22 +86,24 @@ class ProductDetailsActivity : AppCompatActivity() {
             buttonAdd.setOnClickListener {
                 qtd += 1
                 quantityProduct.text = qtd.toString()
-                price = qtd * item!!.preco!!
-                priceText.text = price.toString().plus("€")
+                var price2 = qtd * item!!.preco!!
+                var price = String.format("%.2f", price2)
+
+                priceText.text = price.plus("€")
             }
 
             // Here he can remove, but it cant go under 1 item when pressed the remove " - " button!
             buttonRemove.setOnClickListener {
                 if (qtd > 1) {
                     qtd -= 1
-                    price = qtd * item!!.preco!!
+                    var price2 = qtd * item!!.preco!!
                     quantityProduct.text = qtd.toString()
-                    priceText.text = price.toString().plus("€")
+                    var price = String.format("%.2f", price2)
+
+                    priceText.text = price.plus("€")
                 }
             }
-
         }
-
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
         backBtn.setOnClickListener {
