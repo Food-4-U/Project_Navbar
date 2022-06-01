@@ -1,19 +1,20 @@
 package com.grupo1.food4u_nav
 
+import Backend
 import android.annotation.SuppressLint
-import android.media.Image
+import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.fragment.app.FragmentManager
-import com.grupo1.food4u_nav.models.CategoryType
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.grupo1.food4u_nav.models.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
 
@@ -50,6 +51,8 @@ class ProductDetailsActivity : AppCompatActivity() {
         val priceText = findViewById<TextView>(R.id.priceText)
         var categoryText = findViewById<TextView>(R.id.productType)
         var subcategoryText = findViewById<TextView>(R.id.productTypeName)
+        var cart : MutableList<CartItem> = arrayListOf()
+
 
         Backend.getItemID(id_item) {
             item = it
@@ -79,6 +82,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)
             val buttonAdd = findViewById<ImageView>(R.id.buttonAdd)
             val buttonRemove = findViewById<ImageView>(R.id.buttonRemove)
+            val buttonOrder = findViewById<FloatingActionButton>(R.id.floatingActionButton)
             var qtd: Int = 1
 
             //Here the user can add more to his cart the quantity of the item he wants!
@@ -103,6 +107,22 @@ class ProductDetailsActivity : AppCompatActivity() {
                     priceText.text = price.plus("€")
                 }
             }
+
+            buttonOrder.setOnClickListener {
+                var cartItem : CartItem? = null
+
+                cartItem!!.quantidade = qtd
+                cartItem!!.item = item as Item_Menu
+
+                cart.add(cartItem)
+
+                val intent = Intent(this, OrderActivity::class.java)
+                val bundle = Bundle()
+                bundle.putParcelableArrayList("cart", cart)
+                intent.putExtras(bundle)
+
+            }
+
         }
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
