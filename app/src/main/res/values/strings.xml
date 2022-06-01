@@ -67,4 +67,11 @@
         <item>Masculine</item>
         <item>Feminine</item>
     </string-array>
+    <string name="finalized">finalized</string>
+    <string name="inProgress">finalized</string>
+    <string name="cancelled">finalized</string>
+    <string name="timeToPrepare">Time to prepare</string>
+    <string name="price">Price</string>
+    <string name="newItem">New Item</string>
+    <string name="add">Add</string>
 </resources>

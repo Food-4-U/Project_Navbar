@@ -63,4 +63,8 @@
     <string name="cancelled">Cancelados</string>
     <string name="inProgress">Prepação</string>
     <string name="finalized">Finalizado</string>
+    <string name="timeToPrepare">Tempo de Preparo</string>
+    <string name="price">Preço</string>
+    <string name="newItem">Novo Item</string>
+    <string name="add">Adicionar</string>
 </resources>

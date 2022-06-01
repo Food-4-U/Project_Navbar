@@ -58,6 +58,10 @@ class DeskFragment : Fragment() {
             tab.text = resources.getString(DeskFragment.TAB_TITLES[position])
         }.attach()
 
+        if(tabs.isActivated){
+
+        }
+
         // Inflate the layout for this fragment
         return binding.root
     }
