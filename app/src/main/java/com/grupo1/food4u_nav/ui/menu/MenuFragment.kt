@@ -29,7 +29,11 @@ class MenuFragment : Fragment() {
     private val binding get() = _binding!!
     var subcategories : List<SubCategories> = arrayListOf()
     var francesinhas : List<Item_Menu> = arrayListOf()
+    var hamburgueres : List<Item_Menu> = arrayListOf()
+    var cachorros : List<Item_Menu> = arrayListOf()
     var subCategory1 : SubCategories? = null
+    var subCategory2 : SubCategories? = null
+    var subCategory3 : SubCategories? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,11 +45,25 @@ class MenuFragment : Fragment() {
         val root: View = binding.root
 
         var productType1 = binding.productType1
+        var productType2 = binding.productType2
+        var productType3 = binding.productType3
 
         Backend.getNameSubcategory(1) {
             subCategory1 = it
 
             productType1.text = it.name
+        }
+
+        Backend.getNameSubcategory(2) {
+            subCategory2 = it
+
+            productType2.text = it.name
+        }
+
+        Backend.getNameSubcategory(3) {
+            subCategory3 = it
+
+            productType3.text = it.name
         }
 
         Backend.getAllSubcategories {
@@ -60,8 +78,28 @@ class MenuFragment : Fragment() {
         Backend.getItemSubCategory(1) {
             francesinhas = it
 
-            val rv_products : RecyclerView = binding.rvProducts
+            val rv_products : RecyclerView = binding.rvProducts1
             val productsAdapter = ProductMenuAdapter(requireActivity(), francesinhas)
+
+            rv_products.layoutManager = GridLayoutManager(activity, 2)
+            rv_products.adapter = productsAdapter
+        }
+
+        Backend.getItemSubCategory(2) {
+            hamburgueres = it
+
+            val rv_products : RecyclerView = binding.rvProducts2
+            val productsAdapter = ProductMenuAdapter(requireActivity(), hamburgueres)
+
+            rv_products.layoutManager = GridLayoutManager(activity, 2)
+            rv_products.adapter = productsAdapter
+        }
+
+        Backend.getItemSubCategory(3) {
+            cachorros = it
+
+            val rv_products : RecyclerView = binding.rvProducts3
+            val productsAdapter = ProductMenuAdapter(requireActivity(), cachorros)
 
             rv_products.layoutManager = GridLayoutManager(activity, 2)
             rv_products.adapter = productsAdapter
