@@ -9,11 +9,11 @@
 
 
     <Switch
-        android:id="@+id/switch_receiveNotification2"
+        android:id="@+id/switch_highlight"
         android:layout_width="48dp"
         android:layout_height="25dp"
         android:layout_marginTop="40dp"
-        android:checked="true"
+        android:checked="false"
         android:thumbTint="@color/GreenBT_Order"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
@@ -136,8 +136,8 @@
         android:layout_height="wrap_content"
         android:text="@string/highlight"
         android:theme="@style/SubtitleLightStyle"
-        app:layout_constraintBottom_toBottomOf="@+id/switch_receiveNotification2"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_highlight"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
-        app:layout_constraintTop_toTopOf="@+id/switch_receiveNotification2" />
+        app:layout_constraintTop_toTopOf="@+id/switch_highlight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

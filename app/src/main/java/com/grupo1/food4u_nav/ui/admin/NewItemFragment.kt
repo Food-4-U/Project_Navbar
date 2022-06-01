@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.grupo1.food4u_nav.R
@@ -33,15 +34,17 @@ class NewItemFragment : Fragment() {
         val add_foodPrice = view.findViewById<EditText>(R.id.add_foodPrice)
         val add_foodTime = view.findViewById<EditText>(R.id.add_foodTime)
         val add_newItem = view.findViewById<MaterialButton>(R.id.add_newItem)
+        val highlight = view.findViewById<Switch>(R.id.switch_highlight)
 
-          add_newItem.setOnClickListener {
-             /* var item = Item_Menu(
-                  null, add_foodName.text.toString(),
-                  add_foodPrice.text.toString().toDouble(),
-                  add_foodTime.text.toString().toInt(),
-                  false, null, 1, 5, INITIAL_RATING
-              )*/
-              Toast.makeText(requireActivity(), "funfou", Toast.LENGTH_SHORT).show()
+        add_newItem.setOnClickListener {
+            var item = Item_Menu(
+                null, add_foodName.text.toString(),
+                add_foodPrice.text.toString().toDouble(),
+                add_foodTime.text.toString().toInt(),
+                highlight.isChecked,
+                null, 1, 5, INITIAL_RATING
+            )
+            Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
 
             /*  addItem(item) {
                   if (it)
@@ -49,7 +52,7 @@ class NewItemFragment : Fragment() {
                   else
                       Toast.makeText(requireActivity(), "nao funfou", Toast.LENGTH_SHORT).show()
               }*/
-          }
+        }
 
         return view
     }
