@@ -29,6 +29,7 @@ class MenuFragment : Fragment() {
     private val binding get() = _binding!!
     var subcategories : List<SubCategories> = arrayListOf()
     var francesinhas : List<Item_Menu> = arrayListOf()
+    var subCategory1 : SubCategories? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +40,13 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        var productType1 = binding.productType1
+
+        Backend.getNameSubcategory(1) {
+            subCategory1 = it
+
+            productType1.text = it.name
+        }
 
         Backend.getAllSubcategories {
             subcategories = it
