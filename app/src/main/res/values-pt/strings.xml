@@ -67,4 +67,5 @@
     <string name="price">Preço</string>
     <string name="newItem">Novo Item</string>
     <string name="add">Adicionar</string>
+    <string name="highlight">Destacar</string>
 </resources>

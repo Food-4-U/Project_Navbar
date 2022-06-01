@@ -8,6 +8,16 @@
     tools:context=".ui.admin.NewItemFragment">
 
 
+    <Switch
+        android:id="@+id/switch_receiveNotification2"
+        android:layout_width="48dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        android:checked="true"
+        android:thumbTint="@color/GreenBT_Order"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
     <TextView
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
@@ -30,6 +40,7 @@
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
+        app:hintEnabled="false"
         android:background="@drawable/transparent_background"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
@@ -45,8 +56,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/login_backgroundedittext"
             android:ems="10"
+            android:gravity="center_vertical"
             android:hint="@string/timeToPrepare"
-            android:inputType="number" />
+            android:inputType="number"
+            android:theme="@style/EditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +70,9 @@
         android:background="@drawable/transparent_background"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50"
         app:passwordToggleEnabled="false">
@@ -66,14 +81,18 @@
             android:id="@+id/add_foodName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center|clip_vertical|top"
             android:background="@drawable/login_backgroundedittext"
             android:ems="10"
+            android:gravity="center_vertical"
             android:hint="@string/name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:theme="@style/EditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
+        app:hintEnabled="false"
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
@@ -91,8 +110,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/login_backgroundedittext"
             android:ems="10"
+            android:gravity="center_vertical"
             android:hint="@string/price"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:theme="@style/EditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -108,5 +129,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highlight"
+        android:theme="@style/SubtitleLightStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_receiveNotification2"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
+        app:layout_constraintTop_toTopOf="@+id/switch_receiveNotification2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
