@@ -17,8 +17,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.grupo1.food4u_nav.models.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
+import kotlinx.parcelize.Parcelize
 
 class ProductDetailsActivity : AppCompatActivity() {
+
+
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -115,14 +118,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 cartItem!!.item = item as Item_Menu
 
                 cart.add(cartItem)
-
-                val intent = Intent(this, OrderActivity::class.java)
-                val bundle = Bundle()
-                bundle.putParcelableArrayList("cart", cart)
-                intent.putExtras(bundle)
-
             }
-
         }
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
