@@ -70,4 +70,9 @@
     <string name="highlight">Destacar</string>
     <string name="number_people">Número de Pessoas</string>
     <string name="dateAndHour">Data e Hora</string>
+    <string name="AddProducts">Adicionar Produto</string>
+    <string name="EditProduct">Editar Produto</string>
+    <string name="DeleteProduct">Eliminar Produto</string>
+    <string name="General_Stats">Visão Geral</string>
+    <string name="Edit_Menus">Gerenciar Menus</string>
 </resources>
