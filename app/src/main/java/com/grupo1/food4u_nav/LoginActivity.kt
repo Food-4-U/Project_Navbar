@@ -2,19 +2,22 @@ package com.grupo1.food4u_nav
 
 import Backend
 import android.content.Intent
+import android.net.Uri
+import android.net.Uri.*
 import android.os.Build
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupo1.food4u_nav.models.Cliente
+import java.net.HttpCookie.parse
+import java.net.URI
+import java.net.URL
+import java.util.logging.Level.parse
 
 
 class LoginActivity : AppCompatActivity() {
@@ -27,10 +30,12 @@ class LoginActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
-            windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            val windowInsetsController =
+                ViewCompat.getWindowInsetsController(window.decorView) ?: return
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        }else{
+        } else {
             val flags =
                 (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
@@ -55,8 +60,8 @@ class LoginActivity : AppCompatActivity() {
         val myEdit = food4UCliente.edit()
 
         //COLOCAR NA SPLASH SCRREN TODO
-        var isLogged : Boolean = food4UCliente.getBoolean("isLogged",false)
-        var isAdmin : Boolean = food4UCliente.getBoolean("isAdmin", false)
+        var isLogged: Boolean = food4UCliente.getBoolean("isLogged", false)
+        var isAdmin: Boolean = food4UCliente.getBoolean("isAdmin", false)
         if (isLogged && isAdmin) {
             val intent = Intent(this@LoginActivity, AdminActivity::class.java)
             startActivity(intent)
@@ -67,11 +72,35 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
+        val easter = findViewById<ImageView>(R.id.imageView3)
+        var a = 0
+
+        easter?.setOnClickListener() {
+            a+= 1
+            if (a == 10) {
+                var url = "https://www.youtube.com/watch?v=iik25wqIuFo";
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse(url)
+                    a = 0
+                })
+            }
+        }
 
 
         btnLogin.setOnClickListener {
 
-            var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
+            var cliente: Cliente = Cliente(
+                email = null,
+                id_cliente = null,
+                password = null,
+                nome = null,
+                concelho = null,
+                idade = null,
+                genero = null,
+                localidade = null,
+                isAdmin = false,
+                nif = null
+            )
             cliente.email = editEmail.text.toString()
             cliente.password = editPass.text.toString()
 
@@ -91,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
-                            myEdit.putBoolean("isLogged",true)
+                            myEdit.putBoolean("isLogged", true)
                             myEdit.putBoolean("isAdmin", it.isAdmin) //TODO
                             myEdit.apply()
 
@@ -99,8 +128,7 @@ class LoginActivity : AppCompatActivity() {
                                 val intent = Intent(this@LoginActivity, AdminActivity::class.java)
                                 startActivity(intent)
                                 finish()
-                            } else
-                            {
+                            } else {
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 startActivity(intent)
                                 finish()
