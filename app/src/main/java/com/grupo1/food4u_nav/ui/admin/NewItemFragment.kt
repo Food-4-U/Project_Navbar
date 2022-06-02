@@ -65,7 +65,6 @@ class NewItemFragment : Fragment() {
                     R.layout.dropdownitem, subcategorias
                 )
 
-
                 add_newItem.setOnClickListener {
 
                     var categorySelected = categoriaSpinner.selectedItem.toString()
