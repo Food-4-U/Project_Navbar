@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.get
 import com.google.android.material.button.MaterialButton
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
@@ -44,41 +45,56 @@ class NewItemFragment : Fragment() {
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
         Backend.getAllCategoryNames {
+
+            var idCategoria : Int? = null
+            var idsubCategoria : Int? = null
+
             categorias = it
 
             categoriaSpinner?.adapter = ArrayAdapter(
                 activity?.applicationContext!!,
                 R.layout.dropdownitem, categorias
             )
-        }
+            var categorySelected = categoriaSpinner.selectedItem.toString()
 
-        Backend.getAllSubcategoryNames {
-            subcategorias = it
-
-            subCategoriaSpinner?.adapter = ArrayAdapter(
-                activity?.applicationContext!!,
-                R.layout.dropdownitem, subcategorias
-            )
-        }
-
-        add_newItem.setOnClickListener {
-            var item = Item_Menu(
-                null, add_foodName.text.toString(),
-                add_foodPrice.text.toString().toDouble(),
-                add_foodTime.text.toString().toInt(),
-                highlight.isChecked, add_foodURL.text.toString(), null,
-                null, 0.0
-            )
-
-            Backend.addItem(item) {
-                if (it) {
-                    Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
-                }
+            Backend.getIDCategory(categorySelected) {
+                idCategoria = it
             }
 
+            Backend.getAllSubcategoryNames {
+                subcategorias = it
+
+                subCategoriaSpinner?.adapter = ArrayAdapter(
+                    activity?.applicationContext!!,
+                    R.layout.dropdownitem, subcategorias
+                )
+                var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
+
+                Backend.getIDSubcategory(subcategorySelected) {
+                    idsubCategoria = it
+                }
+
+                add_newItem.setOnClickListener {
+
+                    var item = Item_Menu(
+                        null, add_foodName.text.toString(),
+                        add_foodPrice.text.toString().toDouble(),
+                        add_foodTime.text.toString().toInt(),
+                        highlight.isChecked, add_foodURL.text.toString(), idCategoria,
+                        idsubCategoria, 0.0
+                    )
+
+                    Backend.addItem(item) {
+                        if (it) {
+                            Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
+                        }
+                        else {
+                            Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+        }
 
 
             /*  addItem(item) {
@@ -87,7 +103,6 @@ class NewItemFragment : Fragment() {
                   else
                       Toast.makeText(requireActivity(), "nao funfou", Toast.LENGTH_SHORT).show()
               }*/
-        }
 
         return view
     }

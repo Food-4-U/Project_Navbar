@@ -315,6 +315,24 @@ object Backend {
         }
     }
 
+    fun getIDCategory(name: String, callback: (Int) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var categoryID = 0
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/GetIDCategory/" + name)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                categoryID = result.toInt()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(categoryID)
+                }
+            }
+        }
+    }
+
     fun getAllCategoryNames(callback: (List<String>) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             var categories = arrayListOf<String>()
@@ -423,6 +441,24 @@ object Backend {
 
                 GlobalScope.launch(Dispatchers.Main) {
                     callback.invoke(subcategories)
+                }
+            }
+        }
+    }
+
+    fun getIDSubcategory(name: String, callback: (Int) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategoryID = 0
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetIDSubcategory/" + name)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                subcategoryID = result.toInt()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategoryID)
                 }
             }
         }
