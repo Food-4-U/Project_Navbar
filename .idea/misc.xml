@@ -22,6 +22,8 @@
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/background_tabsdesk.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/circles_subcategory.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/creditcard.xml" value="0.23" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/ic_calendar.xml" value="0.1325" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/ic_minute.xml" value="0.1325" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rounded_retangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/stroke_addnewcard.xml" value="0.23" />
@@ -36,7 +38,7 @@
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_stats.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/addbtn.xml" value="0.8" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_addition_form.xml" value="0.20521590423257802" />
-        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_book.xml" value="0.1936725096194955" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_book.xml" value="0.264" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_desk.xml" value="0.264" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_desk2.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/fragment_favorites.xml" value="0.223731884057971" />

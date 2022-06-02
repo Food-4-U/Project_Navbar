@@ -68,4 +68,6 @@
     <string name="newItem">Novo Item</string>
     <string name="add">Adicionar</string>
     <string name="highlight">Destacar</string>
+    <string name="number_people">Número de Pessoas</string>
+    <string name="dateAndHour">Data e Hora</string>
 </resources>
