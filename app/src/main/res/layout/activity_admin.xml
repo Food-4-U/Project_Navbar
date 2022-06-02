@@ -85,7 +85,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="198dp"
                 android:fontFamily="@font/candara"
-                android:text="@string/menu_admin"
+                android:text="@string/General_Stats"
                 android:textColor="@color/text"
                 android:textSize="24sp" />
 
@@ -107,6 +107,7 @@
                         android:id="@+id/statsImage"
                         android:layout_width="79dp"
                         android:layout_height="86dp"
+                        android:layout_margin="50dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/stats_image" />
@@ -123,17 +124,35 @@
                         app:layout_constraintStart_toStartOf="@+id/statsImage"
                         app:layout_constraintTop_toBottomOf="@+id/statsImage" />
 
-                    <Button
-                        android:id="@+id/newitem"
+                    <TextView
+                        android:id="@+id/stats2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="90dp"
-                        android:layout_marginTop="154dp"
-                        android:layout_marginEnd="187dp"
-                        android:text="add item"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="@string/stats"
+                        android:textAlignment="center"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/statsImage"
+                        app:layout_constraintStart_toStartOf="@+id/statsImage"
+                        app:layout_constraintTop_toBottomOf="@+id/statsImage" />
+
+                    <ImageView
+                        android:id="@+id/manageMenus"
+                        android:layout_width="119dp"
+                        android:layout_height="94dp"
+                        android:layout_margin="50dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/francesinha_1" />
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Edit_Menus"
+                        app:layout_constraintEnd_toEndOf="@+id/manageMenus"
+                        app:layout_constraintStart_toStartOf="@+id/manageMenus"
+                        app:layout_constraintTop_toBottomOf="@+id/manageMenus" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -151,8 +170,7 @@
         app:iconGravity="start"
         app:iconSize="20dp"
         app:iconTint="@color/text"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
