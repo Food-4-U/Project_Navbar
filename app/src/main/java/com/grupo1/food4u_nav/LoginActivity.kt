@@ -73,20 +73,18 @@ class LoginActivity : AppCompatActivity() {
         }
 
         val easter = findViewById<ImageView>(R.id.imageView3)
+        var a = 0
 
         easter?.setOnClickListener() {
-
-
-            var url = "https://www.youtube.com/watch?v=iik25wqIuFo";
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse(url)
-            })
-
+            a+= 1
+            if (a == 10) {
+                var url = "https://www.youtube.com/watch?v=iik25wqIuFo";
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse(url)
+                    a = 0
+                })
+            }
         }
-
-
-
-
 
 
         btnLogin.setOnClickListener {
