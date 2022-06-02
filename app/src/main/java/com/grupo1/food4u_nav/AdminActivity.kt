@@ -10,6 +10,10 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.grupo1.food4u_nav.ui.admin.NewItemFragment
+import com.grupo1.food4u_nav.ui.home.DeskFragment
 
 class AdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +51,18 @@ class AdminActivity : AppCompatActivity() {
             myEdit?.apply()
             startActivity(intent)
             finish()
+        }
+
+        val btnNewItem = findViewById<Button>(R.id.newitem)
+
+        btnNewItem.setOnClickListener {
+
+            val manager: FragmentManager = supportFragmentManager
+            val transaction: FragmentTransaction = manager.beginTransaction()
+            transaction.add(R.id.containerAdmin,NewItemFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+
         }
     }
 }

@@ -125,7 +125,7 @@
                     android:layout_weight="1"
                     android:elevation="0dp"
                     android:fontFamily="@font/segoeui"
-                    android:text="Finalizado"
+                    android:text="@string/finalized"
                     android:textColor="@color/product_name"
                     android:textSize="12sp"
                     app:backgroundTint="@android:color/white" />
@@ -136,7 +136,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:fontFamily="@font/segoeui"
-                    android:text="Em Preparação"
+                    android:text="@string/inProgress"
                     android:textColor="@color/product_name"
                     android:textSize="12sp"
                     app:backgroundTint="@android:color/white"
@@ -148,7 +148,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:fontFamily="@font/segoeui"
-                    android:text="Cancelado"
+                    android:text="@string/cancelled"
                     android:textColor="@color/product_name"
                     android:textSize="12sp"
                     app:backgroundTint="@android:color/white" />
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
