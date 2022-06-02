@@ -315,6 +315,28 @@ object Backend {
         }
     }
 
+    fun getAllNames(callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var categoryName = String
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/GetNome")
+                .build()
+            var result = response.body!!.string()
+            var resultArray = JSONArray(result)
+            client.newCall(request).execute().use { response ->
+                for (index in 0 until resultArray.length()) {
+                    var categories = String.fromJSON
+                    categories.add(categoryName)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(categoryNames)
+                }
+            }
+        }
+    }
+
     fun getAllCategories(callback: ((List<CategoryType>) -> Unit)) {
         var categories = arrayListOf<CategoryType>()
         GlobalScope.launch(Dispatchers.IO) {

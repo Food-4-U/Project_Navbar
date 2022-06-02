@@ -12,13 +12,15 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
 import com.grupo1.food4u_nav.databinding.FragmentDeskBinding
 import com.grupo1.food4u_nav.databinding.FragmentNewItemBinding
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
 
 class NewItemFragment : Fragment() {
 
     private var _binding: FragmentNewItemBinding? = null
     private val binding get() = _binding!!
-
+    var categorias : List<CategoryType> = arrayListOf()
+    var categoriasNome = arrayListOf<String>()
 
     val INITIAL_RATING = 5.0
 
@@ -39,11 +41,17 @@ class NewItemFragment : Fragment() {
 
 
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
-        val Categoria = arrayOf("Marshmellow", "Cona", "Peixe", "Chourica", "Mamocas")
-        categoriaSpinner?.adapter = ArrayAdapter(
-            activity?.applicationContext!!,
-            R.layout.dropdownitem, Categoria
-        )
+
+        Backend.getAllCategories {
+            categorias = it
+
+            categoriaSpinner?.adapter = ArrayAdapter(
+                activity?.applicationContext!!,
+                R.layout.dropdownitem, categorias
+            )
+        }
+
+
 
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
         val SubCategoria = arrayOf("XXX", "XXX", "XXX", "XXX", "XXX")
