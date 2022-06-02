@@ -315,23 +315,24 @@ object Backend {
         }
     }
 
-    fun getAllNames(callback: (List<String>) -> Unit) {
+    fun getAllCategoryNames(callback: (List<String>) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
-            var categoryName = String
+            var categories = arrayListOf<String>()
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Categoria/GetNome")
                 .build()
-            var result = response.body!!.string()
-            var resultArray = JSONArray(result)
             client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
                 for (index in 0 until resultArray.length()) {
-                    var categories = String.fromJSON
-                    categories.add(categoryName)
+                    var categoryJSON = resultArray[index]
+                    var categoryName = categoryJSON
+                    categories.add(categoryName.toString())
                 }
 
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(categoryNames)
+                    callback.invoke(categories)
                 }
             }
         }
@@ -395,6 +396,29 @@ object Backend {
                     var clienteJSON = resultArray[index] as JSONObject
                     var subcategory = SubCategories.fromJSON(clienteJSON)
                     subcategories.add(subcategory)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategories)
+                }
+            }
+        }
+    }
+
+    fun getAllSubcategoryNames(callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategories = arrayListOf<String>()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetNome")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var subcategoryJSON = resultArray[index]
+                    var subcategoryName = subcategoryJSON
+                    subcategories.add(subcategoryName.toString())
                 }
 
                 GlobalScope.launch(Dispatchers.Main) {

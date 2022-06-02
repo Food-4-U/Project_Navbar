@@ -19,8 +19,8 @@ class NewItemFragment : Fragment() {
 
     private var _binding: FragmentNewItemBinding? = null
     private val binding get() = _binding!!
-    var categorias : List<CategoryType> = arrayListOf()
-    var categoriasNome = arrayListOf<String>()
+    var categorias : List<String> = arrayListOf()
+    var subcategorias : List<String> = arrayListOf()
 
     val INITIAL_RATING = 5.0
 
@@ -41,8 +41,9 @@ class NewItemFragment : Fragment() {
 
 
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
+        val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
-        Backend.getAllCategories {
+        Backend.getAllCategoryNames {
             categorias = it
 
             categoriaSpinner?.adapter = ArrayAdapter(
@@ -51,15 +52,14 @@ class NewItemFragment : Fragment() {
             )
         }
 
+        Backend.getAllSubcategoryNames {
+            subcategorias = it
 
-
-        val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
-        val SubCategoria = arrayOf("XXX", "XXX", "XXX", "XXX", "XXX")
-        subCategoriaSpinner?.adapter = ArrayAdapter(
-            activity?.applicationContext!!,
-            R.layout.dropdownitem, SubCategoria
-        )
-
+            subCategoriaSpinner?.adapter = ArrayAdapter(
+                activity?.applicationContext!!,
+                R.layout.dropdownitem, subcategorias
+            )
+        }
 
         add_newItem.setOnClickListener {
             var item = Item_Menu(
