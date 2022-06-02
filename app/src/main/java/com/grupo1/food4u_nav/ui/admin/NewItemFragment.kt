@@ -20,7 +20,6 @@ class NewItemFragment : Fragment() {
     private var _binding: FragmentDeskBinding? = null
     private val binding get() = _binding!!
 
-
     val INITIAL_RATING = 5.0
 
     override fun onCreateView(
