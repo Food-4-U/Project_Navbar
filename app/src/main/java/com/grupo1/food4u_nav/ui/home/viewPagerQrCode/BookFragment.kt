@@ -37,7 +37,7 @@ class BookFragment : Fragment(){
                     val dataSelect = Calendar.getInstance()
                    // dataSelect[year, month] = dayOfMonth //FIXME ???
 
-                    val format = SimpleDateFormat("dd-MM-yyyy")
+                    val format = SimpleDateFormat("dd/MM/yyyy")
 
                     datePicker.text = format.format(dataSelect.time)
 
