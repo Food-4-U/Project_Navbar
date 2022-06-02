@@ -37,6 +37,8 @@ class AdminActivity : AppCompatActivity() {
         }
 
 
+
+
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
         val myEdit = food4UCliente.edit()
         val btnStats = findViewById<ImageView>(R.id.statsImage)
@@ -56,15 +58,25 @@ class AdminActivity : AppCompatActivity() {
             finish()
         }
 
-        val btnNewItem = findViewById<Button>(R.id.newitem)
+      // val btnNewItem = findViewById<Button>(R.id.newitem)
 
-        btnNewItem.setOnClickListener {
+      // btnNewItem.setOnClickListener {
 
-            val manager: FragmentManager = supportFragmentManager
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerAdmin,NewItemFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
+      //     val manager: FragmentManager = supportFragmentManager
+      //     val transaction: FragmentTransaction = manager.beginTransaction()
+      //     transaction.add(R.id.containerAdmin,NewItemFragment())
+      //     transaction.addToBackStack(null)
+      //     transaction.commit()
+
+      // }
+
+        val manage = findViewById<ImageView>(R.id.manageMenus)
+
+        manage.setOnClickListener {
+            val intent = Intent(this@AdminActivity, ManageMenusActivity::class.java)
+            startActivity(intent)
         }
+
+
     }
 }

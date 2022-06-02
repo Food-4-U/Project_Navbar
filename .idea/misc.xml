@@ -11,8 +11,6 @@
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.2355" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/drawable/white_circle.xml" value="0.2355" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout-v28/fragment_addition_form.xml" value="0.25" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_admin.xml" value="0.22530996152201796" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_easter.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_itens_category.xml" value="0.2" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/activity_main.xml" value="0.18518518518518517" />
@@ -29,15 +27,33 @@
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_favorites.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.18518518518518517" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_new_item.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_order.xml" value="0.20261713803292528" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/fragment_search.xml" value="0.20261713803292528" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/list_from.xml" value="0.20436083796494228" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_hottest.xml" value="0.5219941348973607" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.4" />
-        <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_product.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/layout/row_toprated.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/diogo/Desktop/Projeto/Project_Navbar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_admin.xml" value="0.24814814814814815" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_extra_settings.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_itens_category.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_login.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_manage_menus.xml" value="0.2798887859128823" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_order.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_product_details.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_register.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_settings.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/activity_stats.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/fragment_book.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/fragment_order.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/fragment_search.xml" value="0.359375" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/row_hottest.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/row_menu.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/row_product.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diogo/OneDrive/Ambiente de Trabalho/Escola Projeto/Project_Navbar/app/src/main/res/layout/rv_menu.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/creditcard.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rounded_retangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.23" />
@@ -79,7 +95,6 @@
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/activity_stats.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.4" />
-        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_now.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_profile.xml" value="0.17037037037037037" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_search.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_wallet.xml" value="0.27447916666666666" />

@@ -184,8 +184,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="860dp"
                     android:layout_marginTop="12dp"
-                    android:nestedScrollingEnabled="false">
-
+                    android:nestedScrollingEnabled="true">
                 </androidx.recyclerview.widget.RecyclerView>
 
                 <TextView
@@ -203,8 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp"
-                    android:nestedScrollingEnabled="false">
-
+                    android:nestedScrollingEnabled="true">
                 </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
