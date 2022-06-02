@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import com.grupo1.food4u_nav.ui.admin.NewItemFragment
 import com.grupo1.food4u_nav.ui.home.DeskFragment
 
@@ -33,6 +35,9 @@ class AdminActivity : AppCompatActivity() {
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
             window!!.decorView.systemUiVisibility = flags
         }
+
+
+
 
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
         val myEdit = food4UCliente.edit()
