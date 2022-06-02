@@ -53,7 +53,7 @@
     <string name="maritalStatus">Estado Civil</string>
     <string name="avgAmountEatingOut">Valor médio gasto ao comer fora</string>
     <string name="submit">Enviar</string>
-    <string name="stats">Consultar Estatisticas</string>
+    <string name="stats">Estatísticas</string>
     <string name="menu_admin">Menu Admin</string>
     <string name="now">Agora</string>
     <string name="book">Reservar</string>
@@ -68,10 +68,6 @@
     <string name="newItem">Novo Item</string>
     <string name="add">Adicionar</string>
     <string name="highlight">Destacar</string>
-    <string name="General_Stats">Visão Geral</string>
-    <string name="Edit_Menus">Gerenciar Menus</string>
-    <string name="AddProducts">Adicionar Produto</string>
-    <string name="Categories">Categorias</string>
-    <string name="EditProduct">Editar Produto</string>
-    <string name="DeleteProduct">Eliminar Produto</string>
+    <string name="number_people">Número de Pessoas</string>
+    <string name="dateAndHour">Data e Hora</string>
 </resources>
