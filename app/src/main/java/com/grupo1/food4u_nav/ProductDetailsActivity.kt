@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,7 +18,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.grupo1.food4u_nav.models.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
-import kotlinx.parcelize.Parcelize
 
 class ProductDetailsActivity : AppCompatActivity() {
 
@@ -112,12 +112,11 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
 
             buttonOrder.setOnClickListener {
-                var cartItem : CartItem? = null
-
-                cartItem!!.quantidade = qtd
-                cartItem!!.item = item as Item_Menu
-
-                cart.add(cartItem)
+                Toast.makeText(
+                    this,
+                    "Adicionado ao Pedido.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 

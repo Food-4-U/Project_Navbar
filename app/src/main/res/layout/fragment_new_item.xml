@@ -7,17 +7,6 @@
     android:background="#FFFFFF"
     tools:context=".ui.admin.NewItemFragment">
 
-
-    <Switch
-        android:id="@+id/switch_highlight"
-        android:layout_width="48dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="40dp"
-        android:checked="false"
-        android:thumbTint="@color/GreenBT_Order"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
-
     <TextView
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
@@ -116,28 +105,120 @@
             android:theme="@style/EditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout8"
+        app:hintEnabled="false"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/transparent_background"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:passwordToggleEnabled="false">
+
+        <EditText
+            android:id="@+id/add_foodUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="URL"
+            android:inputType="textPersonName"
+            android:theme="@style/EditText" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout9"
+        app:hintEnabled="false"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/transparent_background"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
+        app:passwordToggleEnabled="false">
+
+        <EditText
+            android:id="@+id/add_foodIdCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="ID Categoria"
+            android:inputType="numberDecimal"
+            android:theme="@style/EditText" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout10"
+        app:hintEnabled="false"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/transparent_background"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+        app:passwordToggleEnabled="false">
+
+        <EditText
+            android:id="@+id/add_foodIdSubCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="ID Subcategoria"
+            android:inputType="numberDecimal"
+            android:theme="@style/EditText" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_newItem"
         style="@style/Button"
         android:layout_width="370dp"
         android:layout_height="70dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="40dp"
         android:elevation="10dp"
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
+
+    </com.google.android.material.button.MaterialButton>
 
     <TextView
         android:id="@+id/textView51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/highlight"
         android:theme="@style/SubtitleLightStyle"
-        app:layout_constraintBottom_toBottomOf="@+id/switch_highlight"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
-        app:layout_constraintTop_toTopOf="@+id/switch_highlight" />
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout10"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
+
+    <Switch
+        android:id="@+id/switch_highlight"
+        android:layout_width="48dp"
+        android:layout_height="25dp"
+        android:checked="false"
+        android:thumbTint="@color/GreenBT_Order"
+        app:layout_constraintBottom_toBottomOf="@+id/textView51"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout10"
+        app:layout_constraintTop_toTopOf="@+id/textView51"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

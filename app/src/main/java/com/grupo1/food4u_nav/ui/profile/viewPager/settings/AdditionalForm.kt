@@ -52,7 +52,6 @@ class AdditionalForm : Fragment() {
             R.layout.dropdownitem, profession
         )
 
-
         return view
     }
 }

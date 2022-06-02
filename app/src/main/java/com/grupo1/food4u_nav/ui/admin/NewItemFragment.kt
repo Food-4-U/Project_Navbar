@@ -33,6 +33,9 @@ class NewItemFragment : Fragment() {
         val add_foodName = view.findViewById<EditText>(R.id.add_foodName)
         val add_foodPrice = view.findViewById<EditText>(R.id.add_foodPrice)
         val add_foodTime = view.findViewById<EditText>(R.id.add_foodTime)
+        val add_foodURL = view.findViewById<EditText>(R.id.add_foodUrl)
+        val add_foodCategory = view.findViewById<EditText>(R.id.add_foodIdCategory)
+        val add_foodSubCategory = view.findViewById<EditText>(R.id.add_foodIdSubCategory)
         val add_newItem = view.findViewById<MaterialButton>(R.id.add_newItem)
         val highlight = view.findViewById<Switch>(R.id.switch_highlight)
 
@@ -41,10 +44,18 @@ class NewItemFragment : Fragment() {
                 null, add_foodName.text.toString(),
                 add_foodPrice.text.toString().toDouble(),
                 add_foodTime.text.toString().toInt(),
-                highlight.isChecked,
-                null, 1, 5, INITIAL_RATING
+                highlight.isChecked, add_foodURL.text.toString(), add_foodCategory.text.toString().toInt(),
+                add_foodSubCategory.text.toString().toInt(), 0.0
             )
-            Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
+
+            Backend.addItem(item) {
+                if (it) {
+                    Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
+                }
+            }
 
             /*  addItem(item) {
                   if (it)
