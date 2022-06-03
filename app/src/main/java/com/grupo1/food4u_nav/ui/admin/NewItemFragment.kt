@@ -57,7 +57,6 @@ class NewItemFragment : Fragment() {
             )
 
 
-
             Backend.getAllSubcategoryNames {
                 subcategorias = it
 
@@ -66,8 +65,8 @@ class NewItemFragment : Fragment() {
                     R.layout.dropdownitem, subcategorias
                 )
 
-
                 add_newItem.setOnClickListener {
+
                     var categorySelected = categoriaSpinner.selectedItem.toString()
                     var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
 
@@ -77,17 +76,12 @@ class NewItemFragment : Fragment() {
                         Backend.getIDSubcategory(subcategorySelected) {
                             idsubCategoria = it
 
-
                             var item = Item_Menu(
-
-
-                                null,add_foodName.text.toString(),
+                                null, add_foodName.text.toString(),
                                 add_foodPrice.text.toString().toDouble(),
                                 add_foodTime.text.toString().toInt(),
                                 highlight.isChecked, add_foodURL.text.toString(), idCategoria,
                                 idsubCategoria, 0.0
-
-
                             )
 
                             Backend.addItem(item) {
@@ -99,19 +93,12 @@ class NewItemFragment : Fragment() {
                                 }
                             }
                         }
+
                     }
 
                 }
             }
         }
-
-
-            /*  addItem(item) {
-                  if (it)
-                      Toast.makeText(requireActivity(), "funfou", Toast.LENGTH_SHORT).show()
-                  else
-                      Toast.makeText(requireActivity(), "nao funfou", Toast.LENGTH_SHORT).show()
-              }*/
 
         return view
     }

@@ -58,16 +58,13 @@ class AdminActivity : AppCompatActivity() {
             finish()
         }
 
-        val btnNewItem = findViewById<Button>(R.id.newitem)
+        val manageMenu = findViewById<ImageView>(R.id.manageMenus)
 
-        btnNewItem.setOnClickListener {
-
-            val manager: FragmentManager = supportFragmentManager
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerAdmin,NewItemFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
-
+        manageMenu.setOnClickListener {
+            val intent = Intent(this@AdminActivity, ManageMenusActivity::class.java)
+            startActivity(intent)
         }
+
+
     }
 }

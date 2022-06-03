@@ -75,4 +75,11 @@
     <string name="newItem">New Item</string>
     <string name="add">Add</string>
     <string name="highlight">Highlight</string>
+    <string name="number_people">Number of People</string>
+    <string name="dateAndHour">Date and Hour</string>
+    <string name="AddProducts">Add Product</string>
+    <string name="EditProduct">Edit Product</string>
+    <string name="DeleteProduct">Delete Product</string>
+    <string name="General_Stats">General Stats</string>
+    <string name="Edit_Menus">Manage Menus</string>
 </resources>

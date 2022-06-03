@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.viewPagerQrCode.BookFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/btn_TimePicker"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/login_backgroundedittext"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        app:drawableStartCompat="@drawable/ic_minute"
+        android:drawablePadding="10dp"
+        app:drawableTint="@color/variation_text"
+        app:layout_constraintEnd_toEndOf="@+id/textView53"
+        android:textColor="@color/variation_text"
+        android:fontFamily="@font/segoeui"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_dateTimePicker"
+        app:layout_constraintTop_toTopOf="@+id/btn_dateTimePicker" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/number_people"
+        android:textAppearance="@style/SubtitleRegularStyle"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textView53"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dateTimePicker" />
+
+    <EditText
+        android:id="@+id/textView53"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/login_backgroundedittext"
+        android:gravity="center_vertical"
+        android:inputType="number"
+        android:fontFamily="@font/segoeui"
+        android:textSize="14sp"
+        android:textColor="@color/variation_text"
+        android:paddingStart="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dateTimePicker" />
+
+    <TextView
+        android:id="@+id/btn_dateTimePicker"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_backgroundedittext"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/segoeui"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:textColor="@color/variation_text"
+        app:drawableStartCompat="@drawable/ic_calendar"
+        app:drawableTint="@color/variation_text"
+        app:layout_constraintStart_toStartOf="@+id/textView53"
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/dateAndHour"
+        android:textAppearance="@style/SubtitleRegularStyle"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/btn_dateTimePicker"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/segoeuil"
+        android:text="Desculpe, não há mesas disponíveis a essa hora. "
+        android:textColor="@color/variation_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/warning"
+        app:layout_constraintBottom_toBottomOf="@+id/textView49"
+        app:layout_constraintStart_toStartOf="@+id/textView53"
+        app:layout_constraintTop_toTopOf="@+id/textView49" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
