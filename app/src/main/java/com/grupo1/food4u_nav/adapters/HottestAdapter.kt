@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
@@ -28,6 +29,7 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
         var foodprice = itemView.findViewById<TextView>(R.id.menu_foodPrice)
         var foodEvaluation = itemView.findViewById<TextView>(R.id.menu_foodEvauation)
         var foodStars = itemView.findViewById<RatingBar>(R.id.ratingBar_hottest)
+        var addBtn = itemView.findViewById<ImageView>(R.id.addBtnHottest)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,6 +52,10 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
             val intent = Intent(context, ProductDetailsActivity::class.java)
             intent.putExtra("id_item", itens[position].id_item)
             context.startActivity(intent)
+        }
+
+        holder.addBtn.setOnClickListener{
+            Toast.makeText(context,itens[position].id_item.toString() + " clickado", Toast.LENGTH_SHORT).show()
         }
     }
 
