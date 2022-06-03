@@ -77,4 +77,10 @@
     <string name="highlight">Highlight</string>
     <string name="number_people">Number of People</string>
     <string name="dateAndHour">Date and Hour</string>
+    <string name="General_Stats">General Stats</string>
+    <string name="Edit_Menus">Manage Menus</string>
+    <string name="AddProducts">Add Products</string>
+    <string name="Categories">Categories</string>
+    <string name="DeleteProduct">Delete Product</string>
+    <string name="EditProduct">Edit Product</string>
 </resources>
