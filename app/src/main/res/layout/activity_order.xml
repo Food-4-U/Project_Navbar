@@ -88,11 +88,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginBottom="124dp"
         android:fontFamily="@font/trebuc"
         android:text="Total: "
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
+        app:layout_constraintBottom_toTopOf="@+id/orderButtonPay"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -101,13 +100,13 @@
         android:layout_width="228dp"
         android:layout_height="65dp"
         android:layout_marginLeft="7dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/GreenBT_Order"
         android:fontFamily="@font/candarabold"
         android:text="PAGAR"
         android:textSize="24dp"
         app:cornerRadius="13dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -116,31 +115,21 @@
         android:id="@+id/orderTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="124dp"
         android:fontFamily="@font/trebucbd"
         android:text="7.50€"
         android:textSize="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView4" />
+        app:layout_constraintBottom_toTopOf="@+id/orderButtonPay"
+        tools:layout_editor_absoluteX="309dp" />
 
 
-    <ScrollView
-        android:id="@+id/scrollView4"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:nestedScrollingEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yellowRectangle"
-        app:layout_constraintVertical_bias="0.0">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_order"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/yellowRectangle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
