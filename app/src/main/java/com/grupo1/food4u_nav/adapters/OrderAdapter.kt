@@ -13,8 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.internal.notify
 import org.w3c.dom.Text
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
@@ -56,7 +60,8 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             cart[position].quantidade = cart[position].quantidade?.plus(1)
             holder.quantidade.text = cart[position].quantidade.toString()
 
-            setData(cart)
+            this.cart = cart
+            notifyDataSetChanged()
         }
 
         holder.buttonMinus.setOnClickListener{
@@ -65,13 +70,17 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
                 cart[position].quantidade = cart[position].quantidade?.minus(1)
                 holder.quantidade.text = cart[position].quantidade.toString()
 
-                setData(cart)
+                this.cart = cart
+                notifyDataSetChanged()
+
+            }else{
             }
         }
     }
 
     fun setData(cart: List<CartItem>) {
         this.cart = cart
+
         notifyDataSetChanged()
     }
 

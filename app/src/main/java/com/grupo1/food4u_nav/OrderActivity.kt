@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -66,12 +68,7 @@ class OrderActivity : AppCompatActivity() {
             totalTextView.text = priceText.plus(" €")
 
         })
-
-
-
-
-
-
-
     }
+
+
 }
