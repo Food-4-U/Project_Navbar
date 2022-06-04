@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface CartDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addToCart(cartItem: CartItem)
 
     @Query("SELECT * FROM cart ORDER BY id ASC")

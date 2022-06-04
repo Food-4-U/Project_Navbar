@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class CartViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository: CartRepository
-    private val readCart: LiveData<List<CartItem>>
+    val readCart: LiveData<List<CartItem>>
 
     init {
         val cartDao = CartDatabase.getDatabase(application).cartDao()
@@ -23,4 +23,6 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
             repository.addToCart(cartItem)
         }
     }
+
+
 }
