@@ -56,7 +56,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val priceText = findViewById<TextView>(R.id.priceText)
         var categoryText = findViewById<TextView>(R.id.productType)
         var subcategoryText = findViewById<TextView>(R.id.productTypeName)
-        var cartItem : CartItem = CartItem(null, null, null)
+        var cartItem : CartItem = CartItem(null, null, null, null)
         lateinit var mCartViewModel: CartViewModel
 
 
@@ -118,6 +118,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             buttonOrder.setOnClickListener {
                 cartItem.item_id = item!!.id_item
                 cartItem.quantidade = qtd
+                cartItem.precoTotal = qtd * item!!.preco!!
 
 
                 mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
