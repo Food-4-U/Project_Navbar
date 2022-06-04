@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,6 +11,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.ui.admin.NewItemFragment
+import com.grupo1.food4u_nav.ui.admin.ShowMenu
 
 class ManageMenusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +35,22 @@ class ManageMenusActivity : AppCompatActivity() {
         }
 
         val btnNewItem = findViewById<ImageView>(R.id.productAdd)
+        val btnEditMenu = findViewById<ImageView>(R.id.productEdit)
 
         btnNewItem.setOnClickListener {
 
         val manager: FragmentManager = supportFragmentManager
         val transaction: FragmentTransaction = manager.beginTransaction()
             transaction.add(R.id.containerMenuManage, NewItemFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        btnEditMenu.setOnClickListener {
+
+            val manager: FragmentManager = supportFragmentManager
+            val transaction: FragmentTransaction = manager.beginTransaction()
+            transaction.add(R.id.containerMenuManage, ShowMenu())
             transaction.addToBackStack(null)
             transaction.commit()
         }
