@@ -2,7 +2,6 @@ package com.grupo1.food4u_nav
 
 import Backend
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -14,10 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.grupo1.food4u_nav.models.CartItem
+import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
+
 
 class ProductDetailsActivity : AppCompatActivity() {
 
@@ -54,7 +56,9 @@ class ProductDetailsActivity : AppCompatActivity() {
         val priceText = findViewById<TextView>(R.id.priceText)
         var categoryText = findViewById<TextView>(R.id.productType)
         var subcategoryText = findViewById<TextView>(R.id.productTypeName)
-        var cart : MutableList<CartItem> = arrayListOf()
+        var cartItem : CartItem = CartItem(null, null, null, null)
+        lateinit var mCartViewModel: CartViewModel
+
 
 
         Backend.getItemID(id_item) {
@@ -112,6 +116,14 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
 
             buttonOrder.setOnClickListener {
+                cartItem.item_id = item!!.id_item
+                cartItem.quantidade = qtd
+                cartItem.precoTotal = qtd * item!!.preco!!
+
+
+                mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+                mCartViewModel.addToCart(cartItem)
+
                 Toast.makeText(
                     this,
                     "Adicionado ao Pedido.",
