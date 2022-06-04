@@ -12,16 +12,21 @@ import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.internal.ContextUtils.getActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.data.CartItem
+import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
 
 
 class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
+
+    private lateinit var mCartViewModel: CartViewModel
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var photoFood = itemView.findViewById<ShapeableImageView>(R.id.menu_foodPhoto)
@@ -45,6 +50,7 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
         holder.foodEvaluation.text = itens[position].avaliação.toString()
         holder.foodStars.rating = itens[position].avaliação!!.toFloat()
 
+
         var imageURL = itens[position].url
         Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
 
@@ -55,7 +61,11 @@ class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : Recycler
         }
 
         holder.addBtn.setOnClickListener{
-            Toast.makeText(context,itens[position].id_item.toString() + " clickado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "Adicionado ao Pedido.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

@@ -31,7 +31,7 @@ class ShowMenu : Fragment() {
             itens = it
 
             val rv_products : RecyclerView = binding.rvProducts
-            val productsAdapter = EditMenuAdapter(itens)
+            val productsAdapter = EditMenuAdapter(requireActivity(), itens)
 
             rv_products.layoutManager = GridLayoutManager(activity, 2)
             rv_products.adapter = productsAdapter
