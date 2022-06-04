@@ -61,7 +61,7 @@ class OrderActivity : AppCompatActivity() {
             adapter.setData(cart)
 
             val totalTextView = findViewById<TextView>(R.id.orderTotal)
-            var price = adapter.getTotal().toString()
+            var price = adapter.getTotal()
             var priceText = String.format("%.2f", price)
             totalTextView.text = priceText.plus(" €")
 
