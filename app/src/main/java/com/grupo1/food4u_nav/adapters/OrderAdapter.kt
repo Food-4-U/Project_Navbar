@@ -5,12 +5,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.data.CartItem
+import com.grupo1.food4u_nav.models.data.CartViewModel
 import okhttp3.internal.notify
 import org.w3c.dom.Text
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
@@ -21,6 +25,8 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var quantidade = itemView.findViewById<TextView>(R.id.productOrderNumber)
         var nome = itemView.findViewById<TextView>(R.id.productNameOrderRow)
         var price = itemView.findViewById<TextView>(R.id.productOrderPrice)
+        var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusSign)
+        var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
     }
 
     private var cart = emptyList<CartItem>()
@@ -46,6 +52,22 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             holder.price.text = priceText.plus(" €")
         }
 
+        holder.buttonPlus.setOnClickListener{
+            cart[position].quantidade = cart[position].quantidade?.plus(1)
+            holder.quantidade.text = cart[position].quantidade.toString()
+
+            setData(cart)
+        }
+
+        holder.buttonMinus.setOnClickListener{
+            if (cart[position].quantidade!! >= 2)
+            {
+                cart[position].quantidade = cart[position].quantidade?.minus(1)
+                holder.quantidade.text = cart[position].quantidade.toString()
+
+                setData(cart)
+            }
+        }
     }
 
     fun setData(cart: List<CartItem>) {
