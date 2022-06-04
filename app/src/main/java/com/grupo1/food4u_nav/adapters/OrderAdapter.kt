@@ -54,14 +54,11 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
     }
 
     fun getTotal(): Double {
-        var total= 0.0
+        var total = 0.0
 
-        for (i in 1..cart.size){
-            Backend.getItemID(cart[i].item_id!!){
-                var price = (it.preco!! * (cart[i].quantidade!!))
-
-                total += price
-            }
+        for (i in 1..cart.size)
+        {
+            total += cart[i - 1].precoTotal!!
         }
 
         return total
