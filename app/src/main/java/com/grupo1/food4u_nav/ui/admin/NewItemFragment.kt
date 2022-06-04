@@ -39,8 +39,6 @@ class NewItemFragment : Fragment() {
         val add_foodURL = view.findViewById<EditText>(R.id.add_foodUrl)
         val add_newItem = view.findViewById<MaterialButton>(R.id.add_newItem)
         val highlight = view.findViewById<Switch>(R.id.switch_highlight)
-
-
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
@@ -70,32 +68,38 @@ class NewItemFragment : Fragment() {
                     var categorySelected = categoriaSpinner.selectedItem.toString()
                     var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
 
-                    Backend.getIDCategory(categorySelected) {
-                        idCategoria = it
+                    if (add_foodName.text.isNullOrBlank() || add_foodPrice.text.isNullOrBlank() || add_foodTime.text.isNullOrBlank() || add_foodURL.text.isNullOrBlank()) {
+                        Toast.makeText(
+                            requireActivity(),
+                            R.string.null_data,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Backend.getIDCategory(categorySelected) {
+                            idCategoria = it
 
-                        Backend.getIDSubcategory(subcategorySelected) {
-                            idsubCategoria = it
+                            Backend.getIDSubcategory(subcategorySelected) {
+                                idsubCategoria = it
 
-                            var item = Item_Menu(
-                                null, add_foodName.text.toString(),
-                                add_foodPrice.text.toString().toDouble(),
-                                add_foodTime.text.toString().toInt(),
-                                highlight.isChecked, add_foodURL.text.toString(), idCategoria,
-                                idsubCategoria, 0.0
-                            )
+                                var item = Item_Menu(
+                                    null, add_foodName.text.toString(),
+                                    add_foodPrice.text.toString().toDouble(),
+                                    add_foodTime.text.toString().toInt(),
+                                    highlight.isChecked, add_foodURL.text.toString(), idCategoria,
+                                    idsubCategoria, 0.0
+                                )
 
-                            Backend.addItem(item) {
-                                if (it) {
-                                    Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
-                                }
-                                else {
-                                    Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
+                                Backend.addItem(item) {
+                                    if (it) {
+                                        Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
+                                    }
+                                    else {
+                                        Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
+                                    }
                                 }
                             }
                         }
-
                     }
-
                 }
             }
         }
