@@ -448,7 +448,7 @@ object Backend {
 
     fun getIDSubcategory(name: String, callback: (Int) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
-            var subcategoryID = 0
+            var subcategoryID: Int
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Subcategoria/GetIDSubcategory/" + name)
