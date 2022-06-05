@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
@@ -53,9 +54,9 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
 
         holder.itemView.setOnClickListener {
 
-            var bundle = Bundle()
-            bundle.putInt("id_item", itens[position].id_item!!)
-
+            var id_item = context.getSharedPreferences("id_item", AppCompatActivity.MODE_PRIVATE)
+            val myEdit = id_item.edit()
+            myEdit.putInt("id_item", itens[position].id_item!!)
 
             val mFragmentManager = (context as FragmentActivity).supportFragmentManager
             val mFragmentTransaction = mFragmentManager.beginTransaction()

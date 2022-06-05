@@ -2,6 +2,8 @@ package com.grupo1.food4u_nav.ui.admin
 
 import Backend.addItem
 import android.content.ClipData
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -42,16 +44,24 @@ class EditItemFragment : Fragment() {
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
-        val bundle = arguments
-        val id_item = bundle!!.getInt("id_item")
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("id_item",
+            Context.MODE_PRIVATE
+        )
+
+        var id_item = 0
+        id_item = prefs!!.getInt("id_item", 0)
 
         Backend.getItemID(id_item) {
+
+            item = it
+
             edit_foodName.setText(it.nome)
             edit_foodPrice.setText(it.preco.toString())
             edit_foodTime.setText(it.temp_prep.toString())
             edit_foodURL.setText(it.url)
         }
 
+        /*
         Backend.getAllCategoryNames {
 
             var idCategoria : Int? = null
@@ -113,7 +123,7 @@ class EditItemFragment : Fragment() {
                 }
             }
         }
-
+        */
         return view
     }
 }
