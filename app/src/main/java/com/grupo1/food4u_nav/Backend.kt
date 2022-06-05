@@ -318,6 +318,29 @@ object Backend {
         }
     }
 
+    fun updateItem(id: Int, item: Item_Menu, callback : ((Boolean)->Unit) ) {
+
+        GlobalScope.launch (Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                    mediaType, item.toJSON().toString())
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/Update/" + "/" + id)
+                .put(body)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch (Dispatchers.Main){
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
     // CATEGORIAS E SUBCATEGORIAS NOME
 
     fun getNameCategory(id: Int, callback: ((CategoryType) -> Unit)) {
