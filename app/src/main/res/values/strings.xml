@@ -15,6 +15,7 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="menu">Menu</string>
+    <string name="editMenu">Edit Menu</string>
     <string name="profile">Profile</string>
     <string name="searchWhatToEat">Search by a food</string>
     <string name="search_Category">Search</string>
@@ -48,7 +49,6 @@
     <string name="additionalForm">Additional Form</string>
     <string name="receivePromotionsAlert">Receive promotion notifications?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Profession">Profession</string>
     <string name="gender">Gender</string>
     <string name="ageGroup">Age Group</string>
@@ -69,6 +69,7 @@
     <string name="timeToPrepare">Time to prepare</string>
     <string name="price">Price</string>
     <string name="newItem">New Item</string>
+    <string name="editItem">Edit Item</string>
     <string name="add">Add</string>
     <string name="highlight">Highlight</string>
     <string name="General_Stats">General Stats</string>

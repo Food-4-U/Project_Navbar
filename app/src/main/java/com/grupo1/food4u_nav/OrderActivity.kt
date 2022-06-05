@@ -66,13 +66,5 @@ class OrderActivity : AppCompatActivity() {
             totalTextView.text = priceText.plus(" €")
 
         })
-
-
-
-
-
-
-
-
     }
 }
