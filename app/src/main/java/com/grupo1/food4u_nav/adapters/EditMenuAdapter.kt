@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.internal.ContextUtils.getActivity
@@ -22,7 +23,9 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 import com.grupo1.food4u_nav.ui.admin.EditItemFragment
+import com.grupo1.food4u_nav.ui.admin.ShowMenu
 import com.squareup.picasso.Picasso
+
 
 
 class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : RecyclerView.Adapter<EditMenuAdapter.ViewHolder>() {
@@ -50,12 +53,18 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
 
         holder.itemView.setOnClickListener {
 
+            var bundle = Bundle()
+            bundle.putInt("id_item", itens[position].id_item!!)
+
+
             val mFragmentManager = (context as FragmentActivity).supportFragmentManager
             val mFragmentTransaction = mFragmentManager.beginTransaction()
             val mFragment = EditItemFragment()
+            val transaction: FragmentTransaction = mFragmentManager.beginTransaction()
+            transaction.add(R.id.containerMenuManage, EditItemFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
 
-            var bundle = Bundle()
-            bundle.putInt("id_item", itens[position].id_item!!)
         }
     }
 
