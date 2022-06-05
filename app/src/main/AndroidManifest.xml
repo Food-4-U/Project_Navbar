@@ -10,7 +10,8 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false" />
+        android:required="false"
+       />
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,7 @@
         android:label="Food 4 U"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Food4U_Nav"
+         android:configChanges="locale|orientation"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".SplashScreen"
