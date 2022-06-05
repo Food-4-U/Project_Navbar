@@ -7,6 +7,68 @@
     android:layout_height="match_parent"
     tools:context=".ManageMenusActivity">
 
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productEdit"
+        app:srcCompat="@drawable/rectangle_managetrending" />
+
+    <ImageView
+        android:id="@+id/productEdit"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productAdd"
+        app:srcCompat="@drawable/rectangle_managecategories" />
+
+    <TextView
+        android:id="@+id/productsEditText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Sub-Categorias"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productEdit"
+        app:layout_constraintStart_toStartOf="@+id/productEdit" />
+
+    <TextView
+        android:id="@+id/productsEditText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Categorias"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productsEditText4"
+        app:layout_constraintStart_toStartOf="@+id/productAdd" />
+
+    <TextView
+        android:id="@+id/productsEditText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Destaques"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+        app:layout_constraintStart_toStartOf="@+id/imageView25" />
+
     <TextView
         android:id="@+id/textView56"
         android:layout_width="wrap_content"
@@ -23,82 +85,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/productAdd"
+    <Button
+        android:id="@+id/btnCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="20dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/productAdd"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView56"
-        app:srcCompat="@drawable/retangulo138"></ImageView>
-
-    <ImageView
-        android:id="@+id/productEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productAdd"
-        app:srcCompat="@drawable/retangulo_1">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/deleteProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productEdit"
-        app:srcCompat="@drawable/retangulo141">
-
-    </ImageView>
+        app:srcCompat="@drawable/rectangle_manageproducts" />
 
     <TextView
         android:id="@+id/productsEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:textAllCaps="true"
-        android:textSize="30dp"
-        android:fontFamily="@font/candarabold"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Produtos"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:text="@string/AddProducts"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/productAdd"
-        app:layout_constraintEnd_toEndOf="@+id/productAdd"
-        app:layout_constraintStart_toStartOf="@+id/productAdd"
-        app:layout_constraintTop_toTopOf="@+id/productAdd" />
-
-    <TextView
-        android:id="@+id/textView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-
-        android:textAllCaps="true"
-        android:textSize="30dp"
-        android:fontFamily="@font/candarabold"
-        android:textColor="@color/white"
-        android:text="@string/EditProduct"
-        app:layout_constraintBottom_toBottomOf="@+id/productEdit"
-        app:layout_constraintEnd_toEndOf="@+id/productEdit"
-        app:layout_constraintStart_toStartOf="@+id/productEdit"
-        app:layout_constraintTop_toTopOf="@+id/productEdit" />
-
-    <TextView
-        android:id="@+id/textView59"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:textAllCaps="true"
-        android:textSize="30dp"
-        android:fontFamily="@font/candarabold"
-        android:textColor="@color/white"
-        android:text="@string/DeleteProduct"
-        app:layout_constraintBottom_toBottomOf="@+id/deleteProduct"
-        app:layout_constraintEnd_toEndOf="@+id/deleteProduct"
-        app:layout_constraintStart_toStartOf="@+id/deleteProduct"
-        app:layout_constraintTop_toTopOf="@+id/deleteProduct" />
+        app:layout_constraintStart_toStartOf="@+id/productAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
