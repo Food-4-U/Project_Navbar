@@ -29,8 +29,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var quantidade = itemView.findViewById<TextView>(R.id.productOrderNumber)
         var nome = itemView.findViewById<TextView>(R.id.productNameOrderRow)
         var price = itemView.findViewById<TextView>(R.id.productOrderPrice)
-        var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusSign)
-        var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
+        var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
     }
 
     private var cart = emptyList<CartItem>()
@@ -51,36 +50,17 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         Backend.getItemID(cart[position].item_id!!){
             holder.nome.text = it.nome
 
+            var imageURL = it.url
+            Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
             var price = (it.preco!! * (cart[position].quantidade!!))
             var priceText = String.format("%.2f", price)
             holder.price.text = priceText.plus(" €")
         }
 
-        holder.buttonPlus.setOnClickListener{
-            cart[position].quantidade = cart[position].quantidade?.plus(1)
-            holder.quantidade.text = cart[position].quantidade.toString()
-
-            this.cart = cart
-            notifyDataSetChanged()
-        }
-
-        holder.buttonMinus.setOnClickListener{
-            if (cart[position].quantidade!! >= 2)
-            {
-                cart[position].quantidade = cart[position].quantidade?.minus(1)
-                holder.quantidade.text = cart[position].quantidade.toString()
-
-                this.cart = cart
-                notifyDataSetChanged()
-
-            }else{
-            }
-        }
     }
 
     fun setData(cart: List<CartItem>) {
         this.cart = cart
-
         notifyDataSetChanged()
     }
 

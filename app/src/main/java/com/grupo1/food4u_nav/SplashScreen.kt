@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,15 +9,12 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.grupo1.food4u_nav.ui.admin.NewItemFragment
-import com.grupo1.food4u_nav.ui.admin.ShowMenu
 
-class ManageMenusActivity : AppCompatActivity() {
+
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_menus)
+        setContentView(R.layout.activity_splash_screen)
 
         supportActionBar!!.hide()
 
@@ -34,25 +32,33 @@ class ManageMenusActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
-        val btnNewItem = findViewById<ImageView>(R.id.productAdd)
-        val btnEditMenu = findViewById<ImageView>(R.id.productEdit)
 
-        btnNewItem.setOnClickListener {
+        var logo = findViewById<ImageView>(R.id.logo)
 
-        val manager: FragmentManager = supportFragmentManager
-        val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerMenuManage, NewItemFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
+        var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
+
+        var isLogged: Boolean = food4UCliente.getBoolean("isLogged", false)
+        var isAdmin: Boolean = food4UCliente.getBoolean("isAdmin", false)
+
+        logo.alpha = 0f
+        logo.animate().setDuration(2200).alpha(1f).withEndAction(){
+
+            if (isLogged && isAdmin) {
+                val intent = Intent(this, AdminActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else if (isLogged && !isAdmin) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else if(!isLogged)
+            {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
-        btnEditMenu.setOnClickListener {
-
-            val manager: FragmentManager = supportFragmentManager
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerMenuManage, ShowMenu())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
     }
 }

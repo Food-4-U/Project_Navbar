@@ -15,6 +15,7 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="menu">Menu</string>
+    <string name="editMenu">Edit Menu</string>
     <string name="profile">Profile</string>
     <string name="searchWhatToEat">Search by a food</string>
     <string name="search_Category">Search</string>
@@ -48,7 +49,6 @@
     <string name="additionalForm">Additional Form</string>
     <string name="receivePromotionsAlert">Receive promotion notifications?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Profession">Profession</string>
     <string name="gender">Gender</string>
     <string name="ageGroup">Age Group</string>
@@ -56,30 +56,28 @@
     <string name="maritalStatus">Marital Status</string>
     <string name="avgAmountEatingOut">Average amount spent eating out</string>
     <string name="submit">Submit</string>
-    <string name="stats">Stats</string>
+    <string name="stats">View Stats</string>
     <string name="menu_admin">Admin Menu</string>
     <string name="now">Now</string>
     <string name="book">Book</string>
     <string name="or">Or</string>
     <string name="number_table">Insert the table number</string>
     <string name="table">Table</string>
-    <string-array name="gender">
-        <item>Masculine</item>
-        <item>Feminine</item>
-    </string-array>
     <string name="finalized">finalized</string>
     <string name="inProgress">finalized</string>
     <string name="cancelled">finalized</string>
     <string name="timeToPrepare">Time to prepare</string>
     <string name="price">Price</string>
     <string name="newItem">New Item</string>
+    <string name="editItem">Edit Item</string>
     <string name="add">Add</string>
     <string name="highlight">Highlight</string>
-    <string name="number_people">Number of People</string>
-    <string name="dateAndHour">Date and Hour</string>
-    <string name="AddProducts">Add Product</string>
-    <string name="EditProduct">Edit Product</string>
-    <string name="DeleteProduct">Delete Product</string>
     <string name="General_Stats">General Stats</string>
     <string name="Edit_Menus">Manage Menus</string>
+    <string name="AddProducts">Add Products</string>
+    <string name="Categories">Categories</string>
+    <string name="DeleteProduct">Delete Product</string>
+    <string name="EditProduct">Edit Product</string>
+    <string name="number_people">Number of People</string>
+    <string name="dateAndHour">Date and Hour</string>
 </resources>

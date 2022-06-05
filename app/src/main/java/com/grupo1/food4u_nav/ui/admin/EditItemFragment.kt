@@ -1,6 +1,9 @@
 package com.grupo1.food4u_nav.ui.admin
 
 import Backend.addItem
+import android.content.ClipData
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,14 +19,13 @@ import com.grupo1.food4u_nav.databinding.FragmentNewItemBinding
 import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
 
-class NewItemFragment : Fragment() {
+class EditItemFragment : Fragment() {
 
     private var _binding: FragmentNewItemBinding? = null
     private val binding get() = _binding!!
     var categorias : List<String> = arrayListOf()
     var subcategorias : List<String> = arrayListOf()
-
-    val INITIAL_RATING = 5.0
+    var item : Item_Menu? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,17 +33,35 @@ class NewItemFragment : Fragment() {
     ): View? {
 
         _binding = FragmentNewItemBinding.inflate(inflater, container, false)
-        val view = inflater.inflate(R.layout.fragment_new_item, container, false)
+        val view = inflater.inflate(R.layout.fragment_edit_item, container, false)
 
-        val add_foodName = view.findViewById<EditText>(R.id.add_foodName)
-        val add_foodPrice = view.findViewById<EditText>(R.id.add_foodPrice)
-        val add_foodTime = view.findViewById<EditText>(R.id.add_foodTime)
-        val add_foodURL = view.findViewById<EditText>(R.id.add_foodUrl)
-        val add_newItem = view.findViewById<MaterialButton>(R.id.add_newItem)
+        val edit_foodName = view.findViewById<EditText>(R.id.add_foodName)
+        val edit_foodPrice = view.findViewById<EditText>(R.id.add_foodPrice)
+        val edit_foodTime = view.findViewById<EditText>(R.id.add_foodTime)
+        val edit_foodURL = view.findViewById<EditText>(R.id.add_foodUrl)
+        val editItem = view.findViewById<MaterialButton>(R.id.add_editItem)
         val highlight = view.findViewById<Switch>(R.id.switch_highlight)
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("id_item",
+            Context.MODE_PRIVATE
+        )
+
+        var id_item = 0
+        id_item = prefs!!.getInt("id_item", 0)
+
+        Backend.getItemID(id_item) {
+
+            item = it
+
+            edit_foodName.setText(it.nome)
+            edit_foodPrice.setText(it.preco.toString())
+            edit_foodTime.setText(it.temp_prep.toString())
+            edit_foodURL.setText(it.url)
+        }
+
+        /*
         Backend.getAllCategoryNames {
 
             var idCategoria : Int? = null
@@ -63,12 +83,12 @@ class NewItemFragment : Fragment() {
                     R.layout.dropdownitem, subcategorias
                 )
 
-                add_newItem.setOnClickListener {
+                editItem.setOnClickListener {
 
                     var categorySelected = categoriaSpinner.selectedItem.toString()
                     var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
 
-                    if (add_foodName.text.isNullOrBlank() || add_foodPrice.text.isNullOrBlank() || add_foodTime.text.isNullOrBlank() || add_foodURL.text.isNullOrBlank()) {
+                    if (edit_foodName.text.isNullOrBlank() || edit_foodPrice.text.isNullOrBlank() || edit_foodTime.text.isNullOrBlank() || edit_foodURL.text.isNullOrBlank()) {
                         Toast.makeText(
                             requireActivity(),
                             R.string.null_data,
@@ -82,16 +102,16 @@ class NewItemFragment : Fragment() {
                                 idsubCategoria = it
 
                                 var item = Item_Menu(
-                                    null, add_foodName.text.toString(),
-                                    add_foodPrice.text.toString().toDouble(),
-                                    add_foodTime.text.toString().toInt(),
-                                    highlight.isChecked, add_foodURL.text.toString(), idCategoria,
+                                    null, edit_foodName.text.toString(),
+                                    edit_foodPrice.text.toString().toDouble(),
+                                    edit_foodTime.text.toString().toInt(),
+                                    highlight.isChecked, edit_foodURL.text.toString(), idCategoria,
                                     idsubCategoria, 0.0
                                 )
 
                                 Backend.addItem(item) {
                                     if (it) {
-                                        Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(requireActivity(), item.nome + " editado", Toast.LENGTH_SHORT).show()
                                     }
                                     else {
                                         Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
@@ -103,7 +123,7 @@ class NewItemFragment : Fragment() {
                 }
             }
         }
-
+        */
         return view
     }
 }
