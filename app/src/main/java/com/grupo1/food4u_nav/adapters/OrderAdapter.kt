@@ -11,11 +11,13 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Index
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -30,6 +32,8 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var nome = itemView.findViewById<TextView>(R.id.productNameOrderRow)
         var price = itemView.findViewById<TextView>(R.id.productOrderPrice)
         var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
+        var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
+        var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
     }
 
     private var cart = emptyList<CartItem>()
@@ -55,6 +59,21 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             var price = (it.preco!! * (cart[position].quantidade!!))
             var priceText = String.format("%.2f", price)
             holder.price.text = priceText.plus(" €")
+
+
+            holder.buttonPlus.setOnClickListener{
+                cart[position].quantidade = cart[position].quantidade?.plus(1)
+                setData(cart)
+            }
+            holder.buttonMinus.setOnClickListener{
+                if (cart[position].quantidade!! >= 2)
+                {
+                    cart[position].quantidade = cart[position].quantidade?.minus(1)
+                    setData(cart)
+
+                }
+            }
+
         }
 
     }
