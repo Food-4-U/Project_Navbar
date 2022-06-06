@@ -6,24 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ListAdapter
-import android.widget.RatingBar
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Index
-import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
-import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.internal.notify
-import org.w3c.dom.Text
-import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
@@ -34,7 +21,6 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
         var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
         var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
-        var totalText = itemView.findViewById<TextView>(R.id.orderTotal)
     }
 
     private var cart = emptyList<CartItem>()
@@ -66,22 +52,13 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             holder.buttonPlus.setOnClickListener{
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
                 setData(cart)
-
-                getTotal(holder)
-                var total = getTotal(holder)
-                var priceText = String.format("%.2f", total)
-                holder.totalText.text = priceText
-
-
             }
+
             holder.buttonMinus.setOnClickListener{
                 if (cart[position].quantidade!! >= 2)
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
                     setData(cart)
-                    var total = getTotal(holder)
-                    var priceText = String.format("%.2f", total)
-                    holder.totalText.text = priceText.plus(" €")
                 }
             }
 

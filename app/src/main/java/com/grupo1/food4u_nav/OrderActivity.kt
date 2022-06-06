@@ -62,6 +62,16 @@ class OrderActivity : AppCompatActivity() {
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
         })
+
+        val delete = findViewById<ImageView>(R.id.trashCanIcon)
+
+        delete.setOnClickListener {
+            mCartViewModel.readCart.observe(this, Observer {
+                var cart = it
+
+                mCartViewModel.deleteCart(cart)
+            })
+        }
     }
 
 

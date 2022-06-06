@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.models.data
 
 import androidx.lifecycle.LiveData
+import kotlin.collections.List as List
 
 class CartRepository(private val cartDao: CartDao) {
 
@@ -16,6 +17,10 @@ class CartRepository(private val cartDao: CartDao) {
 
     suspend fun deleteItem(cartItem: CartItem){
         cartDao.delete(cartItem)
+    }
+
+    suspend fun deleteCart(cart :List<CartItem>){
+        cartDao.deleteCart(cart)
     }
 
 }
