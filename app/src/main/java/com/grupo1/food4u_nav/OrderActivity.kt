@@ -61,12 +61,6 @@ class OrderActivity : AppCompatActivity() {
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
-
-            val totalTextView = findViewById<TextView>(R.id.orderTotal)
-            var price = adapter.getTotal()
-            var priceText = String.format("%.2f", price)
-            totalTextView.text = priceText.plus(" €")
-
         })
     }
 

@@ -34,6 +34,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
         var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
         var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
+        var totalText = itemView.findViewById<TextView>(R.id.orderTotal)
     }
 
     private var cart = emptyList<CartItem>()
@@ -51,6 +52,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         val cartItem = cart[position]
         holder.quantidade.text = cart[position].quantidade.toString()
 
+
         Backend.getItemID(cart[position].item_id!!){
             holder.nome.text = it.nome
 
@@ -64,13 +66,22 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             holder.buttonPlus.setOnClickListener{
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
                 setData(cart)
+
+                getTotal(holder)
+                var total = getTotal(holder)
+                var priceText = String.format("%.2f", total)
+                holder.totalText.text = priceText
+
+
             }
             holder.buttonMinus.setOnClickListener{
                 if (cart[position].quantidade!! >= 2)
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
                     setData(cart)
-
+                    var total = getTotal(holder)
+                    var priceText = String.format("%.2f", total)
+                    holder.totalText.text = priceText.plus(" €")
                 }
             }
 
@@ -83,7 +94,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         notifyDataSetChanged()
     }
 
-    fun getTotal(): Double {
+    fun getTotal(holder: ViewHolder): Double {
         var total = 0.0
 
         for (i in 1..cart.size)
