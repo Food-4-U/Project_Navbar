@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -59,12 +61,8 @@ class OrderActivity : AppCompatActivity() {
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
-
-            val totalTextView = findViewById<TextView>(R.id.orderTotal)
-            var price = adapter.getTotal()
-            var priceText = String.format("%.2f", price)
-            totalTextView.text = priceText.plus(" €")
-
         })
     }
+
+
 }

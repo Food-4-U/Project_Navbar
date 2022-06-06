@@ -57,6 +57,7 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
             var id_item = context.getSharedPreferences("id_item", AppCompatActivity.MODE_PRIVATE)
             val myEdit = id_item.edit()
             myEdit.putInt("id_item", itens[position].id_item!!)
+            myEdit.apply()
 
             val mFragmentManager = (context as FragmentActivity).supportFragmentManager
             val mFragmentTransaction = mFragmentManager.beginTransaction()

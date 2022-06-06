@@ -9,4 +9,13 @@ class CartRepository(private val cartDao: CartDao) {
     suspend fun addToCart(cartItem: CartItem){
         cartDao.addToCart(cartItem)
     }
+
+    suspend fun updateItem(cartItem: CartItem){
+        cartDao.updateItem(cartItem)
+    }
+
+    suspend fun deleteItem(cartItem: CartItem){
+        cartDao.delete(cartItem)
+    }
+
 }

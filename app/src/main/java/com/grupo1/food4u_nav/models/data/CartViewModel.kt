@@ -24,5 +24,17 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun updateItem(cartItem: CartItem){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateItem(cartItem)
+        }
+    }
+
+    fun deleteItem(cartItem: CartItem){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteItem(cartItem)
+        }
+    }
+
 
 }
