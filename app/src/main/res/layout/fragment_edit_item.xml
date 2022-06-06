@@ -174,7 +174,7 @@
         android:layout_marginEnd="15dp"
         android:elevation="10dp"
         android:focusedByDefault="true"
-        android:text="@string/add"
+        android:text="@string/edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">

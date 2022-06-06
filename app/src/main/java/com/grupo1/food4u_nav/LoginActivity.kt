@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav
 
 import Backend
+import android.app.ActivityOptions
 import android.content.Intent
 import android.net.Uri
 import android.net.Uri.*
@@ -13,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.grupo1.food4u_nav.models.Cliente
+import navigation.RegisterActivity
 import java.net.HttpCookie.parse
 import java.net.URI
 import java.net.URL
@@ -45,9 +48,12 @@ class LoginActivity : AppCompatActivity() {
         val textViewRegister = findViewById<TextView>(R.id.activityLoginRegisterButton)
 
         textViewRegister.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+            finish()
         }
+
+
 
         val btnLogin = findViewById<Button>(R.id.buttonRegister)
         val btnGuest = findViewById<TextView>(R.id.btnLoginGuest)
@@ -70,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
+
         }
 
         val easter = findViewById<ImageView>(R.id.imageView3)

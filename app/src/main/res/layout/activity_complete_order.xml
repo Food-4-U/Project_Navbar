@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/yellowRectangle"
-        android:layout_width="0dp"
-        android:layout_height="210dp"
+        android:layout_width="match_parent"
+        android:layout_height="226dp"
         android:background="@color/yellow_btn"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,15 +23,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/arrowBack1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/arrowBack"
-            app:layout_constraintEnd_toEndOf="@+id/arrowBack"
-            app:layout_constraintStart_toStartOf="@+id/arrowBack"
-            app:layout_constraintTop_toTopOf="@+id/arrowBack"
-            app:srcCompat="@drawable/backbtn">
+    <ImageView
+        android:id="@+id/arrowBack1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/arrowBack"
+        app:layout_constraintEnd_toEndOf="@+id/arrowBack"
+        app:layout_constraintStart_toStartOf="@+id/arrowBack"
+        app:layout_constraintTop_toTopOf="@+id/arrowBack"
+        app:srcCompat="@drawable/backbtn">
     </ImageView>
 
     <TextView
@@ -72,22 +71,22 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/trashCanIcon1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/trashCanIcon"
-            app:layout_constraintEnd_toEndOf="@+id/trashCanIcon"
-            app:layout_constraintStart_toStartOf="@+id/trashCanIcon"
-            app:layout_constraintTop_toTopOf="@+id/trashCanIcon"
-            app:srcCompat="@drawable/leftarrow">
+    <ImageView
+        android:id="@+id/trashCanIcon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/trashCanIcon"
+        app:layout_constraintEnd_toEndOf="@+id/trashCanIcon"
+        app:layout_constraintStart_toStartOf="@+id/trashCanIcon"
+        app:layout_constraintTop_toTopOf="@+id/trashCanIcon"
+        app:srcCompat="@drawable/leftarrow">
     </ImageView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_order"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="510dp"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -98,43 +97,36 @@
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
         android:fontFamily="@font/trebuc"
         android:text="Total: "
-        android:textColor="@color/text"
         android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_order" />
+        app:layout_constraintBottom_toTopOf="@+id/orderButtonPayPay"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/add_newItem2"
-        style="@style/Button"
-        android:layout_width="370dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:elevation="10dp"
-        android:focusedByDefault="true"
-        android:text="Pagar"
+        android:id="@+id/orderButtonPayPay"
+        android:layout_width="228dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="7dp"
+        android:backgroundTint="@color/GreenBT_Order"
+        android:fontFamily="@font/candarabold"
+        android:text="PAGAR"
+        android:textSize="24dp"
+        app:cornerRadius="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </com.google.android.material.button.MaterialButton>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/orderTotal1"
+        android:id="@+id/orderTotalOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
         android:fontFamily="@font/trebucbd"
+        android:layout_marginRight="30dp"
         android:text="7.50€"
-        android:textColor="@color/text"
         android:textSize="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView39" />
+        app:layout_constraintBottom_toTopOf="@+id/orderButtonPayPay"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

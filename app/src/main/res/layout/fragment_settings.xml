@@ -21,10 +21,10 @@
             android:layout_marginStart="17dp"
             android:layout_marginEnd="19dp"
             android:background="@color/text"
-            app:layout_constraintBottom_toBottomOf="@+id/textView40"
-            app:layout_constraintEnd_toStartOf="@+id/textView40"
-            app:layout_constraintStart_toEndOf="@+id/textView37"
-            app:layout_constraintTop_toTopOf="@+id/textView40" />
+            app:layout_constraintBottom_toBottomOf="@+id/changeLanguageEN"
+            app:layout_constraintEnd_toStartOf="@+id/changeLanguageEN"
+            app:layout_constraintStart_toEndOf="@+id/changeLanguagePT"
+            app:layout_constraintTop_toTopOf="@+id/changeLanguageEN" />
 
         <TextView
             android:id="@+id/textView32"
@@ -105,28 +105,28 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/changeLanguagePT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="175dp"
-            android:fontFamily="@font/seguisb"
+            android:fontFamily="@font/segoeuisl"
             android:text="PT"
             android:textSize="15sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/textView30"
             app:layout_constraintStart_toEndOf="@+id/textView30"
             app:layout_constraintTop_toTopOf="@+id/textView30" />
 
         <TextView
-            android:id="@+id/textView40"
+            android:id="@+id/changeLanguageEN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="27dp"
             android:fontFamily="@font/segoeuisl"
             android:text="ENG"
-            app:layout_constraintBottom_toBottomOf="@+id/textView37"
+            app:layout_constraintBottom_toBottomOf="@+id/changeLanguagePT"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView37" />
+            app:layout_constraintTop_toTopOf="@+id/changeLanguagePT" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

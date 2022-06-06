@@ -41,7 +41,7 @@ class SplashScreen : AppCompatActivity() {
         var isAdmin: Boolean = food4UCliente.getBoolean("isAdmin", false)
 
         logo.alpha = 0f
-        logo.animate().setDuration(2200).alpha(1f).withEndAction(){
+        logo.animate().setDuration(1500).alpha(1f).withEndAction(){
 
             if (isLogged && isAdmin) {
                 val intent = Intent(this, AdminActivity::class.java)

@@ -5,20 +5,21 @@
     android:id="@+id/containerMenuManage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ManageMenusActivity">
 
     <ImageView
-        android:id="@+id/manageHot"
+        android:id="@+id/deleteProduct"
         android:layout_width="365dp"
         android:layout_height="147dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manageCategories"
+        app:layout_constraintTop_toBottomOf="@+id/editProduct"
         app:srcCompat="@drawable/rectangle_managetrending" />
 
     <ImageView
-        android:id="@+id/manageCategories"
+        android:id="@+id/editProduct"
         android:layout_width="365dp"
         android:layout_height="147dp"
         android:layout_marginTop="30dp"
@@ -34,26 +35,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/segoeui"
-        android:text="Sub-Categorias"
+        android:text="@string/EditProduct"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/manageCategories"
-        app:layout_constraintStart_toStartOf="@+id/manageCategories" />
-
-    <TextView
-        android:id="@+id/productsEditText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/segoeui"
-        android:text="Categorias"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/productsEditText4"
-        app:layout_constraintStart_toStartOf="@+id/addProduct" />
+        app:layout_constraintBottom_toBottomOf="@+id/editProduct"
+        app:layout_constraintStart_toStartOf="@+id/editProduct" />
 
     <TextView
         android:id="@+id/productsEditText3"
@@ -62,12 +49,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/segoeui"
-        android:text="Destaques"
+        android:text="@string/DeleteProduct"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/manageHot"
-        app:layout_constraintStart_toStartOf="@+id/manageHot" />
+        app:layout_constraintBottom_toBottomOf="@+id/deleteProduct"
+        app:layout_constraintStart_toStartOf="@+id/deleteProduct" />
 
     <TextView
         android:id="@+id/textView56"
@@ -102,7 +89,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/segoeui"
-        android:text="Produtos"
+        android:text="@string/AddProducts"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="30dp"
