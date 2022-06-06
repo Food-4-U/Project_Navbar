@@ -87,8 +87,6 @@ class StatsActivity : AppCompatActivity() {
             {
                 generoTextView.text = "Feminino " + genPercentagemString + "%"
             }
-
-
         }
     }
 

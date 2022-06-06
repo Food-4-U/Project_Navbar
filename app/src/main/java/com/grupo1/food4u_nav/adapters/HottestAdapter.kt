@@ -2,6 +2,7 @@ package projeto.ipca.food4u.grupoI.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModelProvider
@@ -22,9 +25,10 @@ import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
+import java.security.AccessController.getContext
 
 
-class HottestAdapter(val context: Context,val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
+class HottestAdapter(val context: Context, val itens: List<Item_Menu>) : RecyclerView.Adapter<HottestAdapter.ViewHolder>() {
 
     private lateinit var mCartViewModel: CartViewModel
 

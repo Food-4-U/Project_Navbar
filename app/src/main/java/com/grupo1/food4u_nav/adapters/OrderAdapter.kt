@@ -6,24 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ListAdapter
-import android.widget.RatingBar
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Index
-import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
-import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.internal.notify
-import org.w3c.dom.Text
-import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
@@ -51,6 +38,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         val cartItem = cart[position]
         holder.quantidade.text = cart[position].quantidade.toString()
 
+
         Backend.getItemID(cart[position].item_id!!){
             holder.nome.text = it.nome
 
@@ -65,12 +53,12 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
                 setData(cart)
             }
+
             holder.buttonMinus.setOnClickListener{
                 if (cart[position].quantidade!! >= 2)
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
                     setData(cart)
-
                 }
             }
 
@@ -83,7 +71,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         notifyDataSetChanged()
     }
 
-    fun getTotal(): Double {
+    fun getTotal(holder: ViewHolder): Double {
         var total = 0.0
 
         for (i in 1..cart.size)
