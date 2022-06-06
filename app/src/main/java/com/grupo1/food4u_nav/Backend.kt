@@ -1,7 +1,9 @@
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Cliente
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.SubCategories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -177,6 +179,30 @@ object Backend {
 
     // ITENS
 
+    fun getAllItens(callback: (List<Item_Menu>) -> Unit) {
+        var itens = arrayListOf<Item_Menu>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var itemJSON = resultArray[index] as JSONObject
+                    var item = Item_Menu.fromJSON(itemJSON)
+                    itens.add(item)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(itens)
+                }
+            }
+        }
+    }
+
     fun getItemSubCategory(subcategory: Int, callback: ((List<Item_Menu>) -> Unit)) {
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
@@ -249,21 +275,244 @@ object Backend {
         }
     }
 
-    fun getImage(urlImage: String, callback: ((Bitmap) -> Unit)) {
+    fun getItemID(id: Int, callback: ((Item_Menu) -> Unit)) {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(urlImage)
+                .url(BASE_API + "Item/Get/" + id)
                 .build()
             client.newCall(request).execute().use { response ->
-                response.body?.let { body ->
-                    val inputStream: InputStream? = body.byteStream()
-                    val bitmap = BitmapFactory.decodeStream(inputStream)
-                    GlobalScope.launch(Dispatchers.Main) {
-                        callback.invoke(bitmap)
-                    }
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var item = Item_Menu.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(item)
                 }
             }
         }
     }
+
+    fun addItem(item: Item_Menu, callback: (Boolean) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, item.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item" + "/AdicionarItem")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    fun updateItem(id: Int, item: Item_Menu, callback : ((Boolean)->Unit) ) {
+
+        GlobalScope.launch (Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                    mediaType, item.toJSON().toString())
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/Update/" + "/" + id)
+                .put(body)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch (Dispatchers.Main){
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    // CATEGORIAS E SUBCATEGORIAS NOME
+
+    fun getNameCategory(id: Int, callback: ((CategoryType) -> Unit)) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var category = CategoryType
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/Get/" + id)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var category = CategoryType.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(category)
+                }
+            }
+        }
+    }
+
+    fun getIDCategory(name: String, callback: (Int) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var categoryID = 0
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/GetIDCategory/" + name)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                categoryID = result.toInt()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(categoryID)
+                }
+            }
+        }
+    }
+
+    fun getAllCategoryNames(callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var categories = arrayListOf<String>()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/GetNome")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var categoryJSON = resultArray[index]
+                    var categoryName = categoryJSON
+                    categories.add(categoryName.toString())
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(categories)
+                }
+            }
+        }
+    }
+
+    fun getAllCategories(callback: ((List<CategoryType>) -> Unit)) {
+        var categories = arrayListOf<CategoryType>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var clienteJSON = resultArray[index] as JSONObject
+                    var category = CategoryType.fromJSON(clienteJSON)
+                    categories.add(category)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(categories)
+                }
+            }
+        }
+    }
+
+    fun getNameSubcategory(id: Int, callback: ((SubCategories) -> Unit)) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategory = SubCategories
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetItem/" + id)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+                var subcategory = SubCategories.fromJSON(resultJSONObject)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategory)
+                }
+            }
+        }
+    }
+
+    fun getAllSubcategories(callback: ((List<SubCategories>) -> Unit)) {
+        var subcategories = arrayListOf<SubCategories>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var clienteJSON = resultArray[index] as JSONObject
+                    var subcategory = SubCategories.fromJSON(clienteJSON)
+                    subcategories.add(subcategory)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategories)
+                }
+            }
+        }
+    }
+
+    fun getAllSubcategoryNames(callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategories = arrayListOf<String>()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetNome")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var subcategoryJSON = resultArray[index]
+                    var subcategoryName = subcategoryJSON
+                    subcategories.add(subcategoryName.toString())
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategories)
+                }
+            }
+        }
+    }
+
+    fun getIDSubcategory(name: String, callback: (Int) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var subcategoryID: Int
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/GetIDSubcategory/" + name)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                subcategoryID = result.toInt()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(subcategoryID)
+                }
+            }
+        }
+    }
+
+    /*
+
+                                        FUNCIONARIO
+     */
 }

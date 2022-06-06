@@ -4,39 +4,54 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
+import android.widget.ArrayAdapter as ArrayAdapter
 
 class AdditionalForm : Fragment() {
     private lateinit var _binding: FragmentAdditionFormBinding
-
-
-
-
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentAdditionFormBinding.inflate(inflater, container, false)
 
-        val root: View = binding.root
 
-        val backBtn: Button = root.findViewById(R.id.additionForm_backBtn)
-        backBtn.setOnClickListener {
-            Toast.makeText(activity,"Já foste ohhhh mano!",Toast.LENGTH_LONG).show()
-        }
+        val view = inflater.inflate(R.layout.fragment_addition_form, container, false)
 
-        return root
+        val genero = arrayOf("Masculine", "Feminine")
+        val spinner = view.findViewById<Spinner>(R.id.spinner)
+        spinner?.adapter = ArrayAdapter(
+            activity?.applicationContext!!,
+            R.layout.dropdownitem, genero
+        )
+
+
+        val spinner2 = view.findViewById<Spinner>(R.id.spinner2)
+        val age = arrayOf("10", "20", "30", "40", "50", "60", "70", "80+")
+        spinner2?.adapter = ArrayAdapter(
+            activity?.applicationContext!!,
+            R.layout.dropdownitem, age
+        )
+
+        val spinner3 = view.findViewById<Spinner>(R.id.spinner3)
+        val status = arrayOf("Single", "Meried", "Widow")
+        spinner3?.adapter = ArrayAdapter(
+            activity?.applicationContext!!,
+            R.layout.dropdownitem, status
+        )
+
+        val spinner6 = view.findViewById<Spinner>(R.id.spinner6)
+        val profession = arrayOf("Stoner", "BlackSmith", "Fire Fighter", "Nurse", "Trolha")
+        spinner6?.adapter = ArrayAdapter(
+            activity?.applicationContext!!,
+            R.layout.dropdownitem, profession
+        )
+
+        return view
     }
-
 }

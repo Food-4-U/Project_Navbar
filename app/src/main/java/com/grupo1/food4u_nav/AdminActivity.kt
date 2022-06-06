@@ -10,6 +10,12 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import com.grupo1.food4u_nav.ui.admin.NewItemFragment
+import com.grupo1.food4u_nav.ui.home.DeskFragment
 
 class AdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +36,9 @@ class AdminActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+
+
+
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
         val myEdit = food4UCliente.edit()
         val btnStats = findViewById<ImageView>(R.id.statsImage)
@@ -48,5 +57,14 @@ class AdminActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val manageMenu = findViewById<ImageView>(R.id.manageMenus)
+
+        manageMenu.setOnClickListener {
+            val intent = Intent(this@AdminActivity, ManageMenusActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }

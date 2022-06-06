@@ -4,14 +4,27 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.adapters.OrderAdapter
+import com.grupo1.food4u_nav.models.data.CartViewModel
 
 class OrderActivity : AppCompatActivity() {
+
+    private lateinit var mCartViewModel: CartViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
@@ -38,5 +51,24 @@ class OrderActivity : AppCompatActivity() {
             val intent = Intent(this@OrderActivity, MainActivity::class.java);
             startActivity(intent)
         }
+
+        val rv_Order : RecyclerView = findViewById(R.id.rv_order)
+        val adapter = OrderAdapter(this)
+
+        rv_Order.adapter = adapter
+        rv_Order.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+
+        mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+        mCartViewModel.readCart.observe(this, Observer { cart ->
+            adapter.setData(cart)
+
+            val totalTextView = findViewById<TextView>(R.id.orderTotal)
+            var price = adapter.getTotal()
+            var priceText = String.format("%.2f", price)
+            totalTextView.text = priceText.plus(" €")
+
+        })
     }
+
+
 }

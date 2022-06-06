@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsText"
-        app:srcCompat="@drawable/francesinha_1" />
+        />
 
     <ImageView
         android:id="@+id/retangle"
@@ -121,13 +121,12 @@
         android:id="@+id/productTypeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="35dp"
+        android:layout_marginStart="15dp"
         android:fontFamily="@font/segoeuil"
         android:text="Francesinha"
-        android:textSize="14dp"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/productName"
-        app:layout_constraintStart_toStartOf="@+id/productName"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/productType"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
     <ImageView
@@ -210,10 +209,9 @@
         android:id="@+id/timeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintEnd_toEndOf="@+id/productTypeName"
-        app:layout_constraintStart_toStartOf="@id/productTypeName"
+        app:layout_constraintStart_toEndOf="@+id/ratingNumber"
         app:layout_constraintTop_toBottomOf="@+id/productTypeName"
         app:srcCompat="@drawable/left_arrow_2" />
 
