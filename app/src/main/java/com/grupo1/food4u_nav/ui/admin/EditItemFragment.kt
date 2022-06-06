@@ -44,7 +44,12 @@ class EditItemFragment : Fragment() {
         val highlight = view.findViewById<Switch>(R.id.switch_highlight)
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
-        val deleteItem = view.findViewById<ImageView>(R.id.deleteItem)
+        val deleteItem = view.findViewById<ImageButton>(R.id.deleteItem)
+        val backBtnEditItem = view.findViewById<ImageButton>(R.id.backBtnEditItem)
+
+        backBtnEditItem.setOnClickListener {
+            fragmentManager?.popBackStack()
+        }
 
         val prefs: SharedPreferences? = activity?.getSharedPreferences(
             "id_item",
