@@ -1,8 +1,7 @@
-package com.grupo1.food4u_nav
+package navigation
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.view.View
@@ -10,9 +9,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.grupo1.food4u_nav.LoginActivity
+import com.grupo1.food4u_nav.MainActivity
+import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Cliente
 
 class RegisterActivity : AppCompatActivity() {
@@ -37,7 +40,18 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        var cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
+        var cliente: Cliente = Cliente(
+            email = null,
+            id_cliente = null,
+            password = null,
+            nome = null,
+            concelho = null,
+            idade = null,
+            genero = null,
+            localidade = null,
+            isAdmin = false,
+            nif = null
+        )
         val textViewLogin = findViewById<TextView>(R.id.acitivityLoginButton)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
         val clientName = findViewById<EditText>(R.id.editName)
@@ -53,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
 
         btnRegister.setOnClickListener {
 
