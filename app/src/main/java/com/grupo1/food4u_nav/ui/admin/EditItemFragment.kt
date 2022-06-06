@@ -105,14 +105,14 @@ class EditItemFragment : Fragment() {
                                     idsubCategoria = it
 
                                     var item = Item_Menu(
-                                        null, edit_foodName.text.toString(),
+                                        id_item, edit_foodName.text.toString(),
                                         edit_foodPrice.text.toString().toDouble(),
                                         edit_foodTime.text.toString().toInt(),
                                         highlight.isChecked, edit_foodURL.text.toString(), idCategoria,
                                         idsubCategoria, 0.0
                                     )
 
-                                    Backend.updateItem(item.id_item!!, item) {
+                                    Backend.updateItem(id_item, item) {
                                         if (it) {
                                             Toast.makeText(
                                                 requireActivity(),

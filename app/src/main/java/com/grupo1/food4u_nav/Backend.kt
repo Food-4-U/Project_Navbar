@@ -326,7 +326,7 @@ object Backend {
                     mediaType, item.toJSON().toString())
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Item/Update/" + "/" + id)
+                .url(BASE_API + "Item/Update/" + id)
                 .put(body)
                 .build()
             client.newCall(request).execute().use { response ->
