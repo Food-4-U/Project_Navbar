@@ -11,7 +11,7 @@ class CartRepository(private val cartDao: CartDao) {
         cartDao.addToCart(cartItem)
     }
 
-    suspend fun updateItem(cartItem: CartItem){
+      suspend fun updateItem(cartItem: CartItem){
         cartDao.updateItem(cartItem)
     }
 

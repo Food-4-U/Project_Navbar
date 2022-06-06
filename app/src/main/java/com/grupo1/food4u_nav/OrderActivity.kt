@@ -61,6 +61,10 @@ class OrderActivity : AppCompatActivity() {
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
+
+            var total = adapter.getTotal()
+            var totalTextView = findViewById<TextView>(R.id.orderTotal1)
+            totalTextView.text = String.format("%.2f", total).plus(" €")
         })
 
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
@@ -70,6 +74,9 @@ class OrderActivity : AppCompatActivity() {
                 var cart = it
 
                 mCartViewModel.deleteCart(cart)
+                var total = adapter.getTotal()
+                var totalTextView = findViewById<TextView>(R.id.orderTotal1)
+                totalTextView.text = String.format("%.2f", total).plus(" €")
             })
         }
     }
