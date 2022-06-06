@@ -22,7 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.grupo1.food4u_nav.LoginActivity
 import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.RegisterActivity
+import navigation.RegisterActivity
 import com.grupo1.food4u_nav.adapters.ProfileViewPagerAdapter
 import com.grupo1.food4u_nav.databinding.FragmentProfileBinding
 import com.grupo1.food4u_nav.models.Cliente
