@@ -7,8 +7,8 @@
 
     <TextView
         android:id="@+id/yellowRectangle"
-        android:layout_width="match_parent"
-        android:layout_height="226dp"
+        android:layout_width="0dp"
+        android:layout_height="210dp"
         android:background="@color/yellow_btn"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_order"
         android:layout_width="match_parent"
-        android:layout_height="510dp"
+        android:layout_height="480dp"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -98,36 +98,43 @@
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/trebuc"
         android:text="Total: "
+        android:textColor="@color/text"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/orderButtonPay"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_order" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/orderButtonPay"
-        android:layout_width="228dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="7dp"
-        android:backgroundTint="@color/GreenBT_Order"
-        android:fontFamily="@font/candarabold"
-        android:text="PAGAR"
-        android:textSize="24dp"
-        app:cornerRadius="13dp"
+        android:id="@+id/add_newItem2"
+        style="@style/Button"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:elevation="10dp"
+        android:focusedByDefault="true"
+        android:text="Pagar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.button.MaterialButton>
 
     <TextView
         android:id="@+id/orderTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/trebucbd"
         android:layout_marginRight="30dp"
+        android:fontFamily="@font/trebucbd"
         android:text="7.50€"
+        android:textColor="@color/text"
         android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/orderButtonPay"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView39" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

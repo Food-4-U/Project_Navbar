@@ -4,12 +4,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.grupo1.food4u_nav.ui.admin.EditCategoryFragment
 import com.grupo1.food4u_nav.ui.admin.NewItemFragment
 import com.grupo1.food4u_nav.ui.admin.ShowMenu
 
@@ -34,25 +36,36 @@ class ManageMenusActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
-        val btnNewItem = findViewById<ImageView>(R.id.productAdd)
-        val btnEditMenu = findViewById<ImageView>(R.id.productEdit)
 
-        btnNewItem.setOnClickListener {
+         val btnNewItem = findViewById<ImageView>(R.id.productAdd)
+          val btnEditMenu = findViewById<ImageView>(R.id.productEdit)
 
-        val manager: FragmentManager = supportFragmentManager
-        val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerMenuManage, NewItemFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+          val b = findViewById<Button>(R.id.btnCategory)
 
-        btnEditMenu.setOnClickListener {
+          btnNewItem.setOnClickListener {
 
-            val manager: FragmentManager = supportFragmentManager
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.add(R.id.containerMenuManage, ShowMenu())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+          val manager: FragmentManager = supportFragmentManager
+          val transaction: FragmentTransaction = manager.beginTransaction()
+              transaction.add(R.id.containerMenuManage, NewItemFragment())
+              transaction.addToBackStack(null)
+              transaction.commit()
+          }
+
+          btnEditMenu.setOnClickListener {
+              val manager: FragmentManager = supportFragmentManager
+              val transaction: FragmentTransaction = manager.beginTransaction()
+              transaction.add(R.id.containerMenuManage, ShowMenu())
+              transaction.addToBackStack(null)
+              transaction.commit()
+          }
+
+
+          b.setOnClickListener {
+              val manager: FragmentManager = supportFragmentManager
+              val transaction: FragmentTransaction = manager.beginTransaction()
+              transaction.add(R.id.containerMenuManage, EditCategoryFragment())
+              transaction.addToBackStack(null)
+              transaction.commit()
+          }
     }
 }

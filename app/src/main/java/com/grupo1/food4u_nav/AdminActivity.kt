@@ -37,8 +37,6 @@ class AdminActivity : AppCompatActivity() {
         }
 
 
-
-
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
         val myEdit = food4UCliente.edit()
         val btnStats = findViewById<ImageView>(R.id.statsImage)
