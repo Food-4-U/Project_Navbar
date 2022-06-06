@@ -19,8 +19,8 @@ class CartRepository(private val cartDao: CartDao) {
         cartDao.delete(cartItem)
     }
 
-    suspend fun deleteCart(cart :List<CartItem>){
-        cartDao.deleteCart(cart)
+    suspend fun deleteCart(){
+        cartDao.deleteCart()
     }
 
 }

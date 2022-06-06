@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
@@ -66,13 +67,19 @@ class OrderActivity : AppCompatActivity() {
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
 
         delete.setOnClickListener {
-            mCartViewModel.readCart.observe(this, Observer {
-                var cart = it
 
-                mCartViewModel.deleteCart(cart)
-            })
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Confirmação")
+            builder.setMessage("Tem a certeza que pretende eliminar o pedido?")
+
+            builder.setPositiveButton(R.string.yes) { dialog, which ->
+                mCartViewModel.deleteCart()
+            }
+
+            builder.setNegativeButton(R.string.no) { dialog, which ->
+            }
+
+            builder.show()
         }
     }
-
-
 }

@@ -21,7 +21,6 @@
     <string name="search_Category">Search</string>
     <string name="category">Categories</string>
     <string name="search_categoryorfood">Search by a category or food</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
     <string name="favorites">Favorites</string>
@@ -81,4 +80,6 @@
     <string name="editTable">Manage Tables</string>
     <string name="number_people">Number of People</string>
     <string name="dateAndHour">Date and Hour</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

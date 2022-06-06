@@ -79,4 +79,6 @@
     <string name="number_people">Número de Pessoas</string>
     <string name="dateAndHour">Data e Hora</string>
     <string name="editTable">Gerencias Mesas</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 </resources>
