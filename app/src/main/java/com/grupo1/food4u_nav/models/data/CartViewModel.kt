@@ -36,5 +36,11 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun deleteCart(cart: List<CartItem>){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteCart(cart)
+        }
+    }
+
 
 }
