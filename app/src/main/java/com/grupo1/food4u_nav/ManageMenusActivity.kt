@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.ui.admin.EditCategoryFragment
 import com.grupo1.food4u_nav.ui.admin.NewItemFragment
+import com.grupo1.food4u_nav.ui.admin.ProductManagerFragment
 import com.grupo1.food4u_nav.ui.admin.ShowMenu
 
 class ManageMenusActivity : AppCompatActivity() {
@@ -37,20 +38,20 @@ class ManageMenusActivity : AppCompatActivity() {
         }
 
 
-         val btnNewItem = findViewById<ImageView>(R.id.productAdd)
-          val btnEditMenu = findViewById<ImageView>(R.id.productEdit)
+         val editProducts = findViewById<ImageView>(R.id.addProduct)
+         val edicCategories = findViewById<ImageView>(R.id.manageCategories)
 
-          val b = findViewById<Button>(R.id.btnCategory)
 
-          btnNewItem.setOnClickListener {
+          editProducts.setOnClickListener {
 
           val manager: FragmentManager = supportFragmentManager
           val transaction: FragmentTransaction = manager.beginTransaction()
-              transaction.add(R.id.containerMenuManage, NewItemFragment())
+              transaction.add(R.id.containerMenuManage, ProductManagerFragment())
               transaction.addToBackStack(null)
               transaction.commit()
           }
 
+        /*
           btnEditMenu.setOnClickListener {
               val manager: FragmentManager = supportFragmentManager
               val transaction: FragmentTransaction = manager.beginTransaction()
@@ -58,14 +59,6 @@ class ManageMenusActivity : AppCompatActivity() {
               transaction.addToBackStack(null)
               transaction.commit()
           }
-
-
-          b.setOnClickListener {
-              val manager: FragmentManager = supportFragmentManager
-              val transaction: FragmentTransaction = manager.beginTransaction()
-              transaction.add(R.id.containerMenuManage, EditCategoryFragment())
-              transaction.addToBackStack(null)
-              transaction.commit()
-          }
+        */
     }
 }

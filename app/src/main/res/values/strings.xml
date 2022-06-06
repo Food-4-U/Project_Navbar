@@ -81,7 +81,4 @@
     <string name="editTable">Manage Tables</string>
     <string name="number_people">Number of People</string>
     <string name="dateAndHour">Date and Hour</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    >>>>>>>>> Temporary merge branch 2
 </resources>
