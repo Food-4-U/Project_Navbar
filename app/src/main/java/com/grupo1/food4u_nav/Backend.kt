@@ -341,6 +341,29 @@ object Backend {
         }
     }
 
+
+    fun deleteItem(id: Int, callback: ((Boolean) -> Unit)) {
+
+        GlobalScope.launch(Dispatchers.IO) {
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/Delete" + "/" + id)
+                .delete()
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
     // CATEGORIAS E SUBCATEGORIAS NOME
 
     fun getNameCategory(id: Int, callback: ((CategoryType) -> Unit)) {

@@ -20,25 +20,58 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="38dp"
-                android:text="@string/editMenu"
-                android:textAlignment="center"
-                android:textSize="16dp"
-                android:theme="@style/NamePages" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/addItemBtn"
+                    android:layout_width="56dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/transparent_background"
+                    app:icon="@drawable/ic_baseline_add_24"
+                    app:iconTint="@color/text"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView37"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+                <Button
+                    android:id="@+id/backButtonEditMenu"
+                    android:layout_width="56dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/transparent_background"
+                    app:icon="@drawable/backbtn"
+                    app:iconTint="@color/text"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView37"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="38dp"
+                    android:text="@string/editMenu"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:theme="@style/NamePages"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_products"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </LinearLayout>
