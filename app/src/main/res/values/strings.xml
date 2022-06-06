@@ -70,6 +70,7 @@
     <string name="newItem">New Item</string>
     <string name="editItem">Edit Item</string>
     <string name="add">Add</string>
+    <string name="edit">Edit</string>
     <string name="highlight">Highlight</string>
     <string name="General_Stats">General Stats</string>
     <string name="Edit_Menus">Manage Menus</string>

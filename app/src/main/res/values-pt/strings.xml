@@ -81,4 +81,5 @@
     <string name="editTable">Gerencias Mesas</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
+    <string name="edit">Editar</string>
 </resources>

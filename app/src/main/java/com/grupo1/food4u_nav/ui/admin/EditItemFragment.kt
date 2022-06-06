@@ -23,9 +23,9 @@ class EditItemFragment : Fragment() {
 
     private var _binding: FragmentNewItemBinding? = null
     private val binding get() = _binding!!
-    var categorias : List<String> = arrayListOf()
-    var subcategorias : List<String> = arrayListOf()
-    var item : Item_Menu? = null
+    var categorias: List<String> = arrayListOf()
+    var subcategorias: List<String> = arrayListOf()
+    var item: Item_Menu? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +44,8 @@ class EditItemFragment : Fragment() {
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
 
-        val prefs : SharedPreferences? = activity?.getSharedPreferences("id_item",
+        val prefs: SharedPreferences? = activity?.getSharedPreferences(
+            "id_item",
             Context.MODE_PRIVATE
         )
 
@@ -59,62 +60,72 @@ class EditItemFragment : Fragment() {
             edit_foodPrice.setText(it.preco.toString())
             edit_foodTime.setText(it.temp_prep.toString())
             edit_foodURL.setText(it.url)
-        }
 
-        /*
-        Backend.getAllCategoryNames {
+            Backend.getAllCategoryNames {
 
-            var idCategoria : Int? = null
-            var idsubCategoria : Int? = null
+                var idCategoria: Int? = null
+                var idsubCategoria: Int? = null
 
-            categorias = it
+                categorias = it
 
-            categoriaSpinner?.adapter = ArrayAdapter(
-                activity?.applicationContext!!,
-                R.layout.dropdownitem, categorias
-            )
-
-
-            Backend.getAllSubcategoryNames {
-                subcategorias = it
-
-                subCategoriaSpinner?.adapter = ArrayAdapter(
+                categoriaSpinner?.adapter = ArrayAdapter(
                     activity?.applicationContext!!,
-                    R.layout.dropdownitem, subcategorias
+                    R.layout.dropdownitem, categorias
                 )
 
-                editItem.setOnClickListener {
+                categoriaSpinner.setSelection(item!!.id_categoria!! - 1)
 
-                    var categorySelected = categoriaSpinner.selectedItem.toString()
-                    var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
 
-                    if (edit_foodName.text.isNullOrBlank() || edit_foodPrice.text.isNullOrBlank() || edit_foodTime.text.isNullOrBlank() || edit_foodURL.text.isNullOrBlank()) {
-                        Toast.makeText(
-                            requireActivity(),
-                            R.string.null_data,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Backend.getIDCategory(categorySelected) {
-                            idCategoria = it
+                Backend.getAllSubcategoryNames {
+                    subcategorias = it
 
-                            Backend.getIDSubcategory(subcategorySelected) {
-                                idsubCategoria = it
+                    subCategoriaSpinner?.adapter = ArrayAdapter(
+                        activity?.applicationContext!!,
+                        R.layout.dropdownitem, subcategorias
+                    )
 
-                                var item = Item_Menu(
-                                    null, edit_foodName.text.toString(),
-                                    edit_foodPrice.text.toString().toDouble(),
-                                    edit_foodTime.text.toString().toInt(),
-                                    highlight.isChecked, edit_foodURL.text.toString(), idCategoria,
-                                    idsubCategoria, 0.0
-                                )
+                    subCategoriaSpinner.setSelection(item!!.id_subcategoria!! - 1)
 
-                                Backend.addItem(item) {
-                                    if (it) {
-                                        Toast.makeText(requireActivity(), item.nome + " editado", Toast.LENGTH_SHORT).show()
-                                    }
-                                    else {
-                                        Toast.makeText(requireActivity(), "ERRO", Toast.LENGTH_SHORT).show()
+                    editItem.setOnClickListener {
+
+                        var categorySelected = categoriaSpinner.selectedItem.toString()
+                        var subcategorySelected = subCategoriaSpinner.selectedItem.toString()
+
+                        if (edit_foodName.text.isNullOrBlank() || edit_foodPrice.text.isNullOrBlank() || edit_foodTime.text.isNullOrBlank() || edit_foodURL.text.isNullOrBlank()) {
+                            Toast.makeText(
+                                requireActivity(),
+                                R.string.null_data,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Backend.getIDCategory(categorySelected) {
+                                idCategoria = it
+
+                                Backend.getIDSubcategory(subcategorySelected) {
+                                    idsubCategoria = it
+
+                                    var item = Item_Menu(
+                                        null, edit_foodName.text.toString(),
+                                        edit_foodPrice.text.toString().toDouble(),
+                                        edit_foodTime.text.toString().toInt(),
+                                        highlight.isChecked, edit_foodURL.text.toString(), idCategoria,
+                                        idsubCategoria, 0.0
+                                    )
+
+                                    Backend.updateItem(item.id_item!!, item) {
+                                        if (it) {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                item.nome + " editado",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        } else {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                "ERRO",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
                                     }
                                 }
                             }
@@ -123,7 +134,6 @@ class EditItemFragment : Fragment() {
                 }
             }
         }
-        */
         return view
     }
 }
