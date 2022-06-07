@@ -7,12 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.navArgument
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
+import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Index
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
+class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var quantidade = itemView.findViewById<TextView>(R.id.productOrderNumber)
@@ -21,6 +32,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
         var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
         var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
+        var total = itemView.findViewById<TextView>(R.id.orderTotal1)
     }
 
     private var cart = emptyList<CartItem>()
@@ -45,20 +57,37 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             var imageURL = it.url
             Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
             var price = (it.preco!! * (cart[position].quantidade!!))
+            var priceUnit = it.preco
             var priceText = String.format("%.2f", price)
             holder.price.text = priceText.plus(" €")
 
 
             holder.buttonPlus.setOnClickListener{
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
+                cart[position].precoTotal = cart[position].quantidade!! * priceUnit!!
                 setData(cart)
+                var cartItem = cart[position]
+
+
+                GlobalScope.launch(Dispatchers.IO) {
+                    CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+                }
             }
 
             holder.buttonMinus.setOnClickListener{
                 if (cart[position].quantidade!! >= 2)
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
+                    cart[position].precoTotal = cart[position].quantidade!! * priceUnit!!
                     setData(cart)
+                    var cartItem = cart[position]
+
+                    GlobalScope.launch(Dispatchers.IO) {
+                        CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+
+                    }
+
+
                 }
             }
 
@@ -71,14 +100,15 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         notifyDataSetChanged()
     }
 
-    fun getTotal(holder: ViewHolder): Double {
+    fun totalCart(context: Context, cartList: List<CartItem>): Double {
         var total = 0.0
 
-        for (i in 1..cart.size)
-        {
-            total += cart[i - 1].precoTotal!!
+        for (i in 1..cartList.size){
+            total += cartList[i - 1].precoTotal!!
         }
+
 
         return total
     }
+
 }
