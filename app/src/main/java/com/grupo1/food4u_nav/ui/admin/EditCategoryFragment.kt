@@ -23,11 +23,10 @@ class EditCategoryFragment : Fragment() {
     private var _binding: FragmentEditCategoryBinding? = null
     private val binding get() = _binding!!
 
-    var itens : List<CategoryType> = arrayListOf()
-    var itensSub : List<SubCategories> = arrayListOf()
+    var itens: List<CategoryType> = arrayListOf()
+    var itensSub: List<SubCategories> = arrayListOf()
+    var itensMenu: List<Item_Menu> = arrayListOf()
 
-    val header: MutableList<String> = ArrayList()
-    val body: MutableList<MutableList<String>> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,48 +34,44 @@ class EditCategoryFragment : Fragment() {
     ): View? {
 
         _binding = FragmentEditCategoryBinding.inflate(inflater, container, false)
-        val view =  inflater.inflate(R.layout.fragment_edit_category, container, false)
+        val view = inflater.inflate(R.layout.fragment_edit_category, container, false)
 
-       /* Backend.getAllCategories {
+
+        Backend.getAllCategories {
             itens = it
 
-            Backend.getAllSubcategories {
-                itensSub = it
-                for (i in 0..2){
-                    header.add(itens[i].name)
-                    var sub: MutableList<String> = ArrayList()
+            var header: MutableList<String> = ArrayList()
+            val body: MutableList<MutableList<String>> = ArrayList()
 
-                    for (j in 0..2)
-                        if (1 == itensSub[j].id_SubCategory)
-                            sub.add(itensSub[j].name.toString())
+            Backend.getAllItens {
+                itensMenu = it
+
+                for (i in 0 until itens.size) {
+                    header.add(itens[i].name)
+
+                    var sub: MutableList<String> = ArrayList()
+                    for (j in 0 until itensMenu.size){
+                        if (itensMenu[j].id_categoria == itens[i].id){
+                            sub.add(itensMenu[j].nome.toString())
+                        }
+                    }
 
                     body.add(sub)
                 }
+
+                val listView : ExpandableListView = view.findViewById(R.id.expandableListView)
+                listView.setAdapter(ListViewAdapter(requireActivity(),listView, header, body))
+                for (i in 0 until itens.size) {
+                    listView.expandGroup(i,true)
+                }
+
             }
-        }*/
-
-     /* val season1: MutableList<String> = ArrayList()
-        season1.add("Winter is Coming")
-        season1.add("The Kingsroad")
-        season1.add("Lord Snow")
-
-        val season2: MutableList<String> = ArrayList()
-        season2.add("The North Remembers")
-        season2.add("The Night Lands")
-        season2.add("What is Dead May Never Die")
 
 
-        header.add("Season 1")
-        header.add("Season 2")
 
 
-        body.add(season1)
-        body.add(season2)*/
 
-        val listView : ExpandableListView = view.findViewById(R.id.expandableListView)
-        listView.setAdapter(ListViewAdapter(requireActivity(),listView, header, body))
-
-
+        }
         return view
     }
 }
