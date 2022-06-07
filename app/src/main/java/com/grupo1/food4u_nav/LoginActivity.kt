@@ -60,11 +60,10 @@ class LoginActivity : AppCompatActivity() {
 
         if (isNetworkAvailable(this) == false){
             AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Internet Connection Alert")
-                .setMessage("Please Check Your Internet Connection")
+                .setTitle("Alerta Conexão Internet")
+                .setMessage("Por favor verifique a sua conexão à Internet")
                 .setPositiveButton(
-                    "Close"
+                    "Fechar"
                 ) { dialogInterface, i -> finish() }.show()
         }
 
@@ -125,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
+                            myEdit.putInt("id", it.id_cliente!!)
                             myEdit.putBoolean("isLogged", true)
                             myEdit.putBoolean("isAdmin", it.isAdmin) //TODO
                             myEdit.apply()

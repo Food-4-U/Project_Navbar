@@ -1,5 +1,7 @@
 package com.grupo1.food4u_nav.ui.profile.viewPager
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,23 +32,44 @@ class Favorites : Fragment() {
         //    val root: View = binding.root
 
         val view =  inflater.inflate(R.layout.fragment_favorites, container, false)
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente",
+            Context.MODE_PRIVATE
+        )
 
 
-        var itens : List<Item_Menu> = arrayListOf()
+        var itens : List<Item_Menu> = emptyList()
+        var id = prefs?.getInt("id", 0)
 
-        Backend.getItemTop {
-            itens = it.sortedBy { it.id_subcategoria }
+        if (id != 0)
+        {
+            Backend.Favorites(id!!){
+                itens = it
+
+                if (itens != null)
+                {
+                    var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
+                    val adapter = FavoritesAdapter(itens)
+
+                    rv_Favorites.layoutManager = GridLayoutManager(context, 2)
+                    rv_Favorites.adapter = adapter
+
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }else{
+            Backend.getItemTop {
+                itens = it.sortedBy { it.id_subcategoria }
 
 
-            var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
-            val adapter = FavoritesAdapter(itens)
+                var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
+                val adapter = FavoritesAdapter(itens)
 
-            rv_Favorites.layoutManager = GridLayoutManager(context, 2)
-            rv_Favorites.adapter = adapter
+                rv_Favorites.layoutManager = GridLayoutManager(context, 2)
+                rv_Favorites.adapter = adapter
 
-            adapter.notifyDataSetChanged()
+                adapter.notifyDataSetChanged()
+            }
         }
-
         return view
     }
 }
