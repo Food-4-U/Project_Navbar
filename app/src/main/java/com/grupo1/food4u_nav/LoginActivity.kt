@@ -106,7 +106,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
         btnLogin.setOnClickListener {
 
             var cliente: Cliente = Cliente(
