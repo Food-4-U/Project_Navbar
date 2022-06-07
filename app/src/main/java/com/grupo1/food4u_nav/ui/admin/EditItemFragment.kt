@@ -19,6 +19,7 @@ import com.grupo1.food4u_nav.databinding.FragmentNewItemBinding
 import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
 
+@Suppress("DEPRECATION")
 class EditItemFragment : Fragment() {
 
     private var _binding: FragmentNewItemBinding? = null
@@ -43,6 +44,12 @@ class EditItemFragment : Fragment() {
         val highlight = view.findViewById<Switch>(R.id.switch_highlight)
         val categoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout9)
         val subCategoriaSpinner = view.findViewById<Spinner>(R.id.textInputLayout10)
+        val deleteItem = view.findViewById<ImageButton>(R.id.deleteItem)
+        val backBtnEditItem = view.findViewById<ImageButton>(R.id.backBtnEditItem)
+
+        backBtnEditItem.setOnClickListener {
+            fragmentManager?.popBackStack()
+        }
 
         val prefs: SharedPreferences? = activity?.getSharedPreferences(
             "id_item",
@@ -55,6 +62,18 @@ class EditItemFragment : Fragment() {
         Backend.getItemID(id_item) {
 
             item = it
+
+            deleteItem.setOnClickListener {
+                Backend.deleteItem(item!!.id_item!!){
+                    if(it){
+                        Toast.makeText(requireActivity(),"Eliminado!", Toast.LENGTH_SHORT).show()
+                        fragmentManager?.popBackStack()
+                    }
+
+                    else
+                        Toast.makeText(requireActivity(),"Nao Eliminado!", Toast.LENGTH_SHORT).show()
+                }
+            }
 
             edit_foodName.setText(it.nome)
             edit_foodPrice.setText(it.preco.toString())

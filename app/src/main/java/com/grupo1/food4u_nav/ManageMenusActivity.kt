@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.ui.admin.EditCategoryFragment
@@ -43,10 +44,9 @@ class ManageMenusActivity : AppCompatActivity() {
 
 
           editProducts.setOnClickListener {
-
-          val manager: FragmentManager = supportFragmentManager
-          val transaction: FragmentTransaction = manager.beginTransaction()
-              transaction.add(R.id.containerMenuManage, ProductManagerFragment())
+              val manager: FragmentManager = supportFragmentManager
+              val transaction: FragmentTransaction = manager.beginTransaction()
+              transaction.add(R.id.containerMenuManage, ShowMenu())
               transaction.addToBackStack(null)
               transaction.commit()
           }

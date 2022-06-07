@@ -60,10 +60,8 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
             myEdit.apply()
 
             val mFragmentManager = (context as FragmentActivity).supportFragmentManager
-            val mFragmentTransaction = mFragmentManager.beginTransaction()
-            val mFragment = EditItemFragment()
             val transaction: FragmentTransaction = mFragmentManager.beginTransaction()
-            transaction.add(R.id.containerMenuManage, EditItemFragment())
+            transaction.replace(R.id.containerMenuManage, EditItemFragment())
             transaction.addToBackStack(null)
             transaction.commit()
 
