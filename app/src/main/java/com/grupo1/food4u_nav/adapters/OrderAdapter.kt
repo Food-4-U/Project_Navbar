@@ -7,12 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.navArgument
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
+import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Index
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
+class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var quantidade = itemView.findViewById<TextView>(R.id.productOrderNumber)
@@ -52,6 +63,12 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
             holder.buttonPlus.setOnClickListener{
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
                 setData(cart)
+                var cartItem = cart[position]
+
+
+                GlobalScope.launch(Dispatchers.IO) {
+                    CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+                }
             }
 
             holder.buttonMinus.setOnClickListener{
@@ -59,6 +76,14 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
                     setData(cart)
+                    var cartItem = cart[position]
+
+                    GlobalScope.launch(Dispatchers.IO) {
+                        CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+
+                    }
+
+
                 }
             }
 
@@ -71,7 +96,7 @@ class OrderAdapter(context: Context) : RecyclerView.Adapter<OrderAdapter.ViewHol
         notifyDataSetChanged()
     }
 
-    fun getTotal(holder: ViewHolder): Double {
+    fun getTotal(): Double {
         var total = 0.0
 
         for (i in 1..cart.size)

@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.adapters.OrderAdapter
+import com.grupo1.food4u_nav.models.data.CartDatabase
+import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
+import org.w3c.dom.Text
 
 class OrderActivity : AppCompatActivity() {
 
@@ -62,6 +66,9 @@ class OrderActivity : AppCompatActivity() {
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
+            val total = totalCart(this, cart)
+            val totalText = String.format("%.2f", total)
+            findViewById<TextView>(R.id.orderTotal1).text = totalText.plus(" €")
         })
 
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
@@ -81,5 +88,16 @@ class OrderActivity : AppCompatActivity() {
 
             builder.show()
         }
+    }
+
+    fun totalCart(context: Context, cartList: List<CartItem>): Double {
+        var total = 0.0
+
+            for (i in 1..cartList.size){
+                total += cartList[i - 1].precoTotal!!
+            }
+
+
+        return total
     }
 }
