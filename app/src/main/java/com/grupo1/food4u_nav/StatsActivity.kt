@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,10 @@ import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.grupo1.food4u_nav.models.Cliente
 import okhttp3.internal.notify
 import org.w3c.dom.Text
@@ -39,9 +44,12 @@ class StatsActivity : AppCompatActivity() {
         var min = 1000
         var max = -1
         var genMasculino = 0
+        var genFem = 0
         var genPercentagem = 0.0F
         var mediaString : String
         var genPercentagemString : String
+
+        val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 
         Backend.getAllClientes {
             clientes = it
@@ -53,23 +61,41 @@ class StatsActivity : AppCompatActivity() {
                     min = cliente.idade!!
                 }
 
-                if (max < cliente.idade!!){
+                if (max < cliente.idade!!)
                     max = cliente.idade!!
-                }
 
                 if (cliente.genero!!.contains('M'))
-                {
                     genMasculino += 1
-                }
 
+                if (cliente.genero!!.contains('F'))
+                    genFem++
 
             }
+
+
 
             media /= clientes.size
             mediaString = String.format("%.2f", media)
 
             genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
             genPercentagemString = String.format("%.2f", genPercentagem)
+
+            val aaChartModel : AAChartModel = AAChartModel()
+                .chartType(AAChartType.Bar)
+                .title("Gender")
+                .backgroundColor("#FFFFFF")
+                .dataLabelsEnabled(true)
+                .series(arrayOf(
+                    AASeriesElement()
+                        .name("Feminino")
+                        .data(arrayOf(genFem)),
+                    AASeriesElement()
+                        .name("Masculino")
+                        .data(arrayOf(genMasculino))
+
+                )
+                )
+            aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
             val minTextView = findViewById<TextView>(R.id.resultFloorAge)
             val maxTextView = findViewById<TextView>(R.id.resultTopAge)
