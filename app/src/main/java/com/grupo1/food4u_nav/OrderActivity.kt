@@ -70,17 +70,18 @@ class OrderActivity : AppCompatActivity() {
             val total = totalCart(this, cart)
             val totalText = String.format("%.2f", total)
             findViewById<TextView>(R.id.orderTotal1).text = totalText.plus(" €")
+
+            val payButton = findViewById<Button>(R.id.payButton)
+
+            if (cart.isNotEmpty())
+                payButton.setOnClickListener {
+                    val intent = Intent(this, FinishOrderActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
         })
 
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
-
-        val payButton = findViewById<Button>(R.id.payButton)
-
-        payButton.setOnClickListener {
-            val intent = Intent(this, FinishOrderActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         delete.setOnClickListener {
 

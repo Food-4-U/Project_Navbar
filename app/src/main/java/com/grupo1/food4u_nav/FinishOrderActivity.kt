@@ -46,7 +46,7 @@ class FinishOrderActivity : AppCompatActivity() {
             finish()
         }
 
-        CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer{
+        CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
             var cart = it
             Backend.getItemID(cart[0].item_id!!){
                 productName.text = it.nome
