@@ -1,13 +1,13 @@
 package com.grupo1.food4u_nav
 
+import Backend
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import android.widget.RatingBar.OnRatingBarChangeListener
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -39,7 +39,10 @@ class FinishOrderActivity : AppCompatActivity() {
         var productName = findViewById<TextView>(R.id.finalizedOrderBottomName)
         var productPhoto = findViewById<ImageView>(R.id.imageItemView)
         val btnBack = findViewById<Button>(R.id.backBtn)
-
+        var ratingBar = findViewById<RatingBar>(R.id.ratingBar_itensOrdem)
+        var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)
+        var next = findViewById<Button>(R.id.next)
+        var avaliacao = false
         btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -48,12 +51,36 @@ class FinishOrderActivity : AppCompatActivity() {
 
         CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
             var cart = it
-            Backend.getItemID(cart[0].item_id!!){
-                productName.text = it.nome
+            for (i in 0 until cart.size - 1) {
+                Backend.getItemID(cart[i].item_id!!){
+                    var a = false
+                    productName.text = it.nome
+                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)
 
-                var imageURL = it.url
-                Picasso.get().load(imageURL).resize(800,650).into(productPhoto)
+                    ratingBar.onRatingBarChangeListener =
+                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->
+                            menu_foodEvauation3.text = String.format("%.2f", rating)
+                            a = true
+                        }
+                    if (a)
+                    Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
+                }
+
             }
+            /*for (i in 0 until cart.size - 1) {
+                Backend.getItemID(cart[i].item_id!!){
+                    productName.text = it.nome
+                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)
+
+                    if (ratingBar.rating == null)
+                        menu_foodEvauation3.isGone
+
+                   ratingBar.onRatingBarChangeListener =
+                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->
+                            menu_foodEvauation3.text = String.format("%.2f", rating)
+                        }
+                }
+            }*/
         })
     }
 }

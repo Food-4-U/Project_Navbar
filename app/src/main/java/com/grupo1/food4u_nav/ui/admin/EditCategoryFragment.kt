@@ -23,11 +23,8 @@ class EditCategoryFragment : Fragment() {
     private var _binding: FragmentEditCategoryBinding? = null
     private val binding get() = _binding!!
 
-    var getCategory : List<CategoryType> = arrayListOf()
-    var getSubcategory : List<SubCategories> = arrayListOf()
-
-
     var itens : List<CategoryType> = arrayListOf()
+    var itensSub : List<SubCategories> = arrayListOf()
 
     val header: MutableList<String> = ArrayList()
     val body: MutableList<MutableList<String>> = ArrayList()
@@ -40,8 +37,25 @@ class EditCategoryFragment : Fragment() {
         _binding = FragmentEditCategoryBinding.inflate(inflater, container, false)
         val view =  inflater.inflate(R.layout.fragment_edit_category, container, false)
 
+       /* Backend.getAllCategories {
+            itens = it
 
-        val season1: MutableList<String> = ArrayList()
+            Backend.getAllSubcategories {
+                itensSub = it
+                for (i in 0..2){
+                    header.add(itens[i].name)
+                    var sub: MutableList<String> = ArrayList()
+
+                    for (j in 0..2)
+                        if (1 == itensSub[j].id_SubCategory)
+                            sub.add(itensSub[j].name.toString())
+
+                    body.add(sub)
+                }
+            }
+        }*/
+
+     /* val season1: MutableList<String> = ArrayList()
         season1.add("Winter is Coming")
         season1.add("The Kingsroad")
         season1.add("Lord Snow")
@@ -55,17 +69,9 @@ class EditCategoryFragment : Fragment() {
         header.add("Season 1")
         header.add("Season 2")
 
-        Backend.getAllCategories {
-            itens = it
-            for (i in 0 until itens.count()){
-                header.add(itens.toString())
-            }
-
-        }
-
 
         body.add(season1)
-        body.add(season2)
+        body.add(season2)*/
 
         val listView : ExpandableListView = view.findViewById(R.id.expandableListView)
         listView.setAdapter(ListViewAdapter(requireActivity(),listView, header, body))

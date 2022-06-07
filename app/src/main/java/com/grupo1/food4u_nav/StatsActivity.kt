@@ -78,7 +78,7 @@ class StatsActivity : AppCompatActivity() {
             mediaString = String.format("%.2f", media)
 
             genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
-            genPercentagemString = String.format("%.2f", genPercentagem)
+            genPercentagemString = String. format("%.2f", genPercentagem)
 
             val aaChartModel : AAChartModel = AAChartModel()
                 .chartType(AAChartType.Bar)
@@ -94,7 +94,8 @@ class StatsActivity : AppCompatActivity() {
                         .data(arrayOf(genMasculino))
 
                 )
-                )
+            )
+
             aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
             val minTextView = findViewById<TextView>(R.id.resultFloorAge)

@@ -51,14 +51,14 @@ class ManageMenusActivity : AppCompatActivity() {
               transaction.commit()
           }
 
-        /*
-          btnEditMenu.setOnClickListener {
+
+        edicCategories.setOnClickListener {
               val manager: FragmentManager = supportFragmentManager
               val transaction: FragmentTransaction = manager.beginTransaction()
-              transaction.add(R.id.containerMenuManage, ShowMenu())
+              transaction.add(R.id.containerMenuManage, EditCategoryFragment())
               transaction.addToBackStack(null)
               transaction.commit()
           }
-        */
+
     }
 }
