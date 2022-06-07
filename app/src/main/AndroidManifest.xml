@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.grupo1.food4u_nav" >
+    package="com.grupo1.food4u_nav">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -10,24 +10,26 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false"
-       />
+        android:required="false" />
 
     <application
         android:allowBackup="true"
+        android:configChanges="locale|orientation"
         android:icon="@mipmap/ic_launcher"
         android:label="Food 4 U"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.Food4U_Nav"
-         android:configChanges="locale|orientation"
         android:screenOrientation="sensorPortrait"
-        android:usesCleartextTraffic="true" >
+        android:theme="@style/Theme.Food4U_Nav"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".FinishOrderActivity"
+            android:exported="false" />
         <activity
             android:name=".CompleteOrderActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
