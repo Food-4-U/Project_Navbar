@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinishOrderActivity">
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbtn" />
+
+    <TextView
+        android:id="@+id/textEndOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:fontFamily="@font/candarabold"
+        android:textAllCaps="true"
+        android:textSize="16dp"
+        android:text="@string/endorder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderNumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:fontFamily="@font/candarabold"
+        android:textSize="30dp"
+        android:textAllCaps="true"
+        android:text="@string/endorderend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/checkedImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderNumb"
+        app:srcCompat="@drawable/checked" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="-10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/retangle_complete" />
+
+    <ImageView
+        android:id="@+id/imageItemView"
+        android:layout_width="138dp"
+        android:layout_height="138dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/image_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="-55dp"/>
+
+    <TextView
+        android:id="@+id/finalizedOrderBottomName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/candarabold"
+        android:textSize="24dp"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/white"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/imageItemView"
+        app:layout_constraintStart_toStartOf="@+id/imageItemView"
+        app:layout_constraintTop_toBottomOf="@+id/imageItemView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

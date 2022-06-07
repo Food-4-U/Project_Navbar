@@ -111,11 +111,11 @@
 
                 </SearchView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_Subcategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_Subcategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="28dp"/>
 
                 <TextView
                     android:id="@+id/textView2"
@@ -179,13 +179,17 @@
                     android:textColor="@color/text"
                     android:textSize="24sp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_hottest"
-                    android:layout_width="match_parent"
-                    android:layout_height="860dp"
-                    android:layout_marginTop="12dp"
-                    android:nestedScrollingEnabled="true">
-                </androidx.recyclerview.widget.RecyclerView>
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="860dp">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_hottest"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="12dp"
+                            android:nestedScrollingEnabled="true">
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </ScrollView>
 
                 <TextView
                     android:id="@+id/textView47"
@@ -196,15 +200,18 @@
                     android:text="Top Rated"
                     android:textColor="@color/text"
                     android:textSize="24sp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_topRated"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="12dp"
-                    android:nestedScrollingEnabled="true">
-                </androidx.recyclerview.widget.RecyclerView>
-
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_topRated"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="30dp"
+                        android:nestedScrollingEnabled="true">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </ScrollView>
             </LinearLayout>
 
         </LinearLayout>

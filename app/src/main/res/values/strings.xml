@@ -83,4 +83,7 @@
     <string name="dateAndHour">Date and Hour</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="endorder">End Order</string>
+    <string name="endorderend">Finalized Order</string>
+
 </resources>
