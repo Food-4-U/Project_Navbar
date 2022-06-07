@@ -2,12 +2,17 @@ package com.grupo1.food4u_nav
 
 import Backend
 import android.app.ActivityOptions
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import android.net.Uri.*
 import android.os.Build
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -53,7 +58,15 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-
+        if (isNetworkAvailable(this) == false){
+            AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Internet Connection Alert")
+                .setMessage("Please Check Your Internet Connection")
+                .setPositiveButton(
+                    "Close"
+                ) { dialogInterface, i -> finish() }.show()
+        }
 
         val btnLogin = findViewById<Button>(R.id.buttonRegister)
         val btnGuest = findViewById<TextView>(R.id.btnLoginGuest)
@@ -92,7 +105,6 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
         }
-
 
         btnLogin.setOnClickListener {
 
@@ -173,5 +185,32 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    fun isNetworkAvailable(context: Context?): Boolean {
+        if (context == null) return false
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                        return true
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                        return true
+                    }
+                }
+            }
+        } else {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
+                return true
+            }
+        }
+        return false
     }
 }

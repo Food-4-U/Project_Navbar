@@ -7,9 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.Observer
+import com.grupo1.food4u_nav.models.data.CartDatabase
+import com.squareup.picasso.Picasso
 
 class FinishOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +36,8 @@ class FinishOrderActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        var productName = findViewById<TextView>(R.id.finalizedOrderBottomName)
+        var productPhoto = findViewById<ImageView>(R.id.imageItemView)
         val btnBack = findViewById<Button>(R.id.backBtn)
 
         btnBack.setOnClickListener {
@@ -40,5 +46,14 @@ class FinishOrderActivity : AppCompatActivity() {
             finish()
         }
 
+        CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
+            var cart = it
+            Backend.getItemID(cart[0].item_id!!){
+                productName.text = it.nome
+
+                var imageURL = it.url
+                Picasso.get().load(imageURL).resize(800,650).into(productPhoto)
+            }
+        })
     }
 }
