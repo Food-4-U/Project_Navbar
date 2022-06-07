@@ -32,6 +32,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
         var photoFood = itemView.findViewById<ImageView>(R.id.productImageOrderRow)
         var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
         var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
+        var total = itemView.findViewById<TextView>(R.id.orderTotal1)
     }
 
     private var cart = emptyList<CartItem>()
@@ -56,12 +57,14 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
             var imageURL = it.url
             Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
             var price = (it.preco!! * (cart[position].quantidade!!))
+            var priceUnit = it.preco
             var priceText = String.format("%.2f", price)
             holder.price.text = priceText.plus(" €")
 
 
             holder.buttonPlus.setOnClickListener{
                 cart[position].quantidade = cart[position].quantidade?.plus(1)
+                cart[position].precoTotal = cart[position].quantidade!! * priceUnit!!
                 setData(cart)
                 var cartItem = cart[position]
 
@@ -75,6 +78,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
                 if (cart[position].quantidade!! >= 2)
                 {
                     cart[position].quantidade = cart[position].quantidade?.minus(1)
+                    cart[position].precoTotal = cart[position].quantidade!! * priceUnit!!
                     setData(cart)
                     var cartItem = cart[position]
 
@@ -96,14 +100,15 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
         notifyDataSetChanged()
     }
 
-    fun getTotal(): Double {
+    fun totalCart(context: Context, cartList: List<CartItem>): Double {
         var total = 0.0
 
-        for (i in 1..cart.size)
-        {
-            total += cart[i - 1].precoTotal!!
+        for (i in 1..cartList.size){
+            total += cartList[i - 1].precoTotal!!
         }
+
 
         return total
     }
+
 }
