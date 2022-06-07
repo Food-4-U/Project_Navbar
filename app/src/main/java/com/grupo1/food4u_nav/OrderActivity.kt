@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -73,6 +74,14 @@ class OrderActivity : AppCompatActivity() {
 
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
 
+        val payButton = findViewById<Button>(R.id.payButton)
+
+        payButton.setOnClickListener {
+            val intent = Intent(this, FinishOrderActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         delete.setOnClickListener {
 
             val builder = AlertDialog.Builder(this)
@@ -100,4 +109,6 @@ class OrderActivity : AppCompatActivity() {
 
         return total
     }
+
+
 }

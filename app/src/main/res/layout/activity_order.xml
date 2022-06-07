@@ -108,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rv_order" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/add_newItem2"
+        android:id="@+id/payButton"
         style="@style/Button"
         android:layout_width="370dp"
         android:layout_height="70dp"
