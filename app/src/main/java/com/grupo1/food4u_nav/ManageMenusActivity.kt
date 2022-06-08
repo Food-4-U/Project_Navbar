@@ -10,8 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+    import androidx.fragment.app.FragmentManager
+    import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.ui.admin.*
 
 class ManageMenusActivity : AppCompatActivity() {

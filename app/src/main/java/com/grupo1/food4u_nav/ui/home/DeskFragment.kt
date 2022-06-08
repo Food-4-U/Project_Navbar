@@ -41,7 +41,6 @@ class DeskFragment : Fragment() {
         //FIXME Se tirar isso daqui n funciona, pq?
         _binding = FragmentDeskBinding.inflate(inflater, container, false)
 
-
         val backBtn =binding.tableBackBtn
 
         backBtn.setOnClickListener {

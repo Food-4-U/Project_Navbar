@@ -17,14 +17,21 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.adapters.OrderAdapter
+import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
+import com.grupo1.food4u_nav.ui.admin.ShowMenu
+import com.grupo1.food4u_nav.ui.home.DeskFragment
+import com.grupo1.food4u_nav.ui.profile.viewPager.settings.PaymentMethodFragment
 import org.w3c.dom.Text
 
 class OrderActivity : AppCompatActivity() {
@@ -73,12 +80,14 @@ class OrderActivity : AppCompatActivity() {
 
             val payButton = findViewById<Button>(R.id.payButton)
 
-            if (cart.isNotEmpty())
+            if (cart.isNotEmpty()) {
                 payButton.setOnClickListener {
-                    val intent = Intent(this, FinishOrderActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.add(R.id.paymentMethodFragment, PaymentMethodFragment())
+                    fragmentTransaction.addToBackStack("null").commit()
                 }
+            }
         })
 
         val delete = findViewById<ImageView>(R.id.trashCanIcon)

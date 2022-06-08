@@ -45,9 +45,9 @@ class HighlightEditAdapter (val context: Context, val itens: List<Item_Menu>) : 
           itens[position].destaque = false
              Backend.updateItem(itens[position].id_item!!, itens[position]) {
                  if (it)
-                    Toast.makeText(context,"Retirado dos highLights",Toast.LENGTH_SHORT)
+                    Toast.makeText(context,"Retirado dos favoritos",Toast.LENGTH_SHORT)
                  else
-                     Toast.makeText(context,"Nao removeu dos highLights",Toast.LENGTH_SHORT)
+                     Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT)
 
              }
         }
