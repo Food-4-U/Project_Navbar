@@ -1,3 +1,4 @@
+import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.grupo1.food4u_nav.models.CategoryType
@@ -210,19 +211,27 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Item/ItemSubcategoria/" + subcategory)
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try {
 
-                for (index in 0 until resultArray.length()) {
-                    var itemJSON = resultArray[index] as JSONObject
-                    var item = Item_Menu.fromJSON(itemJSON)
-                    itens.add(item)
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
+
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
                 }
-
+            }catch (e:Exception){
                 GlobalScope.launch(Dispatchers.Main) {
                     callback.invoke(itens)
                 }
+
             }
         }
     }
@@ -251,29 +260,37 @@ object Backend {
         }
     }
 
-    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)) {
+    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)): Unit{
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Item/ItemHot")
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var itemJSON = resultArray[index] as JSONObject
-                    var item = Item_Menu.fromJSON(itemJSON)
-                    itens.add(item)
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
                 }
-
+            } catch (e: Exception) {
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(itens)
+                    callback.invoke(emptyList())
                 }
             }
         }
     }
+
+
 
     fun getItemID(id: Int, callback: ((Item_Menu) -> Unit)) {
         GlobalScope.launch(Dispatchers.IO) {
@@ -318,12 +335,13 @@ object Backend {
         }
     }
 
-    fun updateItem(id: Int, item: Item_Menu, callback : ((Boolean)->Unit) ) {
+    fun updateItem(id: Int, item: Item_Menu, callback: ((Boolean) -> Unit)) {
 
-        GlobalScope.launch (Dispatchers.IO) {
+        GlobalScope.launch(Dispatchers.IO) {
             val mediaType = "application/json; charset=utf-8".toMediaType()
             val body: RequestBody = RequestBody.create(
-                    mediaType, item.toJSON().toString())
+                mediaType, item.toJSON().toString()
+            )
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Item/Update/" + id)
@@ -333,7 +351,7 @@ object Backend {
                 var result = response.body!!.string()
                 var resultJSONObject = JSONObject(result)
 
-                GlobalScope.launch (Dispatchers.Main){
+                GlobalScope.launch(Dispatchers.Main) {
                     val status = resultJSONObject.getString("status")
                     callback.invoke(status == "ok")
                 }
@@ -501,20 +519,25 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Subcategoria")
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var clienteJSON = resultArray[index] as JSONObject
-                    var subcategory = SubCategories.fromJSON(clienteJSON)
-                    subcategories.add(subcategory)
-                }
+                    for (index in 0 until resultArray.length()) {
+                        var clienteJSON = resultArray[index] as JSONObject
+                        var subcategory = SubCategories.fromJSON(clienteJSON)
+                        subcategories.add(subcategory)
+                    }
 
-                GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(subcategories)
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(subcategories)
+                    }
                 }
+            } catch (e: Exception) {
+                //callback.invoke(null)
             }
+
         }
     }
 
@@ -559,8 +582,10 @@ object Backend {
         }
     }
 
-    /*
+        /*
 
                                         FUNCIONARIO
      */
+
+
 }
