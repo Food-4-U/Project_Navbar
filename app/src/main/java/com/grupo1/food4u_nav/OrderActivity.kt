@@ -84,8 +84,9 @@ class OrderActivity : AppCompatActivity() {
                 payButton.setOnClickListener {
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.add(R.id.paymentMethodFragment, PaymentMethodFragment())
-                    fragmentTransaction.addToBackStack("null").commit()
+                    fragmentTransaction.add(R.id.containerOrder, PaymentMethodFragment())
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
                 }
             }
         })

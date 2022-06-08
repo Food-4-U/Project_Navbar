@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 
 class PaymentMethodFragment : Fragment() {
@@ -19,12 +18,8 @@ class PaymentMethodFragment : Fragment() {
     ): View? {
 
         _binding = FragmentPaymentMethodBinding.inflate(inflater, container, false)
-        val view = inflater.inflate(R.layout.fragment_payment_method, container, false)
-
 
         // Inflate the layout for this fragment
-        return view
+        return binding.root
     }
-
-
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerOrder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -31,8 +32,7 @@
         app:layout_constraintEnd_toEndOf="@+id/arrowBack"
         app:layout_constraintStart_toStartOf="@+id/arrowBack"
         app:layout_constraintTop_toTopOf="@+id/arrowBack"
-        app:srcCompat="@drawable/backbtn">
-    </ImageView>
+        app:srcCompat="@drawable/backbtn"></ImageView>
 
     <TextView
         android:id="@+id/orderWord"
@@ -79,8 +79,7 @@
         app:layout_constraintEnd_toEndOf="@+id/trashCanIcon"
         app:layout_constraintStart_toStartOf="@+id/trashCanIcon"
         app:layout_constraintTop_toTopOf="@+id/trashCanIcon"
-        app:srcCompat="@drawable/leftarrow">
-    </ImageView>
+        app:srcCompat="@drawable/leftarrow"></ImageView>
 
 
     <androidx.recyclerview.widget.RecyclerView
