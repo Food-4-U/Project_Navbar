@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.grupo1.food4u_nav.ItensCategoryActivity
@@ -112,11 +114,37 @@ class SearchFragment : Fragment() {
             startActivity(intent)
         }
 
+        //TODO
+        //var searchView = binding.menuSearchView
+
+        /*searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+          override fun onQueryTextSubmit(query: String): Boolean {
+            if ( /*Verifica de produto existe*/) {
+                  adapter.filter.filter(query)
+              } else {
+                  Toast.makeText(this@MainActivity, "No Match found", Toast.LENGTH_LONG).show()
+              }
+              return false
+          }
+          override fun onQueryTextChange(newText: String): Boolean {
+              adapter.filter.filter(newText)
+              return false
+          }
+        })*/
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun showItens(query : String){
+
+        Backend.getAllItens {
+
+        }
+
     }
 }
