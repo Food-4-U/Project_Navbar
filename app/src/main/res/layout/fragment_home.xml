@@ -57,151 +57,146 @@
             android:layout_marginRight="10dp"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="33dp"
-                        android:fontFamily="@font/candarabold"
-                        android:text="@string/what_to_eat"
-                        android:textAllCaps="true"
-                        android:textColor="@color/text"
-                        android:textSize="36sp" />
-
-                    <Button
-                        android:id="@+id/QrCodeBtn"
-                        android:layout_width="60dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="28dp"
-                        android:layout_marginEnd="5dp"
-                        android:background="@drawable/transparent_background"
-                        app:icon="@drawable/ic_qr_code_scan"
-                        app:iconGravity="start"
-                        app:iconSize="20dp"
-                        app:iconTint="@color/text"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_Subcategories"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="29dp"
-                    android:fontFamily="@font/candara"
-                    android:text="@string/highlights"
+                    android:layout_marginTop="33dp"
+                    android:fontFamily="@font/candarabold"
+                    android:text="@string/what_to_eat"
+                    android:textAllCaps="true"
                     android:textColor="@color/text"
-                    android:textSize="24sp" />
+                    android:textSize="36sp" />
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollView2"
+                <Button
+                    android:id="@+id/QrCodeBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/transparent_background"
+                    app:icon="@drawable/ic_qr_code_scan"
+                    app:iconGravity="start"
+                    app:iconSize="20dp"
+                    app:iconTint="@color/text"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_Subcategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/candara"
+                android:text="@string/highlights"
+                android:textColor="@color/text"
+                android:textSize="24sp" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="975dp"
+                    android:layout_height="200dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="325dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/francesinha"
+                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="325dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/batata"
+                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="325dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/pizza"
+                        app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/candara"
+                android:text="@string/hottest"
+                android:textColor="@color/text"
+                android:textSize="24sp" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_hottest"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="true">
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/candara"
+                android:text="Top Rated"
+                android:textColor="@color/text"
+                android:textSize="24sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_topRated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:scrollbars="none">
+                    android:layout_marginBottom="30dp"
+                    android:nestedScrollingEnabled="true">
 
-                    <LinearLayout
-                        android:layout_width="975dp"
-                        android:layout_height="200dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/imageView10"
-                            android:layout_width="325dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/francesinha"
-                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/imageView9"
-                            android:layout_width="325dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/batata"
-                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/imageView11"
-                            android:layout_width="325dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/pizza"
-                            app:shapeAppearanceOverlay="@style/ImageView.Corner_Hightlights" />
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="29dp"
-                    android:fontFamily="@font/candara"
-                    android:text="@string/hottest"
-                    android:textColor="@color/text"
-                    android:textSize="24sp" />
-
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="860dp">
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_hottest"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="12dp"
-                            android:nestedScrollingEnabled="true">
-                        </androidx.recyclerview.widget.RecyclerView>
-                    </ScrollView>
-
-                <TextView
-                    android:id="@+id/textView47"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="29dp"
-                    android:fontFamily="@font/candara"
-                    android:text="Top Rated"
-                    android:textColor="@color/text"
-                    android:textSize="24sp" />
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_topRated"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="30dp"
-                        android:nestedScrollingEnabled="true">
-                    </androidx.recyclerview.widget.RecyclerView>
-                </ScrollView>
-            </LinearLayout>
-
+                </androidx.recyclerview.widget.RecyclerView>
+            </ScrollView>
         </LinearLayout>
-    </ScrollView>
 
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
