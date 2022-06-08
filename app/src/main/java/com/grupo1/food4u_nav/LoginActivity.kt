@@ -60,11 +60,10 @@ class LoginActivity : AppCompatActivity() {
 
         if (isNetworkAvailable(this) == false){
             AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Internet Connection Alert")
-                .setMessage("Please Check Your Internet Connection")
+                .setTitle("Alerta Conexão Internet")
+                .setMessage("Por favor verifique a sua conexão à Internet")
                 .setPositiveButton(
-                    "Close"
+                    "Fechar"
                 ) { dialogInterface, i -> finish() }.show()
         }
 
@@ -77,20 +76,6 @@ class LoginActivity : AppCompatActivity() {
 
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
         val myEdit = food4UCliente.edit()
-
-        //COLOCAR NA SPLASH SCRREN TODO
-        var isLogged: Boolean = food4UCliente.getBoolean("isLogged", false)
-        var isAdmin: Boolean = food4UCliente.getBoolean("isAdmin", false)
-        if (isLogged && isAdmin) {
-            val intent = Intent(this@LoginActivity, AdminActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else if (isLogged && isAdmin == false) {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
 
         val easter = findViewById<ImageView>(R.id.imageView3)
         var a = 0
@@ -139,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
                             myEdit.putString("nome", it.nome)
                             myEdit.putString("email", it.email)
                             myEdit.putString("password", it.password)
+                            myEdit.putInt("id", it.id_cliente!!)
                             myEdit.putBoolean("isLogged", true)
                             myEdit.putBoolean("isAdmin", it.isAdmin) //TODO
                             myEdit.apply()

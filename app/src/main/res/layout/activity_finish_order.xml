@@ -24,9 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"
         android:fontFamily="@font/candarabold"
-        android:textAllCaps="true"
-        android:textSize="16dp"
         android:text="@string/endorder"
+        android:textAllCaps="true"
+        android:textAppearance="@style/NamePages"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,9 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:fontFamily="@font/candarabold"
-        android:textSize="30dp"
-        android:textAllCaps="true"
         android:text="@string/endorderend"
+        android:textAllCaps="true"
+        android:textColor="@color/text"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,6 +66,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/retangle_complete" />
 
+    <TextView
+        android:id="@+id/menu_foodEvauation3"
+        android:layout_width="30dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/trebuc"
+        android:gravity="center_vertical"
+        android:text="5"
+        android:textColor="@color/product_name"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar_itensOrdem"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar_itensOrdem"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar_itensOrdem"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/imageItemView"
         android:layout_width="138dp"
@@ -77,13 +94,60 @@
         android:id="@+id/finalizedOrderBottomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/candarabold"
-        android:textSize="24dp"
         android:layout_marginTop="35dp"
-        android:textColor="@color/white"
+        android:fontFamily="@font/trebuc"
         android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="@+id/imageItemView"
         app:layout_constraintStart_toStartOf="@+id/imageItemView"
         app:layout_constraintTop_toBottomOf="@+id/imageItemView" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkedImage" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="165dp"
+        android:layout_height="37dp"
+        android:background="@drawable/background_ratingbar"
+        app:layout_constraintEnd_toEndOf="@+id/ratingBar_itensOrdem"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar_itensOrdem"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar_itensOrdem" />
+
+    <RatingBar
+        android:id="@+id/ratingBar_itensOrdem"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="183dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="48dp"
+        android:isIndicator="false"
+        android:max="5"
+        android:rating="0"
+        android:scaleX=".80"
+        android:scaleY=".80"
+        android:theme="@style/MyRatingBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finalizedOrderBottomName" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoeuisl"
+        android:text="@string/order_num"
+        android:textAllCaps="true"
+        android:textColor="@color/text"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/orderNumb"
+        app:layout_constraintStart_toStartOf="@+id/orderNumb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

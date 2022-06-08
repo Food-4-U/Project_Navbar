@@ -12,10 +12,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.grupo1.food4u_nav.ui.admin.EditCategoryFragment
-import com.grupo1.food4u_nav.ui.admin.NewItemFragment
-import com.grupo1.food4u_nav.ui.admin.ProductManagerFragment
-import com.grupo1.food4u_nav.ui.admin.ShowMenu
+import com.grupo1.food4u_nav.ui.admin.*
 
 class ManageMenusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +38,7 @@ class ManageMenusActivity : AppCompatActivity() {
 
          val editProducts = findViewById<ImageView>(R.id.addProduct)
          val edicCategories = findViewById<ImageView>(R.id.manageCategories)
+        val editHightlight = findViewById<ImageView>(R.id.manageHot)
 
 
           editProducts.setOnClickListener {
@@ -51,14 +49,23 @@ class ManageMenusActivity : AppCompatActivity() {
               transaction.commit()
           }
 
-        /*
-          btnEditMenu.setOnClickListener {
+
+        edicCategories.setOnClickListener {
               val manager: FragmentManager = supportFragmentManager
               val transaction: FragmentTransaction = manager.beginTransaction()
-              transaction.add(R.id.containerMenuManage, ShowMenu())
+              transaction.add(R.id.containerMenuManage, EditCategoryFragment())
               transaction.addToBackStack(null)
               transaction.commit()
           }
-        */
+
+
+        editHightlight.setOnClickListener {
+            val manager: FragmentManager = supportFragmentManager
+            val transaction: FragmentTransaction = manager.beginTransaction()
+            transaction.add(R.id.containerMenuManage, HighlightsFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
     }
 }

@@ -10,6 +10,7 @@ class SubCategories {
 
     var id_SubCategory : Int? = null
     var name : String? = null
+    //var id_Category : Int?
 
     fun toJSON() : JSONObject {
         val jsonObject = JSONObject()

@@ -35,6 +35,11 @@ class QRCodeFragment : Fragment() {
         val scannerView = view.findViewById<CodeScannerView>(R.id.scanner_view)
         val activity = requireActivity()
         codeScanner = CodeScanner(activity, scannerView)
+
+        scannerView.setOnClickListener {
+            codeScanner.startPreview()
+        }
+
         codeScanner.decodeCallback = DecodeCallback {
             activity.runOnUiThread {
                 Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
@@ -49,9 +54,7 @@ class QRCodeFragment : Fragment() {
         }
 
 
-        scannerView.setOnClickListener {
-            codeScanner.startPreview()
-        }
+
     }
 
     override fun onResume() {

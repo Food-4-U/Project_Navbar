@@ -1,9 +1,6 @@
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.grupo1.food4u_nav.models.CategoryType
-import com.grupo1.food4u_nav.models.Cliente
-import com.grupo1.food4u_nav.models.Item_Menu
-import com.grupo1.food4u_nav.models.SubCategories
+import com.grupo1.food4u_nav.models.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -359,6 +356,31 @@ object Backend {
                 GlobalScope.launch(Dispatchers.Main) {
                     val status = resultJSONObject.getString("status")
                     callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    fun Favorites(id: Int, callback: (List<Item_Menu>) -> Unit) {
+        var itens = arrayListOf<Item_Menu>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "item/Favoritos/" + id)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var itemJSON = resultArray[index] as JSONObject
+                    var item = Item_Menu.fromJSON(itemJSON)
+                    itens.add(item)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(itens)
                 }
             }
         }
