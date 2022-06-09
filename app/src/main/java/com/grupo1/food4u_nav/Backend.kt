@@ -26,18 +26,25 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Cliente")
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var clienteJSON = resultArray[index] as JSONObject
-                    var cliente = Cliente.fromJSON(clienteJSON)
-                    clientes.add(cliente)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
+
+                    for (index in 0 until resultArray.length()) {
+                        var clienteJSON = resultArray[index] as JSONObject
+                        var cliente = Cliente.fromJSON(clienteJSON)
+                        clientes.add(cliente)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(clientes)
+                    }
                 }
-
+            } catch (e:Exception){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(clientes)
+                    callback.invoke(emptyList())
                 }
             }
         }
