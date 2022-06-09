@@ -48,6 +48,8 @@ class SearchFragment : Fragment() {
         var veganImage = binding.imageView31
 
         var rv = binding.rvSearch
+        var imgNotFound = binding.imgNotFound
+        var textNotFound = binding.textNotFound
 
         entryPhoto.setOnClickListener {
             id_category = 1
@@ -121,12 +123,13 @@ class SearchFragment : Fragment() {
             startActivity(intent)
         }
 
-        //TODO
         var searchView = binding.menuSearchView
         var cardview = binding.cardviewCategories
 
         var itens: List<Item_Menu> = arrayListOf()
         var itensPes: MutableList<Item_Menu> = ArrayList()
+
+        rv.layoutManager = GridLayoutManager(activity, 2)
 
         Backend.getAllItens {
             itens = it
@@ -136,28 +139,37 @@ class SearchFragment : Fragment() {
                     return false
                 }
                 override fun onQueryTextChange(newText: String): Boolean {
-                    for (element in itens)
-                        if (element.nome!!.contains(newText,true) && newText.isNotEmpty())
-                            itensPes.add(element)
-
                     if(newText.isEmpty()){
-                        rv.isGone
+                        rv.isGone = true
                         cardview.isGone = false
+                        imgNotFound.isGone = true
+                        textNotFound.isGone = true
                     }
                     else{
-                        cardview.isGone
+                        cardview.isGone = true
                         rv.isGone = false
-                        rv.layoutManager = GridLayoutManager(activity, 2)
-                        rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
-                    }
 
+                        itensPes.removeAll(itensPes)
+
+                        for (element in itens)
+                            if (element.nome!!.contains(newText,true))
+                                itensPes.add(element)
+
+                        if (itensPes.isEmpty())
+                        {
+                            imgNotFound.isGone = false
+                            textNotFound.isGone = false
+                            rv.isGone = true
+                            cardview.isGone =true
+                        }
+                        else
+                            rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
+                    }
                     return false
                 }
             })
 
         }
-
-
         return root
     }
 

@@ -104,7 +104,36 @@
                 android:id="@+id/rv_Search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone" />
+                android:visibility="gone" >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <ImageView
+                android:id="@+id/imgNotFound"
+                android:layout_width="250dp"
+                android:layout_height="268dp"
+                android:layout_gravity="center|clip_vertical|center_vertical"
+                android:layout_marginTop="80dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_notfound" />
+
+            <TextView
+                android:id="@+id/textNotFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Item not found"
+                android:textAlignment="center"
+                android:textAppearance="@style/SubtitleRegularStyle"
+                android:textSize="30sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/imgNotFound"
+                app:layout_constraintStart_toStartOf="@+id/imgNotFound"
+                app:layout_constraintTop_toBottomOf="@+id/imgNotFound" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardviewCategories"
