@@ -87,5 +87,9 @@
     <string name="endorderend">Finalized Order</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nifnumber">NIF Number</string>
+    <string name="creditcard">C Card</string>
+    <string name="mbway">MB Way</string>
+    <string name="hub">Pay on counter</string>
 
 </resources>

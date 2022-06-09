@@ -5,14 +5,21 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.data.CartDatabase
+import com.grupo1.food4u_nav.models.data.CartItem
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TopRatedAdapter (val context: Context, val itens: List<Item_Menu>) : RecyclerView.Adapter<TopRatedAdapter.ViewHolder>(){
 
@@ -22,6 +29,7 @@ class TopRatedAdapter (val context: Context, val itens: List<Item_Menu>) : Recyc
         var foodprice = itemView.findViewById<TextView>(R.id.menu_foodPrice2)
         var foodEvaluation = itemView.findViewById<TextView>(R.id.menu_foodEvauation2)
         var foodStars = itemView.findViewById<RatingBar>(R.id.ratingBar_hottest2)
+        var buttonAdd = itemView.findViewById<ImageView>(R.id.buttonAddTop)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,6 +51,18 @@ class TopRatedAdapter (val context: Context, val itens: List<Item_Menu>) : Recyc
             val intent = Intent(context, ProductDetailsActivity::class.java)
             intent.putExtra("id_item", itens[position].id_item)
             context.startActivity(intent)
+        }
+
+        holder.buttonAdd.setOnClickListener {
+            var cartItem = CartItem(null, itens[position].id_item, 1, itens[position].preco)
+            GlobalScope.launch(Dispatchers.IO) {
+                CartDatabase.getDatabase(context).cartDao().addToCart(cartItem)
+            }
+            Toast.makeText(
+                context,
+                "Adicionado ao Pedido.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

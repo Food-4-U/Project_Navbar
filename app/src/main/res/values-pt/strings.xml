@@ -30,7 +30,7 @@
     <string name="number_orders">Pedido</string>
     <string name="avg_evaluation">Média Avaliações</string>
     <string name="order_num">Pedido Nº</string>
-    <string name="profile_paymentMethod">Metódo de Pagamento</string>
+    <string name="profile_paymentMethod">Métodos de Pagamento</string>
     <string name="quantityItens_order">Quantidade</string>
     <string name="profile_totalorder">Total:</string>
     <string name="profile_details">Detalhes</string>
@@ -84,6 +84,16 @@
     <string name="edit">Editar</string>
     <string name="endorder">Finalizar Pedido</string>
     <string name="endorderend">Pedido Finalizado</string>
+    <string name="nifnumber">Nº Contribuinte</string>
+    <string name="hello_blank_fragment">Ola fragment</string>
+    <string name="creditcard">C Crédito</string>
+    <string name="mbway">MB Way</string>
+    <string name="hub">Ao balcão</string>
+
+
+
+
+
 
 
 </resources>

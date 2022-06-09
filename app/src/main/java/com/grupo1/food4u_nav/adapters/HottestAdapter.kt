@@ -22,9 +22,13 @@ import com.google.android.material.internal.ContextUtils.getActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.security.AccessController.getContext
 
 
@@ -64,7 +68,12 @@ class HottestAdapter(val context: Context, val itens: List<Item_Menu>) : Recycle
             context.startActivity(intent)
         }
 
-        holder.addBtn.setOnClickListener{
+        holder.addBtn.setOnClickListener {
+
+            var cartItem = CartItem(null, itens[position].id_item, 1, itens[position].preco)
+            GlobalScope.launch(Dispatchers.IO) {
+                CartDatabase.getDatabase(context).cartDao().addToCart(cartItem)
+            }
             Toast.makeText(
                 context,
                 "Adicionado ao Pedido.",

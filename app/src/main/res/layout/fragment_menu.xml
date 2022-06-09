@@ -54,12 +54,17 @@
                 android:text="Francesinha"
                 android:textSize="16dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_products1"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_products1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </ScrollView>
 
             <TextView
                 android:id="@+id/productType2"
@@ -71,12 +76,17 @@
                 android:text="Hamburgueres"
                 android:textSize="16dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_products2"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_products2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </ScrollView>
 
             <TextView
                 android:id="@+id/productType3"
@@ -88,13 +98,45 @@
                 android:text="Cachorros"
                 android:textSize="16dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_products3"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:nestedScrollingEnabled="false"/>
+                android:layout_marginBottom="10dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_products3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/productType4"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="296dp"
+                android:fontFamily="@font/candarabold"
+                android:text="Pregos"
+                android:textSize="16dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_products4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </ScrollView>
         </LinearLayout>
     </ScrollView>
 

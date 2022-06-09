@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterHome
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
@@ -56,31 +57,34 @@ class HomeFragment : Fragment() {
                     .setPositiveButton(
                         "Fechar"
                     ) { dialogInterface, i -> requireActivity().finish() }.show()
-            }else
-            {
+            } else {
+                itens = it
+
+                val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
+                val adapter = HottestAdapter(requireActivity(),itens)
+
+                rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
+                rv_Hottest.adapter = adapter
+            }
+        }
+
+        Backend.getItemTopRated {
             itens = it
-
-            val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
-            val adapter = HottestAdapter(requireActivity(),itens)
-
-            rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
-            rv_Hottest.adapter = adapter
-
-            itens = it.sortedByDescending { it.avaliação }
 
             val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
             val adapterTopRated = TopRatedAdapter(requireActivity(),itens)
 
             rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
             rv_topRated.adapter = adapterTopRated
-            }
         }
+
 
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 
         qrCodeBtn.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.setCustomAnimations(com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_in_left, com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_out_right)
             fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
             fragmentTransaction.addToBackStack("null").commit()
         }

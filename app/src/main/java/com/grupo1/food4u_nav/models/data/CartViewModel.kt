@@ -18,14 +18,14 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
         readCart = repository.readCart
     }
 
-    fun addToCart(cartItem: CartItem){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addToCart(cartItem: CartItem) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addToCart(cartItem)
         }
     }
 
     fun updateItem(cartItem: CartItem){
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             repository.updateItem(cartItem)
         }
     }

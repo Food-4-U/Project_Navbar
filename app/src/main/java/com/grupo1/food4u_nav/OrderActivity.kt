@@ -17,14 +17,22 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.adapters.OrderAdapter
+import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.data.CartViewModel
+import com.grupo1.food4u_nav.ui.admin.ShowMenu
+import com.grupo1.food4u_nav.ui.home.DeskFragment
+import com.grupo1.food4u_nav.ui.profile.viewPager.settings.PaymentMethodFragment
 import org.w3c.dom.Text
 
 class OrderActivity : AppCompatActivity() {
@@ -64,6 +72,7 @@ class OrderActivity : AppCompatActivity() {
 
         rv_Order.adapter = adapter
         rv_Order.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        val payButton = findViewById<Button>(R.id.payButton)
 
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
@@ -72,16 +81,26 @@ class OrderActivity : AppCompatActivity() {
             val totalText = String.format("%.2f", total)
             findViewById<TextView>(R.id.orderTotal1).text = totalText.plus(" €")
 
-            val payButton = findViewById<Button>(R.id.payButton)
-
-            if (cart.isNotEmpty())
+            if (cart.isNotEmpty()) {
                 payButton.setOnClickListener {
-                    val intent = Intent(this, FinishOrderActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-        })
 
+                    var totalPrice = getSharedPreferences("Total", MODE_PRIVATE)
+                    val myEdit = totalPrice.edit()
+
+                    myEdit.putString("preço", totalText.plus(" €"))
+                    myEdit.apply()
+
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+                    fragmentTransaction.replace(R.id.containerOrder, PaymentMethodFragment())
+                    fragmentTransaction.addToBackStack(null).commit()
+
+                    payButton.isVisible = false
+                }
+            }
+        })
+        
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
 
         delete.setOnClickListener {
