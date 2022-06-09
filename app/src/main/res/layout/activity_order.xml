@@ -32,7 +32,9 @@
         app:layout_constraintEnd_toEndOf="@+id/arrowBack"
         app:layout_constraintStart_toStartOf="@+id/arrowBack"
         app:layout_constraintTop_toTopOf="@+id/arrowBack"
-        app:srcCompat="@drawable/backbtn"></ImageView>
+        app:srcCompat="@drawable/backbtn">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/orderWord"
