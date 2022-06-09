@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterHome
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
@@ -83,6 +84,7 @@ class HomeFragment : Fragment() {
         qrCodeBtn.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.setCustomAnimations(com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_in_left, com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_out_right)
             fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
             fragmentTransaction.addToBackStack("null").commit()
         }
