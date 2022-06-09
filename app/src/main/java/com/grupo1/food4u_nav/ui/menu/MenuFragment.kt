@@ -18,6 +18,7 @@ import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 import dalvik.system.BaseDexClassLoader
+import okhttp3.internal.concurrent.TaskRunner
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
 
 class MenuFragment : Fragment() {
@@ -31,9 +32,11 @@ class MenuFragment : Fragment() {
     var francesinhas : List<Item_Menu> = arrayListOf()
     var hamburgueres : List<Item_Menu> = arrayListOf()
     var cachorros : List<Item_Menu> = arrayListOf()
+    var pregos : List<Item_Menu> = arrayListOf()
     var subCategory1 : SubCategories? = null
     var subCategory2 : SubCategories? = null
     var subCategory3 : SubCategories? = null
+    var subCategory4 : SubCategories?= null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +50,7 @@ class MenuFragment : Fragment() {
         var productType1 = binding.productType1
         var productType2 = binding.productType2
         var productType3 = binding.productType3
+        var productType4 = binding.productType4
 
         Backend.getNameSubcategory(1) {
             subCategory1 = it
@@ -64,6 +68,11 @@ class MenuFragment : Fragment() {
             subCategory3 = it
 
             productType3.text = it.name
+        }
+
+        Backend.getNameSubcategory(7) {
+            subCategory4 = it
+            productType4.text = it.name
         }
 
         Backend.getAllSubcategories {
@@ -103,6 +112,17 @@ class MenuFragment : Fragment() {
 
             rv_products.layoutManager = GridLayoutManager(activity, 2)
             rv_products.adapter = productsAdapter
+        }
+
+        Backend.getItemSubCategory(7) {
+            pregos = it
+
+            val rv_products : RecyclerView = binding.rvProducts4
+            val productsAdapter = ProductMenuAdapter(requireActivity(), pregos)
+
+            rv_products.layoutManager = GridLayoutManager(activity, 2)
+            rv_products.adapter = productsAdapter
+
         }
 
         return root

@@ -17,6 +17,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -71,6 +72,7 @@ class OrderActivity : AppCompatActivity() {
 
         rv_Order.adapter = adapter
         rv_Order.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
+        val payButton = findViewById<Button>(R.id.payButton)
 
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
@@ -78,8 +80,6 @@ class OrderActivity : AppCompatActivity() {
             val total = totalCart(this, cart)
             val totalText = String.format("%.2f", total)
             findViewById<TextView>(R.id.orderTotal1).text = totalText.plus(" €")
-
-            val payButton = findViewById<Button>(R.id.payButton)
 
             if (cart.isNotEmpty()) {
                 payButton.setOnClickListener {
@@ -95,10 +95,12 @@ class OrderActivity : AppCompatActivity() {
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
                     fragmentTransaction.replace(R.id.containerOrder, PaymentMethodFragment())
                     fragmentTransaction.addToBackStack(null).commit()
+
+                    payButton.isVisible = false
                 }
             }
         })
-
+        
         val delete = findViewById<ImageView>(R.id.trashCanIcon)
 
         delete.setOnClickListener {

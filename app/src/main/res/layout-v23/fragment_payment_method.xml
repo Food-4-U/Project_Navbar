@@ -1,10 +1,11 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/paymentMethodFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     tools:context=".ui.profile.viewPager.settings.PaymentMethodFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,8 @@
             android:src="@drawable/paymentmethodblank"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/totalPaymentText"
@@ -225,6 +227,20 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView37"
             app:layout_constraintStart_toStartOf="@+id/imageView37"
             app:layout_constraintTop_toTopOf="@+id/imageView37" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueOrder"
+            android:layout_width="228dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="7dp"
+            android:backgroundTint="@color/GreenBT_Order"
+            android:fontFamily="@font/candarabold"
+            android:text="PAGAR"
+            android:textSize="24dp"
+            app:cornerRadius="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
