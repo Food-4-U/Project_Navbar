@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav.ui.menu
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,9 +50,18 @@ class MenuFragment : Fragment() {
         var productType3 = binding.productType3
 
         Backend.getNameSubcategory(1) {
-            subCategory1 = it
+            if (it.name == null){
+                AlertDialog.Builder(requireActivity())
+                    .setTitle("Alerta Conexão Internet")
+                    .setMessage("Por favor verifique a sua conexão à Internet")
+                    .setPositiveButton(
+                        "Fechar"
+                    ) { dialogInterface, i -> requireActivity().finish() }.show()
+            }else{
+                subCategory1 = it
 
-            productType1.text = it.name
+                productType1.text = it.name
+            }
         }
 
         Backend.getNameSubcategory(2) {
