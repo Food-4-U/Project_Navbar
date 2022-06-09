@@ -63,6 +63,7 @@ class OrderActivity : AppCompatActivity() {
         back.setOnClickListener {
             val intent = Intent(this@OrderActivity, MainActivity::class.java);
             startActivity(intent)
+            finish()
         }
 
         val rv_Order : RecyclerView = findViewById(R.id.rv_order)
