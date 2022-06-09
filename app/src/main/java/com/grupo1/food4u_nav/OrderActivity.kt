@@ -63,6 +63,7 @@ class OrderActivity : AppCompatActivity() {
         back.setOnClickListener {
             val intent = Intent(this@OrderActivity, MainActivity::class.java);
             startActivity(intent)
+            finish()
         }
 
         val rv_Order : RecyclerView = findViewById(R.id.rv_order)
@@ -84,9 +85,9 @@ class OrderActivity : AppCompatActivity() {
                 payButton.setOnClickListener {
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.add(R.id.containerOrder, PaymentMethodFragment())
-                    fragmentTransaction.addToBackStack(null)
-                    fragmentTransaction.commit()
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+                    fragmentTransaction.replace(R.id.containerOrder, PaymentMethodFragment())
+                    fragmentTransaction.addToBackStack(null).commit()
                 }
             }
         })

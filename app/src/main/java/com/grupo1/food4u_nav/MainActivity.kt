@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         carButton.setOnClickListener {
             val intent = Intent(this, OrderActivity::class.java);
             startActivity(intent)
+            finish()
         }
 
         setupActionBarWithNavController(navController, appBarConfiguration)

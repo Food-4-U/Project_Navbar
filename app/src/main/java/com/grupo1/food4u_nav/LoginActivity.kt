@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.grupo1.food4u_nav.models.Cliente
 import navigation.RegisterActivity
 import java.net.HttpCookie.parse
@@ -80,16 +79,17 @@ class LoginActivity : AppCompatActivity() {
         val easter = findViewById<ImageView>(R.id.imageView3)
         var a = 0
 
-        easter?.setOnClickListener() {
-            a+= 1
-            if (a == 10) {
-                var url = "https://www.youtube.com/watch?v=iik25wqIuFo";
-                startActivity(Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse(url)
-                    a = 0
-                })
-            }
-        }
+        // ;)
+       //easter?.setOnClickListener() {
+       //    a+= 1
+       //    if (a == 10) {
+       //        var url = "https://www.youtube.com/watch?v=iik25wqIuFo";
+       //        startActivity(Intent(Intent.ACTION_VIEW).apply {
+       //            data = Uri.parse(url)
+       //            a = 0
+       //        })
+       //    }
+       //}
 
         btnLogin.setOnClickListener {
 

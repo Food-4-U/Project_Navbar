@@ -32,7 +32,9 @@
         app:layout_constraintEnd_toEndOf="@+id/arrowBack"
         app:layout_constraintStart_toStartOf="@+id/arrowBack"
         app:layout_constraintTop_toTopOf="@+id/arrowBack"
-        app:srcCompat="@drawable/backbtn"></ImageView>
+        app:srcCompat="@drawable/backbtn">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/orderWord"
@@ -42,7 +44,7 @@
         android:layout_marginTop="121dp"
         android:fontFamily="@font/candarabold"
         android:gravity="center"
-        android:text="Pedido"
+        android:text="Finalizar"
         android:textColor="@color/white"
         android:textSize="44dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +117,7 @@
         android:layout_marginBottom="15dp"
         android:elevation="10dp"
         android:focusedByDefault="true"
-        android:text="Pagar"
+        android:text="Confirmar e Pagar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"

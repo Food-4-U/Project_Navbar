@@ -50,6 +50,7 @@ class HighlightEditAdapter (val context: Context, val itens: List<Item_Menu>) : 
                      Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT)
 
              }
+            notifyDataSetChanged()
         }
     }
 

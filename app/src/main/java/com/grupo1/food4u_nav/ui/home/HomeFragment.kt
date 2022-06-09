@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.ui.home
 
 import Backend
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,16 @@ class HomeFragment : Fragment() {
         }
 
         Backend.getItemTop {
+
+            if (it.isNullOrEmpty()){
+                AlertDialog.Builder(requireActivity())
+                    .setTitle("Alerta Conexão Internet")
+                    .setMessage("Por favor verifique a sua conexão à Internet")
+                    .setPositiveButton(
+                        "Fechar"
+                    ) { dialogInterface, i -> requireActivity().finish() }.show()
+            }else
+            {
             itens = it
 
             val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
@@ -63,6 +74,7 @@ class HomeFragment : Fragment() {
 
             rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
             rv_topRated.adapter = adapterTopRated
+            }
         }
 
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)

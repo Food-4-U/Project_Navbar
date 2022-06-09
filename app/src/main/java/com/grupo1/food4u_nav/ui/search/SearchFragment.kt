@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.grupo1.food4u_nav.ItensCategoryActivity
 import com.grupo1.food4u_nav.ProductDetailsActivity
+import com.grupo1.food4u_nav.adapters.ProductMenuAdapter
 import com.grupo1.food4u_nav.databinding.FragmentSearchBinding
+import com.grupo1.food4u_nav.models.Item_Menu
 
 class SearchFragment : Fragment() {
 
@@ -41,6 +46,8 @@ class SearchFragment : Fragment() {
         var desertImage = binding.imageView28
         var glutenFreeImage = binding.imageView30
         var veganImage = binding.imageView31
+
+        var rv = binding.rvSearch
 
         entryPhoto.setOnClickListener {
             id_category = 1
@@ -115,22 +122,37 @@ class SearchFragment : Fragment() {
         }
 
         //TODO
-        //var searchView = binding.menuSearchView
+        var searchView = binding.menuSearchView
 
-        /*searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-          override fun onQueryTextSubmit(query: String): Boolean {
-            if ( /*Verifica de produto existe*/) {
-                  adapter.filter.filter(query)
-              } else {
-                  Toast.makeText(this@MainActivity, "No Match found", Toast.LENGTH_LONG).show()
-              }
-              return false
-          }
-          override fun onQueryTextChange(newText: String): Boolean {
-              adapter.filter.filter(newText)
-              return false
-          }
-        })*/
+        var itens: List<Item_Menu> = arrayListOf()
+        var itensPes: MutableList<Item_Menu> = ArrayList()
+
+        Backend.getAllItens {
+            itens = it
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    return false
+                }
+                override fun onQueryTextChange(newText: String): Boolean {
+                    for (element in itens)
+                        if (element.nome!!.contains(newText,true) && newText.isNotEmpty())
+                            itensPes.add(element)
+
+                    if(newText.isEmpty())
+                        rv.isGone
+                    else{
+                        rv.isGone = false
+                        rv.layoutManager = GridLayoutManager(activity, 2)
+                        rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
+                    }
+
+                    return false
+                }
+            })
+
+        }
+
 
         return root
     }
@@ -140,11 +162,5 @@ class SearchFragment : Fragment() {
         _binding = null
     }
 
-    fun showItens(query : String){
 
-        Backend.getAllItens {
-
-        }
-
-    }
 }

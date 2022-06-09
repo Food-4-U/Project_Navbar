@@ -100,6 +100,12 @@
 
             </SearchView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_Search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="706dp"
