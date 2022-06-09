@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.adapters
 
 import Backend
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -86,8 +87,22 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
                         CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
 
                     }
+                }
+                else {
+                    val builder = AlertDialog.Builder(context)
+                    builder.setTitle("Confirmação")
+                    builder.setMessage("Tem a certeza que pretende eliminar este item?")
 
+                    builder.setPositiveButton(R.string.yes) { dialog, which ->
+                        GlobalScope.launch(Dispatchers.IO) {
+                            CartDatabase.getDatabase(context).cartDao().delete(cartItem)
+                        }
+                    }
 
+                    builder.setNegativeButton(R.string.no) { dialog, which ->
+                    }
+
+                    builder.show()
                 }
             }
 

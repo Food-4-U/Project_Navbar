@@ -56,25 +56,27 @@ class HomeFragment : Fragment() {
                     .setPositiveButton(
                         "Fechar"
                     ) { dialogInterface, i -> requireActivity().finish() }.show()
-            }else
-            {
+            } else {
+                itens = it
+
+                val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
+                val adapter = HottestAdapter(requireActivity(),itens)
+
+                rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
+                rv_Hottest.adapter = adapter
+            }
+        }
+
+        Backend.getItemTopRated {
             itens = it
-
-            val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
-            val adapter = HottestAdapter(requireActivity(),itens)
-
-            rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
-            rv_Hottest.adapter = adapter
-
-            itens = it.sortedByDescending { it.avaliação }
 
             val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
             val adapterTopRated = TopRatedAdapter(requireActivity(),itens)
 
             rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
             rv_topRated.adapter = adapterTopRated
-            }
         }
+
 
         val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 

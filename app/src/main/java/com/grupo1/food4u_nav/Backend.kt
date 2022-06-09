@@ -257,12 +257,42 @@ object Backend {
         }
     }
 
-    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)): Unit{
+    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)): Unit {
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Item/ItemHot")
+                .build()
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
+
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
+                }
+            } catch (e: Exception) {
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(emptyList())
+                }
+            }
+        }
+    }
+
+    fun getItemTopRated(callback: ((List<Item_Menu>) -> Unit)): Unit {
+        var itens = arrayListOf<Item_Menu>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Item/ItemTopRated")
                 .build()
             try {
                 client.newCall(request).execute().use { response ->
