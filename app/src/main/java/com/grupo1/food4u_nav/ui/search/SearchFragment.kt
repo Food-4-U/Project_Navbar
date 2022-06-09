@@ -123,6 +123,7 @@ class SearchFragment : Fragment() {
 
         //TODO
         var searchView = binding.menuSearchView
+        var cardview = binding.cardviewCategories
 
         var itens: List<Item_Menu> = arrayListOf()
         var itensPes: MutableList<Item_Menu> = ArrayList()
@@ -139,9 +140,12 @@ class SearchFragment : Fragment() {
                         if (element.nome!!.contains(newText,true) && newText.isNotEmpty())
                             itensPes.add(element)
 
-                    if(newText.isEmpty())
+                    if(newText.isEmpty()){
                         rv.isGone
+                        cardview.isGone = false
+                    }
                     else{
+                        cardview.isGone
                         rv.isGone = false
                         rv.layoutManager = GridLayoutManager(activity, 2)
                         rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
