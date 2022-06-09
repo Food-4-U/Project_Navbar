@@ -83,6 +83,13 @@ class OrderActivity : AppCompatActivity() {
 
             if (cart.isNotEmpty()) {
                 payButton.setOnClickListener {
+
+                    var totalPrice = getSharedPreferences("Total", MODE_PRIVATE)
+                    val myEdit = totalPrice.edit()
+
+                    myEdit.putString("preço", totalText.plus(" €"))
+                    myEdit.apply()
+
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)

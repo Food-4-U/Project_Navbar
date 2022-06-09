@@ -90,7 +90,6 @@
     <string name="nifnumber">NIF Number</string>
     <string name="creditcard">C Card</string>
     <string name="mbway">MB Way</string>
-    <string name="paypall">PAY PALL</string>
     <string name="hub">Pay on counter</string>
 
 </resources>
