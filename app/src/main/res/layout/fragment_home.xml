@@ -98,20 +98,7 @@
 
                 </LinearLayout>
 
-                <SearchView
-                    android:id="@+id/menu_SearchView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="22dp"
-                    android:background="@drawable/searchbar"
-                    android:iconifiedByDefault="false"
-                    android:queryBackground="@android:color/transparent"
-                    android:queryHint="@string/searchWhatToEat"
-                    android:theme="@style/SearchViewStyle" >
-
-                </SearchView>
-
-                    <androidx.recyclerview.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_Subcategories"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
