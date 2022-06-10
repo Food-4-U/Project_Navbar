@@ -91,7 +91,12 @@
     <string name="hub">Ao balcão</string>
 
 
+    <string name="categories">Categorias</string>
+    <string name="subCategories">Sub-Categorias</string>
 
+    <string name="editCategory">Editar Categoria</string>
+    <string name="editSubCategory">Editar Subcategoria</string>
+    <string name="addCategorySub">Nova Categoria/Sub-Categoria</string>
 
 
 

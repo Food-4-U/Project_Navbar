@@ -689,10 +689,107 @@ object Backend {
         }
     }
 
-        /*
 
-                                        FUNCIONARIO
-     */
+    fun updateSubcategory(id: Int, subcategory: SubCategories, callback: (Boolean) -> Unit){
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, subcategory.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria/Update/" + id)
+                .put(body)
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    fun updateCategory(id: Int, categoryType: CategoryType, callback: (Boolean) -> Unit){
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, categoryType.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria/Update/" + id)
+                .put(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+
+    fun addCategory(categoryType: CategoryType, callback: (Boolean) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, categoryType.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria" + "/AdicionarCategoria")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+
+    fun addSubcategory(subcategory: SubCategories, callback: (Boolean) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, subcategory.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria" + "/AdicionarSubcategoria")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
 
 
 }
