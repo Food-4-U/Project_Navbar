@@ -34,6 +34,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
         var buttonPlus = itemView.findViewById<ImageView>(R.id.productOrderPlusIcon)
         var buttonMinus = itemView.findViewById<ImageView>(R.id.productOrderMinusIcon)
         var total = itemView.findViewById<TextView>(R.id.orderTotal1)
+        var anota = itemView.findViewById<TextView>(R.id.anotacoesOrderRow)
     }
 
     private var cart = emptyList<CartItem>()
@@ -50,6 +51,12 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cartItem = cart[position]
         holder.quantidade.text = cart[position].quantidade.toString()
+
+        var prefs = context.getSharedPreferences("Observ",
+            Context.MODE_PRIVATE
+        )
+
+        holder.anota.text = prefs.getString("observ", "")
 
 
         Backend.getItemID(cart[position].item_id!!){

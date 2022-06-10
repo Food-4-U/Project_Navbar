@@ -13,8 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isInvisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.grupo1.food4u_nav.adapters.IngredientsAdapter
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.data.CartViewModel
@@ -58,6 +62,8 @@ class ProductDetailsActivity : AppCompatActivity() {
         var subcategoryText = findViewById<TextView>(R.id.productTypeName)
         var cartItem : CartItem = CartItem(null, null, null, null)
         lateinit var mCartViewModel: CartViewModel
+        var ingredientTextView = findViewById<TextView>(R.id.textView64)
+        var ingredientTextView2 = findViewById<TextView>(R.id.textView65)
 
 
 
@@ -84,6 +90,24 @@ class ProductDetailsActivity : AppCompatActivity() {
                 subcategoryText.text = subcategoryName
             }
 
+            Backend.getIngredientesByItem(item!!.id_item!!){
+                var ingredients = it
+
+                if (it.isNotEmpty()) {
+
+                    val rv_Ingredients: RecyclerView =
+                        findViewById(com.grupo1.food4u_nav.R.id.rv_ingredients)
+                    val adapterIngredients = IngredientsAdapter(ingredients, this)
+
+                    rv_Ingredients.layoutManager =
+                        LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+                    rv_Ingredients.adapter = adapterIngredients
+                }
+                else {
+                    ingredientTextView.isInvisible = true
+                    ingredientTextView2.isInvisible = true
+                }
+            }
 
             var priceString : String? = null
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)

@@ -45,6 +45,7 @@ class AdminActivity : AppCompatActivity() {
         btnStats.setOnClickListener {
             val intent = Intent(this@AdminActivity, StatsActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnLogOut.setOnClickListener {
@@ -61,6 +62,7 @@ class AdminActivity : AppCompatActivity() {
         manageMenu.setOnClickListener {
             val intent = Intent(this@AdminActivity, ManageMenusActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
 

@@ -1,5 +1,7 @@
 package com.grupo1.food4u_nav.adapters
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,7 @@ import com.grupo1.food4u_nav.models.Ingredients
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 
-class IngredientsAdapter (val itens: List<Ingredients>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+class IngredientsAdapter(val itens: List<String>, val context: Context) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ingredientName = itemView.findViewById<TextView>(R.id.ingredientText)
@@ -22,10 +24,28 @@ class IngredientsAdapter (val itens: List<Ingredients>) : RecyclerView.Adapter<I
     }
 
     override fun onBindViewHolder(holder: IngredientsAdapter.ViewHolder, position: Int) {
-        holder.ingredientName.text = itens[position].name
+        holder.ingredientName.text = itens[position]
+
+
+        var observ = context.getSharedPreferences("Observ",
+            Context.MODE_PRIVATE
+        )
 
         holder.itemView.setOnClickListener {
+            var observText = observ.getString("observ", "")
 
+            if (observText!!.length < 3){
+                var string = "Sem ${itens[position]}"
+                observText = string
+            } else if (!(observText!!.contains(itens[position])))
+            {
+                observText.plus(", Sem ${itens[position]}")
+            }
+
+            val myEdit = observ.edit()
+            myEdit.clear()
+            myEdit.putString("observ", observText)
+            myEdit.apply()
         }
     }
 

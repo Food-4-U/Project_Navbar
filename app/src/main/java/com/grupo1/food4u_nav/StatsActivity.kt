@@ -1,5 +1,6 @@
 package com.grupo1.food4u_nav
 
+import android.app.AlertDialog
 import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -52,67 +53,79 @@ class StatsActivity : AppCompatActivity() {
         val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 
         Backend.getAllClientes {
-            clientes = it
+            if (it.isNullOrEmpty())
+            {
+                AlertDialog.Builder(this)
+                    .setTitle("Alerta Conexão Internet")
+                    .setMessage("Por favor verifique a sua conexão à Internet")
+                    .setPositiveButton(
+                        "Fechar"
+                    ) { dialogInterface, i -> finish() }.show()
+            }else
+            {
 
-            for (cliente in clientes) {
-                media += cliente.idade!!
+                clientes = it
 
-                if (min > cliente.idade!! && cliente.idade!! > 0){
-                    min = cliente.idade!!
+                for (cliente in clientes) {
+                    media += cliente.idade!!
+
+                    if (min > cliente.idade!! && cliente.idade!! > 0){
+                        min = cliente.idade!!
+                    }
+
+                    if (max < cliente.idade!!)
+                        max = cliente.idade!!
+
+                    if (cliente.genero!!.contains('M'))
+                        genMasculino += 1
+
+                    if (cliente.genero!!.contains('F'))
+                        genFem++
+
                 }
 
-                if (max < cliente.idade!!)
-                    max = cliente.idade!!
-
-                if (cliente.genero!!.contains('M'))
-                    genMasculino += 1
-
-                if (cliente.genero!!.contains('F'))
-                    genFem++
-
-            }
 
 
+                media /= clientes.size
+                mediaString = String.format("%.2f", media)
 
-            media /= clientes.size
-            mediaString = String.format("%.2f", media)
+                genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
+                genPercentagemString = String. format("%.2f", genPercentagem)
 
-            genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
-            genPercentagemString = String. format("%.2f", genPercentagem)
+                val aaChartModel : AAChartModel = AAChartModel()
+                    .chartType(AAChartType.Bar)
+                    .title("Gender")
+                    .backgroundColor("#FFFFFF")
+                    .dataLabelsEnabled(true)
+                    .series(arrayOf(
+                        AASeriesElement()
+                            .name("Feminino")
+                            .data(arrayOf(genFem)),
+                        AASeriesElement()
+                            .name("Masculino")
+                            .data(arrayOf(genMasculino))
 
-            val aaChartModel : AAChartModel = AAChartModel()
-                .chartType(AAChartType.Bar)
-                .title("Gender")
-                .backgroundColor("#FFFFFF")
-                .dataLabelsEnabled(true)
-                .series(arrayOf(
-                    AASeriesElement()
-                        .name("Feminino")
-                        .data(arrayOf(genFem)),
-                    AASeriesElement()
-                        .name("Masculino")
-                        .data(arrayOf(genMasculino))
+                    )
+                    )
 
-                )
-            )
+                aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
-            aaChartView.aa_drawChartWithChartModel(aaChartModel)
+                val minTextView = findViewById<TextView>(R.id.resultFloorAge)
+                val maxTextView = findViewById<TextView>(R.id.resultTopAge)
+                val mediaTextView = findViewById<TextView>(R.id.resultAge)
+                val generoTextView = findViewById<TextView>(R.id.resultTopGender)
 
-            val minTextView = findViewById<TextView>(R.id.resultFloorAge)
-            val maxTextView = findViewById<TextView>(R.id.resultTopAge)
-            val mediaTextView = findViewById<TextView>(R.id.resultAge)
-            val generoTextView = findViewById<TextView>(R.id.resultTopGender)
+                mediaTextView.text = mediaString
+                minTextView.text = "${min}"
+                maxTextView.text = "${max}"
 
-            mediaTextView.text = mediaString
-            minTextView.text = "${min}"
-            maxTextView.text = "${max}"
-
-            if (genPercentagem > 50F)
-            {
-                generoTextView.text = "Masculino " + genPercentagemString + "%"
-            } else
-            {
-                generoTextView.text = "Feminino " + genPercentagemString + "%"
+                if (genPercentagem > 50F)
+                {
+                    generoTextView.text = "Masculino " + genPercentagemString + "%"
+                } else
+                {
+                    generoTextView.text = "Feminino " + genPercentagemString + "%"
+                }
             }
         }
     }

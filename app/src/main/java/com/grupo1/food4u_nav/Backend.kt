@@ -26,18 +26,25 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Cliente")
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var clienteJSON = resultArray[index] as JSONObject
-                    var cliente = Cliente.fromJSON(clienteJSON)
-                    clientes.add(cliente)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
+
+                    for (index in 0 until resultArray.length()) {
+                        var clienteJSON = resultArray[index] as JSONObject
+                        var cliente = Cliente.fromJSON(clienteJSON)
+                        clientes.add(cliente)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(clientes)
+                    }
                 }
-
+            } catch (e:Exception){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(clientes)
+                    callback.invoke(emptyList())
                 }
             }
         }
@@ -184,19 +191,26 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Item")
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try{
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var itemJSON = resultArray[index] as JSONObject
-                    var item = Item_Menu.fromJSON(itemJSON)
-                    itens.add(item)
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
                 }
-
+            }catch (e:Exception){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(itens)
+                    callback.invoke(emptyList())
                 }
+
             }
         }
     }
@@ -240,24 +254,31 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Item/ItemCategoria/" + id_category)
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var itemJSON = resultArray[index] as JSONObject
-                    var item = Item_Menu.fromJSON(itemJSON)
-                    itens.add(item)
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
                 }
-
+            }catch (e:Exception){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(itens)
+                    callback.invoke(emptyList())
                 }
             }
+
         }
     }
 
-    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)): Unit {
+    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)) {
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
@@ -417,21 +438,26 @@ object Backend {
                 .url(BASE_API + "item/Favoritos/" + id)
                 .build()
 
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultArray = JSONArray(result)
+            try {
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
 
-                for (index in 0 until resultArray.length()) {
-                    var itemJSON = resultArray[index] as JSONObject
-                    var item = Item_Menu.fromJSON(itemJSON)
-                    itens.add(item)
-                }
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var item = Item_Menu.fromJSON(itemJSON)
+                        itens.add(item)
+                    }
 
-                GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(itens)
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(itens)
+                    }
                 }
+            }catch (e:Exception){
+
             }
         }
+
     }
 
     // INGREDIENTES
@@ -442,6 +468,29 @@ object Backend {
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(BASE_API + "Ingrediente/")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var ingredientesJSON = resultArray[index]
+                    var ingredienteName = ingredientesJSON
+                    ingredientes.add(ingredienteName.toString())
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(ingredientes)
+                }
+            }
+        }
+    }
+
+    fun getIngredientesByItem(id: Int, callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var ingredientes = arrayListOf<String>()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Ingrediente/GetItensIngredientes/" + id)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
@@ -552,13 +601,19 @@ object Backend {
             val request = Request.Builder()
                 .url(BASE_API + "Subcategoria/GetItem/" + id)
                 .build()
-            client.newCall(request).execute().use { response ->
-                var result = response.body!!.string()
-                var resultJSONObject = JSONObject(result)
-                var subcategory = SubCategories.fromJSON(resultJSONObject)
+            try{
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultJSONObject = JSONObject(result)
+                    var subcategory = SubCategories.fromJSON(resultJSONObject)
 
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(subcategory)
+                    }
+                }
+            }catch (e:Exception ){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(subcategory)
+                    callback.invoke(SubCategories(null,null))
                 }
             }
         }
