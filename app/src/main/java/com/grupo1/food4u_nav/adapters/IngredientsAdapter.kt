@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.Ingredients
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 
-class IngredientsAdapter (val item: Item_Menu) : RecyclerView.Adapter<SubCategoriesAdapterHome.ViewHolder>() {
+class IngredientsAdapter (val itens: List<Ingredients>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var categoryName = itemView.findViewById<TextView>(R.id.ingredientText)
+        var ingredientName = itemView.findViewById<TextView>(R.id.ingredientText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,8 +21,8 @@ class IngredientsAdapter (val item: Item_Menu) : RecyclerView.Adapter<SubCategor
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SubCategoriesAdapterMenu.ViewHolder, position: Int) {
-        holder.categoryName.text =
+    override fun onBindViewHolder(holder: IngredientsAdapter.ViewHolder, position: Int) {
+        holder.ingredientName.text = itens[position].name
 
         holder.itemView.setOnClickListener {
 
