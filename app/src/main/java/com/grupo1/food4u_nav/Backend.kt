@@ -434,6 +434,31 @@ object Backend {
         }
     }
 
+    // INGREDIENTES
+
+    fun getItensIngredientes(callback: (List<String>) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            var ingredientes = arrayListOf<String>()
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Ingrediente/")
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var ingredientesJSON = resultArray[index]
+                    var ingredienteName = ingredientesJSON
+                    ingredientes.add(ingredienteName.toString())
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(ingredientes)
+                }
+            }
+        }
+    }
+
     // CATEGORIAS E SUBCATEGORIAS NOME
 
     fun getNameCategory(id: Int, callback: ((CategoryType) -> Unit)) {

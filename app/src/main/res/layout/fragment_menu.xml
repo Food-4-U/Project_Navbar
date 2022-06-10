@@ -76,17 +76,13 @@
                 android:text="Hamburgueres"
                 android:textSize="16dp" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_products2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginTop="2dp"
+                    android:nestedScrollingEnabled="true"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-            </ScrollView>
 
             <TextView
                 android:id="@+id/productType3"
