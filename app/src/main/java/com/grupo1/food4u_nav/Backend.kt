@@ -278,7 +278,7 @@ object Backend {
         }
     }
 
-    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)): Unit {
+    fun getItemTop(callback: ((List<Item_Menu>) -> Unit)) {
         var itens = arrayListOf<Item_Menu>()
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
