@@ -103,13 +103,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
                     builder.setPositiveButton(R.string.yes) { dialog, which ->
                         GlobalScope.launch(Dispatchers.IO) {
                             CartDatabase.getDatabase(context).cartDao().delete(cartItem)
-
-                            var observ = context.getSharedPreferences("Observ",
-                                Context.MODE_PRIVATE
-                            )
-
-                            observ.edit().remove(cart[position].item_id.toString())
-                            observ.edit().apply()
+                            var observ = context.getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                         }
                     }
 

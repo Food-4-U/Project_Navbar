@@ -112,13 +112,7 @@ class OrderActivity : AppCompatActivity() {
 
             builder.setPositiveButton(R.string.yes) { dialog, which ->
                 mCartViewModel.deleteCart()
-
-                var observ = getSharedPreferences("Observ",
-                    Context.MODE_PRIVATE
-                )
-
-                observ.edit().clear()
-                observ.edit().apply()
+                var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
             }
 
             builder.setNegativeButton(R.string.no) { dialog, which ->

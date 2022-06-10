@@ -17,14 +17,16 @@ import com.grupo1.food4u_nav.models.Ingredients
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 
-class IngredientsAdapter(val itens: List<String>, val context: Context, val id_item: Int) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+class IngredientsAdapter(val itens: List<String>, val context: Context, val id_item: Int) :
+    RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ingredientName = itemView.findViewById<TextView>(R.id.ingredientText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.row_ingredients, parent,false)
+        var view =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_ingredients, parent, false)
         return ViewHolder(view)
     }
 
@@ -35,12 +37,12 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
         holder.ingredientName.text = itens[position]
 
 
-        var observ = context.getSharedPreferences("Observ",
+        var observ = context.getSharedPreferences(
+            "Observ",
             Context.MODE_PRIVATE
         )
 
         holder.itemView.setOnClickListener {
-            var observText = observ.getString(id_item.toString(), "")
 
             if (isClickable == false) {
                 isClickable = true
@@ -51,36 +53,35 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
             if (isClickable) {
                 holder.itemView.setBackgroundResource(R.drawable.ingredient_click)
 
-                var observText = observ.getString("observ", "")
+                var observText = observ.getString(id_item.toString(), "")
 
-            if (observText!!.length < 3){
-               observText = "Sem " + itens[position]
-
-            } else
-            {
-                observText.plus(", Sem " + itens[position])
-            }
-                if (observText!!.length < 3){
-                    var string = "Sem ${itens[position]}"
+                if (observText!!.length <= 3) {
+                    var string = "Sem " + itens[position]
                     observText = string
-                } else if (!(observText!!.contains(itens[position])))
-                {
-                    observText.plus(", Sem ${itens[position]}")
+
+                } else if (!(observText.contains(itens[position]))) {
+                    var string = observText.plus(", Sem " + itens[position])
+                    observText = string
                 }
 
-            val myEdit = observ.edit()
-            myEdit.clear()
-            myEdit.commit()
-            myEdit.putString(id_item.toString(), observText)
-            myEdit.apply()
-            Toast.makeText(context,observText, Toast.LENGTH_SHORT).show()
                 val myEdit = observ.edit()
                 myEdit.clear()
-                myEdit.putString("observ", observText)
+                myEdit.commit()
+                myEdit.putString(id_item.toString(), observText)
                 myEdit.apply()
-            }
-            else {
+                Toast.makeText(context, observText, Toast.LENGTH_SHORT).show()
+            } else {
                 holder.itemView.setBackgroundResource(R.drawable.profile_formatdetail)
+
+                var observText = observ.getString(id_item.toString(), "")
+                var string = observText
+                string!!.replace(", Sem " + itens[position], "")
+                observText = string
+
+                val myEdit = observ.edit()
+                myEdit.putString(id_item.toString(), observText)
+                myEdit.apply()
+                Toast.makeText(context, observText, Toast.LENGTH_SHORT).show()
             }
         }
     }
