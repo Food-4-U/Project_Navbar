@@ -74,6 +74,7 @@ class OrderActivity : AppCompatActivity() {
         rv_Order.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         val payButton = findViewById<Button>(R.id.payButton)
 
+
         mCartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
         mCartViewModel.readCart.observe(this, Observer { cart ->
             adapter.setData(cart)
