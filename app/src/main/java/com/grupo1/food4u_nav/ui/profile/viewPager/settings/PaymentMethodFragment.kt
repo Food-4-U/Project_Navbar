@@ -44,7 +44,7 @@ class PaymentMethodFragment : Fragment() {
         }
 
         cCard.setOnClickListener{
-            cCard.  (Color.argb(255, 255, 255, 255))
+
         }
 
 
