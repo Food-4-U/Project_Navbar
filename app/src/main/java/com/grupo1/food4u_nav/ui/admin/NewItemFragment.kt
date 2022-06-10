@@ -89,7 +89,7 @@ class NewItemFragment : Fragment() {
                                     idsubCategoria, 0.0
                                 )
 
-                                Backend.addItem(item) {
+                                addItem(item) {
                                     if (it) {
                                         Toast.makeText(requireActivity(), item.nome + " adicionado", Toast.LENGTH_SHORT).show()
                                     }
