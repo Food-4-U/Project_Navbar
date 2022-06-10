@@ -3,6 +3,9 @@ package com.grupo1.food4u_nav.adapters
 import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaCodec.MetricsConstants.MODE
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +29,9 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
     }
 
     override fun onBindViewHolder(holder: IngredientsAdapter.ViewHolder, position: Int) {
+
+        var isClickable = false
+
         holder.ingredientName.text = itens[position]
 
 
@@ -36,6 +42,17 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
         holder.itemView.setOnClickListener {
             var observText = observ.getString(id_item.toString(), "")
 
+            if (isClickable == false) {
+                isClickable = true
+            } else {
+                isClickable = false
+            }
+
+            if (isClickable) {
+                holder.itemView.setBackgroundResource(R.drawable.ingredient_click)
+
+                var observText = observ.getString("observ", "")
+
             if (observText!!.length < 3){
                observText = "Sem " + itens[position]
 
@@ -43,6 +60,13 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
             {
                 observText.plus(", Sem " + itens[position])
             }
+                if (observText!!.length < 3){
+                    var string = "Sem ${itens[position]}"
+                    observText = string
+                } else if (!(observText!!.contains(itens[position])))
+                {
+                    observText.plus(", Sem ${itens[position]}")
+                }
 
             val myEdit = observ.edit()
             myEdit.clear()
@@ -50,6 +74,14 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
             myEdit.putString(id_item.toString(), observText)
             myEdit.apply()
             Toast.makeText(context,observText, Toast.LENGTH_SHORT).show()
+                val myEdit = observ.edit()
+                myEdit.clear()
+                myEdit.putString("observ", observText)
+                myEdit.apply()
+            }
+            else {
+                holder.itemView.setBackgroundResource(R.drawable.profile_formatdetail)
+            }
         }
     }
 
