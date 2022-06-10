@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isInvisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -101,6 +102,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
                     rv_Ingredients.layoutManager =
                         LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+                    rv_Ingredients.layoutManager = GridLayoutManager(this, 3)
                     rv_Ingredients.adapter = adapterIngredients
                 }
                 else {

@@ -84,5 +84,7 @@ dependencies {
 
     implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
 
+    implementation 'com.stripe:stripe-android:16.3.0'
+
 }
 
