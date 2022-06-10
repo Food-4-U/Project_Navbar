@@ -36,18 +36,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
-        <Button
+        <ImageButton
             android:id="@+id/imageView25"
             android:layout_width="92dp"
             android:layout_height="58dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/button_color"
+            android:enabled="false"
+            android:background="@drawable/grupo_80"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
             tools:ignore="MissingConstraints">
-        </Button>
+
+        </ImageButton>
 
         <TextView
             android:id="@+id/totalPaymentText"
@@ -135,7 +136,7 @@
             app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
             tools:ignore="MissingConstraints" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView29"
             android:layout_width="92dp"
             android:layout_height="58dp"
