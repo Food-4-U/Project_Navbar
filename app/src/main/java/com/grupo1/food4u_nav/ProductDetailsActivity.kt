@@ -97,10 +97,10 @@ class ProductDetailsActivity : AppCompatActivity() {
 
                     val rv_Ingredients: RecyclerView =
                         findViewById(com.grupo1.food4u_nav.R.id.rv_ingredients)
-                    val adapterIngredients = IngredientsAdapter(ingredients, this)
+                    val adapterIngredients = IngredientsAdapter(ingredients, this, item!!.id_item!!)
 
                     rv_Ingredients.layoutManager =
-                        LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+                        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
                     rv_Ingredients.adapter = adapterIngredients
                 }
                 else {
