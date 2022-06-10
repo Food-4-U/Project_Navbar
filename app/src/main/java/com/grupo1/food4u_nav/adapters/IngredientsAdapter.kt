@@ -31,8 +31,6 @@ class IngredientsAdapter(val itens: List<String>, val context: Context) : Recycl
             Context.MODE_PRIVATE
         )
 
-
-
         holder.itemView.setOnClickListener {
             var observText = observ.getString("observ", "")
 
