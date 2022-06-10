@@ -42,6 +42,8 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
                 expandableListView.expandGroup(groupPosition)
             Toast.makeText(context, getGroup(groupPosition), Toast.LENGTH_SHORT).show()
         }
+
+
         return convertView
     }
 
@@ -72,9 +74,10 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
 
         title.setOnClickListener {
             Toast.makeText(context, pos.id.toString(), Toast.LENGTH_SHORT).show()
-
             showDialog(pos)
         }
+
+
         return convertView
     }
 
@@ -113,6 +116,14 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
                notifyDataSetChanged()
             }
             dialog.dismiss()
+        }
+
+        val deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
+        deleteCategorySub.setOnClickListener {
+            Backend.deleteCategory(category.id!!.toInt()){
+                if (!it)
+                    Toast.makeText(context,"Erro ao remover!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         var cancelCategorySub = dialog.findViewById(R.id.cancelCategorySub) as TextView

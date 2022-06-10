@@ -714,7 +714,10 @@ object Backend {
         }
     }
 
-    fun updateCategory(id: Int, categoryType: CategoryType, callback: (Boolean) -> Unit){
+
+
+
+    fun addCategory(categoryType: CategoryType, callback: (Boolean) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             val mediaType = "application/json; charset=utf-8".toMediaType()
             val body: RequestBody = RequestBody.create(
@@ -723,8 +726,8 @@ object Backend {
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Categoria/Update/" + id)
-                .put(body)
+                .url(BASE_API + "Categoria" + "/AdicionarCategoria")
+                .post(body)
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -739,8 +742,7 @@ object Backend {
         }
     }
 
-
-    fun addCategory(categoryType: CategoryType, callback: (Boolean) -> Unit) {
+    fun updateCategory(id: Int, categoryType: CategoryType, callback: (Boolean) -> Unit){
         GlobalScope.launch(Dispatchers.IO) {
             val mediaType = "application/json; charset=utf-8".toMediaType()
             val body: RequestBody = RequestBody.create(
@@ -749,8 +751,8 @@ object Backend {
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Categoria" + "/AdicionarCategoria")
-                .post(body)
+                .url(BASE_API + "Categoria/Update/" + id)
+                .put(body)
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -779,6 +781,46 @@ object Backend {
                 .post(body)
                 .build()
 
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    fun deleteSubcategory(id :Int , callback: (Boolean) -> Unit){
+        GlobalScope.launch(Dispatchers.IO) {
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Subcategoria" + "/Delete/" + id)
+                .delete()
+                .build()
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
+
+    fun deleteCategory(id :Int , callback: (Boolean) -> Unit){
+        GlobalScope.launch(Dispatchers.IO) {
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(BASE_API + "Categoria" + "/Delete/" + id)
+                .delete()
+                .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
                 var resultJSONObject = JSONObject(result)

@@ -12,6 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/deleteCategorySub"
+            android:layout_width="53dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#FFFFFF"
+            android:src="@drawable/leftarrow"
+            app:layout_constraintBottom_toBottomOf="@+id/titleCategorySubDialog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titleCategorySubDialog"
+            app:layout_constraintVertical_bias="0.458" />
+
         <RadioGroup
             android:id="@+id/radioGroupNewCatSub"
             android:layout_width="wrap_content"

@@ -89,8 +89,11 @@ class EditCategoryFragment : Fragment() {
         var radioButtonCategory = dialog.findViewById(R.id.radioButtonCategory) as RadioButton
         var radioButtonSub = dialog.findViewById(R.id.radioButtonSub) as RadioButton
         var radioGroupNewCatSub = dialog.findViewById(R.id.radioGroupNewCatSub) as RadioGroup
+        var deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
 
         radioGroupNewCatSub.isGone = false
+        deleteCategorySub.isGone = true
+
         dialogTitle.text =  getString(R.string.addCategorySub)
 
         submitCategorySub.setOnClickListener {

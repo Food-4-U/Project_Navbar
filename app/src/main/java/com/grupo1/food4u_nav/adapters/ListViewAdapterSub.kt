@@ -74,6 +74,9 @@ class ListViewAdapterSub (var context: Context, var expandableListView : Expanda
         title.setOnClickListener {
             showDialog(pos)
         }
+
+
+
         return convertView
     }
 
@@ -111,6 +114,15 @@ class ListViewAdapterSub (var context: Context, var expandableListView : Expanda
                 notifyDataSetChanged()
             }
             dialog.dismiss()
+        }
+
+        var deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
+
+        deleteCategorySub.setOnClickListener {
+            Backend.deleteSubcategory(subCategories.id_SubCategory!!.toInt()){
+                if (!it)
+                    Toast.makeText(context,"Erro ao remover!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         var cancelCategorySub = dialog.findViewById(R.id.cancelCategorySub) as TextView
