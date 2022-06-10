@@ -41,7 +41,6 @@ class FinishOrderActivity : AppCompatActivity() {
         val btnBack = findViewById<Button>(R.id.backBtn)
         var ratingBar = findViewById<RatingBar>(R.id.ratingBar_itensOrdem)
         var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)
-        var next = findViewById<Button>(R.id.next)
         var avaliacao = false
         btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
