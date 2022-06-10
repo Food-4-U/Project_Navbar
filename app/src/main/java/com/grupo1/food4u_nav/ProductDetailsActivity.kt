@@ -14,7 +14,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.grupo1.food4u_nav.adapters.IngredientsAdapter
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.data.CartViewModel
@@ -84,6 +87,15 @@ class ProductDetailsActivity : AppCompatActivity() {
                 subcategoryText.text = subcategoryName
             }
 
+            Backend.getIngredientesByItem(item!!.id_item!!){
+                var ingredients = it
+
+                val rv_Ingredients: RecyclerView = findViewById(com.grupo1.food4u_nav.R.id.rv_ingredients)
+                val adapterIngredients = IngredientsAdapter(ingredients)
+
+                rv_Ingredients.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+                rv_Ingredients.adapter = adapterIngredients
+            }
 
             var priceString : String? = null
             val quantityProduct = findViewById<TextView>(R.id.quantityProduct)

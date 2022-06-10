@@ -10,7 +10,7 @@ import com.grupo1.food4u_nav.models.Ingredients
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 
-class IngredientsAdapter (val itens: List<Ingredients>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+class IngredientsAdapter(val itens: List<String>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ingredientName = itemView.findViewById<TextView>(R.id.ingredientText)
@@ -22,7 +22,7 @@ class IngredientsAdapter (val itens: List<Ingredients>) : RecyclerView.Adapter<I
     }
 
     override fun onBindViewHolder(holder: IngredientsAdapter.ViewHolder, position: Int) {
-        holder.ingredientName.text = itens[position].name
+        holder.ingredientName.text = itens[position]
 
         holder.itemView.setOnClickListener {
 
