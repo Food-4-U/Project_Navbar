@@ -110,10 +110,11 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         category.name = categorySubEditText.text.toString()
 
         submitCategorySub.setOnClickListener {
-           Backend.updateCategory(category.id!!,category){
+           Backend.updateCategory(category.id!!, category){
                 if (!it)
                     Toast.makeText(context, "Erro ao atualizar!", Toast.LENGTH_SHORT).show()
-               notifyDataSetChanged()
+               else
+                    Toast.makeText(context, "Atualizou", Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
