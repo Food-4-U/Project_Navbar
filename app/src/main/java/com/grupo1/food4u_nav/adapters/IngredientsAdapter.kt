@@ -97,7 +97,6 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
                 val myEdit = observ.edit()
                 myEdit.putString(id_item.toString(), observText)
                 myEdit.apply()
-                Toast.makeText(context, observText, Toast.LENGTH_SHORT).show()
             }
         }
     }
