@@ -613,7 +613,7 @@ object Backend {
                 }
             }catch (e:Exception ){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(SubCategories(null,null))
+                    callback.invoke(SubCategories(null,null, null))
                 }
             }
         }
@@ -832,6 +832,5 @@ object Backend {
             }
         }
     }
-
 
 }
