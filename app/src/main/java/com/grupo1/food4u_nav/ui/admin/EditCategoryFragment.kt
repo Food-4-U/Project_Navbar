@@ -16,7 +16,6 @@ import com.grupo1.food4u_nav.adapters.ListViewAdapter
 import com.grupo1.food4u_nav.adapters.ListViewAdapterSub
 import com.grupo1.food4u_nav.databinding.FragmentEditCategoryBinding
 import com.grupo1.food4u_nav.models.CategoryType
-import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories
 
 class EditCategoryFragment : Fragment() {
@@ -106,14 +105,18 @@ class EditCategoryFragment : Fragment() {
             } else {
 
                 if(radioButtonSub.isChecked){
-                    var subCategories = SubCategories(null, categorySubEditText.text.toString())
+                    var subCategories = SubCategories(
+                        null,
+                        categorySubEditText.text.toString(),
+                        null
+                    )
                     Backend.addSubcategory(subCategories){
                         if (!it)
                             Toast.makeText(context, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
 
                     }
                 }else{
-                    var category = CategoryType(null, categorySubEditText.text.toString())
+                    var category = CategoryType(null, categorySubEditText.text.toString(), null)
                     Backend.addCategory(category){
                         if (!it)
                             Toast.makeText(context, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
