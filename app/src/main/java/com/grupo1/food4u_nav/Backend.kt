@@ -1,9 +1,13 @@
+import android.app.AlertDialog
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import com.grupo1.food4u_nav.models.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import org.json.JSONObject
+import java.io.InputStream
 import org.json.JSONArray as JSONArray
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -609,7 +613,7 @@ object Backend {
                 }
             }catch (e:Exception ){
                 GlobalScope.launch(Dispatchers.Main) {
-                    callback.invoke(SubCategories(null, null, null))
+                    callback.invoke(SubCategories(null,null, null))
                 }
             }
         }
@@ -828,6 +832,5 @@ object Backend {
             }
         }
     }
-
 
 }
