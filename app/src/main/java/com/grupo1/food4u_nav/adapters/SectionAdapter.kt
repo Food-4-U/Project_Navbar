@@ -17,7 +17,7 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
 
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        var categoryTitle : TextView
+        public var categoryTitle : TextView
         var itemRecycler : RecyclerView
 
         init{
@@ -33,7 +33,7 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
 
         holder.categoryTitle.text = allCategory[position].categoria
-        setCatItemRecycler(holder.itemRecycler, allCategory[position].itens)
+        setItemsRV(holder.itemRecycler, allCategory[position].itens)
 
     }
 
@@ -41,12 +41,14 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
         return allCategory.size
     }
 
-    private fun setCatItemRecycler(recyclerView: RecyclerView, categoryItem: List<Item_Menu>){
+    private fun setItemsRV(recyclerView: RecyclerView, categoryItem: List<Item_Menu>){
 
         val itemRecyclerAdapter = ItemAdapter(context, categoryItem)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = itemRecyclerAdapter
 
     }
+
+
 
 }
