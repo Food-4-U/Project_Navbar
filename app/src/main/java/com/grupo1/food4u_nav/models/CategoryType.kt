@@ -4,12 +4,12 @@ import org.json.JSONObject
 
 class CategoryType {
 
-    constructor(id: Int, name: String) {
+    constructor(id: Int?, name: String) {
         this.id = id
         this.name = name
     }
 
-    var id: Int
+    var id: Int?
     var name: String
 
 

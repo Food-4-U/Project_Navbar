@@ -92,4 +92,9 @@
     <string name="mbway">MB Way</string>
     <string name="hub">Pay on counter</string>
 
+    <string name="categories">Categories</string>
+    <string name="subCategories">Sub-Categories</string>
+    <string name="editCategory">Edit Category</string>
+    <string name="addCategorySub">New Category/Sub-Category</string>
+    <string name="editSubCategory">Edit SubCategory</string>
 </resources>

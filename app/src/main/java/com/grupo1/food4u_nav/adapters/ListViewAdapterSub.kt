@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.SubCategories
 
-class ListViewAdapter (var context: Context, var expandableListView : ExpandableListView, var header : MutableList<String>, var body : MutableList<MutableList<CategoryType>>): BaseExpandableListAdapter() {
+class ListViewAdapterSub (var context: Context, var expandableListView : ExpandableListView, var header : MutableList<String>, var body : MutableList<MutableList<SubCategories>>): BaseExpandableListAdapter() {
     override fun getGroup(groupPosition: Int): String {
         return header[groupPosition]
     }
@@ -42,8 +43,6 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
                 expandableListView.expandGroup(groupPosition)
             Toast.makeText(context, getGroup(groupPosition), Toast.LENGTH_SHORT).show()
         }
-
-
         return convertView
     }
 
@@ -51,7 +50,7 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         return body[groupPosition].size
     }
 
-    override fun getChild(groupPosition: Int, childPosition: Int): CategoryType {
+    override fun getChild(groupPosition: Int, childPosition: Int): SubCategories {
         return body[groupPosition][childPosition]
     }
 
@@ -73,9 +72,9 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         title.text = getChild(groupPosition,childPosition).name
 
         title.setOnClickListener {
-            Toast.makeText(context, pos.id.toString(), Toast.LENGTH_SHORT).show()
             showDialog(pos)
         }
+
 
 
         return convertView
@@ -91,37 +90,36 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
 
 
     @SuppressLint("ResourceType")
-    private fun showDialog(category: CategoryType) {
+    private fun showDialog(subCategories: SubCategories) {
         val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.custom_editdialog)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-
         var subcategoryname = dialog.findViewById(R.id.titleCategorySubDialog) as TextView
-        subcategoryname.text =  context.getString(R.string.editCategory)
+        subcategoryname.text =  context.getString(R.string.editSubCategory)
 
         var categorySubEditText = dialog.findViewById(R.id.categorySubEditText) as EditText
-        categorySubEditText.setText(category.name)
+        categorySubEditText.setText(subCategories.name)
 
         var submitCategorySub = dialog.findViewById(R.id.submitCategorySub) as TextView
 
-        category.name = categorySubEditText.text.toString()
+        subCategories.name = categorySubEditText.text.toString()
 
         submitCategorySub.setOnClickListener {
-           Backend.updateCategory(category.id!!, category){
+            Backend.updateSubcategory(subCategories.id_SubCategory!!,subCategories){
                 if (!it)
                     Toast.makeText(context, "Erro ao atualizar!", Toast.LENGTH_SHORT).show()
-               else
-                    Toast.makeText(context, "Atualizou", Toast.LENGTH_SHORT).show()
+                notifyDataSetChanged()
             }
             dialog.dismiss()
         }
 
-        val deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
+        var deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
+
         deleteCategorySub.setOnClickListener {
-            Backend.deleteCategory(category.id!!.toInt()){
+            Backend.deleteSubcategory(subCategories.id_SubCategory!!.toInt()){
                 if (!it)
                     Toast.makeText(context,"Erro ao remover!", Toast.LENGTH_SHORT).show()
             }

@@ -43,14 +43,14 @@ class HighlightEditAdapter (val context: Context, val itens: List<Item_Menu>) : 
 
         holder.removeHightlight.setOnClickListener {
           itens[position].destaque = false
+
              Backend.updateItem(itens[position].id_item!!, itens[position]) {
                  if (it)
-                    Toast.makeText(context,"Retirado dos favoritos",Toast.LENGTH_SHORT)
+                    Toast.makeText(context,itens[position].id_item.toString(),Toast.LENGTH_SHORT).show()
                  else
-                     Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT)
-
+                     Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT).show()
              }
-            notifyDataSetChanged()
+
         }
     }
 
