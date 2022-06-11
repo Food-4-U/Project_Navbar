@@ -120,5 +120,19 @@
             app:layout_constraintBottom_toBottomOf="@+id/productOrderMinusIcon"
             app:layout_constraintEnd_toEndOf="@+id/whiteRectangle"
             app:layout_constraintTop_toTopOf="@+id/productOrderPlusIcon" />
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:text="-"
+            android:textColor="@color/yellow_btn"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/productOrderMinusIcon"
+            app:layout_constraintEnd_toEndOf="@+id/productOrderMinusIcon"
+            app:layout_constraintStart_toStartOf="@+id/productOrderMinusIcon"
+            app:layout_constraintTop_toTopOf="@+id/productOrderMinusIcon" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

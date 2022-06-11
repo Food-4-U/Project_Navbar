@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
-import com.grupo1.food4u_nav.models.Section
+import com.grupo1.food4u_nav.models.SectionMenu
 
-class SectionAdapter(private  val context: Context, private val allCategory: List<Section>) :
+class SectionAdapter(private  val context: Context, private val allCategory: List<SectionMenu>) :
     RecyclerView.Adapter<SectionAdapter.MainViewHolder>() {
 
 
