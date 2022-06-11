@@ -75,7 +75,23 @@ class IngredientsAdapter(val itens: List<String>, val context: Context, val id_i
 
                 var observText = observ.getString(id_item.toString(), "")
                 var string = observText
-                string!!.replace(", Sem " + itens[position], "")
+                string = string!!.replace(" Sem " + itens[position], "")
+                if(string.contains(",, ")){
+                    string = string.replace(",, ", ", ")
+                } else if (string.contains(",,"))
+                {
+                    string = string.replace(",,", ",")
+                } else if (string.takeLast(1) == ",")
+                {
+                    string = string.replace(",", "")
+                    if (string.contains("Sem " + itens[position]))
+                    {
+                        string = string.replace("Sem " + itens[position], "")
+                    }
+                } else if (string.contains("Sem " + itens[position])) {
+                    string = string.replace("Sem " + itens[position], "")
+                }
+
                 observText = string
 
                 val myEdit = observ.edit()
