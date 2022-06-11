@@ -12,9 +12,9 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterHome
 import com.grupo1.food4u_nav.adapters.TopRatedAdapter
+//import com.grupo1.food4u_nav.Testando
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.SubCategories

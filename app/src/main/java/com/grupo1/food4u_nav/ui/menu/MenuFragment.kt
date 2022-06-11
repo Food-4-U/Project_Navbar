@@ -14,9 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.ProductMenuAdapter
+import com.grupo1.food4u_nav.adapters.SectionAdapter
 import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
 import com.grupo1.food4u_nav.databinding.FragmentMenuBinding
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.Section
 import com.grupo1.food4u_nav.models.SubCategories
 import dalvik.system.BaseDexClassLoader
 import okhttp3.internal.concurrent.TaskRunner
@@ -29,15 +32,24 @@ class MenuFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    var subcategories : List<SubCategories> = arrayListOf()
+    /*var subcategories : List<SubCategories> = arrayListOf()
     var francesinhas : List<Item_Menu> = arrayListOf()
     var hamburgueres : List<Item_Menu> = arrayListOf()
     var cachorros : List<Item_Menu> = arrayListOf()
-    var pregos : List<Item_Menu> = arrayListOf()
+    var pregos : List<Item_Menu> = arrayListOf()*/
     var subCategory1 : SubCategories? = null
     var subCategory2 : SubCategories? = null
     var subCategory3 : SubCategories? = null
     var subCategory4 : SubCategories?= null
+
+
+    var itens : List<Item_Menu> = arrayListOf()
+    var categories : List<CategoryType> = arrayListOf()
+
+
+    private var mainCategoryRecycler:RecyclerView? = null
+    private var mainRecyclerAdapter: SectionAdapter? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +60,7 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var productType1 = binding.productType1
+      /*  var productType1 = binding.productType1
         var productType2 = binding.productType2
         var productType3 = binding.productType3
         var productType4 = binding.productType4
@@ -83,9 +95,32 @@ class MenuFragment : Fragment() {
         Backend.getNameSubcategory(7) {
             subCategory4 = it
             productType4.text = it.name
+        }*/
+
+        Backend.getAllCategories {
+            categories = it
+
+            Backend.getAllItens {
+                itens = it
+
+                val allCategory: MutableList<Section> = ArrayList()
+
+                for (i in categories.indices) {
+                    val categoryItemList: MutableList<Item_Menu> = ArrayList()
+
+                    for (j in itens.indices)
+                        if (categories[i].id == itens[j].id_categoria)
+                            categoryItemList.add(itens[j])
+
+                    allCategory.add(Section(categories[i].name, categoryItemList))
+                }
+
+                setMainCategoryRecycler(root,allCategory)
+            }
         }
 
-        Backend.getAllSubcategories {
+
+        /*Backend.getAllSubcategories {
             subcategories = it
             val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
             val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
@@ -133,11 +168,20 @@ class MenuFragment : Fragment() {
             rv_products.layoutManager = GridLayoutManager(activity, 2)
             rv_products.adapter = productsAdapter
 
-        }
+        }*/
 
         return root
     }
 
+    private fun setMainCategoryRecycler(view:View,allCategory: List<Section>){
+
+        mainCategoryRecycler = view.findViewById(R.id.main_recycler)
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(requireActivity())
+        mainCategoryRecycler!!.layoutManager = layoutManager
+        mainRecyclerAdapter = SectionAdapter(requireActivity(), allCategory)
+        mainCategoryRecycler!!.adapter = mainRecyclerAdapter
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

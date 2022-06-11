@@ -31,9 +31,14 @@
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2465" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/ic_minute.xml" value="0.1325" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/ic_notfound.xml" value="0.2355" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/profile_formatdetail.xml" value="0.2465" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rectangle_managecategories.xml" value="0.2465" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rectangle_menageproduct.xml" value="0.2465" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/rounded_retangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/straight_yellow_rectangle.xml" value="0.23" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/drawable/stroke_addnewcard.xml" value="0.23" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout-v23/main_recycler_row_item.xml" value="0.20253164556962025" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout-v23/section_row.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_admin.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_extra_settings.xml" value="0.223731884057971" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_finish_order.xml" value="0.4" />
@@ -47,6 +52,7 @@
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_settings.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_stats.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/activity_teste.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/addbtn.xml" value="0.8" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/background_ratingbar.xml" value="0.20427350427350427" />
         <entry key="..\:/Users/glori/Desktop/FOOD4U/app/src/main/res/layout/custom_editdialog.xml" value="0.264" />
