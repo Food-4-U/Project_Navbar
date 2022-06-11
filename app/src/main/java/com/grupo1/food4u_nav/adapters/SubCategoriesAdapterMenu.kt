@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.SubCategories
 
 class SubCategoriesAdapterMenu (val itens: List<SubCategories>) : RecyclerView.Adapter<SubCategoriesAdapterMenu.ViewHolder>() {

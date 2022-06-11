@@ -44,7 +44,7 @@ class MenuFragment : Fragment() {
 
 
     var itens : List<Item_Menu> = arrayListOf()
-    var categories : List<CategoryType> = arrayListOf()
+    var subcategories : List<SubCategories> = arrayListOf()
 
 
     private var mainCategoryRecycler:RecyclerView? = null
@@ -59,6 +59,12 @@ class MenuFragment : Fragment() {
 
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+
+   /*    Backend.getAllSubcategories {
+            categories = it
+
+        }*/
 
       /*  var productType1 = binding.productType1
         var productType2 = binding.productType2
@@ -97,22 +103,26 @@ class MenuFragment : Fragment() {
             productType4.text = it.name
         }*/
 
-        Backend.getAllCategories {
-            categories = it
+        Backend.getAllSubcategories {
+            subcategories = it
+            val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
+            val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
 
+            rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            rv_subcategories.adapter = subCategoriesAdapter
             Backend.getAllItens {
                 itens = it
 
                 val allCategory: MutableList<Section> = ArrayList()
 
-                for (i in categories.indices) {
+                for (i in subcategories.indices) {
                     val categoryItemList: MutableList<Item_Menu> = ArrayList()
 
                     for (j in itens.indices)
-                        if (categories[i].id == itens[j].id_categoria)
+                        if (subcategories[i].id_SubCategory == itens[j].id_subcategoria)
                             categoryItemList.add(itens[j])
 
-                    allCategory.add(Section(categories[i].name, categoryItemList))
+                    allCategory.add(Section(subcategories[i].name.toString(), categoryItemList))
                 }
 
                 setMainCategoryRecycler(root,allCategory)
@@ -120,14 +130,7 @@ class MenuFragment : Fragment() {
         }
 
 
-        /*Backend.getAllSubcategories {
-            subcategories = it
-            val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
-            val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
-
-            rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-            rv_subcategories.adapter = subCategoriesAdapter
-        }
+        /*
 
         Backend.getItemSubCategory(1) {
             francesinhas = it
