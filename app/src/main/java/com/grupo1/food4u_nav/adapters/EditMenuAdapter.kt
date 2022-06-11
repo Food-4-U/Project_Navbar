@@ -8,10 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
@@ -36,6 +33,7 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
         var photoFood = itemView.findViewById<ImageView>(R.id.productPhoto)
         var nameFood = itemView.findViewById<TextView>(R.id.productTitle)
         var foodprice = itemView.findViewById<TextView>(R.id.priceProduct)
+        var highLightbtn = itemView.findViewById<Button>(R.id.addHighLight)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -66,7 +64,25 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
             transaction.commit()
 
         }
+
+        holder.highLightbtn.setOnClickListener {
+           /* itens[position].destaque = true
+            var alterado = itens[position]
+            Toast.makeText(context,itens[position].id_item.toString() + itens[position].nome.toString()
+                + itens[position].destaque.toString(),Toast.LENGTH_SHORT).show()
+
+            Backend.addItem(alterado) {
+                if (it)
+                    Toast.makeText(context,"alterou",Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT).show()
+
+            }*/
+
+        }
     }
+
+
 
 
     override fun getItemCount(): Int {
