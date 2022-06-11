@@ -4,9 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDCDCD"
+    android:background="#F1F1F1"
     tools:context=".ProductDetailsActivity">
 
+
+    <Button
+        android:id="@+id/details_backBtn3"
+        android:layout_width="56dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+
+
+        android:paddingLeft="20dp"
+        app:icon="@drawable/ic_heartnotfill"
+        app:iconSize="18dp"
+        app:iconTint="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/detailsText"
+        app:layout_constraintEnd_toStartOf="@+id/guideline23"
+        app:layout_constraintTop_toTopOf="@+id/detailsText" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline22"
@@ -27,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        app:layout_constraintGuide_begin="201dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline25"
@@ -63,8 +80,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsText"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/detailsText" />
 
     <ImageView
         android:id="@+id/retangle"
@@ -76,21 +92,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/rounded_retangle" />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#FFD958"
         android:clickable="true"
-        app:fabCustomSize="80dp"
+        app:fabCustomSize="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="40dp"
-        app:rippleColor="#FFFFFF"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
+        app:maxImageSize="35dp"
+        app:rippleColor="#F6F5F3"
+        app:srcCompat="@drawable/ic_plus" />
 
     <TextView
         android:id="@+id/productName"
@@ -109,10 +124,9 @@
         android:id="@+id/productType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
         android:fontFamily="@font/segoeuil"
         android:text="Prato Principal"
-        android:textColor="@color/black"
+        android:textColor="@color/variation_text"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/productName"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
@@ -124,8 +138,9 @@
         android:layout_marginStart="15dp"
         android:fontFamily="@font/segoeuil"
         android:text="Francesinha"
-        android:textColor="@color/black"
+        android:textColor="@color/product_price"
         android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productType"
         app:layout_constraintStart_toEndOf="@+id/productType"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
@@ -198,33 +213,33 @@
 
     <ImageView
         android:id="@+id/ratingImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/productType"
         app:layout_constraintTop_toBottomOf="@+id/productType"
-        app:srcCompat="@drawable/left_arrow_3" />
+        app:srcCompat="@drawable/star_detailactivity" />
 
     <ImageView
         android:id="@+id/timeImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/ratingNumber"
         app:layout_constraintTop_toBottomOf="@+id/productTypeName"
-        app:srcCompat="@drawable/left_arrow_2" />
+        app:srcCompat="@drawable/time_detailactivity" />
 
     <TextView
         android:id="@+id/ratingNumber"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/segoeuil"
         android:gravity="center"
         android:text="4.5"
         android:textColor="@color/black"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/ratingImage"
         app:layout_constraintStart_toEndOf="@+id/ratingImage"
         app:layout_constraintTop_toTopOf="@+id/ratingImage" />
@@ -232,13 +247,13 @@
     <TextView
         android:id="@+id/timeNumber"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/segoeuil"
         android:gravity="center"
         android:text="10 minutos"
         android:textColor="@color/black"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/timeImage"
         app:layout_constraintStart_toEndOf="@+id/timeImage"
         app:layout_constraintTop_toTopOf="@+id/timeImage" />
@@ -248,14 +263,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="294dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/segoeuib"
         android:text="7.50€"
         android:textColor="@color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/timeNumber"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/productName" />
 
@@ -275,10 +290,11 @@
         android:id="@+id/textView64"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/trebucbd"
         android:text="Ingredientes"
+        android:textColor="@color/variation_text"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingImage" />
@@ -289,6 +305,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/trebuc"
         android:text=" (selecione os que pretende remover)"
+        android:textColor="@color/variation_text"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView64"
         app:layout_constraintStart_toEndOf="@+id/textView64"
@@ -298,13 +315,25 @@
         android:id="@+id/rv_ingredients"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView64"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@color/variation_text"
+        app:layout_constraintBottom_toBottomOf="@+id/productType"
+        app:layout_constraintEnd_toStartOf="@+id/productTypeName"
+        app:layout_constraintStart_toEndOf="@+id/productType"
+        app:layout_constraintTop_toTopOf="@+id/productType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
