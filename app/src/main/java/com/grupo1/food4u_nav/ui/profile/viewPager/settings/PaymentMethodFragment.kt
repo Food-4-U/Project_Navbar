@@ -41,6 +41,7 @@ class PaymentMethodFragment : Fragment() {
         val payButton = binding.continueOrder
         val addCard = binding.imageView37
         val addText = binding.textView63
+        val plusImage = binding.imageView38
 
         var cCardIsChecked = false
         var mbWayIsChecked = false
@@ -74,10 +75,12 @@ class PaymentMethodFragment : Fragment() {
             if (cCardIsChecked == false) {
                 addCard.isInvisible = true
                 addText.isInvisible = true
+                plusImage!!.isInvisible = true
             }
             else {
                 addCard.isVisible = true
                 addText.isVisible = true
+                plusImage!!.isVisible = true
             }
         }
 
@@ -95,10 +98,12 @@ class PaymentMethodFragment : Fragment() {
             if (cCardIsChecked == false) {
                 addCard.isInvisible = true
                 addText.isInvisible = true
+                plusImage!!.isInvisible = true
             }
             else {
                 addCard.isVisible = true
                 addText.isVisible = true
+                plusImage!!.isVisible = true
             }
         }
 
@@ -116,10 +121,12 @@ class PaymentMethodFragment : Fragment() {
             if (cCardIsChecked == false) {
                 addCard.isInvisible = true
                 addText.isInvisible = true
+                plusImage!!.isInvisible = true
             }
             else {
                 addCard.isVisible = true
                 addText.isVisible = true
+                plusImage!!.isVisible = true
             }
         }
 
@@ -137,10 +144,12 @@ class PaymentMethodFragment : Fragment() {
             if (cCardIsChecked == false) {
                 addCard.isInvisible = true
                 addText.isInvisible = true
+                plusImage!!.isInvisible = true
             }
             else {
                 addCard.isVisible = true
                 addText.isVisible = true
+                plusImage!!.isVisible = true
             }
         }
 
@@ -148,10 +157,12 @@ class PaymentMethodFragment : Fragment() {
         if (cCardIsChecked == false) {
             addCard.isInvisible = true
             addText.isInvisible = true
+            plusImage!!.isInvisible = true
         }
         else {
             addCard.isVisible = true
             addText.isVisible = true
+            plusImage!!.isVisible = true
         }
 
 
