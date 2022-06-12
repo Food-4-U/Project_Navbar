@@ -39,7 +39,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/subCategory_name"
         app:layout_constraintStart_toStartOf="@+id/subCategory_name"
-        app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:srcCompat="@drawable/appetizer" />
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
