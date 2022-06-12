@@ -611,7 +611,7 @@ object Backend {
                         callback.invoke(subcategory)
                     }
                 }
-            }catch (e:Exception ){
+            }catch (e:Exception) {
                 GlobalScope.launch(Dispatchers.Main) {
                     callback.invoke(SubCategories(null,null, null))
                 }
