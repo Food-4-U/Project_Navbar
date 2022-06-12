@@ -134,9 +134,7 @@ class EditItemFragment : Fragment() {
                                     Backend.updateItem(id_item, item) {
                                         if (it) {
                                             Toast.makeText(
-                                                requireActivity(),
-                                                item.nome + " editado",
-                                                Toast.LENGTH_SHORT
+                                                requireActivity(),item.nome + " editado", Toast.LENGTH_SHORT
                                             ).show()
                                         } else {
                                             Toast.makeText(

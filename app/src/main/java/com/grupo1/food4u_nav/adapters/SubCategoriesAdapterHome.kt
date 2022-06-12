@@ -18,7 +18,7 @@ class SubCategoriesAdapterHome (val itens: List<SubCategories>) : RecyclerView.A
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var subcategoryName = itemView.findViewById<TextView>(com.grupo1.food4u_nav.R.id.subCategory_name)
         var subcategoryPhoto = itemView.findViewById<ImageView>(R.id.imageView12)
-
+        var subcategory_photo = itemView.findViewById<ImageView>(R.id.subcategory_photo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +31,7 @@ class SubCategoriesAdapterHome (val itens: List<SubCategories>) : RecyclerView.A
 
         var url = itens[position].url
 
-        Picasso.get().load(url).fit().centerCrop().into(holder.subcategoryPhoto)
+        Picasso.get().load(url).fit().centerCrop().into(holder.subcategory_photo)
     }
 
     override fun getItemCount(): Int {
