@@ -5,15 +5,14 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.SubCategories
+import com.squareup.picasso.Picasso
 
 class ListViewAdapterSub (var context: Context, var expandableListView : ExpandableListView, var header : MutableList<String>, var body : MutableList<MutableList<SubCategories>>): BaseExpandableListAdapter() {
     override fun getGroup(groupPosition: Int): String {
@@ -32,11 +31,12 @@ class ListViewAdapterSub (var context: Context, var expandableListView : Expanda
         var convertView = convertView
         if(convertView == null){
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = inflater.inflate(R.layout.hearder_expandable,null)
+            convertView = inflater.inflate(R.layout.header_expandable,null)
         }
         val title = convertView?.findViewById<TextView>(R.id.header)
         title?.text = getGroup(groupPosition)
-        title?.setOnClickListener {
+
+        convertView?.setOnClickListener {
             if(expandableListView.isGroupExpanded(groupPosition))
                 expandableListView.collapseGroup(groupPosition)
             else
@@ -68,10 +68,15 @@ class ListViewAdapterSub (var context: Context, var expandableListView : Expanda
 
         val pos = getChild(groupPosition,childPosition)
 
-        val title = convertView!!.findViewById<TextView>(R.id.r)
+        val title = convertView!!.findViewById<TextView>(R.id.nameItem)
         title.text = getChild(groupPosition,childPosition).name
 
-        title.setOnClickListener {
+
+        val editImage = convertView!!.findViewById<ImageView>(R.id.editImage)
+        Picasso.get().load(pos.url).fit().centerCrop().into(editImage)
+
+
+        convertView.setOnClickListener {
             showDialog(pos)
         }
 

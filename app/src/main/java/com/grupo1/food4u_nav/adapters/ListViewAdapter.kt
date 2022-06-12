@@ -12,9 +12,12 @@ import android.view.Window
 import android.widget.*
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CategoryType
-import com.grupo1.food4u_nav.models.SubCategories
+import com.squareup.picasso.Picasso
 
-class ListViewAdapter (var context: Context, var expandableListView : ExpandableListView, var header : MutableList<String>, var body : MutableList<MutableList<CategoryType>>): BaseExpandableListAdapter() {
+class ListViewAdapter (var context: Context, var expandableListView : ExpandableListView,
+                       var header : MutableList<String>, var body : MutableList<MutableList<CategoryType>>)
+    : BaseExpandableListAdapter() {
+
     override fun getGroup(groupPosition: Int): String {
         return header[groupPosition]
     }
@@ -31,11 +34,14 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         var convertView = convertView
         if(convertView == null){
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = inflater.inflate(R.layout.hearder_expandable,null)
+            convertView = inflater.inflate(R.layout.header_expandable,null)
         }
+
         val title = convertView?.findViewById<TextView>(R.id.header)
+
         title?.text = getGroup(groupPosition)
-        title?.setOnClickListener {
+
+        convertView?.setOnClickListener {
             if(expandableListView.isGroupExpanded(groupPosition))
                 expandableListView.collapseGroup(groupPosition)
             else
@@ -69,10 +75,13 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
 
         val pos = getChild(groupPosition,childPosition)
 
-        val title = convertView!!.findViewById<TextView>(R.id.r)
-        title.text = getChild(groupPosition,childPosition).name
+        val title = convertView!!.findViewById<TextView>(R.id.nameItem)
+        title.text = pos.name
 
-        title.setOnClickListener {
+        val editImage = convertView!!.findViewById<ImageView>(R.id.editImage)
+        Picasso.get().load(pos.url).fit().centerCrop().into(editImage)
+
+        convertView.setOnClickListener {
             Toast.makeText(context, pos.id.toString(), Toast.LENGTH_SHORT).show()
             showDialog(pos)
         }
@@ -110,10 +119,10 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         category.name = categorySubEditText.text.toString()
 
         submitCategorySub.setOnClickListener {
-           Backend.updateCategory(category.id!!, category){
+            Backend.updateCategory(category.id!!, category){
                 if (!it)
                     Toast.makeText(context, "Erro ao atualizar!", Toast.LENGTH_SHORT).show()
-               else
+                else
                     Toast.makeText(context, "Atualizou", Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
