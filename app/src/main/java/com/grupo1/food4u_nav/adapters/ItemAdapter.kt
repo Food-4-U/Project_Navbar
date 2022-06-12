@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.ProductDetailsActivity
 import com.grupo1.food4u_nav.R
@@ -29,6 +30,7 @@ class ItemAdapter(private val context: Context, private val items: List<Item_Men
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
         holder.nameFood.text = items[position].nome
         holder.foodprice.text = String.format("%.2f", items[position].preco).plus("€")
+        var favIsCheckd = false
 
         var imageURL = items[position].url
         Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)

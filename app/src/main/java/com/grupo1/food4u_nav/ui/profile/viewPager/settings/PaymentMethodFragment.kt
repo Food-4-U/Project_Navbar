@@ -70,6 +70,15 @@ class PaymentMethodFragment : Fragment() {
             mbWayIsChecked = false
             payPalIsChecked = false
             counterIsChecked = false
+
+            if (cCardIsChecked == false) {
+                addCard.isInvisible = true
+                addText.isInvisible = true
+            }
+            else {
+                addCard.isVisible = true
+                addCard.isVisible = true
+            }
         }
 
         mbWay.setOnClickListener{
@@ -82,6 +91,15 @@ class PaymentMethodFragment : Fragment() {
             mbWayIsChecked = true
             payPalIsChecked = false
             counterIsChecked = false
+
+            if (cCardIsChecked == false) {
+                addCard.isInvisible = true
+                addText.isInvisible = true
+            }
+            else {
+                addCard.isVisible = true
+                addCard.isVisible = true
+            }
         }
 
         payPal.setOnClickListener {
@@ -94,6 +112,15 @@ class PaymentMethodFragment : Fragment() {
             mbWayIsChecked = false
             payPalIsChecked = true
             counterIsChecked = false
+
+            if (cCardIsChecked == false) {
+                addCard.isInvisible = true
+                addText.isInvisible = true
+            }
+            else {
+                addCard.isVisible = true
+                addCard.isVisible = true
+            }
         }
 
         counter.setOnClickListener {
@@ -106,6 +133,15 @@ class PaymentMethodFragment : Fragment() {
             mbWayIsChecked = false
             payPalIsChecked = false
             counterIsChecked = true
+
+            if (cCardIsChecked == false) {
+                addCard.isInvisible = true
+                addText.isInvisible = true
+            }
+            else {
+                addCard.isVisible = true
+                addCard.isVisible = true
+            }
         }
 
 

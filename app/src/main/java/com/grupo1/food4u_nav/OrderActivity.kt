@@ -59,6 +59,10 @@ class OrderActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        val textTest = findViewById<TextView>(R.id.orderWord)
+        textTest.text = "Mesa " + getSharedPreferences("Mesa", MODE_PRIVATE).getInt("id_mesa", 0).toString()
+
+
         val back = findViewById<ImageView>(R.id.arrowBack)
 
         back.setOnClickListener {

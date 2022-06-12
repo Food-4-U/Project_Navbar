@@ -46,9 +46,11 @@ class QRCodeFragment : Fragment() {
                 var mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE)
                 val myEdit = mesa.edit()
 
-                myEdit.putInt("id_mesa", it.toString().toInt())
+                val string = it.text
+
+                myEdit.putInt("id_mesa", string.toInt())
                 myEdit.apply()
-                Toast.makeText(activity, "Mesa " + it.text, Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Registada Mesa " + string, Toast.LENGTH_LONG).show()
             }
         }
 
