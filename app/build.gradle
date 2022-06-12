@@ -80,10 +80,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:2.4.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
 
+
+    // Animations
     implementation "com.github.mohammadatif:Animatoo:master"
 
+
+
+
+    // Stripe SDK
     implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
-    implementation 'com.stripe:stripe-android:16.3.0'
+    implementation 'com.stripe:stripe-android:20.5.0'
 
 }
 

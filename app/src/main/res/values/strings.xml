@@ -97,4 +97,7 @@
     <string name="editCategory">Edit Category</string>
     <string name="addCategorySub">New Category/Sub-Category</string>
     <string name="editSubCategory">Edit SubCategory</string>
+    <string name="cardnumber">Card Number:</string>
+    <string name="carddata">Date:</string>
+    <string name="pay">Pay</string>
 </resources>

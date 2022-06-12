@@ -156,10 +156,10 @@
                         android:textColor="@color/text"
                         android:textSize="20sp"
                         app:cornerRadius="8dp"
-                        app:layout_constraintStart_toStartOf="@+id/cardView2"
-                        app:layout_constraintTop_toBottomOf="@+id/cardView2"
                         app:strokeColor="@color/product_name"
-                        app:strokeWidth="1dp" />
+                        app:strokeWidth="1dp"
+                        app:layout_constraintStart_toStartOf="@+id/cardView2"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
                     <TextView
                         android:id="@+id/textView27"
