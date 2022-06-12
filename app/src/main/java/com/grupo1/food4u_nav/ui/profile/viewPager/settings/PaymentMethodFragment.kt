@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
@@ -38,16 +40,15 @@ class PaymentMethodFragment : Fragment() {
         val counter = binding.imageView32
         val payButton = binding.continueOrder
         val addCard = binding.imageView37
+        val addText = binding.textView63
 
         var cCardIsChecked = false
         var mbWayIsChecked = false
         var payPalIsChecked = false
         var counterIsChecked = false
 
-
-
         addCard.setOnClickListener{
-            val activity = view!!.context as AppCompatActivity
+            val activity = requireView().context as AppCompatActivity
             val myFragment: Fragment = CardFragment()
             activity.supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
                 .replace(R.id.paymentMethodFragment, myFragment).addToBackStack(null).commit()
@@ -105,6 +106,16 @@ class PaymentMethodFragment : Fragment() {
             mbWayIsChecked = false
             payPalIsChecked = false
             counterIsChecked = true
+        }
+
+
+        if (cCardIsChecked == false) {
+            addCard.isInvisible = true
+            addText.isInvisible = true
+        }
+        else {
+            addCard.isVisible = true
+            addCard.isVisible = true
         }
 
 
