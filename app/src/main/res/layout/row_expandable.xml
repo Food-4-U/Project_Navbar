@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <TextView
-        android:id="@+id/r"
+        android:id="@+id/nameItem"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
         android:fontFamily="@font/segoeui"
         android:text="TextView"
         android:textColor="@color/variation_text"
-        android:textSize="14sp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,8 +25,18 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginEnd="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/r"
+        app:layout_constraintBottom_toBottomOf="@+id/nameItem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/r"
+        app:layout_constraintTop_toTopOf="@+id/nameItem"
         app:srcCompat="@drawable/ic_edit" />
+
+    <ImageView
+        android:id="@+id/editImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nameItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nameItem"
+        app:srcCompat="@drawable/appetizer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
