@@ -29,6 +29,8 @@ class PaymentMethodFragment : Fragment() {
 
         _binding = FragmentPaymentMethodBinding.inflate(inflater, container, false)
 
+
+
         val backPayButton = binding.backButtonPayment
         val cCard = binding.imageView25
         val mbWay = binding.imageView27
@@ -47,8 +49,8 @@ class PaymentMethodFragment : Fragment() {
         addCard.setOnClickListener{
             val activity = view!!.context as AppCompatActivity
             val myFragment: Fragment = CardFragment()
-            activity.supportFragmentManager.beginTransaction()
-                .replace(com.grupo1.food4u_nav.R.id.paymentMethodFragment, myFragment).addToBackStack(null).commit()
+            activity.supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+                .replace(R.id.paymentMethodFragment, myFragment).addToBackStack(null).commit()
         }
 
 
@@ -104,6 +106,8 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = false
             counterIsChecked = true
         }
+
+
 
 
         payButton.setOnClickListener {
