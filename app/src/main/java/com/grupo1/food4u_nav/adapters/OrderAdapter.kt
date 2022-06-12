@@ -78,7 +78,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
 
 
                 GlobalScope.launch(Dispatchers.IO) {
-                    CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+                    CartDatabase.getDatabase(context)?.cartDao()!!.updateItem(cartItem)
                 }
             }
 
@@ -91,7 +91,7 @@ class OrderAdapter(val context: Context) : RecyclerView.Adapter<OrderAdapter.Vie
                     var cartItem = cart[position]
 
                     GlobalScope.launch(Dispatchers.IO) {
-                        CartDatabase.getDatabase(context)?.cartDao().updateItem(cartItem)
+                        CartDatabase.getDatabase(context)?.cartDao()!!.updateItem(cartItem)
 
                     }
                 }
