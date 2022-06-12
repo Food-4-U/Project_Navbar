@@ -210,8 +210,10 @@ class PaymentMethodFragment : Fragment() {
             pedido.pago = true
             pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
             pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
-            pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getString("preço", "")!!
-                .toDouble()
+            var total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getString("preço", "")!!
+            pedido.total = total.replace(" €", "").toDouble()
+
+
 
             Backend.addPedido(pedido){
 
