@@ -57,7 +57,6 @@ class QRCodeFragment : Fragment() {
         codeScanner.errorCallback = ErrorCallback {
             activity.runOnUiThread {
                 Toast.makeText(activity,"Camera Inicialiation Error!", Toast.LENGTH_SHORT).show()
-
             }
         }
 

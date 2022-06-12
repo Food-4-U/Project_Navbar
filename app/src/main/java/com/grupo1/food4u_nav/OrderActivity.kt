@@ -93,6 +93,7 @@ class OrderActivity : AppCompatActivity() {
                     var totalPrice = getSharedPreferences("Total", MODE_PRIVATE)
                     val myEdit = totalPrice.edit()
 
+                    myEdit.putFloat("price", total.toFloat())
                     myEdit.putString("preço", totalText.plus(" €"))
                     myEdit.apply()
 

@@ -153,7 +153,7 @@ class PaymentMethodFragment : Fragment() {
         }
         else {
             addCard.isVisible = true
-            addCard.isVisible = true
+            addText.isVisible = true
         }
 
 
@@ -162,27 +162,124 @@ class PaymentMethodFragment : Fragment() {
         payButton.setOnClickListener {
             if (cCardIsChecked) {
 
+                var pedido = Pedido(null, null, null, null, null,
+                    null, null, null)
+
+                pedido.dataHora = Date().time
+                pedido.pago = true
+                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
+
+                if (pedido.id_mesa == 0) {
+                    // enviar para fragment para qr code
+                } else {
+                    Backend.addPedido(pedido) {
+                        if (it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Por favor selecione uma opção.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                }
+                val i = Intent(activity, FinishOrderActivity::class.java)
+                startActivity(i)
             }
 
             else if (mbWayIsChecked) {
 
+                var pedido = Pedido(null, null, null, null, null,
+                    null, null, null)
+
+                pedido.dataHora = Date().time
+                pedido.pago = true
+                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
+
+                if (pedido.id_mesa == 0) {
+                    // enviar para fragment para qr code
+                } else {
+                    Backend.addPedido(pedido) {
+                        if (it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Por favor selecione uma opção.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    startActivity(i)
+                }
             }
 
             else if (payPalIsChecked) {
 
+                var pedido = Pedido(null, null, null, null, null,
+                    null, null, null)
+
+                pedido.dataHora = Date().time
+                pedido.pago = true
+                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
+
+                if (pedido.id_mesa == 0) {
+                    // enviar para fragment para qr code
+                } else {
+                    Backend.addPedido(pedido) {
+                        if (it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Por favor selecione uma opção.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    startActivity(i)
+                }
+
             }
 
             else if (counterIsChecked) {
-                Toast.makeText(
-                    requireActivity(),
-                    "Aguarde Funcionário.",
-                    Toast.LENGTH_SHORT
-                ).show()
 
-                val i = Intent(activity, FinishOrderActivity::class.java)
-                startActivity(i)
-            }
-            else {
+                var pedido = Pedido(null, null, null, null, null,
+                    null, null, null)
+
+                pedido.dataHora = Date().time
+                pedido.pago = true
+                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
+
+                if (pedido.id_mesa == 0) {
+                    // enviar para fragment para qr code
+                } else {
+                    Backend.addPedido(pedido) {
+                        if (it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Por favor selecione uma opção.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    Toast.makeText(
+                        requireActivity(),
+                        "Aguarde Funcionário.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    startActivity(i)
+                }
+
+            } else {
                 Toast.makeText(
                     requireActivity(),
                     "Por favor selecione uma opção.",
@@ -200,26 +297,6 @@ class PaymentMethodFragment : Fragment() {
 
         textPrice.text = totalPrice.toString()
 
-        val pagar = binding.continueOrder
-
-        pagar.setOnClickListener {
-            var pedido = Pedido(null, null, null, null, null,
-                null, null, null)
-
-            pedido.dataHora = Date().time
-            pedido.pago = true
-            pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
-            pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
-            var total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getString("preço", "")!!
-            pedido.total = total.replace(" €", "").toDouble()
-
-
-
-            Backend.addPedido(pedido){
-
-            }
-
-        }
 
         // Inflate the layout for this fragment
         return binding.root
