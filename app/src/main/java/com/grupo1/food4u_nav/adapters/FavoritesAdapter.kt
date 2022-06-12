@@ -11,13 +11,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.models.Favorites
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
 
 class FavoritesAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //TODO ADD OUTROS ATRIBUTOS
         var photoFood = itemView.findViewById<ShapeableImageView>(R.id.favorites_photo)
         var foodname = itemView.findViewById<TextView>(R.id.favorites_name)
         var foodPrice = itemView.findViewById<TextView>(R.id.favorites_price)
@@ -33,9 +33,10 @@ class FavoritesAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<Favori
 
     override fun onBindViewHolder(holder: FavoritesAdapter.ViewHolder, position: Int) {
         holder.foodname.text = itens[position].nome
-        holder.foodPrice.text = itens[position].preco.toString().plus("€")
+        holder.foodPrice.text = String.format("%.2f", itens[position].preco).plus("€")
         var imageURL = itens[position].url
-        Picasso.get().load(imageURL).resize(130,80).into(holder.photoFood)
+
+        Picasso.get().load(imageURL).resize(100,90).into(holder.photoFood)
        /* holder.isChecked = fav[position].
 
         changeIconFav(position,holder)

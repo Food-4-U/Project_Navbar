@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Item_Menu
-import com.grupo1.food4u_nav.models.Section
+import com.grupo1.food4u_nav.models.SectionMenu
 
-class SectionAdapter(private  val context: Context, private val allCategory: List<Section>) :
+class SectionAdapter(private  val context: Context, private val allCategory: List<SectionMenu>) :
     RecyclerView.Adapter<SectionAdapter.MainViewHolder>() {
 
 
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        var categoryTitle : TextView
+        public var categoryTitle : TextView
         var itemRecycler : RecyclerView
 
         init{
@@ -33,7 +33,7 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
 
         holder.categoryTitle.text = allCategory[position].categoria
-        setCatItemRecycler(holder.itemRecycler, allCategory[position].itens)
+        setItemsRV(holder.itemRecycler, allCategory[position].itens)
 
     }
 
@@ -41,12 +41,14 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
         return allCategory.size
     }
 
-    private fun setCatItemRecycler(recyclerView: RecyclerView, categoryItem: List<Item_Menu>){
+    private fun setItemsRV(recyclerView: RecyclerView, categoryItem: List<Item_Menu>){
 
         val itemRecyclerAdapter = ItemAdapter(context, categoryItem)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = itemRecyclerAdapter
 
     }
+
+
 
 }
