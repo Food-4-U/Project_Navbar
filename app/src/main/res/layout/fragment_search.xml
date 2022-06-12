@@ -138,17 +138,25 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardviewCategories"
                 android:layout_width="match_parent"
-                android:layout_height="706dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="55dp"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="30dp"
+                app:cardElevation="2dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="30dp">
+                    android:paddingBottom="30dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/entryImage"
