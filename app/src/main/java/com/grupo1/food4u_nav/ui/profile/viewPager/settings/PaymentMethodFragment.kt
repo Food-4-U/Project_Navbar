@@ -33,8 +33,6 @@ class PaymentMethodFragment : Fragment() {
 
         _binding = FragmentPaymentMethodBinding.inflate(inflater, container, false)
 
-
-
         val backPayButton = binding.backButtonPayment
         val cCard = binding.imageView25
         val mbWay = binding.imageView27
@@ -79,7 +77,7 @@ class PaymentMethodFragment : Fragment() {
             }
             else {
                 addCard.isVisible = true
-                addCard.isVisible = true
+                addText.isVisible = true
             }
         }
 
@@ -100,7 +98,7 @@ class PaymentMethodFragment : Fragment() {
             }
             else {
                 addCard.isVisible = true
-                addCard.isVisible = true
+                addText.isVisible = true
             }
         }
 
@@ -121,7 +119,7 @@ class PaymentMethodFragment : Fragment() {
             }
             else {
                 addCard.isVisible = true
-                addCard.isVisible = true
+                addText.isVisible = true
             }
         }
 
@@ -142,7 +140,7 @@ class PaymentMethodFragment : Fragment() {
             }
             else {
                 addCard.isVisible = true
-                addCard.isVisible = true
+                addText.isVisible = true
             }
         }
 
