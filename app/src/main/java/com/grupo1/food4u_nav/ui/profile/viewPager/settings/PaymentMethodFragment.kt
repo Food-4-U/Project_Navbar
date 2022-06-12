@@ -16,6 +16,8 @@ import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
+import com.grupo1.food4u_nav.models.Pedido
+import java.util.*
 
 
 class PaymentMethodFragment : Fragment() {
@@ -197,6 +199,25 @@ class PaymentMethodFragment : Fragment() {
         var textPrice = binding.totalPaymentMoney
 
         textPrice.text = totalPrice.toString()
+
+        val pagar = binding.continueOrder
+
+        pagar.setOnClickListener {
+            var pedido = Pedido(null, null, null, null, null,
+                null, null, null)
+
+            pedido.dataHora = Date().time
+            pedido.pago = true
+            pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+            pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+            pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getString("preço", "")!!
+                .toDouble()
+
+            Backend.addPedido(pedido){
+
+            }
+
+        }
 
         // Inflate the layout for this fragment
         return binding.root
