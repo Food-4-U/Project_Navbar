@@ -59,6 +59,7 @@ class OrderActivity : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        //remove
         val textTest = findViewById<TextView>(R.id.orderWord)
         textTest.text = "Mesa " + getSharedPreferences("Mesa", MODE_PRIVATE).getInt("id_mesa", 0).toString()
 
