@@ -34,6 +34,7 @@ class EditCategoryFragment : Fragment() {
     var subCategories: List<SubCategories> = arrayListOf()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +43,6 @@ class EditCategoryFragment : Fragment() {
         _binding = FragmentEditCategoryBinding.inflate(inflater, container, false)
         val view = inflater.inflate(R.layout.fragment_edit_category, container, false)
 
-
         Backend.getAllCategories {
             categories = it
             header.add(getString(R.string.categories))
@@ -50,6 +50,7 @@ class EditCategoryFragment : Fragment() {
 
             val listView : ExpandableListView = view.findViewById(R.id.expandableListView)
             listView.setAdapter(ListViewAdapter(requireActivity(),listView, header, body))
+
         }
 
         Backend.getAllSubcategories {
@@ -106,14 +107,15 @@ class EditCategoryFragment : Fragment() {
             } else {
 
                 if(radioButtonSub.isChecked){
-                    var subCategories = SubCategories(null, categorySubEditText.text.toString())
+                    var subCategories = SubCategories(null, categorySubEditText.text.toString(),null)
                     Backend.addSubcategory(subCategories){
                         if (!it)
                             Toast.makeText(context, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
 
                     }
                 }else{
-                    var category = CategoryType(null, categorySubEditText.text.toString())
+
+                    var category = CategoryType(null, categorySubEditText.text.toString(),null)
                     Backend.addCategory(category){
                         if (!it)
                             Toast.makeText(context, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
@@ -138,6 +140,5 @@ class EditCategoryFragment : Fragment() {
         }
 
         dialog.show()
-
     }
 }

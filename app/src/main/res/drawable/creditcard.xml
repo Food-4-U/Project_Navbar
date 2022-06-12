@@ -9,4 +9,5 @@
         android:endColor="@color/purple_500"
         android:centerColor= "@color/purple_500"
         android:startColor="#504D4D" />
+    <corners android:radius="20dp" />
 </shape>
