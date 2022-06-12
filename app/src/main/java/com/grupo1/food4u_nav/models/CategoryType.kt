@@ -12,7 +12,7 @@ class CategoryType {
 
     var id: Int?
     var name: String
-    var url: String?
+    var url: String? = null
 
 
     fun toJSON() : JSONObject {
