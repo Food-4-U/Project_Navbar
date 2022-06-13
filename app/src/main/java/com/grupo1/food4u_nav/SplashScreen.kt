@@ -13,8 +13,6 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import kotlinx.coroutines.launch
-import javax.mail.internet.InternetAddress
 
 
 class SplashScreen : AppCompatActivity() {
