@@ -33,8 +33,12 @@ class Wallet : Fragment() {
 
         val cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
         cliente.nome = prefs?.getString("nome", "")
+        cliente.email = prefs?.getString("email", "")
 
         val cardName = root.findViewById<TextView>(com.grupo1.food4u_nav.R.id.creditName)
+        var payPalName = binding.textView29
+
+        payPalName.text = cliente.email
 
         cardName.text = cliente.nome
         // Inflate the layout for this fragment
