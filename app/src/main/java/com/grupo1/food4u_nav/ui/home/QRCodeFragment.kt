@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.ui.home
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
+import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.R
 
 class QRCodeFragment : Fragment() {
@@ -51,6 +53,10 @@ class QRCodeFragment : Fragment() {
                 myEdit.putInt("id_mesa", string.toInt())
                 myEdit.apply()
                 Toast.makeText(activity, "Registada Mesa " + string, Toast.LENGTH_LONG).show()
+
+                var intent = Intent(requireActivity().getApplicationContext(), MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
             }
         }
 

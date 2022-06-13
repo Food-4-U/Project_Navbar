@@ -47,22 +47,9 @@ class FinishOrderActivity : AppCompatActivity() {
         var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)
         var avaliacao = false
 
-        btnBack.setOnClickListener {
-
-            GlobalScope.launch(Dispatchers.IO) {
-                CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-            }
-            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
-
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
             var cart = it
-            for (i in 0 until cart.size - 1) {
+            for (i in 0 until cart.size) {
                 Backend.getItemID(cart[i].item_id!!){
                     var a = false
                     productName.text = it.nome
@@ -74,9 +61,21 @@ class FinishOrderActivity : AppCompatActivity() {
                             a = true
                         }
                     if (a)
-                    Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
                 }
+
             }
+
+            GlobalScope.launch(Dispatchers.IO) {
+                CartDatabase.getDatabase(this@FinishOrderActivity).cartDao().deleteCart()
+            }
+            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
+
+            var intent = Intent(getApplicationContext(), MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+
             /*for (i in 0 until cart.size - 1) {
                 Backend.getItemID(cart[i].item_id!!){
                     productName.text = it.nome
@@ -92,5 +91,11 @@ class FinishOrderActivity : AppCompatActivity() {
                 }
             }*/
         })
+
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
