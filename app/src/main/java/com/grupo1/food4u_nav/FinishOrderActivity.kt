@@ -51,22 +51,18 @@ class FinishOrderActivity : AppCompatActivity() {
         var avaliacao = false
 
         btnBack.setOnClickListener {
-
             GlobalScope.launch(Dispatchers.IO) {
                 CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
             }
             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).getInt("id_mesa", 0)
-            mesa = 0
+            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-            val intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(getApplicationContext(), MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            finish()
         }
 
-
         val evaluatebtn = findViewById<TextView>(R.id.evaluatebtn)
-
 
         CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
             var cart = it
@@ -81,14 +77,20 @@ class FinishOrderActivity : AppCompatActivity() {
                     nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
                     i++
                 }
-                else{
-                    val intent = Intent(this, MainActivity::class.java)
+                else {
+
+                    GlobalScope.launch(Dispatchers.IO) {
+                        CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+                    }
+                    var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+                    var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
+
+                    var intent = Intent(getApplicationContext(), MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
-                    finish()
                 }
             }
         })
-
 
     }
 
@@ -106,7 +108,7 @@ class FinishOrderActivity : AppCompatActivity() {
 
         ratingBar.rating = 4.50F
 
-        return  ratingBar.rating.toDouble()
+        return ratingBar.rating.toDouble()
 
     }
 
