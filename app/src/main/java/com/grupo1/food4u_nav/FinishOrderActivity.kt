@@ -53,8 +53,7 @@ class FinishOrderActivity : AppCompatActivity() {
                 CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
             }
             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).getInt("id_mesa", 0)
-            mesa = 0
+            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
