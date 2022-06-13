@@ -57,7 +57,7 @@ class FinishOrderActivity : AppCompatActivity() {
             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
             var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-            var intent = Intent(getApplicationContext(), MainActivity::class.java)
+            var intent = Intent(applicationContext, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
@@ -73,19 +73,19 @@ class FinishOrderActivity : AppCompatActivity() {
             i++
 
             evaluatebtn.setOnClickListener {
-                if (i < cart.size){
+
+                if (i < cart.size) {
                     nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
                     i++
-                }
-                else {
-
+                } else {
                     GlobalScope.launch(Dispatchers.IO) {
                         CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
                     }
+
                     var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                     var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-                    var intent = Intent(getApplicationContext(), MainActivity::class.java)
+                    var intent = Intent(applicationContext, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(intent)
                 }
@@ -95,7 +95,7 @@ class FinishOrderActivity : AppCompatActivity() {
     }
 
     fun Evaluate (cart: CartItem,productName: TextView,productPhoto : ImageView,
-                  ratingBar: RatingBar,evaluationindicator: TextView): Double{
+                  ratingBar: RatingBar,evaluationindicator: TextView): Double {
 
         Backend.getItemID(cart.item_id!!){
             productName.text = it.nome
