@@ -51,9 +51,9 @@ class FinishOrderActivity : AppCompatActivity() {
         var avaliacao = false
 
         btnBack.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
+           /* GlobalScope.launch(Dispatchers.IO) {
                 CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-            }
+            }*/
             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
             var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
@@ -78,16 +78,17 @@ class FinishOrderActivity : AppCompatActivity() {
                     i++
                 }
                 else {
-
                     GlobalScope.launch(Dispatchers.IO) {
-                        CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-                    }
-                    var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-                    var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
+                        //CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+                        var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+                        var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-                    var intent = Intent(getApplicationContext(), MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
+                        var intent = Intent(this@FinishOrderActivity, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                    }
+
+
                 }
             }
         })
