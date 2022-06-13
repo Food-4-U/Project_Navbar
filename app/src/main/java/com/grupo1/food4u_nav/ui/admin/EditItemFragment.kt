@@ -79,6 +79,7 @@ class EditItemFragment : Fragment() {
             edit_foodPrice.setText(it.preco.toString())
             edit_foodTime.setText(it.temp_prep.toString())
             edit_foodURL.setText(it.url)
+            highlight.isChecked = it.destaque
 
             Backend.getAllCategoryNames {
 
@@ -127,7 +128,7 @@ class EditItemFragment : Fragment() {
                                         id_item, edit_foodName.text.toString(),
                                         edit_foodPrice.text.toString().toDouble(),
                                         edit_foodTime.text.toString().toInt(),
-                                        highlight(), edit_foodURL.text.toString(), idCategoria,
+                                        highlight.isChecked, edit_foodURL.text.toString(), idCategoria,
                                         idsubCategoria, 0.0
                                     )
 
@@ -152,15 +153,5 @@ class EditItemFragment : Fragment() {
             }
         }
         return view
-    }
-
-    fun highlight() : Boolean {
-
-        val destaque = requireView().findViewById<Switch>(R.id.switch_highlight)
-        if (destaque.isChecked) {
-            return true
-        } else {
-            return false
-        }
     }
 }
