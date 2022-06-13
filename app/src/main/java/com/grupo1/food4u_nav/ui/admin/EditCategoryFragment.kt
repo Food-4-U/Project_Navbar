@@ -34,7 +34,6 @@ class EditCategoryFragment : Fragment() {
     var subCategories: List<SubCategories> = arrayListOf()
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -111,7 +110,6 @@ class EditCategoryFragment : Fragment() {
                     Backend.addSubcategory(subCategories){
                         if (!it)
                             Toast.makeText(context, "Erro ao adicionar!", Toast.LENGTH_SHORT).show()
-
                     }
                 }else{
 

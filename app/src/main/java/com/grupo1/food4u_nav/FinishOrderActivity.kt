@@ -14,10 +14,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Observer
 import com.grupo1.food4u_nav.models.data.CartDatabase
+import com.grupo1.food4u_nav.models.data.CartItem
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import android.widget.RatingBar
+
 
 class FinishOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +47,7 @@ class FinishOrderActivity : AppCompatActivity() {
         var productPhoto = findViewById<ImageView>(R.id.imageItemView)
         val btnBack = findViewById<Button>(R.id.backBtn)
         var ratingBar = findViewById<RatingBar>(R.id.ratingBar_itensOrdem)
-        var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)
+        var evaluationindicator = findViewById<TextView>(R.id.menu_foodEvauation3)
         var avaliacao = false
 
         btnBack.setOnClickListener {
@@ -61,37 +64,51 @@ class FinishOrderActivity : AppCompatActivity() {
             finish()
         }
 
+
+        val evaluatebtn = findViewById<TextView>(R.id.evaluatebtn)
+
+
         CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {
             var cart = it
-            for (i in 0 until cart.size - 1) {
-                Backend.getItemID(cart[i].item_id!!){
-                    var a = false
-                    productName.text = it.nome
-                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)
+            var i = 0
+            var nota = 0.0
 
-                    ratingBar.onRatingBarChangeListener =
-                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->
-                            menu_foodEvauation3.text = String.format("%.2f", rating)
-                            a = true
-                        }
-                    if (a)
-                    Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
+            nota = Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
+            i++
+
+            evaluatebtn.setOnClickListener {
+                if(i < cart.size){
+                    nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
+                    i++
+                }
+                else{
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
-            /*for (i in 0 until cart.size - 1) {
-                Backend.getItemID(cart[i].item_id!!){
-                    productName.text = it.nome
-                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)
-
-                    if (ratingBar.rating == null)
-                        menu_foodEvauation3.isGone
-
-                   ratingBar.onRatingBarChangeListener =
-                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->
-                            menu_foodEvauation3.text = String.format("%.2f", rating)
-                        }
-                }
-            }*/
         })
+
+
     }
+
+    fun Evaluate (cart: CartItem,productName: TextView,productPhoto : ImageView,
+                  ratingBar: RatingBar,evaluationindicator: TextView): Double{
+
+        Backend.getItemID(cart.item_id!!){
+            productName.text = it.nome
+            Picasso.get().load(it.url).resize(800,650).into(productPhoto)
+        }
+        ratingBar.onRatingBarChangeListener =
+            OnRatingBarChangeListener { ratingBar, rating, fromUser ->
+                evaluationindicator.text = ratingBar.rating.toString()
+            }
+
+        ratingBar.rating = 4.50F
+
+        return  ratingBar.rating.toDouble()
+
+    }
+
 }
+
