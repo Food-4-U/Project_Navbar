@@ -85,11 +85,10 @@ dependencies {
     implementation "com.github.mohammadatif:Animatoo:master"
 
 
-
-
     // Stripe SDK
     implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
     implementation 'com.stripe:stripe-android:20.5.0'
+
 
 }
 

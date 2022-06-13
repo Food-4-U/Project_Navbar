@@ -45,7 +45,6 @@ class AdminActivity : AppCompatActivity() {
         btnStats.setOnClickListener {
             val intent = Intent(this@AdminActivity, StatsActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         btnLogOut.setOnClickListener {
@@ -54,7 +53,6 @@ class AdminActivity : AppCompatActivity() {
             myEdit.putBoolean("isLogged",false)
             myEdit?.apply()
             startActivity(intent)
-            finish()
         }
 
         val manageMenu = findViewById<ImageView>(R.id.manageMenus)
@@ -62,7 +60,6 @@ class AdminActivity : AppCompatActivity() {
         manageMenu.setOnClickListener {
             val intent = Intent(this@AdminActivity, ManageMenusActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
 

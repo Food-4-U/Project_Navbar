@@ -15,6 +15,7 @@ import com.google.android.material.button.MaterialButton
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
 import com.grupo1.food4u_nav.databinding.FragmentDeskBinding
+import com.grupo1.food4u_nav.databinding.FragmentEditItemBinding
 import com.grupo1.food4u_nav.databinding.FragmentNewItemBinding
 import com.grupo1.food4u_nav.models.CategoryType
 import com.grupo1.food4u_nav.models.Item_Menu
@@ -22,7 +23,7 @@ import com.grupo1.food4u_nav.models.Item_Menu
 @Suppress("DEPRECATION")
 class EditItemFragment : Fragment() {
 
-    private var _binding: FragmentNewItemBinding? = null
+    private var _binding: FragmentEditItemBinding? = null
     private val binding get() = _binding!!
     var categorias: List<String> = arrayListOf()
     var subcategorias: List<String> = arrayListOf()
@@ -33,7 +34,7 @@ class EditItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentNewItemBinding.inflate(inflater, container, false)
+        _binding = FragmentEditItemBinding.inflate(inflater, container, false)
         val view = inflater.inflate(R.layout.fragment_edit_item, container, false)
 
         val edit_foodName = view.findViewById<EditText>(R.id.add_foodName)
@@ -69,7 +70,6 @@ class EditItemFragment : Fragment() {
                         Toast.makeText(requireActivity(),"Eliminado!", Toast.LENGTH_SHORT).show()
                         fragmentManager?.popBackStack()
                     }
-
                     else
                         Toast.makeText(requireActivity(),"Nao Eliminado!", Toast.LENGTH_SHORT).show()
                 }

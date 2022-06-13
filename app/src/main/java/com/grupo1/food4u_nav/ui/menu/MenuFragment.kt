@@ -36,8 +36,10 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
         Backend.getAllSubcategories {
             subcategories = it
+
 
             val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
             val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
