@@ -2,11 +2,12 @@ package com.grupo1.food4u_nav.models
 
 import org.json.JSONObject
 import java.text.DateFormat
+import java.util.*
 
 class Pedido {
 
     var id_pedido: Int? = null
-    var dataHora: Long? = null
+    var dataHora: String? = null
     var total: Double? = null
     var pago: Boolean? = false
     var avaliação: Double? = null
@@ -16,7 +17,7 @@ class Pedido {
 
     constructor(
         id_pedido: Int?,
-        dataHora: Long?,
+        dataHora: String?,
         total: Double?,
         pago: Boolean?,
         avaliação: Double?,
@@ -54,7 +55,7 @@ class Pedido {
         fun fromJSON (jsonObject: JSONObject): Pedido {
             return Pedido (
                 jsonObject["id_item"] as? Int?,
-                jsonObject["dataHora"] as? Long?,
+                jsonObject["dataHora"] as? String?,
                 jsonObject["total"] as? Double?,
                 jsonObject["pago"] as? Boolean,
                 jsonObject["avaliação"] as? Double,

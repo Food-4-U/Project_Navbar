@@ -17,6 +17,7 @@ import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.Pedido
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -174,7 +175,9 @@ class PaymentMethodFragment : Fragment() {
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
-                pedido.dataHora = Date().time
+                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+                var date = dataFormat.format(Date().time)
+                pedido.dataHora = date
                 pedido.pago = true
                 pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
@@ -192,10 +195,10 @@ class PaymentMethodFragment : Fragment() {
                             ).show()
                         }
                     }
-
+                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    startActivity(i)
                 }
-                val i = Intent(activity, FinishOrderActivity::class.java)
-                startActivity(i)
+
             }
 
             else if (mbWayIsChecked) {
@@ -203,7 +206,9 @@ class PaymentMethodFragment : Fragment() {
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
-                pedido.dataHora = Date().time
+                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+                var date = dataFormat.format(Date().time)
+                pedido.dataHora = date
                 pedido.pago = true
                 pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
@@ -231,7 +236,9 @@ class PaymentMethodFragment : Fragment() {
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
-                pedido.dataHora = Date().time
+                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+                var date = dataFormat.format(Date().time)
+                pedido.dataHora = date
                 pedido.pago = true
                 pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
@@ -260,7 +267,9 @@ class PaymentMethodFragment : Fragment() {
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
-                pedido.dataHora = Date().time
+                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+                var date = dataFormat.format(Date().time)
+                pedido.dataHora = date
                 pedido.pago = true
                 pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)

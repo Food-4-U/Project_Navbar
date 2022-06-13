@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav
 
 import Backend
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,9 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Observer
 import com.grupo1.food4u_nav.models.data.CartDatabase
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class FinishOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +64,10 @@ class FinishOrderActivity : AppCompatActivity() {
                         OnRatingBarChangeListener { ratingBar, rating, fromUser ->
                             menu_foodEvauation3.text = String.format("%.2f", rating)
                             a = true
+                            GlobalScope.launch(Dispatchers.IO) {
+                                CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+                            }
+                            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                         }
                     if (a)
                     Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
