@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/paymentMethodFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.viewPager.settings.PaymentMethodFragment">
+
+    <Button
+        android:id="@+id/backButtonPayment"
+        android:layout_width="match_parent"
+        android:layout_height="249dp"
+        android:background="@drawable/transparent_background"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/paymentmethodblank"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/imageView25"
+            android:layout_width="92dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:enabled="false"
+            android:background="@drawable/grupo_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
+            tools:ignore="MissingConstraints">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/totalPaymentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/segoeuib"
+            android:text="@string/profile_totalorder"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/nifNumberBar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/totalPaymentMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            android:fontFamily="@font/segoeuib"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/totalPaymentText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/totalPaymentText" />
+
+        <TextView
+            android:id="@+id/nifNumberBar"
+            android:layout_width="322dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="500dp"
+            android:background="@drawable/login_backgroundedittext"
+            android:gravity="center_vertical"
+            android:hint="@string/nifnumber"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/paymentMethodText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/profile_paymentMethod"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="@+id/nifNumberBar"
+            app:layout_constraintTop_toBottomOf="@+id/nifNumberBar" />
+
+
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/creditcard"
+            app:layout_constraintEnd_toEndOf="@+id/imageView25"
+            app:layout_constraintStart_toStartOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+        <ImageButton
+            android:id="@+id/imageView27"
+            android:layout_width="92dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/grupo_15"
+            app:layout_constraintEnd_toStartOf="@+id/imageView29"
+            app:layout_constraintStart_toEndOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageView32"
+            android:layout_width="92dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/grupo_11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView29"
+            app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageView29"
+            android:layout_width="92dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/grupo_14"
+            app:layout_constraintEnd_toStartOf="@+id/imageView32"
+            app:layout_constraintStart_toEndOf="@+id/imageView27"
+            app:layout_constraintTop_toBottomOf="@+id/paymentMethodText"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mbway"
+            app:layout_constraintEnd_toEndOf="@+id/imageView27"
+            app:layout_constraintStart_toStartOf="@+id/imageView27"
+            app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/paypal"
+            app:layout_constraintEnd_toEndOf="@+id/imageView29"
+            app:layout_constraintStart_toStartOf="@+id/imageView29"
+            app:layout_constraintTop_toBottomOf="@+id/imageView29" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hub"
+            app:layout_constraintEnd_toEndOf="@+id/imageView32"
+            app:layout_constraintStart_toStartOf="@+id/imageView32"
+            app:layout_constraintTop_toBottomOf="@+id/imageView32" />
+
+        <ImageView
+            android:id="@+id/imageView37"
+            android:layout_width="88dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/cardadd"
+            app:layout_constraintStart_toStartOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView59" />
+
+        <TextView
+            android:id="@+id/textView63"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/newCard"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView37"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView37"
+            app:layout_constraintTop_toTopOf="@+id/imageView37" />
+
+        <ImageView
+            android:id="@+id/imageView38"
+            android:layout_width="48dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/maiso2"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView37"
+            app:layout_constraintEnd_toEndOf="@+id/imageView37"
+            app:layout_constraintStart_toStartOf="@+id/imageView37"
+            app:layout_constraintTop_toTopOf="@+id/imageView37" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueOrder"
+            android:layout_width="228dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="7dp"
+            android:backgroundTint="@color/GreenBT_Order"
+            android:fontFamily="@font/candarabold"
+            android:text="PAGAR"
+            android:textSize="24dp"
+            app:cornerRadius="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

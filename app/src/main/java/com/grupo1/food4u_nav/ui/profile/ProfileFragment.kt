@@ -1,11 +1,16 @@
 package com.grupo1.food4u_nav.ui.profile
 
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Typeface
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.content.res.ResourcesCompat
@@ -15,10 +20,11 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.grupo1.food4u_nav.LoginActivity
+import com.grupo1.food4u_nav.MainActivity
 import com.grupo1.food4u_nav.R
+import navigation.RegisterActivity
 import com.grupo1.food4u_nav.adapters.ProfileViewPagerAdapter
 import com.grupo1.food4u_nav.databinding.FragmentProfileBinding
-import android.content.SharedPreferences
 import com.grupo1.food4u_nav.models.Cliente
 
 
@@ -48,9 +54,9 @@ class ProfileFragment : Fragment() {
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = sectionPagerAdapter
 
-        var prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente", MODE_PRIVATE)
 
-        var cliente : Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null)
+        val cliente: Cliente = Cliente(email = null, id_cliente = null, password = null, nome = null, concelho = null, idade = null, genero = null, localidade = null, isAdmin = false, nif = null)
         cliente.email = prefs?.getString("email", "")
         cliente.nome = prefs?.getString("nome", "")
 
@@ -59,6 +65,19 @@ class ProfileFragment : Fragment() {
 
         clientName.text = cliente.nome
         clientEmail.text = cliente.email
+
+        val myEdit = prefs?.edit()
+        val btnLogout : Button = binding.btnLogout
+
+        btnLogout.setOnClickListener {
+            prefs?.edit()?.clear()?.commit();
+            myEdit?.apply()
+
+            val intent = Intent(activity, LoginActivity::class.java);
+            startActivity(intent)
+            activity?.finish()
+        }
+
 
 
         val tabs: TabLayout = binding.profileTabs
@@ -89,7 +108,6 @@ class ProfileFragment : Fragment() {
         })
 
         return binding.root
-
     }
 
     private fun setTabTypeface(tab: TabLayout.Tab, typeface: Typeface) {

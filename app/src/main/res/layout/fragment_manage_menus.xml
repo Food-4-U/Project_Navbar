@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.admin.ManageMenusFragment">
+
+    <Button
+        android:id="@+id/backButtonManageMenus"
+        android:layout_width="56dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/transparent_background"
+        app:icon="@drawable/backbtn"
+        app:iconTint="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView69"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView69" />
+
+    <ImageView
+        android:id="@+id/manageHot"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manageCategories"
+        app:srcCompat="@drawable/rectangle_managetrending" />
+
+    <TextView
+        android:id="@+id/productsEditText11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Destaques"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/manageHot"
+        app:layout_constraintStart_toStartOf="@+id/manageHot" />
+
+    <ImageView
+        android:id="@+id/manageCategories"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products"
+        app:srcCompat="@drawable/rectangle_managecategories" />
+
+    <TextView
+        android:id="@+id/productsEditText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Sub-Categorias"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/manageCategories"
+        app:layout_constraintStart_toStartOf="@+id/manageCategories" />
+
+    <TextView
+        android:id="@+id/productsEditText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Categorias"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productsEditText2"
+        app:layout_constraintStart_toStartOf="@+id/manageCategories" />
+
+    <ImageView
+        android:id="@+id/products"
+        android:layout_width="365dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView69"
+        app:srcCompat="@drawable/rectangle_manageproducts" />
+
+    <TextView
+        android:id="@+id/productsEditText9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/segoeui"
+        android:text="Produtos"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/products"
+        app:layout_constraintStart_toStartOf="@+id/products" />
+
+    <TextView
+        android:id="@+id/textView69"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/candarabold"
+        android:text="@string/Edit_Menus"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

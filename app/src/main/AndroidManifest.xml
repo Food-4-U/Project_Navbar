@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.grupo1.food4u_nav">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
+        android:configChanges="locale|orientation"
         android:icon="@mipmap/ic_launcher"
         android:label="Food 4 U"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="sensorPortrait"
         android:theme="@style/Theme.Food4U_Nav"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SettingsExtraActivity"
+            android:name=".CardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StripeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinishOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CompleteOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ManageMenusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItensCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
             android:exported="false" />
         <activity
             android:name=".OrderActivity"
@@ -22,17 +63,11 @@
             android:name=".ProductDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="navigation.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

@@ -45,9 +45,9 @@
 
     <TextView
         android:id="@+id/detailsText"
-        android:layout_width="58dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="45dp"
         android:text="@string/DETAILS"
         android:textAppearance="@style/NamePages"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsText"
-        app:srcCompat="@drawable/francesinha_1" />
+        />
 
     <ImageView
         android:id="@+id/retangle"
@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:maxImageSize="40dp"
         app:rippleColor="#FFFFFF"
-        app:srcCompat="@drawable/magnifying_glass" />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
 
     <TextView
@@ -121,13 +121,12 @@
         android:id="@+id/productTypeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="35dp"
+        android:layout_marginStart="15dp"
         android:fontFamily="@font/segoeuil"
         android:text="Francesinha"
-        android:textSize="14dp"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/productName"
-        app:layout_constraintStart_toStartOf="@+id/productName"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/productType"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
     <ImageView
@@ -210,10 +209,9 @@
         android:id="@+id/timeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintEnd_toEndOf="@+id/productTypeName"
-        app:layout_constraintStart_toStartOf="@id/productTypeName"
+        app:layout_constraintStart_toEndOf="@+id/ratingNumber"
         app:layout_constraintTop_toBottomOf="@+id/productTypeName"
         app:srcCompat="@drawable/left_arrow_2" />
 
@@ -272,5 +270,42 @@
         app:layout_constraintBottom_toBottomOf="@+id/detailsText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detailsText" />
+
+    <TextView
+        android:id="@+id/textView64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/trebucbd"
+        android:text="Ingredientes"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingImage" />
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/trebuc"
+        android:text=" (selecione os que pretende remover)"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView64"
+        app:layout_constraintStart_toEndOf="@+id/textView64"
+        app:layout_constraintTop_toTopOf="@+id/textView64" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ingredients"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView64"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

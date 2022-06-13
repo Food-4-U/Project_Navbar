@@ -15,12 +15,12 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="menu">Menu</string>
+    <string name="editMenu">Edit Menu</string>
     <string name="profile">Profile</string>
     <string name="searchWhatToEat">Search by a food</string>
     <string name="search_Category">Search</string>
     <string name="category">Categories</string>
     <string name="search_categoryorfood">Search by a category or food</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
     <string name="favorites">Favorites</string>
@@ -47,4 +47,57 @@
     <string name="changePassword">Change Password</string>
     <string name="additionalForm">Additional Form</string>
     <string name="receivePromotionsAlert">Receive promotion notifications?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Profession">Profession</string>
+    <string name="gender">Gender</string>
+    <string name="ageGroup">Age Group</string>
+    <string name="withwhohangout">Where do you usually go out to eat with?</string>
+    <string name="maritalStatus">Marital Status</string>
+    <string name="avgAmountEatingOut">Average amount spent eating out</string>
+    <string name="submit">Submit</string>
+    <string name="stats">View Stats</string>
+    <string name="menu_admin">Admin Menu</string>
+    <string name="now">Now</string>
+    <string name="book">Book</string>
+    <string name="or">Or</string>
+    <string name="number_table">Insert the table number</string>
+    <string name="table">Table</string>
+    <string name="finalized">Finalized</string>
+    <string name="inProgress">In Progress</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="timeToPrepare">Time to prepare</string>
+    <string name="price">Price</string>
+    <string name="newItem">New Item</string>
+    <string name="editItem">Edit Item</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="highlight">Highlight</string>
+    <string name="General_Stats">General Stats</string>
+    <string name="Edit_Menus">Manage Menus</string>
+    <string name="AddProducts">Add Products</string>
+    <string name="Categories">Categories</string>
+    <string name="DeleteProduct">Delete Product</string>
+    <string name="EditProduct">Edit Product</string>
+    <string name="editTable">Manage Tables</string>
+    <string name="number_people">Number of People</string>
+    <string name="dateAndHour">Date and Hour</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="endorder">End Order</string>
+    <string name="endorderend">Finalized Order</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nifnumber">NIF Number</string>
+    <string name="creditcard">C Card</string>
+    <string name="mbway">MB Way</string>
+    <string name="hub">Pay on counter</string>
+
+    <string name="categories">Categories</string>
+    <string name="subCategories">Sub-Categories</string>
+    <string name="editCategory">Edit Category</string>
+    <string name="addCategorySub">New Category/Sub-Category</string>
+    <string name="editSubCategory">Edit SubCategory</string>
+    <string name="cardnumber">Card Number:</string>
+    <string name="carddata">Date:</string>
+    <string name="pay">Pay</string>
 </resources>

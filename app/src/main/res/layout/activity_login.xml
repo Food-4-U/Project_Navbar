@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+
+
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="429dp"
@@ -67,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="37dp"
         android:fontFamily="@font/seguisb"
         android:text="@string/login"
         android:textAllCaps="true"
@@ -83,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="37dp"
         android:fontFamily="@font/segoeuil"
         android:text="@string/register"
         android:textAllCaps="true"
@@ -139,7 +142,7 @@
         android:id="@+id/cardView"
         android:layout_width="354dp"
         android:layout_height="260dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="37dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,58 +153,73 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/editName"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="310dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="62dp"
-                android:background="@drawable/login_backgroundedittext"
-                android:drawableStart="@drawable/arroba"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:fontFamily="@font/segoeuil"
-                android:gravity="left|center_vertical"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:paddingStart="10dp"
-                android:textAlignment="viewStart"
-                android:textSize="16sp"
+                android:background="@drawable/transparent_background"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintTextAppearance="@style/TextLabel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlCompat,RtlHardcoded" />
+                app:passwordToggleEnabled="false"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/Greyyy">
+
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="310dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/login_backgroundedittext"
+                    android:drawablePadding="-5dp"
+                    android:ems="10"
+                    android:fontFamily="@font/segoeuil"
+                    android:gravity="left|center_vertical"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="20dp"
+                    android:textAlignment="viewStart"
+                    android:textColorHint="@color/Greyyy"
+                    android:textSize="15sp"
+                    tools:ignore="RtlCompat,RtlHardcoded"
+                    tools:layout_editor_absoluteX="19dp"
+                    tools:layout_editor_absoluteY="33dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="310dp"
                 android:layout_height="55dp"
                 android:layout_marginBottom="62dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:startIconTint="@color/Greyyy"
-                app:startIconDrawable="@drawable/locker"
-                app:hintTextAppearance="@style/TextLabel"
                 android:background="@drawable/transparent_background"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:passwordToggleEnabled="true">
+                app:hintTextAppearance="@style/TextLabel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_password"
+                app:startIconTint="@color/Greyyy">
 
                 <EditText
                     android:id="@+id/editEmail"
                     android:layout_width="310dp"
                     android:layout_height="55dp"
-                    android:layout_marginBottom="62dp"
                     android:background="@drawable/login_backgroundedittext"
-                    android:drawableStart="@drawable/locker"
+                    android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="-5dp"
                     android:ems="10"
                     android:fontFamily="@font/segoeuil"
                     android:gravity="left|center_vertical"
-                    android:textColorHint="@color/Greyyy"
                     android:hint="@string/password"
                     android:inputType="textPassword|textEmailAddress"
                     android:paddingStart="20dp"
                     android:textAlignment="viewStart"
+                    android:textColorHint="@color/Greyyy"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -209,6 +227,7 @@
                     tools:ignore="RtlCompat,RtlHardcoded" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

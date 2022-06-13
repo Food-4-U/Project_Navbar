@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerOrder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/yellowRectangle"
-        android:layout_width="match_parent"
-        android:layout_height="226dp"
+        android:layout_width="0dp"
+        android:layout_height="210dp"
         android:background="@color/yellow_btn"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,23 +17,34 @@
 
     <ImageView
         android:id="@+id/arrowBack"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="32.5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/arrowBack1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="46dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/yellowRectangle"
-        app:srcCompat="@drawable/backbtn" />
+        app:layout_constraintBottom_toBottomOf="@+id/arrowBack"
+        app:layout_constraintEnd_toEndOf="@+id/arrowBack"
+        app:layout_constraintStart_toStartOf="@+id/arrowBack"
+        app:layout_constraintTop_toTopOf="@+id/arrowBack"
+        app:srcCompat="@drawable/backbtn">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/orderWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="121dp"
         android:fontFamily="@font/candarabold"
         android:gravity="center"
-        android:text="Pedido"
+        android:text="Finalizar"
         android:textColor="@color/white"
         android:textSize="44dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,74 +65,76 @@
         app:layout_constraintTop_toTopOf="@+id/yellowRectangle" />
 
     <ImageView
-        android:id="@+id/trashCanIcon"
+        android:id="@id/trashCanIcon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32.5dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/trashCanIcon1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_marginRight="34dp"
-        app:layout_constraintEnd_toEndOf="@+id/yellowRectangle"
-        app:layout_constraintTop_toTopOf="@+id/yellowRectangle"
-        app:srcCompat="@drawable/leftarrow" />
+        app:layout_constraintBottom_toBottomOf="@+id/trashCanIcon"
+        app:layout_constraintEnd_toEndOf="@+id/trashCanIcon"
+        app:layout_constraintStart_toStartOf="@+id/trashCanIcon"
+        app:layout_constraintTop_toTopOf="@+id/trashCanIcon"
+        app:srcCompat="@drawable/leftarrow"></ImageView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yellowRectangle" />
 
     <TextView
         android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/trebuc"
         android:text="Total: "
+        android:textColor="@color/text"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_order" />
 
-    <Button
-        android:id="@+id/orderButtonAsk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/yellow_btn"
-        android:fontFamily="@font/candarabold"
-        android:text="PEDIR"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
-        app:layout_constraintStart_toStartOf="@+id/scrollView4" />
-
-    <Button
-        android:id="@+id/orderButtonPay"
-        android:layout_width="228dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="7dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/GreenBT_Order"
-        android:fontFamily="@font/candarabold"
-        android:text="PAGAR"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/payButton"
+        style="@style/Button"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:elevation="10dp"
+        android:focusedByDefault="true"
+        android:text="Confirmar e Pagar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/orderButtonAsk" />
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.button.MaterialButton>
 
     <TextView
-        android:id="@+id/orderTotal"
+        android:id="@+id/orderTotal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginRight="30dp"
         android:fontFamily="@font/trebucbd"
         android:text="7.50€"
+        android:textColor="@color/text"
         android:textSize="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView4" />
-
-    <ScrollView
-        android:id="@+id/scrollView4"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yellowRectangle"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView39" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

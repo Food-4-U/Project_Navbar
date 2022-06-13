@@ -1,117 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/menu_item"
-    android:layout_width="190dp"
-    android:layout_height="wrap_content"
-    android:paddingBottom="10dp">
+    android:id="@+id/hottest_item"
+    android:layout_width="180dp"
+    android:layout_height="285dp"
+    app:cardBackgroundColor="#FDFDFD"
+    app:cardCornerRadius="15dp"
+    app:cardUseCompatPadding="true">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="280dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        app:cardBackgroundColor="#FDFDFD"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="170dp"
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:elevation="10dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/menu_foodPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageView.Corner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/menu_foodPhoto"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="@drawable/hamburguer_test"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ImageView.Corner" />
+        <TextView
+            android:id="@+id/menu_nameFood"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/segoeuisl"
+            android:text="Hamburguer á moda da Casa"
+            android:textAlignment="viewStart"
+            android:textColor="@color/product_name"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/ratingBar_hottest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_foodPhoto" />
 
-            <TextView
-                android:id="@+id/menu_nameFood"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="@font/segoeuisl"
-                android:text="Hamburguer á moda da Casa"
-                android:textAlignment="viewStart"
-                android:textColor="@color/product_name"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/menu_foodPhoto" />
+        <TextView
+            android:id="@+id/menu_foodPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="10dp"
+            android:text="11,80€"
+            android:theme="@style/Price"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/menu_nameFood"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar_hottest" />
 
-            <TextView
-                android:id="@+id/menu_foodPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="13dp"
-                android:text="11,80€"
-                android:theme="@style/Price"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/menu_nameFood" />
+        <ImageView
+            android:id="@+id/addBtnHottest"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_foodPrice"
+            app:layout_constraintEnd_toEndOf="@+id/menu_nameFood"
+            app:layout_constraintTop_toTopOf="@+id/menu_foodPrice"
+            app:layout_constraintVertical_bias="0.714"
+            app:srcCompat="@drawable/circles_subcategory" />
 
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintBottom_toBottomOf="@+id/menu_foodPrice"
-                app:layout_constraintEnd_toEndOf="@+id/menu_nameFood"
-                app:layout_constraintTop_toTopOf="@+id/menu_foodPrice"
-                app:srcCompat="@drawable/circles_subcategory" />
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/addBtnHottest"
+            app:layout_constraintEnd_toEndOf="@+id/addBtnHottest"
+            app:layout_constraintStart_toStartOf="@+id/addBtnHottest"
+            app:layout_constraintTop_toTopOf="@+id/addBtnHottest"
+            app:srcCompat="@drawable/magnifying_glass" />
 
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="1dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView19"
-                app:layout_constraintEnd_toEndOf="@+id/imageView19"
-                app:layout_constraintStart_toStartOf="@+id/imageView19"
-                app:layout_constraintTop_toTopOf="@+id/imageView19"
-                app:srcCompat="@drawable/magnifying_glass" />
+        <TextView
+            android:id="@+id/menu_foodEvauation"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/trebuc"
+            android:gravity="center_vertical"
+            android:text="4,5"
+            android:textColor="@color/product_name"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/menu_nameFood"
+            app:layout_constraintTop_toTopOf="@+id/ratingBar_hottest" />
 
-            <TextView
-                android:id="@+id/menu_foodEvauation"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/trebuc"
-                android:gravity="center_vertical"
-                android:text="4,5"
-                android:textColor="@color/product_name"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@+id/menu_nameFood"
-                app:layout_constraintTop_toTopOf="@+id/ratingBar_hottest" />
-
-            <RatingBar
-                android:id="@+id/ratingBar_hottest"
-                style="?android:attr/ratingBarStyleIndicator"
-                android:layout_width="183dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="52dp"
-                android:isIndicator="true"
-                android:max="5"
-                android:rating="3"
-                android:scaleX=".65"
-                android:scaleY=".65"
-                android:theme="@style/MyRatingBar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        <RatingBar
+            android:id="@+id/ratingBar_hottest"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="183dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="1.5dp"
+            android:isIndicator="true"
+            android:max="5"
+            android:rating="3"
+            android:scaleX=".65"
+            android:scaleY=".65"
+            android:theme="@style/MyRatingBar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_foodPhoto" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

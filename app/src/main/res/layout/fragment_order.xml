@@ -12,13 +12,15 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="100dp">
+
 
 
             <androidx.cardview.widget.CardView
@@ -102,11 +104,62 @@
 
             </androidx.cardview.widget.CardView>
 
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButtonGroup"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:singleSelection="true">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="0dp"
+                    android:fontFamily="@font/segoeui"
+                    android:text="@string/finalized"
+                    android:textColor="@color/product_name"
+                    android:textSize="12sp"
+                    app:backgroundTint="@android:color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoeui"
+                    android:text="@string/inProgress"
+                    android:textColor="@color/product_name"
+                    android:textSize="12sp"
+                    app:backgroundTint="@android:color/white"
+                    app:cornerRadius="20dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoeui"
+                    android:text="@string/cancelled"
+                    android:textColor="@color/product_name"
+                    android:textSize="12sp"
+                    app:backgroundTint="@android:color/white" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
@@ -122,6 +175,7 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="20dp"
                         android:text="@string/order_num"
+                        android:textColor="@color/product_name"
                         android:theme="@style/SubtitleRegularStyle"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -216,6 +270,7 @@
                 android:layout_marginRight="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

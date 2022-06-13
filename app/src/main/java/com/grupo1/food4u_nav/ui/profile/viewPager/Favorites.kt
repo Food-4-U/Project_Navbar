@@ -1,5 +1,7 @@
 package com.grupo1.food4u_nav.ui.profile.viewPager
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,8 +14,8 @@ import com.grupo1.food4u_nav.adapters.FavoritesAdapter
 import com.grupo1.food4u_nav.databinding.FragmentFavoritesBinding
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
 import com.grupo1.food4u_nav.databinding.FragmentProfileBinding
+import com.grupo1.food4u_nav.models.Item_Menu
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
-import projeto.ipca.food4u.grupoI.models.Item_Menu
 
 class Favorites : Fragment() {
     private var _binding: FragmentFavoritesBinding? = null
@@ -30,23 +32,44 @@ class Favorites : Fragment() {
         //    val root: View = binding.root
 
         val view =  inflater.inflate(R.layout.fragment_favorites, container, false)
-
-        var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu("Hamburguer",10,4.40F,5.80f),
-            Item_Menu("Hamburguer",10,4.40F,5.80f),
-            Item_Menu("Hamburguer",10,4.40F,5.80f),
-            Item_Menu("Hamburguer",10,4.40F,5.80f),
-            Item_Menu("Hamburguer",10,4.40F,5.80f)
+        val prefs : SharedPreferences? = activity?.getSharedPreferences("Cliente",
+            Context.MODE_PRIVATE
         )
 
-        var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
-        val adapter = FavoritesAdapter(itens)
 
-        rv_Favorites.layoutManager = GridLayoutManager(context, 2)
-        rv_Favorites.adapter = adapter
+        var itens : List<Item_Menu> = emptyList()
+        var id = prefs?.getInt("id", 0)
 
-        adapter.notifyDataSetChanged()
+        if (id != 0)
+        {
+            Backend.Favorites(id!!){
+                itens = it
 
+                if (itens != null)
+                {
+                    var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
+                    val adapter = FavoritesAdapter(itens)
+
+                    rv_Favorites.layoutManager = GridLayoutManager(context, 2)
+                    rv_Favorites.adapter = adapter
+
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }else{
+            Backend.getItemTop {
+                itens = it.sortedBy { it.id_subcategoria }
+
+
+                var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
+                val adapter = FavoritesAdapter(itens)
+
+                rv_Favorites.layoutManager = GridLayoutManager(context, 2)
+                rv_Favorites.adapter = adapter
+
+                adapter.notifyDataSetChanged()
+            }
+        }
         return view
     }
 }

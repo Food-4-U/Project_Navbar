@@ -1,28 +1,32 @@
 package com.grupo1.food4u_nav.ui.home
 
-import android.content.Intent
-import android.os.Build
+import Backend
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.grupo1.food4u_nav.ProductDetailsActivity
-import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.adapters.CategoriesAdapter
+import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterHome
+import com.grupo1.food4u_nav.adapters.SubCategoriesAdapterMenu
+import com.grupo1.food4u_nav.adapters.TopRatedAdapter
+//import com.grupo1.food4u_nav.Testando
 import com.grupo1.food4u_nav.databinding.FragmentHomeBinding
+import com.grupo1.food4u_nav.models.Item_Menu
+import com.grupo1.food4u_nav.models.SubCategories
 import projeto.ipca.food4u.grupoI.adapters.HottestAdapter
-import projeto.ipca.food4u.grupoI.models.Item_Menu
 
-class   HomeFragment : Fragment() {
+
+class HomeFragment : Fragment() {
+
+    var itens : List<Item_Menu> = arrayListOf()
+    var subCategories : List<SubCategories> = arrayListOf()
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -37,35 +41,57 @@ class   HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var itens : List<Item_Menu> = arrayListOf(
-            Item_Menu("Hamburguer de Novilho",10,4.40F,5.80f),
-            Item_Menu("Pizza á Carbonara",25,5F,13.4f),
-            Item_Menu("Batatinha Frita",5,1F,4.80f),
-            Item_Menu("Batatinha Frita",5,1F,4.80f),
-            Item_Menu("Batatinha Frita",5,1F,4.80f),
-            Item_Menu("Batatinha Frita",5,1F,4.80f)
+        Backend.getAllSubcategories {
+            subCategories = it
 
-        )
+            val rv_Subcategories : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_Subcategories)
+            val adapterSubCategories = SubCategoriesAdapterHome(subCategories)
+            rv_Subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+            rv_Subcategories.adapter = adapterSubCategories
+        }
 
+        Backend.getItemTop {
 
-        val rv_Hottest : RecyclerView = root.findViewById(R.id.rv_hottest)
-        val adapter = HottestAdapter(itens)
+            if (it.isNullOrEmpty()){
+                AlertDialog.Builder(requireActivity())
+                    .setTitle("Alerta Conexão Internet")
+                    .setMessage("Por favor verifique a sua conexão à Internet")
+                    .setPositiveButton(
+                        "Fechar"
+                    ) { dialogInterface, i -> requireActivity().finish() }.show()
+            } else {
+                itens = it
 
-        rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
-        rv_Hottest.adapter = adapter
+                val rv_Hottest : RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_hottest)
+                val adapter = HottestAdapter(requireActivity(),itens)
 
+                rv_Hottest.layoutManager = GridLayoutManager(activity, 2)
+                rv_Hottest.adapter = adapter
+            }
+        }
 
-        val product = root.findViewById<ImageView>(R.id.imageView10)
+        Backend.getItemTopRated {
+            itens = it
 
+            val rv_topRated: RecyclerView = root.findViewById(com.grupo1.food4u_nav.R.id.rv_topRated)
+            val adapterTopRated = TopRatedAdapter(requireActivity(),itens)
 
-        product.setOnClickListener {
-            val intent = Intent(activity, ProductDetailsActivity::class.java);
-            startActivity(intent)
+            rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+            rv_topRated.adapter = adapterTopRated
         }
 
 
-        return root
+        val qrCodeBtn = root.findViewById<Button>(com.grupo1.food4u_nav.R.id.QrCodeBtn)
 
+        qrCodeBtn.setOnClickListener {
+            val fragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.setCustomAnimations(com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_in_left, com.blogspot.atifsoftwares.animatoolib.R.anim.animate_slide_out_right)
+            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.container, DeskFragment())
+            fragmentTransaction.addToBackStack("null").commit()
+        }
+
+        return root
     }
 
     override fun onDestroyView() {

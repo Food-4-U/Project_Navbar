@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_btn"
+    tools:context=".ui.profile.viewPager.settings.CardFragment">
+
+    <TextView
+        android:id="@+id/addCardName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/candarabold"
+        android:gravity="center"
+        android:text="Adicionar Cartão"
+        android:textAllCaps="true"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backBtnCardFragment"
+        app:layout_constraintTop_toTopOf="@+id/backBtnCardFragment"
+        tools:layout_editor_absoluteX="135dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="175dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/paymentmethodblank"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="320dp"
+            android:layout_height="171dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/creditcard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="65dp"
+                android:fontFamily="@font/segoeui"
+                android:text="0000 0000 0000 0000"
+                android:textColor="#A7A7A7"
+                android:textSize="26sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/creditName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/segoeui"
+                android:text="Cledisvaldo Duarte"
+                android:textAllCaps="true"
+                android:textColor="#A7A7A7"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/kreditback"
+                android:text="@string/validUntil"
+                android:textAllCaps="true"
+                android:textColor="@color/variation_text"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/segoeui"
+                android:text="00/00"
+                android:textColor="#A7A7A7"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView26"
+                app:layout_constraintEnd_toEndOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/kreditback"
+                android:text="CVV"
+                android:textColor="@color/variation_text"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView23" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/segoeui"
+                android:text="000"
+                android:textColor="#A7A7A7"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView24" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="67dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="35dp"
+                android:src="@drawable/chip"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/cardTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:fontFamily="@font/seguisb"
+            android:text="@string/cardnumber"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="0000 0000 0000 0000"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
+            app:layout_constraintStart_toStartOf="@+id/cardTextNumber"
+            app:layout_constraintTop_toBottomOf="@+id/cardTextNumber" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:background="@drawable/login_backgroundedittext"
+            android:inputType="number"
+            android:gravity="center"
+            android:hint="00 / 00"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+
+        <EditText
+            android:id="@+id/cvc"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="000"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:fontFamily="@font/seguisb"
+            android:text="@string/carddata"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+        <TextView
+            android:id="@+id/cvcTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seguisb"
+            android:layout_marginTop="20dp"
+            android:text="CVC:"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/cvc"
+            app:layout_constraintStart_toStartOf="@+id/cvc"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="51dp"
+            android:background="@drawable/login_backgroundedittext"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:hint="Card Name"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+        <TextView
+            android:id="@+id/cardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/seguisb"
+            android:text="@string/name"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3" />
+
+        <Button
+            android:id="@+id/cardPayButton"
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/green_corner_raidus"
+            android:fontFamily="@font/seguisb"
+            android:text="@string/add"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/backBtnCardFragment"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/transparent"
+        app:icon="@drawable/backbtn"
+        android:textColor="@color/text"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

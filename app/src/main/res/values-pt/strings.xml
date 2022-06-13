@@ -16,6 +16,8 @@
     <string name="home">Home</string>
     <string name="search">Procurar</string>
     <string name="menu">Menu</string>
+    <string name="editMenu">Editar Menu</string>
+    <string name="editItem">Editar Item</string>
     <string name="profile">Perfil</string>
     <string name="searchWhatToEat">Pesquise por uma comida</string>
     <string name="search_Category">Pesquisar</string>
@@ -24,11 +26,11 @@
     <string name="orders">Pedidos</string>
     <string name="wallet">Carteira</string>
     <string name="favorites">Favoritos</string>
-    <string name="settings">Configurações</string>
+    <string name="settings">Ajustes</string>
     <string name="number_orders">Pedido</string>
     <string name="avg_evaluation">Média Avaliações</string>
     <string name="order_num">Pedido Nº</string>
-    <string name="profile_paymentMethod">Metódo de Pagamento</string>
+    <string name="profile_paymentMethod">Métodos de Pagamento</string>
     <string name="quantityItens_order">Quantidade</string>
     <string name="profile_totalorder">Total:</string>
     <string name="profile_details">Detalhes</string>
@@ -42,8 +44,64 @@
     <string name="null_data">Preencha todos os campos.</string>
     <string name="invalid_email">Por favor insira um email válido.</string>
     <string name="language">Idiomas</string>
-    <string name="editProfile">Edit Profile</string>
-    <string name="changePassword">Change Password</string>
-    <string name="additionalForm">Additional Form</string>
-    <string name="receivePromotionsAlert">Receive promotion notifications</string>
+    <string name="editProfile">Editar Perfil</string>
+    <string name="changePassword">Alterar palavra-passe</string>
+    <string name="additionalForm">Formulário Adicional</string>
+    <string name="receivePromotionsAlert">Receber Notificação de Promoções?</string>
+    <string name="Profession">Profissão</string>
+    <string name="gender">Gênero</string>
+    <string name="ageGroup">Faixa Etária</string>
+    <string name="withwhohangout">Com quem costuma sair para comer?</string>
+    <string name="maritalStatus">Estado Civil</string>
+    <string name="avgAmountEatingOut">Valor médio gasto ao comer fora</string>
+    <string name="submit">Enviar</string>
+    <string name="stats">Consultar Estatisticas</string>
+    <string name="menu_admin">Menu Admin</string>
+    <string name="now">Agora</string>
+    <string name="book">Reservar</string>
+    <string name="or">Ou</string>
+    <string name="number_table">Inserir número da mesa</string>
+    <string name="table">Mesa</string>
+    <string name="cancelled">Cancelados</string>
+    <string name="inProgress">Prepação</string>
+    <string name="finalized">Finalizado</string>
+    <string name="timeToPrepare">Tempo de Preparo</string>
+    <string name="price">Preço</string>
+    <string name="newItem">Novo Item</string>
+    <string name="add">Adicionar</string>
+    <string name="highlight">Destacar</string>
+    <string name="General_Stats">Visão Geral</string>
+    <string name="Edit_Menus">Gerenciar Menus</string>
+    <string name="AddProducts">Adicionar Produto</string>
+    <string name="Categories">Categorias</string>
+    <string name="EditProduct">Editar Produto</string>
+    <string name="DeleteProduct">Eliminar Produto</string>
+    <string name="number_people">Número de Pessoas</string>
+    <string name="dateAndHour">Data e Hora</string>
+    <string name="editTable">Gerencias Mesas</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="edit">Editar</string>
+    <string name="endorder">Finalizar Pedido</string>
+    <string name="endorderend">Pedido Finalizado</string>
+    <string name="nifnumber">Nº Contribuinte</string>
+    <string name="hello_blank_fragment">Ola fragment</string>
+    <string name="creditcard">C Crédito</string>
+    <string name="mbway">MB Way</string>
+    <string name="hub">Ao balcão</string>
+
+
+    <string name="categories">Categorias</string>
+    <string name="subCategories">Sub-Categorias</string>
+
+    <string name="editCategory">Editar Categoria</string>
+    <string name="editSubCategory">Editar Subcategoria</string>
+    <string name="addCategorySub">Nova Categoria/Sub-Categoria</string>
+    <string name="cardnumber">Numero Cartão:</string>
+    <string name="carddata">Data:</string>
+    <string name="pay">Pagar</string>
+
+
+
+
 </resources>
