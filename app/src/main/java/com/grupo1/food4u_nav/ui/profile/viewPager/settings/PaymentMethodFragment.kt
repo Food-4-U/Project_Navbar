@@ -222,6 +222,7 @@ class PaymentMethodFragment : Fragment() {
                                 var cart = it
 
                                 for (i in 1..cart.size) {
+                                    itensPedido.id_pedido = pedido.id_pedido
                                     itensPedido.id_item = cart[i - 1].item_id
                                     itensPedido.qtd = cart[i - 1].quantidade
 
