@@ -205,34 +205,39 @@ class PaymentMethodFragment : Fragment() {
                         if (!it) {
                             Toast.makeText(
                                 requireActivity(),
-                                "Por favor selecione uma opção.",
+                                "Erro.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }
 
-                    var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                        var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
-                    Backend.GetPedidosDataCliente(cliente, date){
-                        var itensPedido = ItensPedido(null, null, null, null)
-                        itensPedido.id_pedido = it.id_pedido
+                        Backend.GetPedidosDataCliente(cliente, date){
+                            var itensPedido = ItensPedido(null, null, null, null)
+                            itensPedido.id_pedido = it.id_pedido
 
-                        CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+                            CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
 
-                            //este valor tem de ir para cart fora
-                            var cart = it
+                                //este valor tem de ir para cart fora
+                                var cart = it
 
-                            for (i in 0..cart.size - 1){
-                                itensPedido.id_item = cart[i].item_id
-                                itensPedido.qtd = cart[i].quantidade
+                                for (i in 1..cart.size) {
+                                    itensPedido.id_item = cart[i - 1].item_id
+                                    itensPedido.qtd = cart[i - 1].quantidade
 
-                                Backend.addItemPedido(itensPedido) {
-
+                                    Backend.addItemPedido(itensPedido) {
+                                        if (it) {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                "Pedido feito com sucesso,",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
                                 }
-                            }
-                        })
 
-
+                            })
+                        }
                     }
 
                     val i = Intent(activity, FinishOrderActivity::class.java)
@@ -263,10 +268,10 @@ class PaymentMethodFragment : Fragment() {
 
                 } else {
                     Backend.addPedido(pedido) {
-                        if (it) {
+                        if (!it) {
                             Toast.makeText(
                                 requireActivity(),
-                                "Por favor selecione uma opção.",
+                                "Erro.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -297,10 +302,10 @@ class PaymentMethodFragment : Fragment() {
                     fragmentTransaction.addToBackStack(null).commit()
                 } else {
                     Backend.addPedido(pedido) {
-                        if (it) {
+                        if (!it) {
                             Toast.makeText(
                                 requireActivity(),
-                                "Por favor selecione uma opção.",
+                                "Erro.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -333,10 +338,10 @@ class PaymentMethodFragment : Fragment() {
 
                 } else {
                     Backend.addPedido(pedido) {
-                        if (it) {
+                        if (!it) {
                             Toast.makeText(
                                 requireActivity(),
-                                "Por favor selecione uma opção.",
+                                "Erro.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }

@@ -72,9 +72,6 @@ class FinishOrderActivity : AppCompatActivity() {
             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
             var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-            var intent = Intent(getApplicationContext(), MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
 
             /*for (i in 0 until cart.size - 1) {
                 Backend.getItemID(cart[i].item_id!!){
@@ -93,9 +90,9 @@ class FinishOrderActivity : AppCompatActivity() {
         })
 
         btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(getApplicationContext(), MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            finish()
         }
     }
 }

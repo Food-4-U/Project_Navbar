@@ -914,16 +914,16 @@ object Backend {
         }
     }
 
-    fun addItemPedido(itens: ItensPedido, callback: (Boolean) -> Unit) {
+    fun addItemPedido(pedido: ItensPedido, callback: (Boolean) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             val mediaType = "application/json; charset=utf-8".toMediaType()
             val body: RequestBody = RequestBody.create(
-                mediaType, itens.toJSON().toString()
+                mediaType, pedido.toJSON().toString()
             )
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/RegistarItens")
+                .url("http://18.130.229.13:5000/RegistarItens/")
                 .post(body)
                 .build()
 
