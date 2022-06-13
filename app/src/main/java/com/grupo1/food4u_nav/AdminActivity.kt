@@ -53,6 +53,7 @@ class AdminActivity : AppCompatActivity() {
             myEdit.putBoolean("isLogged",false)
             myEdit?.apply()
             startActivity(intent)
+            finish()
         }
 
         val manageMenu = findViewById<ImageView>(R.id.manageMenus)

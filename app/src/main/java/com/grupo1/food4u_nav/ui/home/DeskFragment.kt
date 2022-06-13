@@ -38,10 +38,9 @@ class DeskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //FIXME Se tirar isso daqui n funciona, pq?
         _binding = FragmentDeskBinding.inflate(inflater, container, false)
 
-        val backBtn =binding.tableBackBtn
+        val backBtn = binding.tableBackBtn
 
         backBtn.setOnClickListener {
             requireActivity().onBackPressed()
@@ -57,9 +56,7 @@ class DeskFragment : Fragment() {
             tab.text = resources.getString(DeskFragment.TAB_TITLES[position])
         }.attach()
 
-        if(tabs.isActivated){
 
-        }
 
         // Inflate the layout for this fragment
         return binding.root

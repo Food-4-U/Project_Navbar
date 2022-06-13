@@ -31,8 +31,7 @@ class NowFragment : Fragment() {
         qrCodeBtn.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.containerQr, QRCodeFragment ())
-            fragmentTransaction.addToBackStack("null").commit()
+            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.containerQr, QRCodeFragment ()).commit()
         }
         return view
     }
