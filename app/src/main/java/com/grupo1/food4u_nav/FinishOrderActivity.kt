@@ -46,7 +46,16 @@ class FinishOrderActivity : AppCompatActivity() {
         var ratingBar = findViewById<RatingBar>(R.id.ratingBar_itensOrdem)
         var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)
         var avaliacao = false
+
         btnBack.setOnClickListener {
+
+            GlobalScope.launch(Dispatchers.IO) {
+                CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+            }
+            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).getInt("id_mesa", 0)
+            mesa = 0
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -64,15 +73,10 @@ class FinishOrderActivity : AppCompatActivity() {
                         OnRatingBarChangeListener { ratingBar, rating, fromUser ->
                             menu_foodEvauation3.text = String.format("%.2f", rating)
                             a = true
-                            GlobalScope.launch(Dispatchers.IO) {
-                                CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-                            }
-                            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                         }
                     if (a)
                     Toast.makeText(this,"aa",Toast.LENGTH_SHORT).show()
                 }
-
             }
             /*for (i in 0 until cart.size - 1) {
                 Backend.getItemID(cart[i].item_id!!){

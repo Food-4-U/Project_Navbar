@@ -12,11 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.Pedido
+import com.grupo1.food4u_nav.ui.home.QRCodeFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -276,7 +278,12 @@ class PaymentMethodFragment : Fragment() {
                 pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
 
                 if (pedido.id_mesa == 0) {
-                    // enviar para fragment para qr code
+                    val fragmentManager = childFragmentManager
+                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+                    fragmentTransaction.replace(R.id.containerOrder, QRCodeFragment())
+                    fragmentTransaction.addToBackStack(null).commit()
+
                 } else {
                     Backend.addPedido(pedido) {
                         if (it) {
@@ -314,7 +321,6 @@ class PaymentMethodFragment : Fragment() {
         var textPrice = binding.totalPaymentMoney
 
         textPrice.text = totalPrice.toString()
-
 
         // Inflate the layout for this fragment
         return binding.root
