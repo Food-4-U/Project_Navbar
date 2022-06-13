@@ -13,8 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
 
-
-
 object Backend {
 
     const val BASE_API = "http://18.130.229.13:5000/api/"
@@ -885,4 +883,61 @@ object Backend {
         }
     }
 
+    fun GetPedidosDataCliente(id_cliente: Int, dataHora: String,callback: (Pedido) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, dataHora
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetPedidoDataCliente/" + id_cliente)
+                .post(body)
+                .build()
+
+            try{
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultJSONObject = JSONObject(result)
+                    var pedido = Pedido.fromJSON(resultJSONObject)
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(pedido)
+                    }
+                }
+            }catch (e:Exception) {
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(Pedido(null, null, null, null, null, null, null, null))
+                }
+            }
+        }
+    }
+
+    fun addItemPedido(itens: ItensPedido, callback: (Boolean) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val mediaType = "application/json; charset=utf-8".toMediaType()
+            val body: RequestBody = RequestBody.create(
+                mediaType, itens.toJSON().toString()
+            )
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/RegistarItens")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultJSONObject = JSONObject(result)
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    val status = resultJSONObject.getString("status")
+                    callback.invoke(status == "ok")
+                }
+            }
+        }
+    }
 }
+
+

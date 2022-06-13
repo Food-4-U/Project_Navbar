@@ -18,9 +18,15 @@ import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
+import com.grupo1.food4u_nav.models.ItensPedido
 import com.grupo1.food4u_nav.models.Pedido
+import com.grupo1.food4u_nav.models.data.CartDatabase
+import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.ui.home.DeskFragment
 import com.grupo1.food4u_nav.ui.home.QRCodeFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -196,7 +202,7 @@ class PaymentMethodFragment : Fragment() {
 
                 } else {
                     Backend.addPedido(pedido) {
-                        if (it) {
+                        if (!it) {
                             Toast.makeText(
                                 requireActivity(),
                                 "Por favor selecione uma opção.",
@@ -204,6 +210,31 @@ class PaymentMethodFragment : Fragment() {
                             ).show()
                         }
                     }
+
+                    var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+
+                    Backend.GetPedidosDataCliente(cliente, date){
+                        var itensPedido = ItensPedido(null, null, null, null)
+                        itensPedido.id_pedido = it.id_pedido
+
+                        CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+
+                            //este valor tem de ir para cart fora
+                            var cart = it
+
+                            for (i in 0..cart.size - 1){
+                                itensPedido.id_item = cart[i].item_id
+                                itensPedido.qtd = cart[i].quantidade
+
+                                Backend.addItemPedido(itensPedido) {
+
+                                }
+                            }
+                        })
+
+
+                    }
+
                     val i = Intent(activity, FinishOrderActivity::class.java)
                     startActivity(i)
                 }
