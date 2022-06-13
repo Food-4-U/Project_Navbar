@@ -300,6 +300,7 @@ class PaymentMethodFragment : Fragment() {
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
                     fragmentTransaction.replace(R.id.containerOrder, DeskFragment())
                     fragmentTransaction.addToBackStack(null).commit()
+
                 } else {
                     Backend.addPedido(pedido) {
                         if (!it) {
@@ -310,6 +311,7 @@ class PaymentMethodFragment : Fragment() {
                             ).show()
                         }
                     }
+
                     val i = Intent(activity, FinishOrderActivity::class.java)
                     startActivity(i)
                 }
