@@ -54,7 +54,7 @@ class Pedido {
     companion object{
         fun fromJSON (jsonObject: JSONObject): Pedido {
             return Pedido (
-                jsonObject["id_item"] as? Int?,
+                jsonObject["id_pedido"] as? Int?,
                 jsonObject["dataHora"] as? String?,
                 jsonObject["total"] as? Double?,
                 jsonObject["pago"] as? Boolean,
