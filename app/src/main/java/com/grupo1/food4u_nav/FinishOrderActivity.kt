@@ -51,15 +51,16 @@ class FinishOrderActivity : AppCompatActivity() {
         var avaliacao = false
 
         btnBack.setOnClickListener {
-           /* GlobalScope.launch(Dispatchers.IO) {
+           GlobalScope.launch(Dispatchers.IO) {
                 CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-            }*/
-            var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-            var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-            var intent = Intent(getApplicationContext(), MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+               var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+               var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
+
+               var intent = Intent(getApplicationContext(), MainActivity::class.java)
+               intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+               startActivity(intent)
+            }
         }
 
         val evaluatebtn = findViewById<TextView>(R.id.evaluatebtn)
@@ -79,7 +80,7 @@ class FinishOrderActivity : AppCompatActivity() {
                 }
                 else {
                     GlobalScope.launch(Dispatchers.IO) {
-                        //CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+                        CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
                         var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                         var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 

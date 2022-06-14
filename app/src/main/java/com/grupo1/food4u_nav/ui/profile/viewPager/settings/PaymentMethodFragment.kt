@@ -170,13 +170,12 @@ class PaymentMethodFragment : Fragment() {
             addText.isInvisible = true
             plusImage!!.isInvisible = true
         }
+
         else {
             addCard.isVisible = true
             addText.isVisible = true
             plusImage!!.isVisible = true
         }
-
-
 
 
         payButton.setOnClickListener {
@@ -212,8 +211,8 @@ class PaymentMethodFragment : Fragment() {
 
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
-                        Backend.GetPedidosDataCliente(cliente, date){
-                            var itensPedido = ItensPedido(null, null, null, null)
+                        Backend.GetPedidosDataCliente(cliente, date) {
+                            var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = it.id_pedido
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
@@ -236,7 +235,6 @@ class PaymentMethodFragment : Fragment() {
                                         }
                                     }
                                 }
-
                             })
                         }
                     }
