@@ -28,7 +28,6 @@ import com.squareup.picasso.Picasso
 
 class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : RecyclerView.Adapter<EditMenuAdapter.ViewHolder>() {
 
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var photoFood = itemView.findViewById<ImageView>(R.id.productPhoto)
         var nameFood = itemView.findViewById<TextView>(R.id.productTitle)
@@ -50,6 +49,18 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
         var imageURL = itens[position].url
         Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)
 
+        holder.highLightbtn.setOnClickListener {
+            itens[position].destaque = true
+            Backend.updateItem(32, itens[31]) {
+
+                if (it)
+                    Toast.makeText(context,"alterou",Toast.LENGTH_SHORT).show()
+                else
+                    Toast.makeText(context,"Nao removeu dos favoritos",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, itens[position].destaque.toString()+"hahahhahah",Toast.LENGTH_SHORT).show()
+            }
+        }
+
         holder.itemView.setOnClickListener {
 
             var id_item = context.getSharedPreferences("id_item", AppCompatActivity.MODE_PRIVATE)
@@ -65,7 +76,7 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
 
         }
 
-        holder.highLightbtn.setOnClickListener {
+       /*holder.highLightbtn.setOnClickListener {
            /* itens[position].destaque = true
             var alterado = itens[position]
             Toast.makeText(context,itens[position].id_item.toString() + itens[position].nome.toString()
@@ -79,7 +90,7 @@ class EditMenuAdapter(val context: Context, val itens: List<Item_Menu>) : Recycl
 
             }*/
 
-        }
+        }*/
     }
 
 
