@@ -1,10 +1,11 @@
 package com.grupo1.food4u_nav.models
 
+import androidx.fragment.app.FragmentActivity
 import org.json.JSONObject
 
 class CardNumber {
 
-    constructor(id_cartao: Int?, number: String?, numberName: String?, date: String?, cvc: Int?, id_cliente: Int?) {
+    constructor(id_cartao: FragmentActivity, number: List<CardNumber>, numberName: String?, date: String?, cvc: Int?, id_cliente: Int?) {
         this.id_cartao = id_cartao
         this.number = number
         this.numberName = numberName

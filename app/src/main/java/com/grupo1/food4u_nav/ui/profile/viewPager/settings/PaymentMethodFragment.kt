@@ -9,29 +9,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
+import com.grupo1.food4u_nav.models.CardNumber
 import com.grupo1.food4u_nav.models.ItensPedido
 import com.grupo1.food4u_nav.models.Pedido
 import com.grupo1.food4u_nav.models.data.CartDatabase
-import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.ui.home.DeskFragment
-import com.grupo1.food4u_nav.ui.home.QRCodeFragment
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class PaymentMethodFragment : Fragment() {
+
+    var card : List<CardNumber> = arrayListOf()
 
     private var _binding: FragmentPaymentMethodBinding? = null
     private val binding get() = _binding!!
@@ -50,21 +48,25 @@ class PaymentMethodFragment : Fragment() {
         val payPal = binding.imageView29
         val counter = binding.imageView32
         val payButton = binding.continueOrder
-        val addCard = binding.imageView37
-        val addText = binding.textView63
-        val plusImage = binding.imageView38
+
 
         var cCardIsChecked = false
         var mbWayIsChecked = false
         var payPalIsChecked = false
         var counterIsChecked = false
 
-        addCard.setOnClickListener{
-            val activity = requireView().context as AppCompatActivity
-            val myFragment: Fragment = CardFragment()
-            activity.supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
-                .replace(R.id.paymentMethodFragment, myFragment).addToBackStack(null).commit()
-        }
+        val rv_card: RecyclerView = binding.rvCard
+        val CardNumber = CardNumber (requireActivity(),card)
+
+        rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        rv_topRated.adapter = adapterTopRated
+
+        //addCard.setOnClickListener{
+        //    val activity = requireView().context as AppCompatActivity
+        //    val myFragment: Fragment = CardFragment()
+        //    activity.supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+        //        .replace(R.id.paymentMethodFragment, myFragment).addToBackStack(null).commit()
+        //}
 
 
         backPayButton.setOnClickListener{
@@ -83,16 +85,7 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = false
             counterIsChecked = false
 
-            if (cCardIsChecked == false) {
-                addCard.isInvisible = true
-                addText.isInvisible = true
-                plusImage!!.isInvisible = true
-            }
-            else {
-                addCard.isVisible = true
-                addText.isVisible = true
-                plusImage!!.isVisible = true
-            }
+
         }
 
         mbWay.setOnClickListener{
@@ -106,16 +99,7 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = false
             counterIsChecked = false
 
-            if (cCardIsChecked == false) {
-                addCard.isInvisible = true
-                addText.isInvisible = true
-                plusImage!!.isInvisible = true
-            }
-            else {
-                addCard.isVisible = true
-                addText.isVisible = true
-                plusImage!!.isVisible = true
-            }
+
         }
 
         payPal.setOnClickListener {
@@ -129,16 +113,6 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = true
             counterIsChecked = false
 
-            if (cCardIsChecked == false) {
-                addCard.isInvisible = true
-                addText.isInvisible = true
-                plusImage!!.isInvisible = true
-            }
-            else {
-                addCard.isVisible = true
-                addText.isVisible = true
-                plusImage!!.isVisible = true
-            }
         }
 
         counter.setOnClickListener {
@@ -152,30 +126,11 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = false
             counterIsChecked = true
 
-            if (cCardIsChecked == false) {
-                addCard.isInvisible = true
-                addText.isInvisible = true
-                plusImage!!.isInvisible = true
-            }
-            else {
-                addCard.isVisible = true
-                addText.isVisible = true
-                plusImage!!.isVisible = true
-            }
+
         }
 
 
-        if (cCardIsChecked == false) {
-            addCard.isInvisible = true
-            addText.isInvisible = true
-            plusImage!!.isInvisible = true
-        }
 
-        else {
-            addCard.isVisible = true
-            addText.isVisible = true
-            plusImage!!.isVisible = true
-        }
 
 
         payButton.setOnClickListener {

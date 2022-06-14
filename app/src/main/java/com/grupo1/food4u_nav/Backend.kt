@@ -857,6 +857,31 @@ object Backend {
         }
     }
 
+
+    fun GetCard(id_cliente: Int, callback: (List<CardNumber>) -> Unit) {
+        var cards = arrayListOf<CardNumber>()
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetCartoesCliente/" + id_cliente)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+                for (index in 0 until resultArray.length()) {
+                    var cardJSONObject = resultArray[index]
+                    var cardName = cardJSONObject
+                    cards.add(cardName as CardNumber)
+                }
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(cards)
+                }
+            }
+        }
+    }
+
     // Pedidos
 
     fun addPedido(pedido: Pedido, callback: (Boolean) -> Unit) {
@@ -927,5 +952,8 @@ object Backend {
         }
     }
 }
+
+
+
 
 
