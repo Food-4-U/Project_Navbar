@@ -1,6 +1,7 @@
 import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import androidx.core.text.htmlEncode
 import com.grupo1.food4u_nav.models.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -885,15 +886,9 @@ object Backend {
 
     fun GetPedidosDataCliente(id_cliente: Int, dataHora: String,callback: (Pedido) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
-            val mediaType = "application/json; charset=utf-8".toMediaType()
-            val body: RequestBody = RequestBody.create(
-                mediaType, dataHora
-            )
-
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetPedidoDataCliente/" + id_cliente)
-                .post(body)
+                .url("http://18.130.229.13:5000/GetPedidoDataCliente/" + id_cliente + "/" + dataHora.htmlEncode())
                 .build()
 
             try{
