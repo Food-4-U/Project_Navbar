@@ -37,7 +37,7 @@ class RvOrderAdapter(val context: Context, val orders : List<Pedido>) : Recycler
         holder.totalOrder.text = orders[position].total.toString().plus("€")
 
         holder.date.text= orders[position].dataHora
-        holder.state.text = "Pago"
+        holder.state.text = context.getString(R.string.payed)
 
     }
 
