@@ -48,7 +48,4 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
         recyclerView.adapter = itemRecyclerAdapter
 
     }
-
-
-
 }

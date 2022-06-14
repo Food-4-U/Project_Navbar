@@ -953,8 +953,38 @@ object Backend {
             }
         }
     }
-}
 
+    fun GetAllPedidos(id: Int, callback: (List<Pedido>) -> Unit) {
+        var pedidos = arrayListOf<Pedido>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetPedidosCliente/"+ id)
+                .build()
+            try{
+                client.newCall(request).execute().use { response ->
+                    var result = response.body!!.string()
+                    var resultArray = JSONArray(result)
+
+                    for (index in 0 until resultArray.length()) {
+                        var itemJSON = resultArray[index] as JSONObject
+                        var pedido = Pedido.fromJSON(itemJSON)
+                        pedidos.add(pedido)
+                    }
+
+                    GlobalScope.launch(Dispatchers.Main) {
+                        callback.invoke(pedidos)
+                    }
+                }
+            }catch (e:Exception){
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(emptyList())
+                }
+
+            }
+        }
+    }
+}
 
 
 
