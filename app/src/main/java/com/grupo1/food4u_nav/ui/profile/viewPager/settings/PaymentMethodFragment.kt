@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
+import com.grupo1.food4u_nav.adapters.TopRatedAdapter
+import com.grupo1.food4u_nav.adapters.cardAdapter
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.CardNumber
 import com.grupo1.food4u_nav.models.ItensPedido
@@ -55,12 +57,6 @@ class PaymentMethodFragment : Fragment() {
         var payPalIsChecked = false
         var counterIsChecked = false
 
-        val rv_card: RecyclerView = binding.rvCard
-        val CardNumber = CardNumber (requireActivity(),card)
-
-        rv_topRated.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-        rv_topRated.adapter = adapterTopRated
-
         //addCard.setOnClickListener{
         //    val activity = requireView().context as AppCompatActivity
         //    val myFragment: Fragment = CardFragment()
@@ -85,7 +81,17 @@ class PaymentMethodFragment : Fragment() {
             payPalIsChecked = false
             counterIsChecked = false
 
+            var id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
+            Backend.GetCard(id_cliente) {
+                var cartoes = it
+
+                val rv_card: RecyclerView = binding.rvCard
+                val adapterCard = cardAdapter(requireContext(), cartoes)
+
+                rv_card.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+                rv_card.adapter = adapterCard
+            }
         }
 
         mbWay.setOnClickListener{

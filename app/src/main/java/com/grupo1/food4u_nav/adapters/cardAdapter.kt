@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CardNumber
 
-class cardAdapter(val context: Context): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
+class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,8 +24,8 @@ class cardAdapter(val context: Context): RecyclerView.Adapter<cardAdapter.ViewHo
     private var card = emptyList<CardNumber>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = cardAdapter.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false))
-        return view
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -33,12 +33,8 @@ class cardAdapter(val context: Context): RecyclerView.Adapter<cardAdapter.ViewHo
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.cardNumber.text = cards[position].number
 
-        Backend.GetCard(context.getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0) ) {
-            var cartoes = it
-
-            holder.cardNumber.text = cartoes[position].number
-        }
 
 
 

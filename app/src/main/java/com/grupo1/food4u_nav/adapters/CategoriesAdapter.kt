@@ -28,7 +28,7 @@ class CategoriesAdapter (val context : Context, val itens: List<CategoryType>) :
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CategoriesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.categoryName.text = itens[position].name
         var url = itens[position].url
 

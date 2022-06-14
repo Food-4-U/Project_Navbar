@@ -5,7 +5,7 @@ import org.json.JSONObject
 
 class CardNumber {
 
-    constructor(id_cartao: FragmentActivity, number: List<CardNumber>, numberName: String?, date: String?, cvc: Int?, id_cliente: Int?) {
+    constructor(id_cartao: Int?, number: String?, numberName: String?, date: String?, cvc: Int?, id_cliente: Int?) {
         this.id_cartao = id_cartao
         this.number = number
         this.numberName = numberName
@@ -24,9 +24,9 @@ class CardNumber {
     fun toJSON() : JSONObject {
         val jsonObject = JSONObject()
         jsonObject.put("id_cartao", id_cartao)
-        jsonObject.put("number", number)
-        jsonObject.put("numberName", numberName)
-        jsonObject.put("date", date)
+        jsonObject.put("numero", number)
+        jsonObject.put("nome_cartao", numberName)
+        jsonObject.put("data_vencimento", date)
         jsonObject.put("cvc", cvc)
         jsonObject.put("id_cliente", id_cliente)
         return jsonObject
@@ -36,9 +36,9 @@ class CardNumber {
         fun fromJSON(jsonObject: JSONObject): CardNumber {
             return CardNumber (
                 jsonObject["id_cartao"] as? Int?,
-                jsonObject["number"] as? String?,
-                jsonObject["numberName"] as? String?,
-                jsonObject["date"] as? String?,
+                jsonObject["numero"] as? String?,
+                jsonObject["nome_cartao"] as? String?,
+                jsonObject["data_vencimento"] as? String?,
                 jsonObject["cvc"] as? Int?,
                 jsonObject["id_cliente"] as? Int?
             )
