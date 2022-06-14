@@ -2,6 +2,7 @@ package com.grupo1.food4u_nav
 
 import Backend
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -154,6 +155,8 @@ class ProductDetailsActivity : AppCompatActivity() {
                     "Adicionado ao Pedido.",
                     Toast.LENGTH_SHORT
                 ).show()
+
+              finish()
             }
         }
 
