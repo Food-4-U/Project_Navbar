@@ -17,10 +17,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
 import com.grupo1.food4u_nav.R
-import com.grupo1.food4u_nav.adapters.TopRatedAdapter
-import com.grupo1.food4u_nav.adapters.cardAdapter
+import com.grupo1.food4u_nav.adapters.CardAdapter
+import com.grupo1.food4u_nav.adapters.OrderAdapter
 import com.grupo1.food4u_nav.databinding.FragmentPaymentMethodBinding
 import com.grupo1.food4u_nav.models.CardNumber
+import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.ItensPedido
 import com.grupo1.food4u_nav.models.Pedido
 import com.grupo1.food4u_nav.models.data.CartDatabase
@@ -31,7 +32,7 @@ import java.util.*
 
 class PaymentMethodFragment : Fragment() {
 
-    var card : List<CardNumber> = arrayListOf()
+    var cartoes : List<CardNumber> = arrayListOf()
 
     private var _binding: FragmentPaymentMethodBinding? = null
     private val binding get() = _binding!!
@@ -84,13 +85,12 @@ class PaymentMethodFragment : Fragment() {
             var id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
             Backend.GetCard(id_cliente) {
-                var cartoes = it
+                cartoes = it
 
-                val rv_card: RecyclerView = binding.rvCard
-                val adapterCard = cardAdapter(requireContext(), cartoes)
-
-                rv_card.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-                rv_card.adapter = adapterCard
+                val rvcard: RecyclerView = binding.rvCard
+                val adapterCard = CardAdapter(requireContext(), cartoes)
+                rvcard.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+                rvcard.adapter = adapterCard
             }
         }
 

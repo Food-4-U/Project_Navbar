@@ -9,8 +9,8 @@ class Item_Menu {
     var nome: String? = null
     var preco: Double? = null
     var temp_prep: Int? = null
-    var destaque : Boolean = false
-    var url : String? = null
+    var destaque: Boolean = false
+    var url: String? = null
     var id_categoria: Int? = null
     var id_subcategoria: Int? = null
     var avaliação: Double? = null
@@ -40,7 +40,7 @@ class Item_Menu {
         //this.fav = fav
     }
 
-    fun toJSON() : JSONObject {
+    fun toJSON(): JSONObject {
         val jsonObject = JSONObject()
         jsonObject.put("id_item", id_item)
         jsonObject.put("nome", nome)
@@ -55,9 +55,9 @@ class Item_Menu {
     }
 
     //
-    companion object{
-        fun fromJSON (jsonObject: JSONObject): Item_Menu {
-            return Item_Menu (
+    companion object {
+        fun fromJSON(jsonObject: JSONObject): Item_Menu {
+            return Item_Menu(
                 jsonObject["id_item"] as? Int?,
                 jsonObject["nome"] as? String?,
                 jsonObject["preco"] as? Double?,

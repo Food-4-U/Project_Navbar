@@ -76,7 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/totalPaymentText" />
 
-        <TextView
+        <EditText
             android:id="@+id/nifNumberBar"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -85,6 +85,7 @@
             android:fontFamily="@font/segoeui"
             android:gravity="center_vertical"
             android:hint="@string/nifnumber"
+            android:inputType="number"
             android:paddingLeft="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/totalPaymentMoney"
