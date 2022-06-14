@@ -870,10 +870,12 @@ object Backend {
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
                 var resultArray = JSONArray(result)
+                var cartao: CardNumber
+
                 for (index in 0 until resultArray.length()) {
-                    var cardJSONObject = resultArray[index]
-                    var cardName = cardJSONObject
-                    cards.add(cardName as CardNumber)
+                    var cardJSONObject = resultArray[index] as JSONObject
+                    var cartao = CardNumber.fromJSON(cardJSONObject)
+                    cards.add(cartao)
                 }
                 GlobalScope.launch(Dispatchers.Main) {
                     callback.invoke(cards)

@@ -57,8 +57,8 @@ class Pedido {
                 jsonObject["id_pedido"] as? Int?,
                 jsonObject["dataHora"] as? String?,
                 jsonObject["total"] as? Double?,
-                jsonObject["pago"] as? Boolean,
-                jsonObject["avaliação"] as? Double,
+                jsonObject["pago"] as Boolean,
+                jsonObject["avaliação"] as? Double?,
                 jsonObject["aval_funcio"] as? Double?,
                 jsonObject["id_mesa"] as? Int?,
                 jsonObject["id_cliente"] as? Int?
