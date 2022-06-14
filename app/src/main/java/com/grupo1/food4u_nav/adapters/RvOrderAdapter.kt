@@ -33,8 +33,8 @@ class RvOrderAdapter(val context: Context, val orders : List<Pedido>) : Recycler
 
     override fun onBindViewHolder(holder: RvOrderAdapter.ViewHolder, position: Int) {
         holder.orderNum.text = orders[position].id_pedido.toString()
-        holder.qtdItems.text = orders[position].id_cliente.toString()
-        holder.totalOrder.text = orders[position].total.toString()
+      //  holder.qtdItems.text = orders[position].id_cliente.toString()
+        holder.totalOrder.text = orders[position].total.toString().plus("€")
 
         holder.date.text= orders[position].dataHora
         holder.state.text = "Pago"

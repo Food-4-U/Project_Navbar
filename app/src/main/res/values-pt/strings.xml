@@ -31,7 +31,7 @@
     <string name="avg_evaluation">Média Avaliações</string>
     <string name="order_num">Pedido Nº</string>
     <string name="profile_paymentMethod">Métodos de Pagamento</string>
-    <string name="quantityItens_order">Quantidade</string>
+    <string name="quantityItens_order">Quantidade:</string>
     <string name="profile_totalorder">Total:</string>
     <string name="profile_details">Detalhes</string>
     <string name="cards">Cartões</string>
@@ -100,6 +100,8 @@
     <string name="cardnumber">Numero Cartão:</string>
     <string name="carddata">Data:</string>
     <string name="pay">Pagar</string>
+    <string name="state">Estado:</string>
+    <string name="payed">Pago</string>
 
 
 
