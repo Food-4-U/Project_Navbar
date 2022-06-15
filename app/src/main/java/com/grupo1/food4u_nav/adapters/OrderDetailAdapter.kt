@@ -26,7 +26,7 @@ class OrderDetailAdapter(val pedido: ItensPedido) : RecyclerView.Adapter<OrderDe
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.cardNumber.text = cards[position].number
+        holder.cardNumber.text = pedido[position].
 
 
     }
