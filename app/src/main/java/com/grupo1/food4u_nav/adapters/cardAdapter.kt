@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CardNumber
 
-class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
+class CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
+        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView37)
         var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
 
     }

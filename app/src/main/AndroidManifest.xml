@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Food4U_Nav"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".OrderDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".CardActivity"
             android:exported="false" />
         <activity
