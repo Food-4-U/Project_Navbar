@@ -168,12 +168,12 @@
         android:id="@+id/nifFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginLeft="82dp"
-        android:textSize="13dp"
+        android:layout_marginStart="82dp"
         android:fontFamily="@font/consolab"
-        android:textAllCaps="true"
         android:text="nif"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="13dp"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
@@ -236,7 +236,7 @@
         android:id="@+id/recicleFatura"
         android:layout_width="338dp"
         android:layout_height="160dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView33"
         app:layout_constraintStart_toStartOf="@+id/imageView33"
         app:layout_constraintTop_toBottomOf="@+id/dash" />
@@ -284,16 +284,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView78" />
 
     <TextView
-        android:id="@+id/textView80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:text="Reserva: Sim"
-        android:fontFamily="@font/segoeui"
-        app:layout_constraintEnd_toEndOf="@+id/faturaCard"
-        app:layout_constraintTop_toBottomOf="@+id/textView78" />
-
-    <TextView
         android:id="@+id/pagamentoFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -322,6 +312,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/faturaCard" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/consolab"
+        android:text="Descrição"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/recicleFatura"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/nifNumberFatura" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/consolab"
+        android:text="Qtd"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/nifFatura" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:fontFamily="@font/consolab"
+        android:text="Preço.Unid"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintStart_toEndOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:fontFamily="@font/consolab"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:text="Total"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintStart_toEndOf="@+id/textView18" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
