@@ -12,8 +12,10 @@
             android:id="@+id/produtoNameFaturaROW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/cour"
+            android:textColor="@color/black"
             android:text="Produto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
+            android:fontFamily="@font/cour"
+            android:textColor="@color/black"
             android:text="QTD"
             app:layout_constraintStart_toEndOf="@+id/produtoNameFaturaROW"
             app:layout_constraintTop_toTopOf="@+id/produtoNameFaturaROW" />
@@ -32,6 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/cour"
             android:text="preço"
             app:layout_constraintStart_toEndOf="@+id/quantidadeFaturaROW"
             app:layout_constraintTop_toTopOf="@+id/quantidadeFaturaROW" />
