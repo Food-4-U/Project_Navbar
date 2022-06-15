@@ -8,12 +8,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Button
+
+        <ImageView
             android:id="@+id/imageView37"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/white"
+            android:src="@drawable/chip"
             android:text="+"
             android:textColor="@color/text"
             android:textSize="20sp"

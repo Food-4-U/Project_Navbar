@@ -12,16 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CardNumber
 
-class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
+class CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
         var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
 
     }
 
-    private var card = emptyList<CardNumber>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
@@ -29,7 +27,7 @@ class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerV
     }
 
     override fun getItemCount(): Int {
-        return card.size
+        return cards.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
