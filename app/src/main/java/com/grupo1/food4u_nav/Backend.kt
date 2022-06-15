@@ -985,8 +985,35 @@ object Backend {
         }
     }
 
+    fun GetItemsPedido(id: String, callback: (List<PedidoItensFatura>) -> Unit) {
+        var pedidos = arrayListOf<PedidoItensFatura>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetItems/" + id)
+                .build()
 
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var itemJSON = resultArray[index] as JSONObject
+                    var pedido = PedidoItensFatura.fromJSON(itemJSON)
+                    pedidos.add(pedido)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(pedidos)
+                }
+            }
+        }
+    }
 }
+
+
+
+
 
 
 
