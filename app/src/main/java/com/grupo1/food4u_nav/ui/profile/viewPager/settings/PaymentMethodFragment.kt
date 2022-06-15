@@ -153,7 +153,7 @@ class PaymentMethodFragment : Fragment() {
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
                 pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
 
-                if (pedido.id_mesa == 0) {
+                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
                     val fragmentManager = (activity as FragmentActivity).supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
@@ -219,7 +219,7 @@ class PaymentMethodFragment : Fragment() {
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
                 pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
 
-                if (pedido.id_mesa == 0) {
+                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
                     val fragmentManager = (activity as FragmentActivity).supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
@@ -254,7 +254,7 @@ class PaymentMethodFragment : Fragment() {
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
                 pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
 
-                if (pedido.id_mesa == 0) {
+                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
                     val fragmentManager = (activity as FragmentActivity).supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
@@ -291,7 +291,7 @@ class PaymentMethodFragment : Fragment() {
                 pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
                 pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
 
-                if (pedido.id_mesa == 0) {
+                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
                     val fragmentManager = (activity as FragmentActivity).supportFragmentManager
                     val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
