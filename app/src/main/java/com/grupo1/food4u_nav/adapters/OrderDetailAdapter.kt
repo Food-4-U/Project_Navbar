@@ -33,4 +33,8 @@ class OrderDetailAdapter(val pedido: ItensPedido) : RecyclerView.Adapter<OrderDe
 
 
     }
+
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
+    }
 }
