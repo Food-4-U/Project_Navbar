@@ -172,9 +172,10 @@ class PaymentMethodFragment : Fragment() {
 
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
-                        Backend.GetPedidosDataCliente(cliente, date) {
+                        Backend.GetAllPedidos(cliente){
+                            var pedidos = it
                             var itensPedido = ItensPedido (null, null, null, null)
-                            itensPedido.id_pedido = it.id_pedido
+                            itensPedido.id_pedido = pedidos[0].id_pedido
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
 
@@ -182,7 +183,6 @@ class PaymentMethodFragment : Fragment() {
                                 var cart = it
 
                                 for (i in 1..cart.size) {
-                                    itensPedido.id_pedido = pedido.id_pedido
                                     itensPedido.id_item = cart[i - 1].item_id
                                     itensPedido.qtd = cart[i - 1].quantidade
 
