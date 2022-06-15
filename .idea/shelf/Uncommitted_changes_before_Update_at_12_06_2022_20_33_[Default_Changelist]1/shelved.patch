@@ -1,0 +1,18 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/ui/home/QRCodeFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.ui.home\r\n\r\nimport android.Manifest\r\nimport android.content.pm.PackageManager\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Toast\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.core.app.ActivityCompat\r\nimport androidx.core.content.ContextCompat\r\nimport com.budiyev.android.codescanner.CodeScanner\r\nimport com.budiyev.android.codescanner.CodeScannerView\r\nimport com.budiyev.android.codescanner.DecodeCallback\r\nimport com.budiyev.android.codescanner.ErrorCallback\r\nimport com.grupo1.food4u_nav.R\r\n\r\nclass QRCodeFragment : Fragment() {\r\n\r\n    private lateinit var codeScanner: CodeScanner\r\n\r\n    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,\r\n                              savedInstanceState: Bundle?): View {\r\n\r\n        if(ContextCompat.checkSelfPermission(requireActivity(),Manifest.permission.CAMERA) ==\r\n                PackageManager.PERMISSION_DENIED){\r\n                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA),123)\r\n        }\r\n\r\n        return inflater.inflate(R.layout.fragment_qrcode, container, false)\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        val scannerView = view.findViewById<CodeScannerView>(R.id.scanner_view)\r\n        val activity = requireActivity()\r\n        codeScanner = CodeScanner(activity, scannerView)\r\n\r\n        scannerView.setOnClickListener {\r\n            codeScanner.startPreview()\r\n        }\r\n\r\n        codeScanner.decodeCallback = DecodeCallback {\r\n            activity.runOnUiThread {\r\n                var mesa = requireContext().getSharedPreferences(\"Mesa\", AppCompatActivity.MODE_PRIVATE)\r\n                val myEdit = mesa.edit()\r\n\r\n                val string = it.text\r\n\r\n                myEdit.putInt(\"id_mesa\", string.toInt())\r\n                myEdit.apply()\r\n                Toast.makeText(activity, \"Registada Mesa \" + string, Toast.LENGTH_LONG).show()\r\n            }\r\n        }\r\n\r\n        codeScanner.errorCallback = ErrorCallback {\r\n            activity.runOnUiThread {\r\n                Toast.makeText(activity,\"Camera Inicialiation Error!\", Toast.LENGTH_SHORT).show()\r\n\r\n            }\r\n        }\r\n\r\n\r\n\r\n    }\r\n\r\n    override fun onResume() {\r\n        super.onResume()\r\n        codeScanner.startPreview()\r\n    }\r\n\r\n    override fun onPause() {\r\n        codeScanner.releaseResources()\r\n        super.onPause()\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/ui/home/QRCodeFragment.kt b/app/src/main/java/com/grupo1/food4u_nav/ui/home/QRCodeFragment.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/ui/home/QRCodeFragment.kt	(revision 8049f9f83fac440733876e6036d6d7f2ef80a454)
++++ b/app/src/main/java/com/grupo1/food4u_nav/ui/home/QRCodeFragment.kt	(date 1655062421250)
+@@ -57,7 +57,6 @@
+         codeScanner.errorCallback = ErrorCallback {
+             activity.runOnUiThread {
+                 Toast.makeText(activity,"Camera Inicialiation Error!", Toast.LENGTH_SHORT).show()
+-
+             }
+         }
+ 

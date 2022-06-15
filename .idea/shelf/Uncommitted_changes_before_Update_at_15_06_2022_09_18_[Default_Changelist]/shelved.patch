@@ -1,0 +1,71 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.adapters\r\n\r\nimport android.content.Context\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Button\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport android.widget.Toast\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.models.CardNumber\r\n\r\nclass CardAdapter(val context: Context, private val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {\r\n\r\n    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {\r\n        var buttonAddCard = itemView.findViewById<Button>(R.id.imageView37)\r\n        var cardNumber = itemView.findViewById<TextView>(R.id.textView63)\r\n\r\n    }\r\n\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {\r\n        val view = LayoutInflater.from(context).inflate(R.layout.card_rv, parent, false)\r\n        return ViewHolder(view)\r\n    }\r\n\r\n    override fun onBindViewHolder(holder: ViewHolder, position: Int) {\r\n        holder.cardNumber.text = cards[position].number\r\n        holder.buttonAddCard.setOnClickListener{\r\n            Toast.makeText(context, \"oi\", Toast.LENGTH_SHORT).show()\r\n        }\r\n\r\n\r\n    }\r\n\r\n    override fun getItemCount(): Int {\r\n        return cards.size\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt b/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt	(revision e6695cced5047ddee58e906e6ebcc5cfc654c9f8)
++++ b/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt	(date 1655281078228)
+@@ -1,42 +1,47 @@
+ package com.grupo1.food4u_nav.adapters
+ 
++import Backend
+ import android.content.Context
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
+-import android.widget.Button
+ import android.widget.ImageView
+ import android.widget.TextView
+-import android.widget.Toast
++import androidx.appcompat.app.AppCompatActivity
+ import androidx.recyclerview.widget.RecyclerView
+ import com.grupo1.food4u_nav.R
+ import com.grupo1.food4u_nav.models.CardNumber
+ 
+-class CardAdapter(val context: Context, private val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
++class CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
++
+ 
+     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+-        var buttonAddCard = itemView.findViewById<Button>(R.id.imageView37)
++        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
+         var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
+ 
+     }
+ 
++    private var card = emptyList<CardNumber>()
++
+     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+-        val view = LayoutInflater.from(context).inflate(R.layout.card_rv, parent, false)
++        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
+         return ViewHolder(view)
+     }
+ 
++    override fun getItemCount(): Int {
++        return card.size
++    }
++
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+         holder.cardNumber.text = cards[position].number
+-        holder.buttonAddCard.setOnClickListener{
+-            Toast.makeText(context, "oi", Toast.LENGTH_SHORT).show()
+-        }
+ 
+ 
+-    }
+ 
+-    override fun getItemCount(): Int {
+-        return cards.size
+-    }
++
++
++
++
+ 
+ 
++    }
+ }
+\ No newline at end of file

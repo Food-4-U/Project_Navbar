@@ -1,0 +1,33 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/FinishOrderActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav\r\n\r\nimport Backend\r\nimport android.content.Context\r\nimport android.content.Intent\r\nimport android.os.Build\r\nimport android.os.Bundle\r\nimport android.view.View\r\nimport android.widget.*\r\nimport android.widget.RatingBar.OnRatingBarChangeListener\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.core.view.ViewCompat\r\nimport androidx.core.view.WindowInsetsCompat\r\nimport androidx.core.view.WindowInsetsControllerCompat\r\nimport androidx.lifecycle.Observer\r\nimport com.grupo1.food4u_nav.models.data.CartDatabase\r\nimport com.squareup.picasso.Picasso\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.GlobalScope\r\nimport kotlinx.coroutines.launch\r\n\r\nclass FinishOrderActivity : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_finish_order)\r\n\r\n        supportActionBar!!.hide()\r\n\r\n        @Suppress(\"DEPRECATION\")\r\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {\r\n            val windowInsetsController =\r\n                ViewCompat.getWindowInsetsController(window.decorView) ?: return\r\n            windowInsetsController.systemBarsBehavior =\r\n                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE\r\n            windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())\r\n        } else {\r\n            val flags =\r\n                (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN\r\n                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)\r\n            window!!.decorView.systemUiVisibility = flags\r\n        }\r\n\r\n        var productName = findViewById<TextView>(R.id.finalizedOrderBottomName)\r\n        var productPhoto = findViewById<ImageView>(R.id.imageItemView)\r\n        val btnBack = findViewById<Button>(R.id.backBtn)\r\n        var ratingBar = findViewById<RatingBar>(R.id.ratingBar_itensOrdem)\r\n        var menu_foodEvauation3 = findViewById<TextView>(R.id.menu_foodEvauation3)\r\n        var avaliacao = false\r\n\r\n        CartDatabase.getDatabase(this).cartDao().readCart().observe(this, Observer {\r\n            var cart = it\r\n            for (i in 0 until cart.size) {\r\n                Backend.getItemID(cart[i].item_id!!){\r\n                    var a = false\r\n                    productName.text = it.nome\r\n                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)\r\n\r\n                    ratingBar.onRatingBarChangeListener =\r\n                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->\r\n                            menu_foodEvauation3.text = String.format(\"%.2f\", rating)\r\n                            a = true\r\n                        }\r\n                    if (a)\r\n                        Toast.makeText(this,\"aa\",Toast.LENGTH_SHORT).show()\r\n                }\r\n\r\n            }\r\n\r\n            GlobalScope.launch(Dispatchers.IO) {\r\n                CartDatabase.getDatabase(this@FinishOrderActivity).cartDao().deleteCart()\r\n            }\r\n            var observ = getSharedPreferences(\"Observ\", Context.MODE_PRIVATE).edit().clear().apply()\r\n            var mesa = getSharedPreferences(\"Mesa\", MODE_PRIVATE).edit().clear().apply()\r\n\r\n            var intent = Intent(getApplicationContext(), MainActivity::class.java)\r\n            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)\r\n            startActivity(intent)\r\n\r\n            /*for (i in 0 until cart.size - 1) {\r\n                Backend.getItemID(cart[i].item_id!!){\r\n                    productName.text = it.nome\r\n                    Picasso.get().load(it.url).resize(800,650).into(productPhoto)\r\n\r\n                    if (ratingBar.rating == null)\r\n                        menu_foodEvauation3.isGone\r\n\r\n                   ratingBar.onRatingBarChangeListener =\r\n                        OnRatingBarChangeListener { ratingBar, rating, fromUser ->\r\n                            menu_foodEvauation3.text = String.format(\"%.2f\", rating)\r\n                        }\r\n                }\r\n            }*/\r\n        })\r\n\r\n        btnBack.setOnClickListener {\r\n            val intent = Intent(this, MainActivity::class.java)\r\n            startActivity(intent)\r\n            finish()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/FinishOrderActivity.kt b/app/src/main/java/com/grupo1/food4u_nav/FinishOrderActivity.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/FinishOrderActivity.kt	(revision 01574c212130bc980f0f55839eb55ae64a22e14f)
++++ b/app/src/main/java/com/grupo1/food4u_nav/FinishOrderActivity.kt	(date 1655125157703)
+@@ -72,9 +72,6 @@
+             var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+             var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
+ 
+-            var intent = Intent(getApplicationContext(), MainActivity::class.java)
+-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+-            startActivity(intent)
+ 
+             /*for (i in 0 until cart.size - 1) {
+                 Backend.getItemID(cart[i].item_id!!){
+@@ -93,9 +90,9 @@
+         })
+ 
+         btnBack.setOnClickListener {
+-            val intent = Intent(this, MainActivity::class.java)
++            var intent = Intent(getApplicationContext(), MainActivity::class.java)
++            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+             startActivity(intent)
+-            finish()
+         }
+     }
+ }
+\ No newline at end of file
