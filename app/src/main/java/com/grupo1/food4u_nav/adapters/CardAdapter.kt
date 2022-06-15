@@ -33,13 +33,6 @@ class CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerV
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.cardNumber.text = cards[position].number
 
-
-
-
-
-
-
-
-
+        
     }
 }

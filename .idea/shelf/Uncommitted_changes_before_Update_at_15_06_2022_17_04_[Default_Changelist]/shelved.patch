@@ -1,0 +1,26 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.adapters\r\n\r\nimport Backend\r\nimport android.content.Context\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.models.CardNumber\r\n\r\nclass CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {\r\n\r\n\r\n    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {\r\n        var cardNumber = itemView.findViewById<TextView>(R.id.textView63)\r\n\r\n    }\r\n\r\n\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {\r\n        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)\r\n        return ViewHolder(view)\r\n    }\r\n\r\n    override fun getItemCount(): Int {\r\n        return cards.size\r\n    }\r\n\r\n    override fun onBindViewHolder(holder: ViewHolder, position: Int) {\r\n        holder.cardNumber.text = cards[position].number\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt	(revision 25cdf78ea33ca5d537138f1267ca988ab50b2e25)
++++ b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt	(date 1655309057473)
+@@ -32,14 +32,5 @@
+ 
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+         holder.cardNumber.text = cards[position].number
+-
+-
+-
+-
+-
+-
+-
+-
+-
+     }
+ }
+\ No newline at end of file

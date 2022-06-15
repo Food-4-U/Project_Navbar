@@ -199,11 +199,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_card"
             android:layout_width="381dp"
-            android:layout_height="157dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.298"
+            android:nestedScrollingEnabled="true"
+            android:overScrollMode="never"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView60" />
 
@@ -217,7 +218,6 @@
             android:textColor="@color/text"
             android:textSize="20sp"
             app:cornerRadius="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/continueOrder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_card"
             app:strokeColor="@color/product_name"
@@ -229,9 +229,9 @@
             android:layout_height="15dp"
             android:layout_marginStart="10dp"
             android:text="@string/newCard"
-            app:layout_constraintBottom_toTopOf="@+id/continueOrder"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView37"
             app:layout_constraintStart_toEndOf="@+id/imageView37"
-            app:layout_constraintTop_toBottomOf="@+id/rv_card" />
+            app:layout_constraintTop_toTopOf="@+id/imageView37" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
