@@ -19,10 +19,10 @@
         android:id="@+id/arrowBack"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="32.5dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/orderName" />
 
     <ImageView
         android:id="@+id/arrowBack1"
@@ -42,9 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="121dp"
-        android:fontFamily="@font/candarabold"
+        android:fontFamily="@font/segoeuib"
         android:gravity="center"
-        android:text="Finalizar"
+        android:text="@string/table"
         android:textColor="@color/white"
         android:textSize="44dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,12 +54,12 @@
         android:id="@+id/orderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="38dp"
         android:fontFamily="@font/candarabold"
         android:gravity="center"
-        android:text="Pedido"
+        android:text="@string/orders"
         android:textAllCaps="true"
-        android:textSize="16dp"
+        android:textAppearance="@style/NamePages"
         app:layout_constraintEnd_toEndOf="@+id/yellowRectangle"
         app:layout_constraintStart_toStartOf="@+id/yellowRectangle"
         app:layout_constraintTop_toTopOf="@+id/yellowRectangle" />
@@ -68,10 +68,10 @@
         android:id="@id/trashCanIcon"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="32.5dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderName"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/orderName" />
 
     <ImageView
         android:id="@+id/trashCanIcon1"
