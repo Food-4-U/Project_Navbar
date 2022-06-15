@@ -1,0 +1,232 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/ui/home/viewPagerQrCode/NowFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.ui.home.viewPagerQrCode\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.EditText\r\nimport android.widget.ImageView\r\nimport android.widget.Toast\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.fragment.app.FragmentTransaction\r\nimport com.google.android.material.button.MaterialButton\r\nimport com.grupo1.food4u_nav.MainActivity\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.databinding.FragmentNowBinding\r\nimport com.grupo1.food4u_nav.ui.home.QRCodeFragment\r\n\r\nclass NowFragment : Fragment() {\r\n    private var _binding: FragmentNowBinding? = null\r\n\r\n    private val binding get() = _binding!!\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        // Inflate the layout for this fragment\r\n        val view =  inflater.inflate(R.layout.fragment_now, container, false)\r\n\r\n        val qrCodeBtn = view.findViewById<ImageView>(R.id.qrcodeimage)\r\n\r\n        qrCodeBtn.setOnClickListener {\r\n            val fragmentManager = requireActivity().supportFragmentManager\r\n            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()\r\n            fragmentTransaction.replace(com.grupo1.food4u_nav.R.id.containerQr, QRCodeFragment ()).commit()\r\n        }\r\n\r\n\r\n        val submitTable = parentFragment!!.view!!.findViewById<MaterialButton>(R.id.submitTable)\r\n\r\n        val table = view.findViewById<EditText>(R.id.table)\r\n\r\n        submitTable.setOnClickListener {\r\n            var mesa = requireContext().getSharedPreferences(\"Mesa\", AppCompatActivity.MODE_PRIVATE)\r\n            val myEdit = mesa.edit()\r\n\r\n            if (table.text.isEmpty())\r\n                Toast.makeText(activity, \"Preencha o campo\", Toast.LENGTH_SHORT).show()\r\n            else{\r\n                myEdit.putInt(\"id_mesa\", table.text.toString().toInt())\r\n                myEdit.apply()\r\n                Toast.makeText(activity, \"Registada Mesa \" + table.text.toString(), Toast.LENGTH_LONG).show()\r\n\r\n                var intent = Intent(requireActivity().applicationContext, MainActivity::class.java)\r\n                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)\r\n                startActivity(intent)\r\n            }\r\n\r\n        }\r\n        return view\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/ui/home/viewPagerQrCode/NowFragment.kt b/app/src/main/java/com/grupo1/food4u_nav/ui/home/viewPagerQrCode/NowFragment.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/ui/home/viewPagerQrCode/NowFragment.kt	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
++++ b/app/src/main/java/com/grupo1/food4u_nav/ui/home/viewPagerQrCode/NowFragment.kt	(date 1655285298119)
+@@ -37,7 +37,7 @@
+         }
+ 
+ 
+-        val submitTable = parentFragment!!.view!!.findViewById<MaterialButton>(R.id.submitTable)
++        val submitTable = requireParentFragment().requireView().findViewById<MaterialButton>(R.id.submitTable)
+ 
+         val table = view.findViewById<EditText>(R.id.table)
+ 
+Index: app/src/main/java/com/grupo1/food4u_nav/ui/search/SearchFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.ui.search\r\n\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.SearchView\r\nimport androidx.core.view.isGone\r\nimport androidx.fragment.app.Fragment\r\nimport androidx.recyclerview.widget.GridLayoutManager\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.adapters.CategoriesAdapter\r\nimport com.grupo1.food4u_nav.adapters.ProductMenuAdapter\r\nimport com.grupo1.food4u_nav.databinding.FragmentSearchBinding\r\nimport com.grupo1.food4u_nav.models.CategoryType\r\nimport com.grupo1.food4u_nav.models.Item_Menu\r\n\r\nclass  SearchFragment : Fragment() {\r\n\r\n    private var _binding: FragmentSearchBinding? = null\r\n    private val binding get() = _binding!!\r\n\r\n    var categories: List<CategoryType> = emptyList()\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View {\r\n        _binding = FragmentSearchBinding.inflate(inflater, container, false)\r\n        val root: View = binding.root\r\n\r\n        Backend.getAllCategories {\r\n            categories = it\r\n\r\n            val rv_Categories : RecyclerView = root.findViewById(R.id.rv_categories)\r\n            val CategoriesAdapter = CategoriesAdapter(requireActivity(),categories)\r\n\r\n            rv_Categories.layoutManager = GridLayoutManager(activity, 2)\r\n            rv_Categories.adapter = CategoriesAdapter\r\n        }\r\n\r\n        var rv = binding.rvSearch\r\n        var imgNotFound = binding.imgNotFound\r\n        var textNotFound = binding.textNotFound\r\n\r\n\r\n        var searchView = binding.menuSearchView\r\n        var cardview = binding.cardviewCategories\r\n\r\n        var itens: List<Item_Menu> = arrayListOf()\r\n        var itensPes: MutableList<Item_Menu> = ArrayList()\r\n\r\n        rv.layoutManager = GridLayoutManager(activity, 2)\r\n\r\n        Backend.getAllItens {\r\n            itens = it\r\n\r\n            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {\r\n                override fun onQueryTextSubmit(query: String): Boolean {\r\n                    return false\r\n                }\r\n                override fun onQueryTextChange(newText: String): Boolean {\r\n                    if(newText.isEmpty()){\r\n                        rv.isGone = true\r\n                        cardview.isGone = false\r\n                        imgNotFound.isGone = true\r\n                        textNotFound.isGone = true\r\n                    }\r\n                    else{\r\n                        cardview.isGone = true\r\n                        rv.isGone = false\r\n\r\n                        itensPes.removeAll(itensPes)\r\n\r\n                        for (element in itens)\r\n                            if (element.nome!!.contains(newText,true))\r\n                                itensPes.add(element)\r\n\r\n                        if (itensPes.isEmpty())\r\n                        {\r\n                            imgNotFound.isGone = false\r\n                            textNotFound.isGone = false\r\n                            rv.isGone = true\r\n                            cardview.isGone =true\r\n                        }\r\n                        else\r\n                            rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)\r\n                    }\r\n                    return false\r\n                }\r\n            })\r\n\r\n        }\r\n        return root\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/ui/search/SearchFragment.kt b/app/src/main/java/com/grupo1/food4u_nav/ui/search/SearchFragment.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/ui/search/SearchFragment.kt	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
++++ b/app/src/main/java/com/grupo1/food4u_nav/ui/search/SearchFragment.kt	(date 1655286490228)
+@@ -57,42 +57,44 @@
+         Backend.getAllItens {
+             itens = it
+ 
+-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+-                override fun onQueryTextSubmit(query: String): Boolean {
+-                    return false
+-                }
+-                override fun onQueryTextChange(newText: String): Boolean {
+-                    if(newText.isEmpty()){
+-                        rv.isGone = true
+-                        cardview.isGone = false
+-                        imgNotFound.isGone = true
+-                        textNotFound.isGone = true
+-                    }
+-                    else{
+-                        cardview.isGone = true
+-                        rv.isGone = false
++
++
++        }
++
++        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
++            override fun onQueryTextSubmit(query: String): Boolean {
++                return false
++            }
++            override fun onQueryTextChange(newText: String): Boolean {
++                if(newText.isEmpty()){
++                    rv.isGone = true
++                    cardview.isGone = false
++                    imgNotFound.isGone = true
++                    textNotFound.isGone = true
++                }
++                else{
++                    cardview.isGone = true
++                    rv.isGone = false
+ 
+-                        itensPes.removeAll(itensPes)
++                    itensPes.removeAll(itensPes)
+ 
+-                        for (element in itens)
+-                            if (element.nome!!.contains(newText,true))
+-                                itensPes.add(element)
++                    for (element in itens)
++                        if (element.nome!!.contains(newText,true))
++                            itensPes.add(element)
+ 
+-                        if (itensPes.isEmpty())
+-                        {
+-                            imgNotFound.isGone = false
+-                            textNotFound.isGone = false
+-                            rv.isGone = true
+-                            cardview.isGone =true
+-                        }
+-                        else
+-                            rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
+-                    }
+-                    return false
+-                }
+-            })
+-
+-        }
++                    if (itensPes.isEmpty())
++                    {
++                        imgNotFound.isGone = false
++                        textNotFound.isGone = false
++                        rv.isGone = true
++                        cardview.isGone =true
++                    }
++                    else
++                        rv.adapter = ProductMenuAdapter(requireActivity(),itensPes)
++                }
++                return false
++            }
++        })
+         return root
+     }
+ 
+Index: app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.adapters\r\n\r\nimport Backend\r\nimport android.content.Context\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.models.CardNumber\r\n\r\nclass cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {\r\n\r\n\r\n    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {\r\n        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)\r\n        var cardNumber = itemView.findViewById<TextView>(R.id.textView63)\r\n\r\n    }\r\n\r\n    private var card = emptyList<CardNumber>()\r\n\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {\r\n        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)\r\n        return ViewHolder(view)\r\n    }\r\n\r\n    override fun getItemCount(): Int {\r\n        return card.size\r\n    }\r\n\r\n    override fun onBindViewHolder(holder: ViewHolder, position: Int) {\r\n        holder.cardNumber.text = cards[position].number\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt b/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+deleted file mode 100644
+--- a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
++++ /dev/null	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
+@@ -1,47 +0,0 @@
+-package com.grupo1.food4u_nav.adapters
+-
+-import Backend
+-import android.content.Context
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import android.widget.ImageView
+-import android.widget.TextView
+-import androidx.appcompat.app.AppCompatActivity
+-import androidx.recyclerview.widget.RecyclerView
+-import com.grupo1.food4u_nav.R
+-import com.grupo1.food4u_nav.models.CardNumber
+-
+-class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
+-
+-
+-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+-        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
+-        var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
+-
+-    }
+-
+-    private var card = emptyList<CardNumber>()
+-
+-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+-        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
+-        return ViewHolder(view)
+-    }
+-
+-    override fun getItemCount(): Int {
+-        return card.size
+-    }
+-
+-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+-        holder.cardNumber.text = cards[position].number
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-    }
+-}
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/card_rv.xml\" value=\"0.24155622060709706\" />\r\n        <entry key=\"..\\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml\" value=\"0.24155622060709706\" />\r\n        <entry key=\"..\\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml\" value=\"0.20521590423257802\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
++++ b/.idea/misc.xml	(date 1655285298591)
+@@ -7,6 +7,8 @@
+         <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.24155622060709706" />
+         <entry key="..\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml" value="0.4" />
+         <entry key="..\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.20521590423257802" />
++        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/card_rv.xml" value="0.22530996152201796" />
++        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_desk.xml" value="0.22530996152201796" />
+       </map>
+     </option>
+   </component>
+Index: app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.adapters\r\n\r\nimport Backend\r\nimport android.content.Context\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.grupo1.food4u_nav.R\r\nimport com.grupo1.food4u_nav.models.CardNumber\r\n\r\nclass cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {\r\n\r\n\r\n    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {\r\n        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)\r\n        var cardNumber = itemView.findViewById<TextView>(R.id.textView63)\r\n\r\n    }\r\n\r\n    private var card = emptyList<CardNumber>()\r\n\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {\r\n        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)\r\n        return ViewHolder(view)\r\n    }\r\n\r\n    override fun getItemCount(): Int {\r\n        return card.size\r\n    }\r\n\r\n    override fun onBindViewHolder(holder: ViewHolder, position: Int) {\r\n        holder.cardNumber.text = cards[position].number\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt	(revision 72af0db0828fe7ca03d4f41cb87f5983a9891833)
++++ b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt	(date 1655281289867)
+@@ -5,6 +5,7 @@
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
++import android.widget.Button
+ import android.widget.ImageView
+ import android.widget.TextView
+ import androidx.appcompat.app.AppCompatActivity
+@@ -12,24 +13,22 @@
+ import com.grupo1.food4u_nav.R
+ import com.grupo1.food4u_nav.models.CardNumber
+ 
+-class cardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
++class CardAdapter(val context: Context, val cards : List<CardNumber>): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+ 
+ 
+     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+-        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
++        var buttonAddCard = itemView.findViewById<Button>(R.id.imageView37)
+         var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
+ 
+     }
+ 
+-    private var card = emptyList<CardNumber>()
+-
+     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+         var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
+         return ViewHolder(view)
+     }
+ 
+     override fun getItemCount(): Int {
+-        return card.size
++        return cards.size
+     }
+ 
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
