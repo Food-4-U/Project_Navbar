@@ -6,7 +6,7 @@
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml" value="0.22" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_itens_category.xml" value="0.1" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_order.xml" value="0.1" />
-        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_order_details.xml" value="0.5" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_order_details.xml" value="0.33" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/card_rv.xml" value="0.24721878862793573" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_card.xml" value="0.1931097008159565" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_home.xml" value="0.28513145965548503" />
@@ -14,6 +14,7 @@
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.1931097008159565" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_wallet.xml" value="0.284737067122702" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_categories.xml" value="0.284737067122702" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_fatura.xml" value="0.28388200085506626" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_hottest.xml" value="0.28513145965548503" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.14375261178437107" />
         <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_subcategories.xml" value="0.28513145965548503" />
