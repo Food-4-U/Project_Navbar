@@ -1,18 +1,25 @@
 package com.grupo1.food4u_nav.adapters
 
+import Backend
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.CategoryType
+import com.grupo1.food4u_nav.ui.admin.CategorySubFragment
+import com.grupo1.food4u_nav.ui.admin.EditCategorySub
 import com.squareup.picasso.Picasso
+
 
 class ListViewAdapter (var context: Context, var expandableListView : ExpandableListView,
                        var header : MutableList<String>, var body : MutableList<MutableList<CategoryType>>)
@@ -46,7 +53,6 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
                 expandableListView.collapseGroup(groupPosition)
             else
                 expandableListView.expandGroup(groupPosition)
-            Toast.makeText(context, getGroup(groupPosition), Toast.LENGTH_SHORT).show()
         }
 
 
@@ -82,10 +88,18 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
         Picasso.get().load(pos.url).fit().centerCrop().into(editImage)
 
         convertView.setOnClickListener {
-            Toast.makeText(context, pos.id.toString(), Toast.LENGTH_SHORT).show()
-            showDialog(pos)
-        }
+            val fragment = EditCategorySub()
+            val args = Bundle()
+            var data = arrayOf("0",pos.id.toString(),pos.name,pos.url)
+            args.putStringArray("data",data)
+            fragment.arguments = args
 
+            val mFragmentManager = (context as FragmentActivity).supportFragmentManager
+            val transaction: FragmentTransaction = mFragmentManager.beginTransaction()
+            transaction.replace(R.id.containerMenuManage, fragment)
+            transaction.addToBackStack("null")
+            transaction.commit()
+        }
 
         return convertView
     }
@@ -96,57 +110,5 @@ class ListViewAdapter (var context: Context, var expandableListView : Expandable
 
     override fun getGroupCount(): Int {
         return header.size
-    }
-
-
-    @SuppressLint("ResourceType")
-    private fun showDialog(category: CategoryType) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(true)
-        dialog.setContentView(R.layout.custom_editdialog)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-
-        var subcategoryname = dialog.findViewById(R.id.titleCategorySubDialog) as TextView
-        subcategoryname.text =  context.getString(R.string.editCategory)
-
-        var categorySubEditText = dialog.findViewById(R.id.categorySubEditText) as EditText
-        categorySubEditText.setText(category.name)
-
-        var submitCategorySub = dialog.findViewById(R.id.submitCategorySub) as TextView
-
-        category.name = categorySubEditText.text.toString()
-
-        submitCategorySub.setOnClickListener {
-            Backend.updateCategory(category.id!!, category){
-                if (!it)
-                    Toast.makeText(context, "Erro ao atualizar!", Toast.LENGTH_SHORT).show()
-                else
-                    Toast.makeText(context, "Atualizou", Toast.LENGTH_SHORT).show()
-            }
-            dialog.dismiss()
-        }
-
-        val deleteCategorySub = dialog.findViewById<ImageButton>(R.id.deleteCategorySub)
-        deleteCategorySub.setOnClickListener {
-            Backend.deleteCategory(category.id!!.toInt()){
-                if (!it)
-                    Toast.makeText(context,"Erro ao remover!", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        var cancelCategorySub = dialog.findViewById(R.id.cancelCategorySub) as TextView
-        var closeCategorySub = dialog.findViewById(R.id.closeCategorySub) as ImageButton
-
-        cancelCategorySub.setOnClickListener {
-            dialog.dismiss()
-        }
-        closeCategorySub.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        dialog.show()
-
     }
 }
