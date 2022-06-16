@@ -10,7 +10,7 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.ItensPedido
 import com.grupo1.food4u_nav.models.PedidoItensFatura
 
-class OrderDetailAdapter(val context: Context, val id: Int) : RecyclerView.Adapter<OrderDetailAdapter.ViewHolder>() {
+class OrderDetailAdapter(val context: Context, var pedido : List<PedidoItensFatura>) : RecyclerView.Adapter<OrderDetailAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var productName = itemView.findViewById<TextView>(R.id.produtoNameFaturaROW)
@@ -28,17 +28,16 @@ class OrderDetailAdapter(val context: Context, val id: Int) : RecyclerView.Adapt
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Backend.GetItemsPedido(id.toString()) {
-            var pedido = it
+
             holder.productName.text = pedido[position].nome
             holder.productQtd.text = pedido[position].qtd.toString()
             holder.productPrice.text = pedido[position].preco.toString().plus("€")
             holder.productTotal.text = (pedido[position].qtd!! * pedido[position].preco!!).toString().plus("€")
-        }
+
 
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return pedido.size;
     }
 }

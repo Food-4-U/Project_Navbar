@@ -72,7 +72,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url(BASE_API + "Cliente" + "/" + id_cliente)
+                .url(BASE_API + "Cliente/GetCliente/" + id_cliente)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
