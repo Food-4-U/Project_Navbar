@@ -53,6 +53,7 @@ class PaymentMethodFragment : Fragment() {
         val payPal = binding.imageView29
         val counter = binding.imageView32
         val payButton = binding.continueOrder
+        val nif = binding.nifNumberBar
 
 
         var cCardIsChecked = false
@@ -144,6 +145,10 @@ class PaymentMethodFragment : Fragment() {
         payButton.setOnClickListener {
             if (cCardIsChecked) {
 
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Cartão de Crédito")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
@@ -218,6 +223,10 @@ class PaymentMethodFragment : Fragment() {
 
             else if (mbWayIsChecked) {
 
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "MbWay")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
@@ -290,6 +299,10 @@ class PaymentMethodFragment : Fragment() {
             }
 
             else if (payPalIsChecked) {
+
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Paypal")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
 
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
@@ -364,6 +377,10 @@ class PaymentMethodFragment : Fragment() {
             }
 
             else if (counterIsChecked) {
+
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Ao balcão")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
 
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)

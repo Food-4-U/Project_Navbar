@@ -48,15 +48,17 @@ class OrderDetailsActivity : AppCompatActivity() {
         val faturaNum = findViewById<TextView>(R.id.faturanumero)
         val total = findViewById<TextView>(R.id.totalMoneyFatura)
         val mesa = findViewById<TextView>(R.id.tableFatura)
+        val tipoPayment = findViewById<TextView>(R.id.pagamentoFatura)
 
         var id_pedido = intent.getIntExtra("id_pedido", 0)
         var id_cliente = getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+        tipoPayment.text = getSharedPreferences("Tipo", MODE_PRIVATE).getString("tipo", "")
 
         Backend.getClientes(id_cliente){
             var cliente = it
 
             nomeClient.text = cliente.nome
-            nif.text = cliente.nif
+            nif.text = getSharedPreferences("Nif", MODE_PRIVATE).getString("nif", "")
             email.text = cliente.email
         }
 
