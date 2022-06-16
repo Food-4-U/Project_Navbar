@@ -80,7 +80,7 @@ class FinishOrderActivity : AppCompatActivity() {
                 }
                 else {
                     GlobalScope.launch(Dispatchers.IO) {
-                        CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
+                        CartDatabase.getDatabase(this@FinishOrderActivity).cartDao().deleteCart()
                         var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
                         var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
