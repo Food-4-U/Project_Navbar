@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.ui.profile.viewPager.settings
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
+import com.grupo1.food4u_nav.OrderDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.CardAdapter
 import com.grupo1.food4u_nav.adapters.OrderAdapter
@@ -176,6 +178,11 @@ class PaymentMethodFragment : Fragment() {
                             var pedidos = it
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
+                            var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
+                            var myEdit = id_pedido.edit()
+
+                            myEdit.putInt("id_pedido", pedidos[0].id_pedido!!)
+                            myEdit.apply()
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
 
@@ -200,7 +207,10 @@ class PaymentMethodFragment : Fragment() {
                         }
                     }
 
-                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                    val i = Intent(activity, OrderDetailsActivity::class.java)
+                    i.putExtra("id_pedido", id)
                     startActivity(i)
                 }
 
@@ -314,7 +324,7 @@ class PaymentMethodFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val i = Intent(activity, FinishOrderActivity::class.java)
+                    val i = Intent(activity, OrderDetailsActivity::class.java)
                     startActivity(i)
                 }
 

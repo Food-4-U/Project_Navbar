@@ -1,13 +1,17 @@
 package com.grupo1.food4u_nav.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.grupo1.food4u_nav.MainActivity
+import com.grupo1.food4u_nav.OrderDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.ItensPedido
 import com.grupo1.food4u_nav.models.Pedido
@@ -55,6 +59,9 @@ class RvOrderAdapter(val context: Context, val orders : List<Pedido>) : Recycler
 
                 //inflate com a list
                 holder.details.setOnClickListener {
+                    val intent = Intent(context, OrderDetailsActivity::class.java)
+                    intent.putExtra("id_pedido", id_pedido)
+                    context.startActivity(intent)
                 }
             }
         }
