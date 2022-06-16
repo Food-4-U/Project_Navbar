@@ -24,10 +24,10 @@
             android:id="@+id/quantidadeFaturaROW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="82dp"
             android:fontFamily="@font/cour"
-            android:textColor="@color/black"
             android:text="QTD"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/produtoNameFaturaROW"
             app:layout_constraintTop_toTopOf="@+id/produtoNameFaturaROW" />
 
@@ -35,12 +35,21 @@
             android:id="@+id/precoROW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:textColor="@color/black"
+            android:layout_marginStart="37dp"
             android:fontFamily="@font/cour"
             android:text="preço"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/quantidadeFaturaROW"
             app:layout_constraintTop_toTopOf="@+id/quantidadeFaturaROW" />
+
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Tota::"
+            app:layout_constraintStart_toEndOf="@+id/precoROW"
+            app:layout_constraintTop_toTopOf="@+id/precoROW" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
