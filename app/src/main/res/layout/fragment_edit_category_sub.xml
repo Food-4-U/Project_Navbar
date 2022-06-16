@@ -4,41 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.NewCategorySubFragment">
-
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:checkedButton="@id/radioButtonSub"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/categorySubEditText3"
-        app:layout_constraintTop_toBottomOf="@+id/namePageEditCategory2">
-
-        <RadioButton
-            android:id="@+id/radioButtonCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:fontFamily="@font/segoeuil"
-            android:text="@string/Categories"
-            android:visibility="visible" />
-
-        <RadioButton
-            android:id="@+id/radioButtonSub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:checked="false"
-            android:fontFamily="@font/segoeuil"
-            android:text="@string/subCategories" />
-    </RadioGroup>
+    tools:context=".ui.admin.EditCategorySub">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/add_categorySub2"
+        android:id="@+id/edit_categorySub"
         style="@style/Button"
         android:layout_width="370dp"
         android:layout_height="70dp"
@@ -47,7 +16,7 @@
         android:layout_marginBottom="15dp"
         android:elevation="10dp"
         android:focusedByDefault="true"
-        android:text="@string/add"
+        android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -55,19 +24,19 @@
     </com.google.android.material.button.MaterialButton>
 
     <Button
-        android:id="@+id/backBtnAdd"
+        android:id="@+id/backButtonEditCategorySub3"
         android:layout_width="56dp"
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/transparent_background"
         app:icon="@drawable/backbtn"
         app:iconTint="@color/text"
-        app:layout_constraintBottom_toBottomOf="@+id/namePageEditCategory2"
+        app:layout_constraintBottom_toBottomOf="@+id/namePageEditCategory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/namePageEditCategory2" />
+        app:layout_constraintTop_toTopOf="@+id/namePageEditCategory" />
 
     <TextView
-        android:id="@+id/namePageEditCategory2"
+        android:id="@+id/namePageEditCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
@@ -80,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/categorySubEditUrl2"
+        android:id="@+id/categorySubAddUrl"
         style="@style/EditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -90,16 +59,16 @@
         android:hint="URL"
         android:inputType="textPersonName"
         android:paddingLeft="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/categorySubEditText3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/categorySubEditText3"
-        app:layout_constraintTop_toBottomOf="@+id/categorySubEditText3" />
+        app:layout_constraintEnd_toEndOf="@+id/categorySubAddText2"
+        app:layout_constraintStart_toStartOf="@+id/categorySubAddText2"
+        app:layout_constraintTop_toBottomOf="@+id/categorySubAddText2" />
 
     <EditText
-        android:id="@+id/categorySubEditText3"
+        android:id="@+id/categorySubAddText2"
         style="@style/EditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/login_backgroundedittext"
         android:ems="10"
         android:hint="@string/name"
@@ -107,5 +76,16 @@
         android:paddingLeft="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/namePageEditCategory" />
+
+    <ImageButton
+        android:id="@+id/deleteCategorySub2"
+        android:layout_width="53dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/leftarrow"
+        app:layout_constraintBottom_toBottomOf="@+id/namePageEditCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/namePageEditCategory" />
 </androidx.constraintlayout.widget.ConstraintLayout>
