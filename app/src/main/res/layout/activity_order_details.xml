@@ -298,7 +298,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/segoeui"
         android:layout_marginTop="25dp"
-        android:text="Fatura enviada por:"
+        android:text="Fatura enviada por: Email"
         app:layout_constraintStart_toStartOf="@+id/pagamentoFatura"
         app:layout_constraintTop_toBottomOf="@+id/pagamentoFatura" />
 
@@ -306,9 +306,9 @@
         android:id="@+id/button3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
         android:text="Continuar"
-        android:layout_marginTop="100dp"
+        android:textSize="25dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/faturaCard" />
