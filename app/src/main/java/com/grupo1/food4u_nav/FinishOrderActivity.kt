@@ -70,9 +70,6 @@ class FinishOrderActivity : AppCompatActivity() {
             var i = 0
             var nota = 0.0
 
-            nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
-            i++
-
             evaluatebtn.setOnClickListener {
                 if (i < cart.size){
                     nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)

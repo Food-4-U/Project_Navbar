@@ -268,8 +268,6 @@ class PaymentMethodFragment : Fragment() {
                             myEdit.apply()
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
-
-                                //este valor tem de ir para cart fora
                                 var cart = it
 
                                 for (i in 1..cart.size) {
