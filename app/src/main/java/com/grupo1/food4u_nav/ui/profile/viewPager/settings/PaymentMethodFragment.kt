@@ -179,7 +179,7 @@ class PaymentMethodFragment : Fragment() {
 
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
-                        Backend.GetAllPedidos(cliente){
+                       Backend.GetAllPedidos(cliente){
                             var pedidos = it
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
@@ -205,18 +205,18 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
+
+                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                            val i = Intent(activity, OrderDetailsActivity::class.java)
+                                            i.putExtra("id_pedido", id)
+                                            startActivity(i)
                                         }
                                     }
                                 }
                             })
-                        }
+                       }
                     }
-
-                    var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                    val i = Intent(activity, OrderDetailsActivity::class.java)
-                    i.putExtra("id_pedido", id)
-                    startActivity(i)
                 }
 
             }
@@ -281,18 +281,18 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
+
+                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                            val i = Intent(activity, OrderDetailsActivity::class.java)
+                                            i.putExtra("id_pedido", id)
+                                            startActivity(i)
                                         }
                                     }
                                 }
                             })
                         }
                     }
-
-                    var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                    val i = Intent(activity, OrderDetailsActivity::class.java)
-                    i.putExtra("id_pedido", id)
-                    startActivity(i)
                 }
             }
 
@@ -358,18 +358,18 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
+
+                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                            val i = Intent(activity, OrderDetailsActivity::class.java)
+                                            i.putExtra("id_pedido", id)
+                                            startActivity(i)
                                         }
                                     }
                                 }
                             })
                         }
                     }
-
-                    var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                    val i = Intent(activity, OrderDetailsActivity::class.java)
-                    i.putExtra("id_pedido", id)
-                    startActivity(i)
                 }
 
             }
@@ -437,17 +437,17 @@ class PaymentMethodFragment : Fragment() {
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }
+
+                                        var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                        val i = Intent(activity, OrderDetailsActivity::class.java)
+                                        i.putExtra("id_pedido", id)
+                                        startActivity(i)
                                     }
                                 }
                             })
                         }
                     }
-
-                    var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                    val i = Intent(activity, OrderDetailsActivity::class.java)
-                    i.putExtra("id_pedido", id)
-                    startActivity(i)
                 }
 
             } else {
