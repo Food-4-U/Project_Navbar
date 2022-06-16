@@ -23,7 +23,6 @@ class MenuFragment : Fragment() {
     var itens : List<Item_Menu> = arrayListOf()
     var subcategories : List<SubCategories> = arrayListOf()
 
-    private var mainCategoryRecycler:RecyclerView? = null
     private var mainRecyclerAdapter: SectionAdapter? = null
 
 
@@ -40,12 +39,9 @@ class MenuFragment : Fragment() {
         Backend.getAllSubcategories {
             subcategories = it
 
-
             val rv_subcategories : RecyclerView = root.findViewById(R.id.rv_menu)
-            val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
+            val mainCategoryRecycler : RecyclerView = root.findViewById(R.id.main_recycler)
 
-            rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-            rv_subcategories.adapter = subCategoriesAdapter
 
             Backend.getAllItens {
                 itens = it
@@ -62,20 +58,32 @@ class MenuFragment : Fragment() {
                     allCategory.add(SectionMenu(subcategories[i].name.toString(), categoryItemList))
                 }
 
-                setMainCategoryRecycler(root,allCategory)
+
+                setMainCategoryRecycler(mainCategoryRecycler,allCategory)
+
+                val subCategoriesAdapter = SubCategoriesAdapterMenu(requireActivity(), subcategories,mainCategoryRecycler)
+
+                rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
+                rv_subcategories.adapter = subCategoriesAdapter
             }
         }
 
         return root
     }
 
-    private fun setMainCategoryRecycler(view:View,allCategory: List<SectionMenu>){
+    private fun setMainCategoryRecycler(rv: RecyclerView/*view:View*/,allCategory: List<SectionMenu>){
 
-        mainCategoryRecycler = view.findViewById(R.id.main_recycler)
+         // mainCategoryRecycler = view.findViewById(R.id.main_recycler)
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(requireActivity())
-        mainCategoryRecycler!!.layoutManager = layoutManager
+        rv.layoutManager = layoutManager
+
         mainRecyclerAdapter = SectionAdapter(requireActivity(), allCategory)
-        mainCategoryRecycler!!.adapter = mainRecyclerAdapter
+        rv!!.adapter = mainRecyclerAdapter
+        //mainCategoryRecycler!!.layoutManager = layoutManager
+
+       /*
+        mainRecyclerAdapter = SectionAdapter(requireActivity(), allCategory)
+        mainCategoryRecycler!!.adapter = mainRecyclerAdapter*/
 
     }
     override fun onDestroyView() {

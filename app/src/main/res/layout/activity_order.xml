@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
         android:fontFamily="@font/trebucbd"
-        android:text="7.50€"
+        android:text="0.00€"
         android:textColor="@color/text"
         android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
