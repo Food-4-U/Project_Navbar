@@ -237,6 +237,7 @@
         android:layout_width="338dp"
         android:layout_height="160dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/transparent_background"
         app:layout_constraintEnd_toEndOf="@+id/imageView33"
         app:layout_constraintStart_toStartOf="@+id/imageView33"
         app:layout_constraintTop_toBottomOf="@+id/dash" />
