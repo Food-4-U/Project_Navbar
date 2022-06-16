@@ -194,9 +194,9 @@ class PaymentMethodFragment : Fragment() {
                                 //este valor tem de ir para cart fora
                                 var cart = it
 
-                                for (i in 1..cart.size) {
-                                    itensPedido.id_item = cart[i - 1].item_id
-                                    itensPedido.qtd = cart[i - 1].quantidade
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
 
                                     Backend.addItemPedido(itensPedido) {
                                         if (it) {
@@ -205,15 +205,15 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
-
-                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                                            val i = Intent(activity, OrderDetailsActivity::class.java)
-                                            i.putExtra("id_pedido", id)
-                                            startActivity(i)
                                         }
                                     }
                                 }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
                             })
                        }
                     }
@@ -268,11 +268,13 @@ class PaymentMethodFragment : Fragment() {
                             myEdit.apply()
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+
+                                //este valor tem de ir para cart fora
                                 var cart = it
 
-                                for (i in 1..cart.size) {
-                                    itensPedido.id_item = cart[i - 1].item_id
-                                    itensPedido.qtd = cart[i - 1].quantidade
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
 
                                     Backend.addItemPedido(itensPedido) {
                                         if (it) {
@@ -281,15 +283,15 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
-
-                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                                            val i = Intent(activity, OrderDetailsActivity::class.java)
-                                            i.putExtra("id_pedido", id)
-                                            startActivity(i)
                                         }
                                     }
                                 }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
                             })
                         }
                     }
@@ -347,9 +349,9 @@ class PaymentMethodFragment : Fragment() {
                                 //este valor tem de ir para cart fora
                                 var cart = it
 
-                                for (i in 1..cart.size) {
-                                    itensPedido.id_item = cart[i - 1].item_id
-                                    itensPedido.qtd = cart[i - 1].quantidade
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
 
                                     Backend.addItemPedido(itensPedido) {
                                         if (it) {
@@ -358,15 +360,15 @@ class PaymentMethodFragment : Fragment() {
                                                 "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
-
-                                            var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                                            val i = Intent(activity, OrderDetailsActivity::class.java)
-                                            i.putExtra("id_pedido", id)
-                                            startActivity(i)
                                         }
                                     }
                                 }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
                             })
                         }
                     }
@@ -425,26 +427,26 @@ class PaymentMethodFragment : Fragment() {
                                 //este valor tem de ir para cart fora
                                 var cart = it
 
-                                for (i in 1..cart.size) {
-                                    itensPedido.id_item = cart[i - 1].item_id
-                                    itensPedido.qtd = cart[i - 1].quantidade
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
 
                                     Backend.addItemPedido(itensPedido) {
                                         if (it) {
                                             Toast.makeText(
                                                 requireActivity(),
-                                                "Aguarde Funcionário",
+                                                "Pedido feito com sucesso,",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }
-
-                                        var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
-
-                                        val i = Intent(activity, OrderDetailsActivity::class.java)
-                                        i.putExtra("id_pedido", id)
-                                        startActivity(i)
                                     }
                                 }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
                             })
                         }
                     }
