@@ -156,12 +156,12 @@
         android:id="@+id/dataFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="-50dp"
-        android:textSize="12dp"
         android:fontFamily="@font/consola"
         android:text="10/10/1998 - 10:00:59"
         android:textColor="@color/black"
+        android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
@@ -355,11 +355,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:fontFamily="@font/consolab"
+        android:text="Total"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:text="Total"
-        app:layout_constraintBottom_toBottomOf="@+id/textView18"
-        app:layout_constraintStart_toEndOf="@+id/textView18" />
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

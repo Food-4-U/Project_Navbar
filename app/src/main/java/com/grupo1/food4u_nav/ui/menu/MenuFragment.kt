@@ -61,7 +61,7 @@ class MenuFragment : Fragment() {
 
                 setMainCategoryRecycler(mainCategoryRecycler,allCategory)
 
-                val subCategoriesAdapter = SubCategoriesAdapterMenu(requireActivity(), subcategories,mainCategoryRecycler)
+                val subCategoriesAdapter = SubCategoriesAdapterMenu(subcategories)
 
                 rv_subcategories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
                 rv_subcategories.adapter = subCategoriesAdapter

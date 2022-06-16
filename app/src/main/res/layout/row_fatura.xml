@@ -47,7 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:fontFamily="@font/cour"
             android:text="Tota::"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/precoROW"
             app:layout_constraintTop_toTopOf="@+id/precoROW" />
     </androidx.constraintlayout.widget.ConstraintLayout>
