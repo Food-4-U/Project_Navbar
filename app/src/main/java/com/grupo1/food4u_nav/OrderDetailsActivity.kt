@@ -58,13 +58,13 @@ class OrderDetailsActivity : AppCompatActivity() {
             var cliente = it
 
             nomeClient.text = cliente.nome
-            nif.text = getSharedPreferences("Nif", MODE_PRIVATE).getString("nif", "")
+            nif.text = cliente.nif
             email.text = cliente.email
         }
 
-        Backend.GetAllPedidos(id_cliente)
+        Backend.GetPedidosbyID(id_pedido)
         {
-            var pedidos = it[0]
+            var pedidos = it
 
             data.text = pedidos.dataHora
             faturaNum.text = "RF-" + pedidos.id_pedido.toString()
