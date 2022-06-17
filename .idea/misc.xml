@@ -3,16 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_finish_order.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_itens_category.xml" value="0.26473254759746145" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_login.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_manage_menus.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_order.xml" value="0.26473254759746145" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_order_details.xml" value="0.26473254759746145" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_product_details.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/activity_settings.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_menu.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_order.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.26473254759746145" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_product_manager.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/fragment_show_menu.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_fatura.xml" value="0.5" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_favorites.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_orderitens.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_orderprofile.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_product.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/activity_finish_order.xml" value="0.2015625" />
         <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/card_rv.xml" value="0.24155622060709706" />
         <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.24155622060709706" />
         <entry key="..\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml" value="0.4" />
         <entry key="..\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml" value="0.22530996152201796" />
-        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/activity_order_details.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/activity_order_details.xml" value="0.264" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/card_rv.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_desk.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_order.xml" value="0.2841918294849023" />
         <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_fatura.xml" value="0.536" />
+        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_order.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_orderitens.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_orderprofile.xml" value="0.22530996152201796" />
       </map>
     </option>
   </component>

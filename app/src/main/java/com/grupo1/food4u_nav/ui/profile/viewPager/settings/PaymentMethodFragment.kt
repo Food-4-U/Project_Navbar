@@ -1,6 +1,7 @@
 package com.grupo1.food4u_nav.ui.profile.viewPager.settings
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.grupo1.food4u_nav.FinishOrderActivity
 import com.grupo1.food4u_nav.OrderActivity
+import com.grupo1.food4u_nav.OrderDetailsActivity
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.adapters.CardAdapter
 import com.grupo1.food4u_nav.adapters.OrderAdapter
@@ -51,6 +53,7 @@ class PaymentMethodFragment : Fragment() {
         val payPal = binding.imageView29
         val counter = binding.imageView32
         val payButton = binding.continueOrder
+        val nif = binding.nifNumberBar
 
 
         var cCardIsChecked = false
@@ -142,6 +145,88 @@ class PaymentMethodFragment : Fragment() {
         payButton.setOnClickListener {
             if (cCardIsChecked) {
 
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Cartão de Crédito")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
+                var pedido = Pedido(null, null, null, null, null,
+                    null, null, null)
+
+                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+                var date = dataFormat.format(Date().time)
+                pedido.dataHora = date
+                pedido.pago = true
+                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
+
+                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
+                    val fragmentManager = (activity as FragmentActivity).supportFragmentManager
+                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
+                    fragmentTransaction.replace(R.id.containerOrder, DeskFragment())
+                    fragmentTransaction.addToBackStack(null).commit()
+
+                } else {
+                    Backend.addPedido(pedido) {
+                        if (!it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Erro.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+
+                       Backend.GetAllPedidos(cliente){
+                            var pedidos = it.sortedByDescending { it.id_pedido }
+                            var itensPedido = ItensPedido (null, null, null, null)
+                            itensPedido.id_pedido = pedidos[0].id_pedido
+                            var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
+                            var myEdit = id_pedido.edit()
+
+                            myEdit.putInt("id_pedido", pedidos[0].id_pedido!!)
+                            myEdit.apply()
+
+                            CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+
+                                //este valor tem de ir para cart fora
+                                var cart = it
+
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
+
+                                    Backend.addItemPedido(itensPedido) {
+                                        if (it) {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                "Pedido feito com sucesso,",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
+                            })
+                       }
+                    }
+                }
+
+            }
+
+            else if (mbWayIsChecked) {
+
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "MbWay")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
@@ -176,15 +261,20 @@ class PaymentMethodFragment : Fragment() {
                             var pedidos = it
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
+                            var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
+                            var myEdit = id_pedido.edit()
+
+                            myEdit.putInt("id_pedido", pedidos[0].id_pedido!!)
+                            myEdit.apply()
 
                             CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
 
                                 //este valor tem de ir para cart fora
                                 var cart = it
 
-                                for (i in 1..cart.size) {
-                                    itensPedido.id_item = cart[i - 1].item_id
-                                    itensPedido.qtd = cart[i - 1].quantidade
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
 
                                     Backend.addItemPedido(itensPedido) {
                                         if (it) {
@@ -196,53 +286,24 @@ class PaymentMethodFragment : Fragment() {
                                         }
                                     }
                                 }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
                             })
                         }
                     }
-
-                    val i = Intent(activity, FinishOrderActivity::class.java)
-                    startActivity(i)
-                }
-
-            }
-
-            else if (mbWayIsChecked) {
-
-                var pedido = Pedido(null, null, null, null, null,
-                    null, null, null)
-
-                var dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-                var date = dataFormat.format(Date().time)
-                pedido.dataHora = date
-                pedido.pago = true
-                pedido.id_mesa = requireContext().getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
-                pedido.id_cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
-                pedido.total = requireContext().getSharedPreferences("Total", AppCompatActivity.MODE_PRIVATE).getFloat("price",0.0F).toDouble()
-
-                if (pedido.id_mesa == 0 || pedido.id_mesa!! > 5) {
-                    val fragmentManager = (activity as FragmentActivity).supportFragmentManager
-                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.setCustomAnimations(R.anim.slide_down, R.anim.slide_up)
-                    fragmentTransaction.replace(R.id.containerOrder, DeskFragment())
-                    fragmentTransaction.addToBackStack(null).commit()
-
-                } else {
-                    Backend.addPedido(pedido) {
-                        if (!it) {
-                            Toast.makeText(
-                                requireActivity(),
-                                "Erro.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                    val i = Intent(activity, FinishOrderActivity::class.java)
-                    startActivity(i)
                 }
             }
 
             else if (payPalIsChecked) {
 
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Paypal")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
@@ -270,16 +331,57 @@ class PaymentMethodFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }
 
-                    val i = Intent(activity, FinishOrderActivity::class.java)
-                    startActivity(i)
+                        var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+
+                        Backend.GetAllPedidos(cliente){
+                            var pedidos = it
+                            var itensPedido = ItensPedido (null, null, null, null)
+                            itensPedido.id_pedido = pedidos[0].id_pedido
+                            var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
+                            var myEdit = id_pedido.edit()
+
+                            myEdit.putInt("id_pedido", pedidos[0].id_pedido!!)
+                            myEdit.apply()
+
+                            CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+
+                                //este valor tem de ir para cart fora
+                                var cart = it
+
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
+
+                                    Backend.addItemPedido(itensPedido) {
+                                        if (it) {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                "Pedido feito com sucesso,",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
+                            })
+                        }
+                    }
                 }
 
             }
 
             else if (counterIsChecked) {
 
+                //guardar infor adicionais
+                requireContext().getSharedPreferences("Tipo", AppCompatActivity.MODE_PRIVATE).edit().putString("tipo", "Ao balcão")
+                requireContext().getSharedPreferences("Nif", AppCompatActivity.MODE_PRIVATE).edit().putString("nif", nif.text.toString())
+
                 var pedido = Pedido(null, null, null, null, null,
                     null, null, null)
 
@@ -307,15 +409,47 @@ class PaymentMethodFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }
-                    Toast.makeText(
-                        requireActivity(),
-                        "Aguarde Funcionário.",
-                        Toast.LENGTH_SHORT
-                    ).show()
 
-                    val i = Intent(activity, FinishOrderActivity::class.java)
-                    startActivity(i)
+                        var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
+
+                        Backend.GetAllPedidos(cliente){
+                            var pedidos = it
+                            var itensPedido = ItensPedido (null, null, null, null)
+                            itensPedido.id_pedido = pedidos[0].id_pedido
+                            var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
+                            var myEdit = id_pedido.edit()
+
+                            myEdit.putInt("id_pedido", pedidos[0].id_pedido!!)
+                            myEdit.apply()
+
+                            CartDatabase.getDatabase(requireActivity()).cartDao().readCart().observe(requireActivity(), androidx.lifecycle.Observer {
+
+                                //este valor tem de ir para cart fora
+                                var cart = it
+
+                                for (i in 0..cart.size - 1) {
+                                    itensPedido.id_item = cart[i].item_id
+                                    itensPedido.qtd = cart[i].quantidade
+
+                                    Backend.addItemPedido(itensPedido) {
+                                        if (it) {
+                                            Toast.makeText(
+                                                requireActivity(),
+                                                "Pedido feito com sucesso,",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+
+                                var id = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE).getInt("id_pedido", 0)
+
+                                val i = Intent(activity, OrderDetailsActivity::class.java)
+                                i.putExtra("id_pedido", id)
+                                startActivity(i)
+                            })
+                        }
+                    }
                 }
 
             } else {

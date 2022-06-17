@@ -1,0 +1,39 @@
+Index: app/src/main/res/layout/row_fatura.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"50dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/produtoNameFaturaROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginLeft=\"15dp\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:textColor=\"@color/black\"\r\n            android:text=\"Produto\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/quantidadeFaturaROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"82dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:text=\"QTD\"\r\n            android:textColor=\"@color/black\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/produtoNameFaturaROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/produtoNameFaturaROW\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/precoROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"37dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:text=\"preço\"\r\n            android:textColor=\"@color/black\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/quantidadeFaturaROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/quantidadeFaturaROW\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/totalPrice\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"32dp\"\r\n            android:text=\"Tota::\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/precoROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/precoROW\" />\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/row_fatura.xml b/app/src/main/res/layout/row_fatura.xml
+--- a/app/src/main/res/layout/row_fatura.xml	(revision dd182195bc02108ee7e2aef639b7aa995f98e48e)
++++ b/app/src/main/res/layout/row_fatura.xml	(date 1655378914461)
+@@ -47,7 +47,9 @@
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="32dp"
+-            android:text="Tota::"
++            android:textColor="@color/black"
++            android:fontFamily="@font/cour"
++            android:text="Tota:"
+             app:layout_constraintStart_toEndOf="@+id/precoROW"
+             app:layout_constraintTop_toTopOf="@+id/precoROW" />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/card_rv.xml\" value=\"0.24155622060709706\" />\r\n        <entry key=\"..\\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml\" value=\"0.24155622060709706\" />\r\n        <entry key=\"..\\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml\" value=\"0.4\" />\r\n        <entry key=\"..\\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml\" value=\"0.20521590423257802\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/activity_order_details.xml\" value=\"0.264\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/card_rv.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_desk.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_order.xml\" value=\"0.2841918294849023\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_fatura.xml\" value=\"0.536\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_order.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_orderitens.xml\" value=\"0.22530996152201796\" />\r\n        <entry key=\"..\\:/Users/tiago/OneDrive/Ambiente de Trabalho/Food_4_U_Updated/Project_Navbar/app/src/main/res/layout/row_orderprofile.xml\" value=\"0.22530996152201796\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision dd182195bc02108ee7e2aef639b7aa995f98e48e)
++++ b/.idea/misc.xml	(date 1655378915498)
+@@ -3,6 +3,7 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
++        <entry key="..\:/Users/Diogoo/Desktop/Project_Navbar/app/src/main/res/layout/row_fatura.xml" value="0.5" />
+         <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/card_rv.xml" value="0.24155622060709706" />
+         <entry key="..\:/Users/Rafael/Desktop/Food-4-U/Project_Navbar/app/src/main/res/layout/fragment_payment_method.xml" value="0.24155622060709706" />
+         <entry key="..\:/Users/glori/Desktop/Project_Navbar/app/src/main/res/layout-v23/fragment_payment_method.xml" value="0.4" />

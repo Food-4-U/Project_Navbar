@@ -70,26 +70,28 @@ class FinishOrderActivity : AppCompatActivity() {
             var i = 0
             var nota = 0.0
 
-            nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
-            i++
+            if (cart.size > 0)
+            {
+                nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
+            }
 
             evaluatebtn.setOnClickListener {
-                if (i < cart.size){
-                    nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
+                if (i < cart.size - 1){
                     i++
+                    nota =  Evaluate(cart[i],productName,productPhoto,ratingBar,evaluationindicator)
                 }
                 else {
                     GlobalScope.launch(Dispatchers.IO) {
-                        CartDatabase.getDatabase(this@FinishOrderActivity)?.cartDao()!!.deleteCart()
-                        var observ = getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
-                        var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
-
-                        var intent = Intent(this@FinishOrderActivity, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        startActivity(intent)
+                        CartDatabase.getDatabase(this@FinishOrderActivity).cartDao().deleteCart()
                     }
+                    var observ =
+                        getSharedPreferences("Observ", Context.MODE_PRIVATE).edit().clear().apply()
+                    var mesa = getSharedPreferences("Mesa", MODE_PRIVATE).edit().clear().apply()
 
-
+                    var intent = Intent(this@FinishOrderActivity, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    finish()
                 }
             }
         })

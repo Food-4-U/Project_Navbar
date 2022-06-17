@@ -1,0 +1,64 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+rename from app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt
+rename to app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/adapters/cardAdapter.kt	
++++ b/app/src/main/java/com/grupo1/food4u_nav/adapters/CardAdapter.kt	
+@@ -12,40 +12,39 @@
+ import com.grupo1.food4u_nav.R
+ import com.grupo1.food4u_nav.models.CardNumber
+ 
+-class cardAdapter(val context: Context): RecyclerView.Adapter<cardAdapter.ViewHolder>() {
++class CardAdapter(val context: Context, card: List<CardNumber>) :
++    RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+ 
+ 
+     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+-        var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
++        //var buttonAddCard = itemView.findViewById<ImageView>(R.id.imageView38)
+         var cardNumber = itemView.findViewById<TextView>(R.id.textView63)
+ 
+     }
+ 
+-    private var card = emptyList<CardNumber>()
+ 
+     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+-        var view = cardAdapter.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false))
+-        return view
++        var view = LayoutInflater.from(parent.context).inflate(R.layout.card_rv, parent, false)
++        return ViewHolder(view)
+     }
+ 
+-    override fun getItemCount(): Int {
+-        return card.size
+-    }
+ 
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+-
+-        Backend.GetCard(context.getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0) ) {
++        Backend.GetCard(
++            context.getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
++        ) {
+             var cartoes = it
+ 
+             holder.cardNumber.text = cartoes[position].number
+         }
+ 
+ 
++    }
+ 
+ 
++    override fun getItemCount(): Int {
++        return card.size
++    }
+ 
+ 
+-
+-
+-    }
+ }
+\ No newline at end of file
