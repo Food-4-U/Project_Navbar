@@ -1009,6 +1009,43 @@ object Backend {
             }
         }
     }
+
+    // stats
+
+    fun GetAvgPedido(callback: (Double) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetAvgPedido")
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(result.toDouble())
+                }
+            }
+        }
+    }
+    fun GetAvgPedidoGenero(genero: String, callback: (Double) -> Unit) {
+        var pedidos = arrayListOf<PedidoItensFatura>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetAvgPedidoGenero/" + genero)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(result.toDouble())
+                }
+            }
+        }
+    }
 }
 
 

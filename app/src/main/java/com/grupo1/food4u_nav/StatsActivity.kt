@@ -128,6 +128,31 @@ class StatsActivity : AppCompatActivity() {
                 }
             }
         }
+
+        val mediaPedido = findViewById<TextView>(R.id.resultTopGender2)
+        val mediaM = findViewById<TextView>(R.id.resultTopGender3)
+        val mediaF = findViewById<TextView>(R.id.resultTopGender4)
+
+        Backend.GetAvgPedido {
+            var median = it
+            var medianText = String.format("%.2f", median)
+            medianText =  medianText.plus(" €")
+            mediaPedido.text = medianText
+        }
+
+        Backend.GetAvgPedidoGenero("Masculino") {
+            var median = it
+            var medianText = String.format("%.2f", median)
+            medianText =  medianText.plus(" €")
+            mediaM.text = medianText
+        }
+
+        Backend.GetAvgPedidoGenero("Feminino") {
+            var median = it
+            var medianText= String.format("%.2f", median)
+            medianText =  medianText.plus(" €")
+            mediaF.text = medianText
+        }
     }
 
     abstract inner class ClientesAdapter : BaseAdapter() {
