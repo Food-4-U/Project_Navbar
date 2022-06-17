@@ -17,7 +17,7 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
 
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        public var categoryTitle : TextView
+        var categoryTitle : TextView
         var itemRecycler : RecyclerView
 
         init{
@@ -46,6 +46,5 @@ class SectionAdapter(private  val context: Context, private val allCategory: Lis
         val itemRecyclerAdapter = ItemAdapter(context, categoryItem)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = itemRecyclerAdapter
-
     }
 }
