@@ -1,0 +1,110 @@
+Index: app/src/main/java/com/grupo1/food4u_nav/models/ItensPedido.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.grupo1.food4u_nav.models\r\n\r\nimport org.json.JSONObject\r\n\r\nclass ItensPedido {\r\n\r\n    constructor(id_pedido_item: Int?, id_pedido: Int?, id_item: Int?, qtd: Int?) {\r\n        this.id_pedido_item = id_pedido_item\r\n        this.id_pedido = id_pedido\r\n        this.id_item = id_item\r\n        this.qtd = qtd\r\n    }\r\n\r\n    var id_pedido_item: Int?\r\n    var id_pedido: Int?\r\n    var id_item: Int?\r\n    var qtd: Int?\r\n\r\n\r\n    fun toJSON() : JSONObject {\r\n        val jsonObject = JSONObject()\r\n        jsonObject.put(\"id_pedido_item\", id_pedido_item)\r\n        jsonObject.put(\"id_pedido\", id_pedido)\r\n        jsonObject.put(\"id_item\", id_item)\r\n        jsonObject.put(\"qtd\", qtd)\r\n        return jsonObject\r\n    }\r\n\r\n    companion object{\r\n        fun fromJSON(jsonObject: JSONObject): ItensPedido {\r\n            return ItensPedido (\r\n                jsonObject[\"id_pedido_item\"] as Int,\r\n                jsonObject[\"id_pedido\"] as Int,\r\n                jsonObject[\"id_item\"] as Int,\r\n                jsonObject[\"qtd\"] as? Int\r\n            )\r\n        }\r\n    }\r\n}\r\n\r\nclass PedidoItensFatura {\r\n    constructor( nome: String?, qtd: Int?, preco: Double?) {\r\n        this.nome = nome\r\n        this.qtd = qtd\r\n        this.preco = preco\r\n    }\r\n\r\n    var nome: String?\r\n    var qtd: Int?\r\n    var preco: Double?\r\n\r\n\r\n    fun toJSON() : JSONObject {\r\n        val jsonObject = JSONObject()\r\n        jsonObject.put(\"nome\", nome)\r\n        jsonObject.put(\"qtd\", qtd)\r\n        jsonObject.put(\"preco\", qtd)\r\n        return jsonObject\r\n    }\r\n\r\n    companion object{\r\n        fun fromJSON(jsonObject: JSONObject): PedidoItensFatura {\r\n            return PedidoItensFatura (\r\n                jsonObject[\"nome\"] as String,\r\n                jsonObject[\"qtd\"] as Int,\r\n                jsonObject[\"preco\"] as? Double\r\n            )\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/models/ItensPedido.kt b/app/src/main/java/com/grupo1/food4u_nav/models/ItensPedido.kt
+--- a/app/src/main/java/com/grupo1/food4u_nav/models/ItensPedido.kt	(revision dd182195bc02108ee7e2aef639b7aa995f98e48e)
++++ b/app/src/main/java/com/grupo1/food4u_nav/models/ItensPedido.kt	(date 1655389312195)
+@@ -38,33 +38,3 @@
+     }
+ }
+ 
+-class PedidoItensFatura {
+-    constructor( nome: String?, qtd: Int?, preco: Double?) {
+-        this.nome = nome
+-        this.qtd = qtd
+-        this.preco = preco
+-    }
+-
+-    var nome: String?
+-    var qtd: Int?
+-    var preco: Double?
+-
+-
+-    fun toJSON() : JSONObject {
+-        val jsonObject = JSONObject()
+-        jsonObject.put("nome", nome)
+-        jsonObject.put("qtd", qtd)
+-        jsonObject.put("preco", qtd)
+-        return jsonObject
+-    }
+-
+-    companion object{
+-        fun fromJSON(jsonObject: JSONObject): PedidoItensFatura {
+-            return PedidoItensFatura (
+-                jsonObject["nome"] as String,
+-                jsonObject["qtd"] as Int,
+-                jsonObject["preco"] as? Double
+-            )
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: app/src/main/res/layout/row_fatura.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"50dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/produtoNameFaturaROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginLeft=\"15dp\"\r\n            android:layout_marginTop=\"15dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:textColor=\"@color/black\"\r\n            android:text=\"Produto\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/quantidadeFaturaROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"82dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:text=\"QTD\"\r\n            android:textColor=\"@color/black\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/produtoNameFaturaROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/produtoNameFaturaROW\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/precoROW\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"37dp\"\r\n            android:fontFamily=\"@font/cour\"\r\n            android:text=\"preço\"\r\n            android:textColor=\"@color/black\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/quantidadeFaturaROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/quantidadeFaturaROW\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/totalPrice\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"32dp\"\r\n            android:text=\"Tota::\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/precoROW\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/precoROW\" />\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/row_fatura.xml b/app/src/main/res/layout/row_fatura.xml
+--- a/app/src/main/res/layout/row_fatura.xml	(revision dd182195bc02108ee7e2aef639b7aa995f98e48e)
++++ b/app/src/main/res/layout/row_fatura.xml	(date 1655389312211)
+@@ -47,7 +47,9 @@
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="32dp"
++            android:fontFamily="@font/cour"
+             android:text="Tota::"
++            android:textColor="@color/black"
+             app:layout_constraintStart_toEndOf="@+id/precoROW"
+             app:layout_constraintTop_toTopOf="@+id/precoROW" />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/com/grupo1/food4u_nav/models/PedidoItensFatura.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/grupo1/food4u_nav/models/PedidoItensFatura.kt b/app/src/main/java/com/grupo1/food4u_nav/models/PedidoItensFatura.kt
+new file mode 100644
+--- /dev/null	(date 1655389312226)
++++ b/app/src/main/java/com/grupo1/food4u_nav/models/PedidoItensFatura.kt	(date 1655389312226)
+@@ -0,0 +1,34 @@
++package com.grupo1.food4u_nav.models
++
++import org.json.JSONObject
++
++class PedidoItensFatura {
++    constructor( nome: String?, qtd: Int?, preco: Double?) {
++        this.nome = nome
++        this.qtd = qtd
++        this.preco = preco
++    }
++
++    var nome: String?
++    var qtd: Int?
++    var preco: Double?
++
++
++    fun toJSON() : JSONObject {
++        val jsonObject = JSONObject()
++        jsonObject.put("nome", nome)
++        jsonObject.put("qtd", qtd)
++        jsonObject.put("preco", qtd)
++        return jsonObject
++    }
++
++    companion object{
++        fun fromJSON(jsonObject: JSONObject): PedidoItensFatura {
++            return PedidoItensFatura (
++                jsonObject["nome"] as String,
++                jsonObject["qtd"] as Int,
++                jsonObject["preco"] as? Double
++            )
++        }
++    }
++}
+\ No newline at end of file
