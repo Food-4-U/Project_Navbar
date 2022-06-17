@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/segoeuil"
-                        android:text="Idade minima:"
+                        android:text="Idade mínima:"
                         android:textAlignment="center"
                         android:textSize="24dp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -193,13 +193,62 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/segoeuil"
-                        android:text="Genero:"
+                        android:text="Género:"
                         android:textAlignment="center"
                         android:textSize="24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/TopAge" />
 
                     app:layout_constraintStart_toEndOf="@+id/stats"
+
+                    <TextView
+                        android:id="@+id/topGender3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Média:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Faturas" />
+
+                    <TextView
+                        android:id="@+id/topGender4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Média Masculino:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topGender3" />
+
+                    <TextView
+                        android:id="@+id/topGender5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Média Feminino:"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topGender4" />
+
+                    <TextView
+                        android:id="@+id/Faturas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/seguisb"
+                        android:text="Faturas"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TopGender" />
+
                     <TextView
                         android:id="@+id/resultTopGender"
                         android:layout_width="wrap_content"
@@ -210,6 +259,42 @@
                         app:layout_constraintBottom_toBottomOf="@+id/TopGender"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/TopGender" />
+
+                    <TextView
+                        android:id="@+id/resultTopGender2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/topGender3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/topGender3"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/resultTopGender3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/topGender4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/topGender4"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/resultTopGender4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoeuil"
+                        android:text="Resultado"
+                        android:textSize="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/topGender5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/topGender5"
+                        app:layout_constraintVertical_bias="1.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
