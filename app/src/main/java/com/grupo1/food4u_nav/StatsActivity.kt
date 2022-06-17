@@ -17,8 +17,11 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.grupo1.food4u_nav.models.Cliente
+import com.grupo1.food4u_nav.models.Pedido
 import okhttp3.internal.notify
 import org.w3c.dom.Text
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StatsActivity : AppCompatActivity() {
     var clientes: List<Cliente> = arrayListOf()
@@ -129,10 +132,37 @@ class StatsActivity : AppCompatActivity() {
             }
         }
 
-        val mediaPedido = findViewById<TextView>(R.id.resultTopGender2)
+        var qtdFem = 0
+        var qtdMasc = 0
+        Backend.GetCountPedidoGenero("feminino"){
+            qtdFem = it
+            Backend.GetCountPedidoGenero("masculino"){
+                qtdMasc = it
+                val aaChartView = findViewById<AAChartView>(R.id.graphOrder)
+
+                val countOrderByGender : AAChartModel = AAChartModel()
+                    .chartType(AAChartType.Waterfall)
+                    .title("Orders")
+                    .backgroundColor("#FFFFFF")
+                    .dataLabelsEnabled(true)
+                    .series(arrayOf(
+                        AASeriesElement()
+                            .name("Feminino")
+                            .data(arrayOf(qtdFem)),
+                        AASeriesElement()
+                            .name("Masculino")
+                            .data(arrayOf(qtdMasc))
+
+                    )
+                    )
+                aaChartView.aa_drawChartWithChartModel(countOrderByGender)
+            }
+
+        }
+
         val mediaM = findViewById<TextView>(R.id.resultTopGender3)
         val mediaF = findViewById<TextView>(R.id.resultTopGender4)
-
+        val mediaPedido = findViewById<TextView>(R.id.resultTopGender2)
         Backend.GetAvgPedido {
             var median = it
             var medianText = String.format("%.2f", median)
@@ -154,19 +184,4 @@ class StatsActivity : AppCompatActivity() {
             mediaF.text = medianText
         }
     }
-
-    abstract inner class ClientesAdapter : BaseAdapter() {
-        override fun getCount(): Int {
-            return clientes.size
-        }
-
-        override fun getItem(position: Int): Any {
-            return clientes[position]
-        }
-
-        override fun getItemId(position: Int): Long {
-            return 0
-        }
-    }
 }
-

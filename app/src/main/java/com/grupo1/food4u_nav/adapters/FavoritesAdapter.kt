@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
@@ -14,6 +15,7 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.Favorites
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class FavoritesAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 
@@ -21,8 +23,8 @@ class FavoritesAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<Favori
         var photoFood = itemView.findViewById<ShapeableImageView>(R.id.favorites_photo)
         var foodname = itemView.findViewById<TextView>(R.id.favorites_name)
         var foodPrice = itemView.findViewById<TextView>(R.id.favorites_price)
-        var isChecked : Boolean = false
-        var likeBtn = itemView.findViewById<ImageButton>(R.id.likebtn)
+        var ratingBar_fav = itemView.findViewById<RatingBar>(R.id.ratingBar_fav)
+        var rating = itemView.findViewById<TextView>(R.id.rating)
 
     }
 
@@ -37,30 +39,14 @@ class FavoritesAdapter(val itens: List<Item_Menu>) : RecyclerView.Adapter<Favori
         var imageURL = itens[position].url
 
         Picasso.get().load(imageURL).resize(100,90).into(holder.photoFood)
-       /* holder.isChecked = fav[position].
 
-        changeIconFav(position,holder)
-
-        holder.likeBtn.setOnClickListener {
-            changeIconFav(position,holder)
-        }*/
+        holder.ratingBar_fav.rating = itens[position].avaliação!!.toFloat()
+        holder.rating.text = itens[position].avaliação!!.toString()
 
     }
 
     override fun getItemCount(): Int {
         return itens.size
     }
-
-
-   /* fun changeIconFav(position: Int,holder: FavoritesAdapter.ViewHolder){
-        if (fav[position].fav){
-            holder.likeBtn.setImageResource(R.drawable.ic_heartfill)
-            fav[position].fav = false
-        }
-        else{
-            holder.likeBtn.setImageResource(R.drawable.ic_heartnotfill)
-            fav[position].fav = true
-        }
-    }*/
 
 }

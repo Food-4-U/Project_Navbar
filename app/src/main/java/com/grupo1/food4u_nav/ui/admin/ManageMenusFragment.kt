@@ -51,7 +51,7 @@ class ManageMenusFragment : Fragment() {
         edicCategories.setOnClickListener {
             val manager: FragmentManager = (activity as FragmentActivity).supportFragmentManager
             val transaction: FragmentTransaction = manager.beginTransaction()
-            transaction.replace(R.id.containerMenuManage, EditCategorySub())
+            transaction.replace(R.id.containerMenuManage, CategorySubFragment())
             transaction.addToBackStack(null)
             transaction.commit()
         }

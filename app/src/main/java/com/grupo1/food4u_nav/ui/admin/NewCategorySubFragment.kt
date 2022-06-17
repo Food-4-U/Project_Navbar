@@ -37,7 +37,7 @@ class NewCategorySubFragment : Fragment() {
         var categorySubAddUrl = view.findViewById<EditText>(R.id.categorySubEditUrl2)
         var add_categorySub2 = view.findViewById<MaterialButton>(R.id.add_categorySub2)
 
-        var backBtnAdd = view.findViewById<ImageButton>(R.id.backBtnAdd)
+        var backBtnAdd = view.findViewById<Button>(R.id.backBtnAdd)
 
         backBtnAdd.setOnClickListener {
             goBack()

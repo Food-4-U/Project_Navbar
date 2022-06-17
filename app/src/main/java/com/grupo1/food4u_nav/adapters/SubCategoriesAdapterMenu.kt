@@ -12,7 +12,7 @@ import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.models.SubCategories
 import com.grupo1.food4u_nav.ui.menu.MenuFragment
 
-open class SubCategoriesAdapterMenu (val context : Context, val itens: List<SubCategories>, var rv: RecyclerView) :
+open class SubCategoriesAdapterMenu (val itens: List<SubCategories>) :
     RecyclerView.Adapter<SubCategoriesAdapterMenu.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

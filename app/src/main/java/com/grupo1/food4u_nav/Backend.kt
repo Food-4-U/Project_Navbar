@@ -954,6 +954,7 @@ object Backend {
         }
     }
 
+
     fun GetAllPedidos(id: Int, callback: (List<Pedido>) -> Unit) {
         var pedidos = arrayListOf<Pedido>()
         GlobalScope.launch(Dispatchers.IO) {
@@ -1046,6 +1047,50 @@ object Backend {
             }
         }
     }
+    fun GetPedido(callback: (List<Pedido>) -> Unit) {
+        var pedidos = arrayListOf<Pedido>()
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetAllPedidos")
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+                var resultArray = JSONArray(result)
+
+                for (index in 0 until resultArray.length()) {
+                    var itemJSON = resultArray[index] as JSONObject
+                    var pedido = Pedido.fromJSON(itemJSON)
+                    pedidos.add(pedido)
+                }
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(pedidos)
+                }
+            }
+        }
+    }
+
+    fun GetCountPedidoGenero(genero: String, callback: (Int) -> Unit){
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetCountPedidoGenero/" + genero)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(result.toInt())
+                }
+            }
+        }
+    }
+
+
 }
 
 
