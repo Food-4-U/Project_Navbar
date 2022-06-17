@@ -70,6 +70,7 @@ class CategorySubFragment : Fragment() {
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.containerMenuManage, NewCategorySubFragment())
             transaction.commit()
+
         }
 
         return view
