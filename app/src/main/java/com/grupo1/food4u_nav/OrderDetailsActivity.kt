@@ -69,9 +69,10 @@ class OrderDetailsActivity : AppCompatActivity() {
             data.text = pedidos.dataHora
             faturaNum.text = "RF-" + pedidos.id_pedido.toString()
             total.text = pedidos.total.toString().plus(" €")
+            mesa.text = "Mesa " + pedidos.id_mesa
         }
 
-        mesa.text = "Mesa " + getSharedPreferences("Mesa", AppCompatActivity.MODE_PRIVATE).getInt("id_mesa", 0)
+
 
 
         var pedido : List<PedidoItensFatura>
