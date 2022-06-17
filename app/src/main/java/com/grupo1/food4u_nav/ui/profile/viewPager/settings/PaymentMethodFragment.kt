@@ -258,7 +258,7 @@ class PaymentMethodFragment : Fragment() {
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
                         Backend.GetAllPedidos(cliente){
-                            var pedidos = it
+                            var pedidos = it.sortedByDescending { it.id_pedido }
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
                             var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
@@ -335,7 +335,7 @@ class PaymentMethodFragment : Fragment() {
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
                         Backend.GetAllPedidos(cliente){
-                            var pedidos = it
+                            var pedidos = it.sortedByDescending { it.id_pedido }
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
                             var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)
@@ -413,7 +413,7 @@ class PaymentMethodFragment : Fragment() {
                         var cliente = requireContext().getSharedPreferences("Cliente", AppCompatActivity.MODE_PRIVATE).getInt("id", 0)
 
                         Backend.GetAllPedidos(cliente){
-                            var pedidos = it
+                            var pedidos = it.sortedByDescending { it.id_pedido }
                             var itensPedido = ItensPedido (null, null, null, null)
                             itensPedido.id_pedido = pedidos[0].id_pedido
                             var id_pedido = requireContext().getSharedPreferences("pedido_id", MODE_PRIVATE)

@@ -870,7 +870,6 @@ object Backend {
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
                 var resultArray = JSONArray(result)
-                var cartao: CardNumber
 
                 for (index in 0 until resultArray.length()) {
                     var cardJSONObject = resultArray[index] as JSONObject

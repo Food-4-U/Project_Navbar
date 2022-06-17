@@ -42,7 +42,7 @@ class Order : Fragment() {
 
 
         Backend.GetAllPedidos(client){
-            val pedidos = it
+            val pedidos = it.sortedByDescending { it.id_pedido }
             val adapter = RvOrderAdapter(requireActivity(),pedidos)
             var qtd = 0
 
