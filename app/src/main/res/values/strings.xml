@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food 4 U</string>
+    <string name="app_name">Food4U</string>
     <string name="title_activity_menu">Menu</string>
     <string name="what_to_eat">What to eat?</string>
     <string name="login">Login</string>
