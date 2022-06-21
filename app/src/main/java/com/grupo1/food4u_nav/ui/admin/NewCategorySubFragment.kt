@@ -40,7 +40,7 @@ class NewCategorySubFragment : Fragment() {
         var backBtnAdd = view.findViewById<Button>(R.id.backBtnAdd)
 
         backBtnAdd.setOnClickListener {
-            goBack()
+            fragmentManager!!.popBackStack()
         }
 
 
@@ -78,6 +78,7 @@ class NewCategorySubFragment : Fragment() {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.containerMenuManage, CategorySubFragment())
         transaction.commit()
+        fragmentManager!!.popBackStack()
     }
 
 }
