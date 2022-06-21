@@ -115,12 +115,13 @@
 
                 </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
+
                 <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                    android:id="@+id/graphOrder"
+                    android:id="@+id/graphOr"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/topGender5"
                     tools:ignore="MissingClass">
 
                 </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>

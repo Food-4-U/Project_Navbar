@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:fontFamily="@font/seguisb"
-                        android:text="25"
+                        android:text="4.5"
                         android:textColor="@color/variation_text"
                         android:textSize="15sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView7"
