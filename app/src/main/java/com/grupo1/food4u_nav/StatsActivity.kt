@@ -31,10 +31,12 @@ class StatsActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView) ?: return
-            windowInsetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            val windowInsetsController =
+                ViewCompat.getWindowInsetsController(window.decorView) ?: return
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        }else{
+        } else {
             val flags =
                 (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
@@ -47,28 +49,26 @@ class StatsActivity : AppCompatActivity() {
         var genMasculino = 0
         var genFem = 0
         var genPercentagem = 0.0F
-        var mediaString : String
-        var genPercentagemString : String
+        var mediaString: String
+        var genPercentagemString: String
 
         val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 
-      Backend.getAllClientes {
-            if (it.isNullOrEmpty())
-            {
+        Backend.getAllClientes {
+            if (it.isNullOrEmpty()) {
                 AlertDialog.Builder(this)
                     .setTitle("Alerta Conexão Internet")
                     .setMessage("Por favor verifique a sua conexão à Internet")
                     .setPositiveButton(
                         "Fechar"
                     ) { dialogInterface, i -> finish() }.show()
-            }else
-            {
+            } else {
                 clientes = it
 
                 for (cliente in clientes) {
                     media += cliente.idade!!
 
-                    if (min > cliente.idade!! && cliente.idade!! > 0){
+                    if (min > cliente.idade!! && cliente.idade!! > 0) {
                         min = cliente.idade!!
                     }
 
@@ -89,20 +89,23 @@ class StatsActivity : AppCompatActivity() {
                 mediaString = String.format("%.2f", media)
 
                 genPercentagem = ((genMasculino.toFloat() / clientes.size) * 100)
-                genPercentagemString = String. format("%.2f", genPercentagem)
+                genPercentagemString = String.format("%.2f", genPercentagem)
 
-                val aaChartModel : AAChartModel = AAChartModel()
+                val aaChartModel: AAChartModel = AAChartModel()
                     .chartType(AAChartType.Bar)
                     .title("Gender")
                     .backgroundColor("#FFFFFF")
                     .dataLabelsEnabled(true)
-                    .series(arrayOf(
-                        AASeriesElement()
-                            .name("Feminino")
-                            .data(arrayOf(genFem)),
-                        AASeriesElement()
-                            .name("Masculino")
-                            .data(arrayOf(genMasculino)) ))
+                    .series(
+                        arrayOf(
+                            AASeriesElement()
+                                .name("Feminino")
+                                .data(arrayOf(genFem)),
+                            AASeriesElement()
+                                .name("Masculino")
+                                .data(arrayOf(genMasculino))
+                        )
+                    )
 
                 aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
@@ -115,67 +118,83 @@ class StatsActivity : AppCompatActivity() {
                 minTextView.text = "${min}"
                 maxTextView.text = "${max}"
 
-                if (genPercentagem > 50F)
-                {
+                if (genPercentagem > 50F) {
                     generoTextView.text = "Masculino " + genPercentagemString + "%"
-                } else
-                {
+                } else {
                     generoTextView.text = "Feminino " + genPercentagemString + "%"
                 }
             }
         }
 
-       /* Backend.GetCountPedidoGenero("feminino"){
-                   var qtdFem = 0
-                   var qtdMasc = 0
-                   qtdFem = it
-                   Backend.GetCountPedidoGenero("masculino"){
-                       qtdMasc = it
-                       val aaChartView = findViewById<AAChartView>(R.id.graphOr)
+        Backend.GetCountPedidoGenero("feminino") {
+            var qtdFem = 0
+            var qtdMasc = 0
+            qtdFem = it
+            Backend.GetCountPedidoGenero("masculino") {
+                qtdMasc = it
+                val aaChartView = findViewById<AAChartView>(R.id.graphOr)
 
-                       val countOrderByGender : AAChartModel = AAChartModel()
-                           .chartType(AAChartType.Waterfall)
-                           .title("Orders")
-                           .backgroundColor("#FFFFFF")
-                           .dataLabelsEnabled(false)
-                           .series(arrayOf(
-                               AASeriesElement()
-                                   .name("Feminino")
-                                   .data(arrayOf(qtdFem)),
-                               AASeriesElement()
-                                   .name("Masculino")
-                                   .data(arrayOf(qtdMasc))
-                           )
-                           )
-                       aaChartView.aa_drawChartWithChartModel(countOrderByGender)
-                   }
+                val countOrderByGender: AAChartModel = AAChartModel()
+                    .chartType(AAChartType.Waterfall)
+                    .title("Orders")
+                    .backgroundColor("#FFFFFF")
+                    .dataLabelsEnabled(false)
+                    .series(
+                        arrayOf(
+                            AASeriesElement()
+                                .name("Feminino")
+                                .data(arrayOf(qtdFem)),
+                            AASeriesElement()
+                                .name("Masculino")
+                                .data(arrayOf(qtdMasc))
+                        )
+                    )
+                aaChartView.aa_drawChartWithChartModel(countOrderByGender)
+            }
 
-               }*/
+        }
 
 
-        val mediaM = findViewById<TextView>(R.id.resultTopGender3)
-        val mediaF = findViewById<TextView>(R.id.resultTopGender4)
-        val mediaPedido = findViewById<TextView>(R.id.resultTopGender2)
+        val Total = findViewById<TextView>(R.id.resultTopGender2)
+        val mediaTotal = findViewById<TextView>(R.id.resultTopGender3)
+        val mediaM = findViewById<TextView>(R.id.resultTopGender4)
+        val mediaF = findViewById<TextView>(R.id.resultTopGender5)
+        val Desv = findViewById<TextView>(R.id.resultTopGender6)
+
 
         Backend.GetAvgPedido {
             var median = it
             var medianText = String.format("%.2f", median)
-            medianText =  medianText.plus(" €")
-            mediaPedido.text = medianText
+            medianText = medianText.plus(" €")
+            mediaTotal.text = medianText
         }
 
         Backend.GetAvgPedidoGenero("Masculino") {
             var median = it
             var medianText = String.format("%.2f", median)
-            medianText =  medianText.plus(" €")
+            medianText = medianText.plus(" €")
             mediaM.text = medianText
         }
 
         Backend.GetAvgPedidoGenero("Feminino") {
             var median = it
-            var medianText= String.format("%.2f", median)
-            medianText =  medianText.plus(" €")
+            var medianText = String.format("%.2f", median)
+            medianText = medianText.plus(" €")
             mediaF.text = medianText
+        }
+
+        Backend.GetTotalPedido() {
+            var median = it
+            var medianText = String.format("%.2f", median)
+            medianText = medianText.plus(" €")
+            Total.text = medianText
+        }
+
+        Backend.GetDesvPedido() {
+            var median = it
+            var medianText = String.format("%.2f", median)
+            medianText = medianText.plus(" €")
+            Desv.text = medianText
         }
     }
 }
