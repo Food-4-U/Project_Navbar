@@ -20,7 +20,7 @@
     <string name="searchWhatToEat">Search by a food</string>
     <string name="search_Category">Search</string>
     <string name="category">Categories</string>
-    <string name="search_categoryorfood">Search by a category or food</string>
+    <string name="search_categoryorfood">Search by a or food</string>
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
     <string name="favorites">Favorites</string>
@@ -102,4 +102,5 @@
     <string name="pay">Pay</string>
     <string name="state">State:</string>
     <string name="payed">Payed</string>
+    <string name="clientes">Clients</string>
 </resources>

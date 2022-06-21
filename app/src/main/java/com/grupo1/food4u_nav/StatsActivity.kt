@@ -1,14 +1,13 @@
 package com.grupo1.food4u_nav
 
+import Backend
 import android.app.AlertDialog
-import android.content.res.Resources
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -18,8 +17,6 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.grupo1.food4u_nav.models.Cliente
 import com.grupo1.food4u_nav.models.Pedido
-import okhttp3.internal.notify
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -55,7 +52,7 @@ class StatsActivity : AppCompatActivity() {
 
         val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 
-        Backend.getAllClientes {
+      Backend.getAllClientes {
             if (it.isNullOrEmpty())
             {
                 AlertDialog.Builder(this)
@@ -66,7 +63,6 @@ class StatsActivity : AppCompatActivity() {
                     ) { dialogInterface, i -> finish() }.show()
             }else
             {
-
                 clientes = it
 
                 for (cliente in clientes) {
@@ -106,10 +102,7 @@ class StatsActivity : AppCompatActivity() {
                             .data(arrayOf(genFem)),
                         AASeriesElement()
                             .name("Masculino")
-                            .data(arrayOf(genMasculino))
-
-                    )
-                    )
+                            .data(arrayOf(genMasculino)) ))
 
                 aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
@@ -132,37 +125,38 @@ class StatsActivity : AppCompatActivity() {
             }
         }
 
-        var qtdFem = 0
-        var qtdMasc = 0
-        Backend.GetCountPedidoGenero("feminino"){
-            qtdFem = it
-            Backend.GetCountPedidoGenero("masculino"){
-                qtdMasc = it
-                val aaChartView = findViewById<AAChartView>(R.id.graphOr)
+       /* Backend.GetCountPedidoGenero("feminino"){
+                   var qtdFem = 0
+                   var qtdMasc = 0
+                   qtdFem = it
+                   Backend.GetCountPedidoGenero("masculino"){
+                       qtdMasc = it
+                       val aaChartView = findViewById<AAChartView>(R.id.graphOr)
 
-                val countOrderByGender : AAChartModel = AAChartModel()
-                    .chartType(AAChartType.Waterfall)
-                    .title("Orders")
-                    .backgroundColor("#FFFFFF")
-                    .dataLabelsEnabled(true)
-                    .series(arrayOf(
-                        AASeriesElement()
-                            .name("Feminino")
-                            .data(arrayOf(qtdFem)),
-                        AASeriesElement()
-                            .name("Masculino")
-                            .data(arrayOf(qtdMasc))
+                       val countOrderByGender : AAChartModel = AAChartModel()
+                           .chartType(AAChartType.Waterfall)
+                           .title("Orders")
+                           .backgroundColor("#FFFFFF")
+                           .dataLabelsEnabled(false)
+                           .series(arrayOf(
+                               AASeriesElement()
+                                   .name("Feminino")
+                                   .data(arrayOf(qtdFem)),
+                               AASeriesElement()
+                                   .name("Masculino")
+                                   .data(arrayOf(qtdMasc))
+                           )
+                           )
+                       aaChartView.aa_drawChartWithChartModel(countOrderByGender)
+                   }
 
-                    )
-                    )
-                aaChartView.aa_drawChartWithChartModel(countOrderByGender)
-            }
+               }*/
 
-        }
 
         val mediaM = findViewById<TextView>(R.id.resultTopGender3)
         val mediaF = findViewById<TextView>(R.id.resultTopGender4)
         val mediaPedido = findViewById<TextView>(R.id.resultTopGender2)
+
         Backend.GetAvgPedido {
             var median = it
             var medianText = String.format("%.2f", median)

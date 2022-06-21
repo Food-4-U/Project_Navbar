@@ -22,7 +22,7 @@
     <string name="searchWhatToEat">Pesquise por uma comida</string>
     <string name="search_Category">Pesquisar</string>
     <string name="category">Categorias</string>
-    <string name="search_categoryorfood">Pesquise por uma categoria ou comida</string>
+    <string name="search_categoryorfood">Pesquise uma comida</string>
     <string name="orders">Pedidos</string>
     <string name="wallet">Carteira</string>
     <string name="favorites">Favoritos</string>
@@ -102,6 +102,7 @@
     <string name="pay">Pagar</string>
     <string name="state">Estado:</string>
     <string name="payed">Pago</string>
+    <string name="clientes">Clientes</string>
 
 
 
