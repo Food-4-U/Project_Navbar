@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/transparent_background">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_background">
 
         <TextView
             android:id="@+id/produtoNameFaturaROW"
@@ -15,8 +17,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/cour"
-            android:textColor="@color/black"
             android:text="Produto"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

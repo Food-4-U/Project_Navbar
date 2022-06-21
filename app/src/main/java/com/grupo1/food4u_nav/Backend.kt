@@ -1028,6 +1028,41 @@ object Backend {
             }
         }
     }
+
+    fun GetTotalPedido(callback: (Double) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetTotalPedido")
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(result.toDouble())
+                }
+            }
+        }
+    }
+
+    fun GetDesvPedido(callback: (Double) -> Unit) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("http://18.130.229.13:5000/GetDesvPedido")
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                var result = response.body!!.string()
+
+                GlobalScope.launch(Dispatchers.Main) {
+                    callback.invoke(result.toDouble())
+                }
+            }
+        }
+    }
+
     fun GetAvgPedidoGenero(genero: String, callback: (Double) -> Unit) {
         var pedidos = arrayListOf<PedidoItensFatura>()
         GlobalScope.launch(Dispatchers.IO) {

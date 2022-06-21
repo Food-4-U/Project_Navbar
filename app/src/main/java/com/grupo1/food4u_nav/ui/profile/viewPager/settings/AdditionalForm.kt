@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import com.grupo1.food4u_nav.R
 import com.grupo1.food4u_nav.databinding.FragmentAdditionFormBinding
 import com.grupo1.food4u_nav.models.Cliente
@@ -30,6 +31,7 @@ class AdditionalForm : Fragment() {
         var id = prefs?.getInt("id", 0)
 
         val genero = arrayOf("Masculine", "Feminine")
+
         val spinner = view.findViewById<Spinner>(R.id.spinner)
         spinner?.adapter = ArrayAdapter(
             activity?.applicationContext!!,
@@ -44,18 +46,36 @@ class AdditionalForm : Fragment() {
         )
 
         val spinner3 = view.findViewById<Spinner>(R.id.spinner3)
-        val status = arrayOf("Single", "Meried", "Widow")
+        val status = arrayOf("Braga", "Viana do Castelo", "Bragança")
         spinner3?.adapter = ArrayAdapter(
             activity?.applicationContext!!,
             R.layout.dropdownitem, status
         )
 
         val spinner6 = view.findViewById<Spinner>(R.id.spinner6)
-        val profession = arrayOf("Stoner", "BlackSmith", "Fire Fighter", "Nurse", "Trolha")
+        val profession = arrayOf("Guimarães", "Santo Tirso", "Caldas Das Taipas")
         spinner6?.adapter = ArrayAdapter(
             activity?.applicationContext!!,
             R.layout.dropdownitem, profession
         )
+
+        val additionForm_backBtn = view.findViewById<Button>(R.id.additionForm_backBtn)
+
+       /* Backend.getClientes(id!!){
+            var cliente : Cliente = it
+            cliente.genero = spinner.selectedItem.toString()
+           // cliente.idade = spinner2.selectedItem as Int
+            cliente.concelho = spinner3.selectedItem.toString()
+            cliente.localidade = spinner6.selectedItem.toString()
+            button2.setOnClickListener {
+                Backend.updateCliente(id,cliente){
+                    if (!it)
+                        Toast.makeText(requireActivity(), "Falha ao atualizar", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }*/
+
 
 
         return view

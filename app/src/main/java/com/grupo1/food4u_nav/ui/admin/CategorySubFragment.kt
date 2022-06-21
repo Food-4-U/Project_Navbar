@@ -23,23 +23,22 @@ class CategorySubFragment : Fragment() {
     private var _binding: FragmentEditCategoryBinding? = null
     private val binding get() = _binding!!
 
-    var header: MutableList<String> = ArrayList()
-    val body: MutableList<MutableList<CategoryType>> = ArrayList()
-
-    var header2: MutableList<String> = ArrayList()
-    val body2: MutableList<MutableList<SubCategories>> = ArrayList()
-
-    var categories: List<CategoryType> = arrayListOf()
-    var subCategories: List<SubCategories> = arrayListOf()
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentEditCategoryBinding.inflate(inflater, container, false)
         val view = inflater.inflate(R.layout.fragment_edit_category, container, false)
+
+
+        var header: MutableList<String> = ArrayList()
+        val body: MutableList<MutableList<CategoryType>> = ArrayList()
+
+        var header2: MutableList<String> = ArrayList()
+        val body2: MutableList<MutableList<SubCategories>> = ArrayList()
+
+        var categories: List<CategoryType> = emptyList()
+        var subCategories: List<SubCategories> = emptyList()
 
         Backend.getAllCategories {
             categories = it
@@ -69,6 +68,7 @@ class CategorySubFragment : Fragment() {
         addCategorySub.setOnClickListener {
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.containerMenuManage, NewCategorySubFragment())
+            transaction.addToBackStack(null)
             transaction.commit()
 
         }

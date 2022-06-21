@@ -19,7 +19,6 @@ class ItemAdapter(private val context: Context, private val items: List<Item_Men
         var photoFood = itemView.findViewById<ImageView>(R.id.productPhoto)
         var nameFood = itemView.findViewById<TextView>(R.id.productTitle)
         var foodprice = itemView.findViewById<TextView>(R.id.priceProduct)
-        var likebtnMenu = itemView.findViewById<ImageView>(R.id.likebtnMenu)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryItemViewHolder {
@@ -29,7 +28,6 @@ class ItemAdapter(private val context: Context, private val items: List<Item_Men
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
         holder.nameFood.text = items[position].nome
         holder.foodprice.text = String.format("%.2f", items[position].preco).plus("€")
-        var favIsCheckd = false
 
         var imageURL = items[position].url
         Picasso.get().load(imageURL).resize(800,650).into(holder.photoFood)

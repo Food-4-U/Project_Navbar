@@ -6,6 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button3"
+        style="@style/Button"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:elevation="10dp"
+        android:focusedByDefault="true"
+        android:text="@string/continuee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.button.MaterialButton>
+
     <TextView
         android:id="@+id/yellowRectangle"
         android:layout_width="0dp"
@@ -214,7 +231,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recicleFatura"
         android:layout_width="338dp"
-        android:layout_height="160dp"
+        android:layout_height="140dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/transparent_background"
         app:layout_constraintEnd_toEndOf="@+id/imageView33"
@@ -225,10 +242,11 @@
         android:id="@+id/totalOrderFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/consola"
-        android:textColor="@color/black"
-        android:textAllCaps="true"
         android:text="@string/profile_totalorder"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/recicleFatura"
         app:layout_constraintTop_toBottomOf="@+id/recicleFatura" />
 
@@ -236,11 +254,13 @@
         android:id="@+id/totalMoneyFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/consola"
         android:text="€€€"
         android:textColor="@color/black"
-        android:fontFamily="@font/consola"
+        app:layout_constraintBottom_toBottomOf="@+id/totalOrderFatura"
         app:layout_constraintEnd_toEndOf="@+id/recicleFatura"
-        app:layout_constraintTop_toBottomOf="@+id/recicleFatura" />
+        app:layout_constraintTop_toTopOf="@+id/totalOrderFatura" />
 
     <TextView
         android:id="@+id/textView78"
@@ -258,8 +278,10 @@
         android:id="@+id/tableFatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/segoeui"
         android:text="Mesa: 1"
+        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="@+id/textView78"
         app:layout_constraintTop_toBottomOf="@+id/textView78" />
 
@@ -268,7 +290,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/segoeui"
         android:text="Tipo Pagamento"
+        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="@+id/tableFatura"
         app:layout_constraintTop_toBottomOf="@+id/tableFatura" />
 
@@ -276,22 +300,12 @@
         android:id="@+id/faturaEmailTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/segoeui"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/segoeui"
         android:text="Fatura enviada por: Email"
+        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="@+id/pagamentoFatura"
         app:layout_constraintTop_toBottomOf="@+id/pagamentoFatura" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Continuar"
-        android:textSize="25dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/faturaCard" />
 
     <TextView
         android:id="@+id/textView13"

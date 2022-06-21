@@ -8,18 +8,6 @@
     tools:context=".ui.profile.viewPager.settings.AdditionalForm">
 
 
-    <Button
-        android:id="@+id/additionForm_backBtn"
-        android:layout_width="118dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="16dp"
-        android:background="@android:color/transparent"
-        app:icon="@drawable/backbtn"
-        app:iconTint="@color/text"
-        app:layout_constraintBottom_toBottomOf="@+id/textView35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView35" />
-
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
@@ -103,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/Profession"
+                android:text="@string/city"
                 android:textAllCaps="true"
                 android:textAppearance="@style/MyCustomTextAppearance"
                 android:textColor="@color/text"
@@ -159,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/maritalStatus"
+                android:text="@string/State"
                 android:textAllCaps="true"
                 android:textAppearance="@style/MyCustomTextAppearance"
                 android:textColor="@color/text"
