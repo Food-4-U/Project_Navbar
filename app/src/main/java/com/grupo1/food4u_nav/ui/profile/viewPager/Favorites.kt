@@ -48,7 +48,7 @@ class Favorites : Fragment() {
                 if (itens != null)
                 {
                     var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
-                    val adapter = FavoritesAdapter(itens)
+                    val adapter = FavoritesAdapter(requireActivity(),itens)
 
                     rv_Favorites.layoutManager = GridLayoutManager(context, 2)
                     rv_Favorites.adapter = adapter
@@ -62,7 +62,7 @@ class Favorites : Fragment() {
 
 
                 var rv_Favorites : RecyclerView = view.findViewById(R.id.rv_favorites)
-                val adapter = FavoritesAdapter(itens)
+                val adapter = FavoritesAdapter(requireActivity(),itens)
 
                 rv_Favorites.layoutManager = GridLayoutManager(context, 2)
                 rv_Favorites.adapter = adapter

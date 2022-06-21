@@ -7,22 +7,18 @@
     android:background="#F1F1F1"
     tools:context=".ProductDetailsActivity">
 
-
-    <Button
-        android:id="@+id/details_backBtn3"
-        android:layout_width="56dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="30dp"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-
-
-        android:paddingLeft="20dp"
-        app:icon="@drawable/ic_heartnotfill"
-        app:iconSize="18dp"
-        app:iconTint="@color/text"
+    <ToggleButton
+        android:id="@+id/favButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/toggle_image"
+        android:checked="false"
+        android:textOff=""
+        android:textOn=""
         app:layout_constraintBottom_toBottomOf="@+id/detailsText"
-        app:layout_constraintEnd_toStartOf="@+id/guideline23"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detailsText" />
 
     <androidx.constraintlayout.widget.Guideline
