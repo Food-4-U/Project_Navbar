@@ -37,7 +37,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="370dp"
-        android:layout_height="615dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="15dp"
@@ -51,35 +51,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Spinner
-                android:id="@+id/spinner4"
-                android:layout_width="305dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="35dp"
-                android:background="@drawable/login_backgroundedittext"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView45" />
-
-            <Spinner
-                android:id="@+id/spinner5"
-                android:layout_width="305dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="35dp"
-                android:background="@drawable/login_backgroundedittext"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView44" />
+            android:layout_height="match_parent"
+            android:paddingBottom="40dp">
 
             <Spinner
                 android:id="@+id/spinner6"
@@ -153,14 +126,14 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="305dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="35dp"
                 android:background="@drawable/login_backgroundedittext"
                 app:boxBackgroundColor="@color/design_default_color_background"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView38">
@@ -192,32 +165,6 @@
                 android:textColor="@color/text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner2" />
-
-            <TextView
-                android:id="@+id/textView44"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/withwhohangout"
-                android:textAllCaps="true"
-                android:textAppearance="@style/MyCustomTextAppearance"
-                android:textColor="@color/text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner4" />
-
-            <TextView
-                android:id="@+id/textView45"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/avgAmountEatingOut"
-                android:textAllCaps="true"
-                android:textAppearance="@style/MyCustomTextAppearance"
-                android:textColor="@color/text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

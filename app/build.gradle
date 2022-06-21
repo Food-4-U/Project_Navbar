@@ -89,6 +89,8 @@ dependencies {
     implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
     implementation 'com.stripe:stripe-android:20.5.0'
 
+    implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+
 
 }
 

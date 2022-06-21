@@ -25,6 +25,8 @@ class Favorites {
         return jsonObject
     }
 
+
+
     companion object{
         fun fromJSON(jsonObject: JSONObject): Favorites{
             return Favorites(

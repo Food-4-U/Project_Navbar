@@ -138,7 +138,7 @@ class StatsActivity : AppCompatActivity() {
             qtdFem = it
             Backend.GetCountPedidoGenero("masculino"){
                 qtdMasc = it
-                val aaChartView = findViewById<AAChartView>(R.id.graphOrder)
+                val aaChartView = findViewById<AAChartView>(R.id.graphOr)
 
                 val countOrderByGender : AAChartModel = AAChartModel()
                     .chartType(AAChartType.Waterfall)

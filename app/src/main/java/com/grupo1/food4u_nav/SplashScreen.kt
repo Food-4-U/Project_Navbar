@@ -13,14 +13,15 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.daimajia.androidanimations.library.Techniques
+import com.viksaa.sssplash.lib.activity.AwesomeSplash
+import com.viksaa.sssplash.lib.cnst.Flags
+import com.viksaa.sssplash.lib.model.ConfigSplash
 
 
+class SplashScreen : AwesomeSplash() {
 
-class SplashScreen : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
-
+    override fun initSplash(configSplash: ConfigSplash?) {
         supportActionBar!!.hide()
 
         @Suppress("DEPRECATION")
@@ -37,32 +38,43 @@ class SplashScreen : AppCompatActivity() {
             window!!.decorView.systemUiVisibility = flags
         }
 
+        configSplash?.let {
+            //Customize Circular Reveal
+            it.backgroundColor = R.color.yellow_btn
+            it.animCircularRevealDuration = 1700
+            it.revealFlagX = Flags.REVEAL_RIGHT
+            it.revealFlagY = Flags.REVEAL_BOTTOM
 
-        var logo = findViewById<ImageView>(R.id.logo)
+            it.logoSplash = R.drawable.logo
+            it.animLogoSplashDuration = 1600
+            it.animLogoSplashTechnique = Techniques.BounceInUp
 
+            it.titleSplash = "";
+            it.animTitleDuration = 0
+        }
+
+    }
+
+    override fun animationsFinished() {
         var food4UCliente = getSharedPreferences("Cliente", MODE_PRIVATE)
 
         var isLogged: Boolean = food4UCliente.getBoolean("isLogged", false)
         var isAdmin: Boolean = food4UCliente.getBoolean("isAdmin", false)
 
-        logo.alpha = 0f
-        logo.animate().setDuration(1500).alpha(1f).withEndAction(){
-            if (isLogged && isAdmin) {
-                val intent = Intent(this, AdminActivity::class.java)
-                startActivity(intent)
-                finish()
-            } else if (isLogged && !isAdmin) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            else if(!isLogged)
-            {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
+        if (isLogged && isAdmin){
+            val intent = Intent(this, AdminActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else if (isLogged && !isAdmin) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
-
+        else if(!isLogged)
+        {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
