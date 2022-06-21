@@ -23,14 +23,13 @@ import com.grupo1.food4u_nav.models.SubCategories
 import com.squareup.picasso.Picasso
 
 
-class ProductMenuAdapter(val context: Context, val itens: List<Item_Menu>/*, val fav : List<Favorites>*/) : RecyclerView.Adapter<ProductMenuAdapter.ViewHolder>() {
+class ProductMenuAdapter(val context: Context, val itens: List<Item_Menu>) : RecyclerView.Adapter<ProductMenuAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var photoFood = itemView.findViewById<ImageView>(R.id.productPhoto)
         var nameFood = itemView.findViewById<TextView>(R.id.productTitle)
         var foodprice = itemView.findViewById<TextView>(R.id.priceProduct)
-        var likebtnMenu = itemView.findViewById<ImageView>(R.id.likebtnMenu)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

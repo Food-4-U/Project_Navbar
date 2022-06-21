@@ -97,15 +97,5 @@
             app:layout_constraintTop_toTopOf="@+id/addCart"
             app:srcCompat="@drawable/magnifying_glass" />
 
-        <ImageButton
-            android:id="@+id/likebtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/transparent_background"
-            android:src="@drawable/ic_heartnotfill"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

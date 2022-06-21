@@ -103,7 +103,9 @@
     <string name="state">Estado:</string>
     <string name="payed">Pago</string>
     <string name="clientes">Clientes</string>
-
+    <string name="city">Localidade</string>
+    <string name="State">Distrito</string>
+    <string name="continuee">Continuar</string>
 
 
 

@@ -103,4 +103,7 @@
     <string name="state">State:</string>
     <string name="payed">Payed</string>
     <string name="clientes">Clients</string>
+    <string name="city">City</string>
+    <string name="State">Region</string>
+    <string name="continuee">Continue</string>
 </resources>

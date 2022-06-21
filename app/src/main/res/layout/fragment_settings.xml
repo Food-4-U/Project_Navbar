@@ -49,26 +49,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/profile_additionalForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/editProfile"
+            android:layout_marginTop="16dp"
+            android:text="@string/additionalForm"
             android:textAppearance="@style/SubtitleLightStyle"
             android:theme="@style/SubtitleLightStyle"
             app:layout_constraintStart_toStartOf="@+id/textView30"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-        <TextView
-            android:id="@+id/profile_additionalForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/additionalForm"
-            android:textAppearance="@style/SubtitleLightStyle"
-            android:theme="@style/SubtitleLightStyle"
-            app:layout_constraintStart_toStartOf="@+id/textView33"
-            app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
         <TextView
             android:id="@+id/changeLanguagePT"

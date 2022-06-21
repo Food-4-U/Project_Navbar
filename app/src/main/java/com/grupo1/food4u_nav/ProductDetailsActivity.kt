@@ -2,14 +2,13 @@ package com.grupo1.food4u_nav
 
 import Backend
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -20,7 +19,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.grupo1.food4u_nav.adapters.FavoritesAdapter
 import com.grupo1.food4u_nav.adapters.IngredientsAdapter
+import com.grupo1.food4u_nav.models.Favorites
 import com.grupo1.food4u_nav.models.data.CartItem
 import com.grupo1.food4u_nav.models.Item_Menu
 import com.grupo1.food4u_nav.models.data.CartViewModel
@@ -28,7 +29,6 @@ import com.squareup.picasso.Picasso
 
 
 class ProductDetailsActivity : AppCompatActivity() {
-
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +67,20 @@ class ProductDetailsActivity : AppCompatActivity() {
         var ingredientTextView = findViewById<TextView>(R.id.textView64)
         var ingredientTextView2 = findViewById<TextView>(R.id.textView65)
 
+        val prefs : SharedPreferences? = this!!.getSharedPreferences("Cliente",Context.MODE_PRIVATE)
+        var id = prefs?.getInt("id", 0)
+
+        var itens : List<Item_Menu> = emptyList()
+        var favButton : ToggleButton = findViewById<ToggleButton>(R.id.favButton)
+
+
+        Backend.Favorites(id!!){
+            itens = it
+            if(itens.isNotEmpty())
+                for (item in itens)
+                    if(id_item == item.id_item)
+                        favButton.isChecked = true
+        }
 
 
         Backend.getItemID(id_item) {
@@ -82,7 +96,6 @@ class ProductDetailsActivity : AppCompatActivity() {
 
             Backend.getNameCategory(item!!.id_categoria!!) {
                 var categoryName = it.name
-
                 categoryText.text = categoryName
             }
 
@@ -98,7 +111,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 if (it.isNotEmpty()) {
 
                     val rv_Ingredients: RecyclerView =
-                        findViewById(com.grupo1.food4u_nav.R.id.rv_ingredients)
+                        findViewById(R.id.rv_ingredients)
                     val adapterIngredients = IngredientsAdapter(ingredients, this, item!!.id_item!!)
 
 
@@ -156,9 +169,12 @@ class ProductDetailsActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
 
-              finish()
+                finish()
             }
         }
+
+
+
 
         val backBtn : Button = findViewById<Button>(R.id.details_backBtn)
         backBtn.setOnClickListener {
