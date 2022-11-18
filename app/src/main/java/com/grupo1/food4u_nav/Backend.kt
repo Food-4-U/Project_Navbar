@@ -16,7 +16,7 @@ import okhttp3.RequestBody
 
 object Backend {
 
-    const val BASE_API = "http://18.130.229.13:5000/api/"
+    const val BASE_API = "http://18.134.134.254:5000/api/"
 
     fun getAllClientes(callback: ((List<Cliente>) -> Unit)) {
         var clientes = arrayListOf<Cliente>()
@@ -841,7 +841,7 @@ object Backend {
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/RegistarCartao/")
+                .url("http://18.134.134.254:5000/RegistarCartao/")
                 .post(body)
                 .build()
 
@@ -864,7 +864,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetCartoesCliente/" + id_cliente)
+                .url("http://18.134.134.254:5000/GetCartoesCliente/" + id_cliente)
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -894,7 +894,7 @@ object Backend {
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/RegistarPedidos/")
+                .url("http://18.134.134.254:5000/RegistarPedidos/")
                 .post(body)
                 .build()
 
@@ -914,7 +914,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetPedidoID/" + id)
+                .url("http://18.134.134.254:5000/GetPedidoID/" + id)
                 .build()
             client.newCall(request).execute().use { response ->
                 var result = response.body!!.string()
@@ -937,7 +937,7 @@ object Backend {
 
             val client = OkHttpClient().newBuilder().build()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/RegistarItens/")
+                .url("http://18.134.134.254:5000/RegistarItens/")
                 .post(body)
                 .build()
 
@@ -959,7 +959,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetPedidosCliente/"+ id)
+                .url("http://18.134.134.254:5000/GetPedidosCliente/"+ id)
                 .build()
             try{
                 client.newCall(request).execute().use { response ->
@@ -990,7 +990,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetItems/" + id)
+                .url("http://18.134.134.254:5000/GetItems/" + id)
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1016,7 +1016,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetAvgPedido")
+                .url("http://18.134.134.254:5000/GetAvgPedido")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1033,7 +1033,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetTotalPedido")
+                .url("http://18.134.134.254:5000/GetTotalPedido")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1050,7 +1050,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetDesvPedido")
+                .url("http://18.134.134.254:5000/GetDesvPedido")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1068,7 +1068,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetAvgPedidoGenero/" + genero)
+                .url("http://18.134.134.254:5000/GetAvgPedidoGenero/" + genero)
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1086,7 +1086,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/GetAllPedidos")
+                .url("http://18.134.134.254:5000/GetAllPedidos")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1110,7 +1110,7 @@ object Backend {
         GlobalScope.launch(Dispatchers.IO) {
             val client = OkHttpClient()
             val request = Request.Builder()
-                    .url("http://18.130.229.13:5000/GetCountPedidoGenero/$genero")
+                    .url("http://18.134.134.254:5000/GetCountPedidoGenero/$genero")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1130,7 +1130,7 @@ object Backend {
             val client = OkHttpClient().newBuilder().build()
             val request = Request.Builder()
                 .url(
-                    "http://18.130.229.13:5000/api/Item/AddFavorito/${id_cliente}/${id_Item}")
+                    "http://18.134.134.254:5000/api/Item/AddFavorito/${id_cliente}/${id_Item}")
                 .build()
 
             client.newCall(request).execute().use { response ->
@@ -1152,7 +1152,7 @@ object Backend {
 
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("http://18.130.229.13:5000/DeleteFavorito/$id_cliente/$id_Item")
+                .url("http://18.134.134.254:5000/DeleteFavorito/$id_cliente/$id_Item")
                 .delete()
                 .build()
 
